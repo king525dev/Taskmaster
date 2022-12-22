@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <!-- Meta Tags -->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!-- Font Styles -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Ubuntu:wght@300;400;500&display=swap"
+          rel="stylesheet">
+
+     <!-- Stylesheet  and Scripts-->
+     <link rel="stylesheet" href="styles.css">
+     <script src="dashboard.js"></script>
+
+     <title>Taskmaster [Dashboard]</title>
+</head>
+
+<body class="dashboard">
+     <div class="wrapper">
+          <aside class="quick-todos">
+               <span class="todos-title">Quick Todos</span>
+               <form class="todo-input" id="todo-input-form" onsubmit="addTodo(event)">
+                    <input type="text" name="todo" id="todo-input" class="todo-input" placeholder="Input your Todo Items">
+                    <input type="submit" value="↵">
+               </form>
+               <ul class="todos" id="todo-list">
+                    <li class="todo-item">
+                         Todo Item [1]
+                    </li>
+                    <li class="todo-item">
+                         Todo Item [2]
+                    </li>
+                    <li class="todo-item">
+                         Todo Item [3]
+                    </li>
+                    <li class="todo-item">
+                         Todo Item [4]
+                    </li>
+               </ul>
+          </aside>
+          <header class="dashboard">
+               <span class="title">My Dashboard</span>
+               <span class="welcome">Hello, User</span>
+          </header>
+          <main class="dashboard">
+               <div class="project">
+                    <p class="prj-title">
+                         Make a Discord Bot
+                    </p>
+                    <span class="prj-status">Todo</span>
+               </div>
+               <div class="project">
+                    <p class="prj-title">
+                         Colonise Russia
+                    </p>
+                    <span class="prj-status">Doing</span>
+               </div>
+               <div class="project">
+                    <p class="prj-title">
+                         Make money
+                    </p>
+                    <span class="prj-status">Done</span>
+               </div>
+               <div class="project">
+                    <p class="prj-title">
+                         Make money
+                    </p>
+                    <span class="prj-status">Done</span>
+               </div>
+               <div class="project">
+                    <p class="prj-title">
+                         Make money
+                    </p>
+                    <span class="prj-status">Done</span>
+               </div>
+
+          </main>
+     </div>
+</body>
+
+</html>
