@@ -1,3 +1,8 @@
+/*============================
+     Taskmaster STYLES
+=============================*/ 
+
+/* --> GLOBAL STYLES <-- */
 :root{
      --white: #fff;
      --black: #000;
@@ -29,12 +34,15 @@ body{
           45deg, 
           var(--colour1),
           var(--colour3),
-          var(--colour2),
-          var(--colour4)
+          var(--colour4),
+          var(--colour2)
      );
      background-size: 500%;
      animation: bg-anime 30s infinite;
      color: var(--colourmn2);
+     display: flex;
+     justify-content: center;
+     align-items: center;
 }
 
 @keyframes bg-anime{
@@ -53,22 +61,150 @@ ul{
      list-style-type: none;
 }
 
-/* --> THE DASHBOARD <-- */
-.wrapper{
-     width: 100%;
+::-webkit-scrollbar {
+     width: 7px;
+}
+
+::-webkit-scrollbar-track {
+     background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+     background: var(--colour6);
+     border-radius: 5px;
+     margin: 2px 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+     background: var(--colour5);
+}
+
+/* --> INTER-PAGE STYLES <-- */
+.sign-wrapper, .dashboard-wrapper{
+     border-radius: 20px;
+}
+
+/* --> SIGN-UP AND SIGN-IN PAGE <-- */
+.sign-wrapper{
+     width: 60%;
+     height: 80%;
+     margin: 3em;
+     display: flex;
+     flex-direction: row-reverse;
+     background-color: var(--white);
+}
+
+header.sign{
+     width: 50%;
      height: 100%;
+     background: linear-gradient(
+          45deg,
+          var(--colour6),
+          var(--colour5),
+          var(--colour7)
+     ); 
+     border-radius: 0 20px 20px 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+main.sign{
+     width: 50%;
      padding: 2em;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+h3.register-title{
+     font-size: 2em;
+     font-weight: 200;
+     font-family: 'Ubuntu','Nanum Gothic', sans-serif;
+     padding-bottom: 0.5em;
+}
+
+div.error-txt{
+     width: 100%;
+     margin-bottom: 0.5em;
+     color: #721c24;
+     background: #f8d7da;
+     padding: 1em;
+
+     display: none;
+}
+
+form.sign{
+     width: 90%;
+     display: flex;
+     flex-direction: column;
+     overflow-y: scroll;
+}
+
+.sign-input, .sign-submit{
+     width: 100%;
+     font-size: 1em;
+     padding: 0 0.5em;
+     height: 50px;
+     border-radius: 5px;
+     margin: 0.25em 0;
+     border: none;
+     outline: none;
+}
+
+.sign-input{
+     border: 1px solid #e6e6e6;
+     border-bottom-width: 3px;
+     transition: all 0.3s ease;
+}
+
+     input.sign-input:active, .sign-input:focus{
+          border-color: #cccccc;
+     }
+
+.sign-submit{
+     margin: 1.1em 0;
+     background: var(--colour5);
+     color: var(--white);
+     transition: all 0.3s ease;
+}
+
+     .sign-submit:hover{
+          background: linear-gradient(
+               45deg,
+               var(--colour1),
+               var(--colour3),
+               var(--colour2)
+          );
+          background-size: 300%;
+          animation: bg-anime 2.5s infinite;
+     }
+
+small.sign-link{
+     margin-top: 0.1em;
+}
+
+small.sign-link a{
+     text-decoration: none;
+     color: var(--colour6);
+}
+
+     small.sign-link a:hover{
+          text-decoration: underline;
+          color: var(--colour5);
+     }
+
+/* --> THE DASHBOARD <-- */
+.dashboard-wrapper{
      background-color: rgba(255, 255, 255, 0.7);
      color: var(--colourmn2);
-     border-radius: 20px;
      display: grid;
+     height: 100%;
+     width: 100%;
+     padding: 2em;
      gap: 1em;
      grid-template-columns: 25% 75%;
      grid-template-rows: 35% 65%;
-}
-
-div.mobile-style{
-     display: block;
 }
 
 .quick-todos, header.dashboard, main.dashboard{
@@ -80,6 +216,10 @@ div.mobile-style{
 
 header.dashboard, main.dashboard{
      width: 97%;
+}
+
+main.dashboard, .quick-todos{
+     overflow-y: scroll;
 }
 
 header.dashboard{
@@ -97,14 +237,15 @@ header.dashboard{
      );
      background-size: 200%;
      background-position: right;
-     padding: 0.7em;
+     padding: 1.5em;
+     overflow: hidden;
 }
 
 header.dashboard span.title{
      display: flex;
      justify-content: flex-start;
      font-size: 3em;
-     margin: 1em 0.7em 0.7em 0.7em;
+     margin: 0.7em 0.7em 0 0;
 }
 
 header span.welcome{
@@ -200,31 +341,63 @@ main.dashboard{
      padding: 1em;
 }
 
-     main.dashboard::after{
-          content: "";
-          width: 30%;
+div.more-dash, div.project{
+     width: 30%;
+     height: 45%;
+     border-radius: 10px;
+     margin: 5px;
+     transition: all 0.3s;
+     overflow: hidden;
+}
+
+div.more-dash{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 1.9em;
+     font-weight: bold;
+     background: var(--colour6);
+     color: var(--colourmn1);
+}
+
+     div.more-dash:hover{
+          background: linear-gradient(
+               45deg, 
+               var(--colour6),
+               var(--colour5)
+          );
+     }
+
+     div.more-dash:active{
+          background: linear-gradient(
+               45deg, 
+               var(--colour1),
+               var(--colour4)
+          );
      }
 
 div.project{
-     width: 30%;
-     height: fit-content;
-     height: 45%;
      display: flex;
      flex-direction: column;
      justify-content: space-between;
      background-color: var(--colourmn1);
      border: solid 1px var(--colour6);
      padding: 1em;
-     border-radius: 10px;
-     margin: 0.5em;
-     transition: all 0.3s;
+     overflow-y: scroll;
+}
+
+div.project::-webkit-scrollbar{
+     width: 0;
 }
 
      div.project:hover{
-          transform: translateY(-0.7em) translateX(0.3em);
-          box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
+               transform: translateY(-0.7em) translateX(0.3em);
+               box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
+          }
+     
+     div.project:active{
+          border-color: var(--colour4);
      }
-
 
 p.prj-title{
      font-size: 1.7em;
@@ -234,7 +407,6 @@ p.prj-title{
 }
 
 span.prj-status{
-     margin-top: 2em;
      width: fit-content;
      font-size: 0.7em;
      color: var(--white);
@@ -249,7 +421,12 @@ span.prj-status{
 
 /* Tablet Version */
 @media (max-width: 900px) and (min-width: 500px){
-     .wrapper{
+     .sign-wrapper{
+          width: 100%;
+          height: 100%;
+     }
+
+     .dashboard-wrapper{
           font-size: 70%;
      }
 
@@ -276,25 +453,68 @@ span.prj-status{
           border-radius: 5px;
           min-height: 1em;
      }
+
+     main.dashboard{
+          padding: 0.5em;
+     }
+
+     div.project, div.more-dash{
+          width: 40%;
+          height: 30%;
+     }
 }
 
 /* Phone Version */
-@media screen and (max-width: 500px){
+@media (max-width: 500px){
+     ::-webkit-scrollbar {
+          width: 4px;
+     }
+
+     .sign-wrapper{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          font-size: 80%;
+     }
+     
+     header.sign,main.sign{
+          width: 100%;
+     }
+
+     header.sign{
+          border-radius: 20px 20px 0 0;
+          height: 25%;
+     }
+
      body{
           padding: 1em;
      }
-     .wrapper{
+
+     .dashboard-wrapper{
           font-size: 60%;
           display: flex;
           flex-direction: column;
           align-items: center;
           padding: 7%;
      }
+
      .quick-todos, header.dashboard, main.dashboard{
           margin: 0.5em 0;
           width: 100%;
      }
-     .quick-todos, header.dashboard{
-          flex-direction: column-reverse;
+
+     header.dashboard span.title{
+          margin: 0;
+     }
+
+     main.dashboard{
+          padding: 0.7em;
+     }
+
+     div.more-dash, div.project{
+          width: 100%;
+          height: fit-content;
+          min-height: 2rem;
      }
 }
