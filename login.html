@@ -12,9 +12,8 @@
           <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Ubuntu:wght@300;400;500&display=swap"
                rel="stylesheet">
 
-          <!-- Stylesheet  and Scripts-->
-          <link rel="stylesheet" href="other-files/styles.css">
-          <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
+          <!-- Stylesheet-->
+          <link rel="stylesheet" href="css/styles.css">
 
           <title>Taskmaster | Login</title>
      </head>
@@ -24,15 +23,28 @@
                </header>
                <main class="sign">
                     <h3 class="register-title">Login to your Account</h3>
-                    <div class="error-txt">Error Msg</div>
-                    <form id="sign-up-form" class="sign sign-in" action="#">
-                         <input class="sign-input email" type="email" placeholder="Enter your email"/>
-                         <input class="sign-input passwrd" type="password" placeholder="Enter your password" />
-                         <input class="sign-submit" type="submit" value="Login"/>
+                    <div id="error-txt" class="error-txt">Error Msg</div>
+                    <div id="error-txt2" class="error-txt">Error Msg</div>
+                    <form id="sign-in-form" class="sign sign-in" action="#">
+                         <input class="sign-input email" id="email" type="email" placeholder="Enter your email" required/>
+                         <div class="pass">
+                              <input class="sign-input passwrd" id="password" type="password" placeholder="Enter your password" required/>
+                              <i id="toggle" class="fa-solid fa-eye"></i>
+                         </div>
+                         <input class="sign-submit" type="submit" id="submit" value="Login"/>
                     </form>
                     <small class="sign-link">Don't have an account? <a href="index.html">Sign-up Now!</a></small>
                </main>
           </div>
+
+          <!-- Scripts -->
+          <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+          <script src="javascript/firebase.js"></script>
+          <script src="javascript/sign-in.js"></script>
+          <script src="javascript/pass-show-hide.js"></script>
      </body>
 </html>
 <!-- ORE.A. ORIGINAL -->

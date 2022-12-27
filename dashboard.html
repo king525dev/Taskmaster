@@ -13,11 +13,9 @@
      <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Ubuntu:wght@300;400;500&display=swap"
           rel="stylesheet">
 
-     <!-- Stylesheet  and Scripts-->
+     <!-- Stylesheets-->
      <link rel="stylesheet" href="styles.css">
-     <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
-     <script src="dashboard.js"></script>
-
+     
      <title>Taskmaster | Dashboard</title>
 </head>
 
@@ -25,28 +23,20 @@
      <div class="dashboard-wrapper">
           <aside class="quick-todos">
                <span class="todos-title">Quick Todos</span>
-               <form class="todo-input" id="todo-input-form" onsubmit="addTodo(event)">
-                    <input type="text" name="todo" id="todo-input" class="todo-input" placeholder="Input your Todo Items">
+               <form class="todo-input" id="todo-input-form">
+                    <input id="todos" type="text" name="todo" id="todo-input" class="todo-input" placeholder="Input your Todo Items">
                     <input type="submit" value="↵">
                </form>
                <ul class="todos" id="todo-list">
-                    <li class="todo-item">
-                         Todo Item [1]
-                    </li>
-                    <li class="todo-item">
-                         Todo Item [2]
-                    </li>
-                    <li class="todo-item">
-                         Todo Item [3]
-                    </li>
-                    <li class="todo-item">
-                         Todo Item [4]
-                    </li>
                </ul>
           </aside>
           <header class="dashboard">
-               <span class="title">My Dashboard</span>
-               <span class="welcome">Hello, User</span>
+               <div class="first-line">
+                    <span class="title">My Dashboard</span>
+                    <button id="sign-out" class="sign-out" onclick="logOut()">Logout</button>
+               </div>
+               
+               <span id="welcome" class="welcome">Hello, <span id="usname">User</span></span>
           </header>
           <main class="dashboard">
                <div class="project">
@@ -79,12 +69,20 @@
                     </p>
                     <span class="prj-status">Done</span>
                </div>
-               <div class="more-dash">
+                    <div class="more-dash" onclick="location = 'board.html'">
                          See More →
-                    </p>
-               </div>
+                    </div>
           </main>
      </div>
+
+     <!-- Scripts -->
+     <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script> 
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+     <script src="javascript/firebase.js"></script>
+     <script src="javascript/dashboard.js"></script>
+
 </body>
 
 </html>

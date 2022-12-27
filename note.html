@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <!-- Meta Tags -->
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+          <!-- Font Styles -->
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+
+          <!-- Stylesheets-->
+          <link rel="stylesheet" href="styles.css">
+
+          <title>Taskmaster | Note</title>
+     </head>
+     <body class="notes">
+          <div class="notes-wrapper" id="app">
+               <div class="notes-sidebar">
+
+                    <button class="notes-back" type="button" onclick="location = 'board.html'">← Back to Board</button>
+                    <button class="notes-add" type="button">+ Add Note</button>
+
+                    <div class="notes-list">
+
+                         <div class="notes-list-item selected">
+                              <div class="notes-small-title">Lecture Notes</div>
+                              <div class="notes-small-body">I learnt nothing today.</div>
+                              <div class="notes-small-updated">Thursday 3:30pm</div>
+                         </div>
+                         <div class="notes-list-item">
+                              <div class="notes-small-title">Lecture Notes</div>
+                              <div class="notes-small-body">I learnt nothing today.</div>
+                              <div class="notes-small-updated">Thursday 3:30pm</div>
+                         </div>
+                         <div class="notes-list-item">
+                              <div class="notes-small-title">Lecture Notes</div>
+                              <div class="notes-small-body">I learnt nothing today.</div>
+                              <div class="notes-small-updated">Thursday 3:30pm</div>
+                         </div>
+
+                    </div>
+               </div>
+               <div class="notes-preview">
+                    <input class="notes-title" type="text" placeholder="Enter a title...">
+                    <textarea class="notes-body">I am the notes body...</textarea>
+               </div>
+          </div>
+
+          <!-- Scripts -->
+          <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+          <script src="javascript/firebase.js"></script>
+          <script src="javascript/sign-up.js"></script>
+     </body>
+</html>
+<!-- ORE.A. ORIGINAL -->
