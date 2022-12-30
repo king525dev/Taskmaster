@@ -521,24 +521,25 @@ div.escape-m .to-dashboard, div.escape-m .add-note{
      outline: none;
      border: none;
      font-size: 1em;
+     transition: all 0.3s;
 }
 
-div.escape-m .to-dashboard:hover, div.escape-m .add-note:hover{
-     font-weight: bold;
-     background: linear-gradient(
-               45deg, 
-               var(--colour6),
-               var(--colour5)
-          );
-}
+     div.escape-m .to-dashboard:hover, div.escape-m .add-note:hover{
+          font-weight: bold;
+          background: linear-gradient(
+                    45deg, 
+                    var(--colour6),
+                    var(--colour5)
+               );
+     }
 
-div.escape-m .to-dashboard:active, div.escape-m .add-note:active{
-     background: linear-gradient(
-               45deg, 
-               var(--colour1),
-               var(--colour4)
-          );
-}
+     div.escape-m .to-dashboard:active, div.escape-m .add-note:active{
+          background: linear-gradient(
+                    45deg, 
+                    var(--colour1),
+                    var(--colour4)
+               );
+     }
 
 div.escape-m .to-dashboard{
      border-radius: 10px 10px 0 0;
@@ -569,20 +570,38 @@ body.notes{
      width: 33%;
 }
 
+div.buttons {
+     display: flex;
+     justify-content: space-between;
+     height: 5em;
+     margin-bottom: 1em;
+}
+
 .notes-add, .notes-back{
      background: var(--colour6);
      border: none;
-     border-radius: 7px;
      color: var(--white);
      cursor: pointer;
-     font-size: 1.em;
-     font-weight: bold;
+     font-size: 1em;
      margin-bottom: 1em;
      padding: 0.75em 0;
-     width: 100%;
+     width: 90%;
+     transition: all 0.3s;
+     height: 100%;
+     font-family: 'Nanum Gothic', 'Ubuntu', sans-serif;
+     font-weight: 100;
+}
+
+.notes-add{
+     border-radius: 0 7px 7px 0;
+}
+
+.notes-back{
+     border-radius: 7px 0 0 7px;
 }
 
      .notes-add:hover, .notes-back:hover{
+          font-weight: bold;
           background: linear-gradient(
                     45deg, 
                     var(--colour6),
@@ -607,10 +626,9 @@ body.notes{
 }
 
 .selected {
-     background: var(--colour5);
+     background: var(--colour6);
      color: var(--white);
-     border-radius: 7px;
-     font-weight: bold;
+     font-weight: 500;
 }
 
 .selected .notes-small-updated{
@@ -639,8 +657,42 @@ body.notes{
 .notes-preview {
      display: flex;
      flex-direction: column;
+     justify-content: space-between;
      padding: 2em 3em;
      flex-grow: 1;
+}
+
+div.prev-foot{
+     align-self: flex-end;
+     display: inline-block;
+}
+
+div.prev-foot button{
+     border-radius: 7px;
+     padding: 0.5em 0.9em;
+     margin: 0 1em;
+     font-size: 1em;
+     background-color: var(--colour6);
+     color: var(--white);
+     transition: all 0.3s;
+     border: none;
+     outline: none;
+     font-weight: 100;
+     font-family: 'Nanum Gothic', 'Ubuntu', sans-serif;
+}
+
+     div.prev-foot button.delete:hover{
+          color: #721c24;
+          background: #f8d7da;
+     }
+
+     div.prev-foot button.save:hover{
+          color: #1c722a;
+          background: #d7f8db;
+     }
+
+.notes-preview, .notes-preview form{
+     height: 100%;
 }
 
 .notes-title,
@@ -652,7 +704,7 @@ body.notes{
 
 .notes-title {
      font-size: 3em;
-     font-weight: bold;
+     font-weight: 500;
      font-family: 'Ubuntu','Nanum Gothic', sans-serif;
 }
 
@@ -662,6 +714,8 @@ body.notes{
      line-height: 1.5;
      margin-top: 2em;
      resize: none;
+     height: 80%;
+     font-family: 'Nanum Gothic', 'Ubuntu', sans-serif;
 }
 
 /* Tablet Version */
@@ -765,5 +819,9 @@ body.notes{
           width: 100%;
           height: fit-content;
           min-height: 2rem;
+     }
+
+     body.notes{
+          font-size: 40%;
      }
 }
