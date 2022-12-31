@@ -503,19 +503,20 @@ div.project-m{
      border-color: var(--colour4);
      }
 
-div.escape-m{
-     width: 15em;
-     height: 10em;
+div.nav{
+     position: relative;
+     top: 0;
+     width: 100%;
+     height: 2.5em;
      display: flex;
-     flex-direction: column;
-     justify-content: space-between;
+     margin-top: -1em;
+     justify-content: flex-end;
 }
 
-div.escape-m .to-dashboard, div.escape-m .add-note{
+div.nav .to-dashboard, div.nav .add-note{
      white-space: pre;
-     width: 100%;
-     height: 47%;
-     border-radius: 10px 10px 0 0;
+     border-radius: 5px;
+     width: 15em;
      color: var(--white);
      background-color: var(--colour6);
      outline: none;
@@ -524,7 +525,7 @@ div.escape-m .to-dashboard, div.escape-m .add-note{
      transition: all 0.3s;
 }
 
-     div.escape-m .to-dashboard:hover, div.escape-m .add-note:hover{
+     div.nav .to-dashboard:hover, div.nav .add-note:hover{
           font-weight: bold;
           background: linear-gradient(
                     45deg, 
@@ -533,7 +534,7 @@ div.escape-m .to-dashboard, div.escape-m .add-note{
                );
      }
 
-     div.escape-m .to-dashboard:active, div.escape-m .add-note:active{
+     div.nav .to-dashboard:active, div.nav .add-note:active{
           background: linear-gradient(
                     45deg, 
                     var(--colour1),
@@ -541,12 +542,8 @@ div.escape-m .to-dashboard, div.escape-m .add-note{
                );
      }
 
-div.escape-m .to-dashboard{
-     border-radius: 10px 10px 0 0;
-}
-
-div.escape-m .add-note{
-     border-radius: 0 0 10px 10px ;
+div.nav .to-dashboard{
+     margin-right: 1.3em;
 }
 
 /* --> NOTES PAGE <-- */
@@ -598,6 +595,7 @@ div.buttons {
 
 .notes-back{
      border-radius: 7px 0 0 7px;
+     border-right: 1px solid var(--white);
 }
 
      .notes-add:hover, .notes-back:hover{
@@ -631,6 +629,11 @@ div.buttons {
      font-weight: 500;
 }
 
+.selected .small-status{
+     color: var(--colour6);
+     background-color: var(--colourmn1);
+}
+
 .selected .notes-small-updated{
      color: var(--colourmn1);
 }
@@ -648,6 +651,23 @@ div.buttons {
      padding: 0 10px;
 }
 
+.small-bottom{
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     margin: 0.3em 0;
+}
+
+.small-status{
+     width: fit-content;
+     font-size: 0.7em;
+     color: var(--white);
+     background-color: var(--colour6);
+     border-radius: 5px;
+     padding: 0.8em;
+     margin: 0.5em;
+}
+
 .notes-small-updated {
      color: #aaaaaa;
      font-style: italic;
@@ -663,11 +683,18 @@ div.buttons {
 }
 
 div.prev-foot{
+     display: flex;
+     flex-direction: row-reverse;
+     align-items: center;
+     justify-content: space-between;
+}
+
+div.foot-buttons{
      align-self: flex-end;
      display: inline-block;
 }
 
-div.prev-foot button{
+div.foot-buttons button{
      border-radius: 7px;
      padding: 0.5em 0.9em;
      margin: 0 1em;
@@ -690,6 +717,38 @@ div.prev-foot button{
           color: #1c722a;
           background: #d7f8db;
      }
+
+.status-radio{
+     display: inline-flex;
+     overflow: hidden;
+     border-radius: 15px;
+     box-shadow: 0 0 5px rgba(0,0,0,0.25);
+     font-family: 'Ubuntu','Nanum Gothic', sans-serif;
+     background: var(--white);
+     color: var(--colour6);
+     cursor: pointer;
+     transition: background 0.1s;
+     border: 1px solid var(--colour6);
+}
+
+.radio-input{
+     display: none;
+}
+
+.radio-label{
+     padding: 8px 14px;
+     font-size: 1em;
+     transition: background 0.3s;
+}
+
+.radio-label:not(:last-of-type){
+     border-right: 1px solid var(--colour6);
+}
+
+.radio-input:checked + .radio-label{
+     background: var(--colour6);
+     color: var(--white);
+}
 
 .notes-preview, .notes-preview form{
      height: 100%;
@@ -765,6 +824,10 @@ div.prev-foot button{
           width: 40%;
           height: 30%;
      }
+
+     div.nav{
+          justify-content: center;
+     }
 }
 
 /* Phone Version */
@@ -815,13 +878,42 @@ div.prev-foot button{
           padding: 0.7em;
      }
 
+     .board-wrapper{
+          display: flex;
+          justify-content: center;
+     }
+     
+          
+
      div.more-dash, div.project{
           width: 100%;
           height: fit-content;
           min-height: 2rem;
      }
 
+     div.nav{
+          height: 5em;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+     }
+
+     div.nav .to-dashboard, div.nav .add-note{
+          width: 100%;
+          height: 50%;
+     }
+
+     div.nav .to-dashboard{
+          border-radius: 10px 10px 0 0;
+          background-color: var(--colourmn1);
+          color: var(--colourmn2);
+     }
+     
+     div.nav .add-note{
+          border-radius: 0 0 10px 10px ;
+     }
+
      body.notes{
-          font-size: 40%;
+          font-size: 50%;
      }
 }

@@ -21,7 +21,7 @@
                <div class="notes-sidebar">
                     <div class="buttons">
                          <button class="notes-back" type="button" onclick="location = 'board.html'">← Back to Board</button>
-                         <button class="notes-add" type="button" id="add-button">+ Add Note</button>
+                         <button class="notes-add" type="button" id="add-button">+ Add Project</button>
                     </div>
                     <div id="notes-list" class="notes-list">
                     </div>
@@ -32,8 +32,19 @@
                          <textarea id="notes-body" class="notes-body" placeholder="Jott your ideas...."></textarea>
                     </form>
                     <div class="prev-foot">
-                         <button class="save" id="save-btn">Save</button>
-                         <button class="delete" id="delete-btn">Delete</button>
+                         <div class="foot-buttons">
+                              <button class="save" id="save-btn">Save</button>
+                              <button class="delete" id="delete-btn">Delete</button>
+                         </div>
+                         <div class="status-radio">
+                              <input class="radio-input" type="radio" name="status" id="Todo">
+                              <label class="radio-label" for="Todo">Todo</label>
+                              <input class="radio-input" type="radio" name="status" id="Doing">
+                              <label class="radio-label" for="Doing">Doing</label>
+                              <input class="radio-input" type="radio" name="status" id="Done">
+                              <label class="radio-label" for="Done">Done</label>
+                         </div>
+                         
                     </div>
                </div>
           </div>
