@@ -1,21 +1,13 @@
 /*============================
-     Taskmaster STYLES
+     LIGHT MINIMALISTIC
 =============================*/ 
 
 /* --> GLOBAL STYLES <-- */
 :root{
      --white: #fff;
      --black: #000;
-     --colourmn1: #F5f5f5;
-     --colourmn2: #222222;
-     --colour1: #e0584f;
-     --colour2: #ffc62f;
-     --colour3: #e08a4f;
-     --colour4: #DF9500;
-     --colour5: #14aba2;
-     --colour6: #008080;
-     --colour7: #2effdc;
-     --colour8: #2efff5;
+     --colourmn1: #dddddd;
+     --colourmn2: #333333;
 }
 
 *{
@@ -30,31 +22,11 @@ body{
      padding: 3em;
      width: 100%;
      height: 100vh;
-     background-image: linear-gradient(
-          45deg, 
-          var(--colour1),
-          var(--colour3),
-          var(--colour4),
-          var(--colour2)
-     );
-     background-size: 500%;
-     animation: bg-anime 30s infinite;
      color: var(--colourmn2);
+     background-color: var(--white);
      display: flex;
      justify-content: center;
      align-items: center;
-}
-
-@keyframes bg-anime{
-     0%{
-          background-position: left;
-     }
-     50%{
-          background-position: right;
-     }
-     100%{
-          background-position: left;
-     }
 }
 
 ul{
@@ -70,13 +42,13 @@ ul{
 }
 
 ::-webkit-scrollbar-thumb {
-     background: var(--colour6);
+     background: var(--colourmn2);
      border-radius: 5px;
      margin: 2px 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-     background: var(--colour5);
+     background: var(--colourmn2);
 }
 
 /* --> INTER-PAGE STYLES <-- */
@@ -110,17 +82,13 @@ div.more-dash, div.project, div.project-m{
      display: flex;
      flex-direction: row-reverse;
      background-color: var(--white);
+     box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
 }
 
 header.sign{
      width: 50%;
      height: 100%;
-     background: linear-gradient(
-          45deg,
-          var(--colour6),
-          var(--colour5),
-          var(--colour7)
-     ); 
+     background: var(--colourmn2);
      border-radius: 0 20px 20px 0;
      display: flex;
      justify-content: center;
@@ -201,20 +169,16 @@ div.pass i{
 
 .sign-submit{
      margin: 1.1em 0;
-     background: var(--colour5);
+     background: var(--colourmn2);
      color: var(--white);
+     border: 1px solid var(--colourmn2);
      transition: all 0.3s ease;
 }
 
      .sign-submit:hover{
-          background: linear-gradient(
-               45deg,
-               var(--colour1),
-               var(--colour3),
-               var(--colour2)
-          );
-          background-size: 300%;
-          animation: bg-anime 2.5s infinite;
+          background-color: var(--white);
+          color: var(--colourmn2);
+          border: 1px solid var(--colourmn2);
      }
 
 small.sign-link{
@@ -261,12 +225,7 @@ header.dashboard{
      flex-direction: column;
      font-family:  'Ubuntu','Nanum Gothic', sans-serif;
      overflow-x: visible;
-     background-image: linear-gradient(
-          270deg, 
-          var(--colour6),
-          var(--colour5),
-          var(--colourmn1)
-     );
+     background-color: var(--colourmn2);
      background-size: 200%;
      background-position: right;
      padding: 1.5em;
@@ -306,11 +265,11 @@ button.sign-out{
      padding: 0.8em;
      border-radius: 5px;
      background-color: var(--colourmn1);
-     color: var(--colour6);
+     color: var(--colourmn2);
      align-self: center;
      margin-top: -4em;
      outline: none;
-     border: solid 1px var(--colour6);
+     border: solid 1px var(--colourmn2);
      transition: all 0.3s;
 }
 
@@ -356,7 +315,7 @@ form.todo-input{
 }
 
 form.todo-input *{
-     border: 1px solid var(--colour6);
+     border: 1px solid var(--colourmn2);
      outline: none;
      
 }
@@ -372,7 +331,7 @@ input.todo-input{
 form.todo-input input[type="submit"]{
      width: 20%;
      color: var(--white);
-     background-color: var(--colour6);
+     background-color: var(--colourmn2);
      border-radius: 0 5px 5px 0;
      font-size: 1.5em;
      text-align: center;
@@ -389,7 +348,7 @@ li.todo-item{
      font-size: 0.9em;
      padding: 0.7em 1.7em;
      text-align: left;
-     border-bottom: 1px solid var(--colour5);
+     border-bottom: 1px solid var(--colourmn2);
      transition: all 0.3s;
      cursor: pointer;
 }
@@ -404,17 +363,17 @@ li.todo-item{
      }
 
      li.todo-item:hover{
-          background-color: var(--colour6);
+          background-color: var(--colourmn2);
           color: var(--white);
      }
 
      li.todo-item:active{
-          background-color: var(--colour8);
+          background-color: var(--colourmn2);
           color: var(--white);
      }
 
      li.todo-item.completed{
-          background-color: var(--colour6);
+          background-color: var(--colourmn2);
           text-decoration: line-through;
           color: var(--colourmn1);
      }
@@ -434,17 +393,15 @@ div.more-dash{
      align-items: center;
      font-size: 1.9em;
      font-weight: bold;
-     background: var(--colour6);
+     background: var(--colourmn2);
+     border: solid 1px var(--colourmn2);
      color: var(--colourmn1);
      transition: background 0.3s;
 }
 
      div.more-dash:hover{
-          background: linear-gradient(
-               45deg, 
-               var(--colour6),
-               var(--colour5)
-          );
+          background: var(--white);
+          color: var(--colourmn2);
      }
 
      div.more-dash:active{
@@ -460,7 +417,7 @@ div.project{
      flex-direction: column;
      justify-content: space-between;
      background-color: var(--colourmn1);
-     border: solid 1px var(--colour6);
+     border: solid 1px var(--colourmn1);
      padding: 1em;
      overflow-y: scroll;
 }
@@ -470,12 +427,11 @@ div.project::-webkit-scrollbar{
 }
 
      div.project:hover{
-               transform: translateY(-0.7em) translateX(0.3em);
-               box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
+               box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.4);
           }
      
      div.project:active{
-          border-color: var(--colour4);
+          border-color: var(--colourmn2);
      }
 
 p.prj-title{
@@ -489,7 +445,7 @@ span.prj-status{
      width: fit-content;
      font-size: 0.7em;
      color: var(--white);
-     background-color: var(--colour6);
+     background-color: var(--colourmn2);
      border-radius: 5px;
      padding: 0.8em;
      display: flex;
@@ -517,7 +473,7 @@ div.project-m{
      width: 15em;
      height: 10em;
      background-color: var(--colourmn1);
-     border: solid 1px var(--colour6);
+     border: solid 1px var(--colourmn1);
      padding: 1em;
      display: flex;
      flex-direction: column;
@@ -531,12 +487,11 @@ div.project-m{
      }
 
      div.project-m:hover{
-          transform: translateY(-0.7em) translateX(0.3em);
-          box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
+          box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.4);
      }
 
      div.project-m:active{
-     border-color: var(--colour4);
+          border-color: var(--colourmn2);
      }
 
 div.nav{
@@ -560,7 +515,7 @@ div.nav-filter input{
      border-radius: 5px;
      font-size: 1em;
      outline: none;
-     border: 1px solid var(--colour6);
+     border: 1px solid var(--colourmn2);
      height: 100%;
      width: 70%;
 }
@@ -577,7 +532,8 @@ div.nav-buttons .to-dashboard, div.nav-buttons .add-note{
      border-radius: 5px;
      width: 15em;
      color: var(--white);
-     background-color: var(--colour6);
+     background-color: var(--colourmn2);
+     border: 1px solid var(--colourmn2);
      outline: none;
      border: none;
      font-size: 1em;
@@ -585,20 +541,9 @@ div.nav-buttons .to-dashboard, div.nav-buttons .add-note{
 }
 
      div.nav-buttons .to-dashboard:hover, div.nav-buttons .add-note:hover{
-          font-weight: bold;
-          background: linear-gradient(
-                    45deg, 
-                    var(--colour6),
-                    var(--colour5)
-               );
-     }
-
-     div.nav-buttons .to-dashboard:active, div.nav-buttons .add-note:active{
-          background: linear-gradient(
-                    45deg, 
-                    var(--colour1),
-                    var(--colour4)
-               );
+          background-color: var(--white);
+          color: var(--colourmn2);
+          border: 1px solid var(--colourmn2);
      }
 
 div.nav-buttons .to-dashboard{
@@ -634,7 +579,7 @@ div.buttons {
 }
 
 .notes-add, .notes-back{
-     background: var(--colour6);
+     background: var(--colourmn2);
      border: none;
      color: var(--white);
      cursor: pointer;
@@ -658,12 +603,9 @@ div.buttons {
 }
 
      .notes-add:hover, .notes-back:hover{
-          font-weight: bold;
-          background: linear-gradient(
-                    45deg, 
-                    var(--colour6),
-                    var(--colour5)
-               );
+          background-color: var(--white);
+          color: var(--colourmn2);
+          border: 1px solid var(--colourmn2);
      }
 
 .notes-list-item {
@@ -683,13 +625,13 @@ div.buttons {
 }
 
 .selected {
-     background: var(--colour6);
+     background: var(--colourmn2);
      color: var(--white);
      font-weight: 500;
 }
 
 .selected .small-status{
-     color: var(--colour6);
+     color: var(--colourmn2);
      background-color: var(--colourmn1);
 }
 
@@ -721,7 +663,7 @@ div.buttons {
      width: fit-content;
      font-size: 0.7em;
      color: var(--white);
-     background-color: var(--colour6);
+     background-color: var(--colourmn2);
      border-radius: 5px;
      padding: 0.8em;
      margin: 0.5em;
@@ -758,7 +700,7 @@ div.foot-buttons button{
      padding: 0.5em 0.9em;
      margin: 0 1em;
      font-size: 1em;
-     background-color: var(--colour6);
+     background-color: var(--colourmn2);
      color: var(--white);
      transition: all 0.3s;
      border: none;
@@ -784,10 +726,10 @@ div.foot-buttons button{
      box-shadow: 0 0 5px rgba(0,0,0,0.25);
      font-family: 'Ubuntu','Nanum Gothic', sans-serif;
      background: var(--white);
-     color: var(--colour6);
+     color: var(--colourmn2);
      cursor: pointer;
      transition: background 0.1s;
-     border: 1px solid var(--colour6);
+     border: 1px solid var(--colourmn2);
 }
 
 .radio-input{
@@ -801,11 +743,11 @@ div.foot-buttons button{
 }
 
 .radio-label:not(:last-of-type){
-     border-right: 1px solid var(--colour6);
+     border-right: 1px solid var(--colourmn2);
 }
 
 .radio-input:checked + .radio-label{
-     background: var(--colour6);
+     background: var(--colourmn2);
      color: var(--white);
 }
 
@@ -894,13 +836,6 @@ body.project .notes-body{
           grid-template-columns: repeat(auto-fit, 40%);
           grid-template-rows: repeat(2, 30%);
      }
-
-     /* div.project, div.more-dash{
-          width: 40%;
-          height: 30%;
-          /* width: 16em;
-          height: 11em; 
-     } */
 
      .board-wrapper{
           padding: 3em;

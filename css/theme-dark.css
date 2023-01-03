@@ -1,21 +1,21 @@
 /*============================
-     Taskmaster STYLES
+     DARK THEME
 =============================*/ 
 
 /* --> GLOBAL STYLES <-- */
 :root{
-     --white: #fff;
-     --black: #000;
-     --colourmn1: #F5f5f5;
-     --colourmn2: #222222;
-     --colour1: #e0584f;
-     --colour2: #ffc62f;
-     --colour3: #e08a4f;
-     --colour4: #DF9500;
-     --colour5: #14aba2;
-     --colour6: #008080;
-     --colour7: #2effdc;
-     --colour8: #2efff5;
+     --white: #000;
+     --black: #fff;
+     --colourmn1: #222222;
+     --colourmn2: #F5f5f5;
+     --colour1: #008080;
+     --colour2: #2effdc;
+     --colour3: #2efff5;
+     --colour4: #14aba2;
+     --colour5: #DF9500;
+     --colour6: #e0584f;
+     --colour7: #ffc62f;
+     --colour8: #e08a4f;
 }
 
 *{
@@ -85,7 +85,7 @@ ul{
 }
 
 .dashboard-wrapper, .board-wrapper, .notes-wrapper, .prj-wrapper{
-     background-color: rgba(255, 255, 255, 0.7);
+     background-color: rgba(0, 0, 0, 0.7);
      color: var(--colourmn2);
      height: 100%;
      width: 100%;
@@ -243,7 +243,6 @@ small.sign-link a{
      background-color: var(--white);
      border-radius: 10px;
      opacity: 80%;
-     box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
 }
 
 header.dashboard, main.dashboard{
@@ -358,10 +357,11 @@ form.todo-input{
 form.todo-input *{
      border: 1px solid var(--colour6);
      outline: none;
-     
 }
 
 input.todo-input{
+     color: var(--black);
+     background-color: var(--white);
      border-radius: 5px 0 0 5px;
      font-size: 0.9em;
      width: 80%;
@@ -556,6 +556,8 @@ div.nav-filter{
 }
 
 div.nav-filter input{
+     color: var(--black);
+     background-color: var(--white);
      padding: 0.7em;
      border-radius: 5px;
      font-size: 1em;
@@ -818,6 +820,8 @@ div.foot-buttons button{
      border: none;
      outline: none;
      width: 100%;
+     color: var(--black);
+     background-color: var(--white);
 }
 
 .notes-title {

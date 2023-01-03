@@ -14,12 +14,13 @@
           rel="stylesheet">
 
      <!-- Stylesheets-->
-     <link rel="stylesheet" href="css/styles.css">
+     <link id="pg-style" rel="stylesheet" href="css/styles.css">
+     <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
      
      <title>Taskmaster | Dashboard</title>
 </head>
 
-<body class="dashboard">
+<body class="dashboard" onload="themeReader()">
      <div class="dashboard-wrapper">
           <aside class="quick-todos">
                <span class="todos-title">Quick Todos</span>
@@ -33,13 +34,18 @@
           <header class="dashboard">
                <div class="first-line">
                     <span class="title">My Dashboard</span>
-                    <button id="sign-out" class="sign-out" onclick="logOut()">Logout</button>
+                    <div class="dash-buttons">
+                         <i onclick="themeSetter();console.log(themeCount);" id="theme-btn" class="fa-solid fa-palette"></i>
+                         <button id="sign-out" class="sign-out" onclick="deleteAcc()">Delete Account</button>
+                         <button id="delete-acc" class="sign-out" onclick="logOut()">Logout</button>
+                    </div>
+                    
                </div>
                
                <span id="welcome" class="welcome">Hello, <span id="usname">User</span></span>
           </header>
-          <main class="dashboard">
-               <div class="project">
+          <main class="dashboard" id="main-dashboard">
+               <!-- <div class="project">
                     <p class="prj-title">
                          Make a Discord Bot
                     </p>
@@ -68,7 +74,7 @@
                          Make money
                     </p>
                     <span class="prj-status">Done</span>
-               </div>
+               </div> -->
                     <div class="more-dash" onclick="location = 'board.html'">
                          See More →
                     </div>
@@ -76,12 +82,13 @@
      </div>
 
      <!-- Scripts -->
-     <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script> 
      <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
      <script src="javascript/firebase.js"></script>
      <script src="javascript/dashboard.js"></script>
+     <script src="javascript/dashboard-board.js"></script>
+     <script src="javascript/themes.js"></script>
 
 </body>
 

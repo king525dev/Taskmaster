@@ -14,25 +14,18 @@
           <!-- Stylesheets-->
           <link id="pg-style" rel="stylesheet" href="css/styles.css">
 
-          <title>Taskmaster | Edit</title>
+          <title>Taskmaster | Project</title>
      </head>
-     <body class="notes" onload="themeReader()">
-          <div class="notes-wrapper" id="app">
-               <div class="notes-sidebar">
-                    <div class="buttons">
-                         <button class="notes-back" type="button" onclick="location = 'board.html'">← Back to Board</button>
-                         <button class="notes-add" type="button" id="add-button">+ Add Project</button>
-                    </div>
-                    <div id="notes-list" class="notes-list">
-                    </div>
-               </div>
+     <body class="project" onload="themeReader()">
+          <div class="prj-wrapper">
                <div class="notes-preview">
                     <form id="note-preview">
-                         <input id="notes-title" class="notes-title" type="text" placeholder="Enter a title...">
-                         <textarea id="notes-body" class="notes-body" placeholder="Jott your ideas...."></textarea>
+                         <input id="prj-title" class="notes-title" type="text" placeholder="Enter a title...">
+                         <textarea id="prj-body" class="notes-body" placeholder="Jott your ideas...."></textarea>
                     </form>
                     <div class="prev-foot">
                          <div class="foot-buttons">
+                              <button class="gobak" onclick="location = 'board.html'">Back</button>
                               <button class="save" id="save-btn">Save</button>
                               <button class="delete" id="delete-btn">Delete</button>
                          </div>
@@ -48,14 +41,16 @@
                     </div>
                </div>
           </div>
-
+          
           <!-- Scripts -->
           <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
           <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
           <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
           <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
           <script src="javascript/firebase.js"></script>
-          <script src="javascript/notes.js"></script>
+          <script src="javascript/board-transfer.js"></script>
+          <script src="javascript/board.js"></script>
+          <script src="javascript/project.js"></script>
           <script src="javascript/themes.js"></script>
      </body>
 </html>

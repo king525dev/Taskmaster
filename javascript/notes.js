@@ -33,7 +33,7 @@ function checkingStatus(status){
      }else if(status == "Doing"){
           doingOption.checked = true;
      }else if(status == "Done"){
-          doneOption.checked = true
+          doneOption.checked = true;
      }else{
           todoOption.checked = true;
      }
@@ -50,15 +50,6 @@ if(minute < 10){minute = `0${minute}`}
 
 fullDate = `${myDate} ${day} ${hours}:${minute}`;
 console.log(fullDate);
-
-
-
-//Sort Algorithm
-function sortList(list){
-     list.sort((a, b) => {
-          return new Date(a.updated) > new Date(b.updated) ? -1 : 1;
-     });
-}
 
 //Checking If User is logged in
 auth.onAuthStateChanged(user => {
@@ -144,10 +135,6 @@ function renderData(individualDoc){
           updatedNote = body.value; 
           updatedDate = fullDate;
           updatedStatus = statusOutput();
-          console.log(noteTitle);
-          console.log(updatedNote);
-          console.log(updatedStatus);
-          console.log(updatedDate);
           auth.onAuthStateChanged(user => {
                if(user) {
                     fs.collection(user.uid + "_notes").doc(id).update({
@@ -177,7 +164,9 @@ function renderData(individualDoc){
                     fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
                          title.value = "";
                          body.textContent = "";
-                         todoOption.checked = true;
+                         todoOption.checked = false;
+                         doneOption.checked = false;
+                         doingOption.checked = false;
                          console.log("note deleted");
                     });
                }

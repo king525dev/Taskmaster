@@ -68,8 +68,6 @@ function renderData(individualDoc){
                }
           })
      });
-
-     
 }
 
 //Retrieving User's Name
@@ -111,6 +109,65 @@ form.addEventListener('submit', e => {
 function logOut() {
      auth.signOut();
 }
+
+//Deleting Account
+function deleteAcc() {
+     auth.onAuthStateChanged(user => {
+          if(user){
+               if(confirm("Are you sure you want to DELETE your Account?")){
+                    fs.collection('users').doc(user.uid).delete()
+                         .then(() => {
+                              const user = firebase.auth().currentUser;
+
+                              user.delete().then(() => {
+                                   console.log("user deleted");
+                              }).catch((err) => {
+                                   console.log(err.message);
+                              });
+                         })
+               }
+          }
+     });
+}
+
+//Setting Theme
+let themeCount = 0;
+
+function themeSetter(){
+
+     if(themeCount < 3){
+          themeCount++;
+     }else{
+          themeCount = 0;
+     }
+
+     switch(themeCount){
+          case 0:
+               localStorage.setItem("theme", "default");
+               console.log("Theme: default");
+               break;
+          case 1:
+               localStorage.setItem("theme", "dark");
+               console.log("Theme: dark");
+               break;
+          case 2:
+               localStorage.setItem("theme", "minimalist-light");
+               console.log("Theme: minimalist-light");
+               break;
+          case 3:
+               localStorage.setItem("theme", "minimalist-dark");
+               console.log("Theme: minimalist-dark");
+               break;
+          default:
+               localStorage.setItem("theme", "default");
+               console.log("Theme: default");
+               break;
+     }
+
+     themeReader();
+}
+
+console.log(themeCount);
 
 //Real time Event Listeners
 auth.onAuthStateChanged(user => {
