@@ -19,6 +19,9 @@ function themeReader(){
           case "minimalist-dark":
                styleLink.setAttribute("href", "css/theme-min-dark.css");
                break;
+          case "animated":
+               styleLink.setAttribute("href", "css/theme-anime.css");
+               break;
           default:
                styleLink.setAttribute("href", "css/styles.css");
                break;

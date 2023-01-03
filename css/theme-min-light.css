@@ -29,6 +29,10 @@ body{
      align-items: center;
 }
 
+.bg{
+     display: none;
+}
+
 ul{
      list-style-type: none;
 }

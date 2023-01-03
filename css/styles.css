@@ -45,6 +45,10 @@ body{
      align-items: center;
 }
 
+.bg{
+     display: none;
+}
+
 @keyframes bg-anime{
      0%{
           background-position: left;

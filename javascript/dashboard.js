@@ -135,7 +135,7 @@ let themeCount = 0;
 
 function themeSetter(){
 
-     if(themeCount < 3){
+     if(themeCount < 4){
           themeCount++;
      }else{
           themeCount = 0;
@@ -158,6 +158,10 @@ function themeSetter(){
                localStorage.setItem("theme", "minimalist-dark");
                console.log("Theme: minimalist-dark");
                break;
+          case 4:
+               localStorage.setItem("theme", "animated");
+               console.log("Theme: animated");
+               break;
           default:
                localStorage.setItem("theme", "default");
                console.log("Theme: default");
@@ -166,8 +170,6 @@ function themeSetter(){
 
      themeReader();
 }
-
-console.log(themeCount);
 
 //Real time Event Listeners
 auth.onAuthStateChanged(user => {
