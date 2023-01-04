@@ -9,7 +9,7 @@ const board = document.getElementById("board");
 function contentShortening(str){
      let result = "";
      if(str.length > 20){
-          for(let i = 0; i < 10; i++){
+          for(let i = 0; i < 20; i++){
                result += str[i];
           }
           return `${result}...`;
@@ -34,19 +34,6 @@ function checkingStatus(status){
           todoOption.checked = true;
      }
 }
-
-// //Updating Project page
-// function pageTransfer(prjTitle, prjContent, prjStatus){
-//      location = "project.html";
-//      const title = document.getElementById("prj-title");
-//      const body = document.getElementById("prj-body");
-//      console.log(prjTitle);
-//      console.log(prjContent);
-//      console.log(prjTitle);
-//      title.value = prjTitle;
-//      body.textContent = prjContent;
-//      checkingStatus(prjStatus);
-// }
 
 //Checking If User is logged in
 auth.onAuthStateChanged(user => {
@@ -84,7 +71,7 @@ function renderData(individualDoc){
      });
 
      //Delete Note
-     parentDiv.addEventListener("dblclick", (e) => {
+     parentDiv.addEventListener("contextmenu", (e) => {
           if(confirm("Are you sure you want to DELETE this Project")){
                let id = e.target.getAttribute('data-id');
                auth.onAuthStateChanged(user => {

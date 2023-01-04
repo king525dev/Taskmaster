@@ -50,8 +50,14 @@ function actData(individualDoc){
           parentDiv.appendChild(prjStatus);
           board.appendChild(parentDiv);
 
+          //Adding onclick event
+     parentDiv.addEventListener('click', () => {
+          localStorage.setItem("clickID", individualDoc.id)
+          location = "project.html";
+     });
+
           //Delete Note
-          parentDiv.addEventListener("dblclick", (e) => {
+          parentDiv.addEventListener("contextmenu", (e) => {
                if(confirm("Are you sure you want to DELETE this Project")){
                     let id = e.target.getAttribute('data-id');
                     auth.onAuthStateChanged(user => {

@@ -156,21 +156,23 @@ function renderData(individualDoc){
 
      //Delete Note
      deleteBtn.addEventListener("click", () => {
-          const selNotes = document.getElementsByClassName("selected");
-          const selNote = selNotes[0];
-          let id = selNote.getAttribute('data-id');
-          auth.onAuthStateChanged(user => {
-               if(user) {
-                    fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
-                         title.value = "";
-                         body.textContent = "";
-                         todoOption.checked = false;
-                         doneOption.checked = false;
-                         doingOption.checked = false;
-                         console.log("note deleted");
-                    });
-               }
-          })
+          if(confirm("Are you sure you want to DELETE this Project")){
+               const selNotes = document.getElementsByClassName("selected");
+               const selNote = selNotes[0];
+               let id = selNote.getAttribute('data-id');
+               auth.onAuthStateChanged(user => {
+                    if(user) {
+                         fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                              title.value = "";
+                              body.textContent = "";
+                              todoOption.checked = false;
+                              doneOption.checked = false;
+                              doingOption.checked = false;
+                              console.log("note deleted");
+                         });
+                    }
+               })
+          }
      });
 }
 

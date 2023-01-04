@@ -54,6 +54,17 @@ function checkingStatus(status){
      }
 }
 
+//Checking If User is logged in
+auth.onAuthStateChanged(user => {
+     if(user){
+          console.log("User is signed in to Taskmaster");
+     }else{
+          console.log("User is not signed in to Taskmaster")
+          alert("Your login session has expired or you have logged out, login again to continue");
+          location = "login.html";
+     }
+});
+
 function renderData(individualDoc){
      if(individualDoc.id == pageID){
           projectTitle.value = individualDoc.data().title;
