@@ -144,27 +144,21 @@ function themeSetter(){
      switch(themeCount){
           case 0:
                localStorage.setItem("theme", "default");
-               console.log("Theme: default");
                break;
           case 1:
                localStorage.setItem("theme", "dark");
-               console.log("Theme: dark");
                break;
           case 2:
                localStorage.setItem("theme", "minimalist-light");
-               console.log("Theme: minimalist-light");
                break;
           case 3:
                localStorage.setItem("theme", "minimalist-dark");
-               console.log("Theme: minimalist-dark");
                break;
           case 4:
                localStorage.setItem("theme", "animated");
-               console.log("Theme: animated");
                break;
           default:
                localStorage.setItem("theme", "default");
-               console.log("Theme: default");
                break;
      }
 

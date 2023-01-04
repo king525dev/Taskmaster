@@ -77,8 +77,9 @@ function renderData(individualDoc){
      parentDiv.appendChild(prjStatus);
      board.appendChild(parentDiv);
 
+     //Adding onclick event
      parentDiv.addEventListener('click', () => {
-          window.prjId = individualDoc.id;
+          localStorage.setItem("clickID", individualDoc.id)
           location = "project.html";
      });
 

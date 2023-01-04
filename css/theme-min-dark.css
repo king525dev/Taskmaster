@@ -144,7 +144,8 @@ form.sign{
 }
 
 .sign-input{
-     border: 1px solid #e6e6e6;
+     border: 1px solid #4b4b4b;
+     background-color: var(--white);
      border-bottom-width: 3px;
      transition: all 0.3s ease;
 }

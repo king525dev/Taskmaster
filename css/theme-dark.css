@@ -176,13 +176,14 @@ form.sign{
 }
 
 .sign-input{
-     border: 1px solid #e6e6e6;
+     border: 1px solid #4b4b4b;
      border-bottom-width: 3px;
+     background-color: var(--white);
      transition: all 0.3s ease;
 }
 
      input.sign-input:active, .sign-input:focus{
-          border-color: #cccccc;
+          border-color: var(--colour5);
      }
 
 div.pass{
@@ -195,11 +196,11 @@ div.pass i{
      position: absolute;
      right: 1em;
      z-index: 3;
-     color: #e6e6e6;
+     color: #333;
 }
 
      div.pass i.active::before{
-          color: #333;
+          color: #e6e6e6;
           content: "\f070";
      }
 
