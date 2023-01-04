@@ -4,6 +4,8 @@
 
 const signUpForm = document.getElementById('sign-up-form');
 
+auth.signOut();
+
 signUpForm.addEventListener('submit', e => {
      e.preventDefault();
      const fname = signUpForm['fname'].value;

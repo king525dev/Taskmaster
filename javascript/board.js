@@ -72,6 +72,7 @@ function renderData(individualDoc){
 
      //Delete Note
      parentDiv.addEventListener("contextmenu", (e) => {
+          e.preventDefault();
           if(confirm("Are you sure you want to DELETE this Project")){
                let id = e.target.getAttribute('data-id');
                auth.onAuthStateChanged(user => {
@@ -116,3 +117,9 @@ auth.onAuthStateChanged(user => {
           })
      }
 })
+
+//Shortcuts
+document.addEventListener('keydown', e => { //Home Shortcut
+     e.preventDefault();
+     location = "dashboard.html";
+});

@@ -58,6 +58,7 @@ function actData(individualDoc){
 
           //Delete Note
           parentDiv.addEventListener("contextmenu", (e) => {
+               e.preventDefault();
                if(confirm("Are you sure you want to DELETE this Project")){
                     let id = e.target.getAttribute('data-id');
                     auth.onAuthStateChanged(user => {
@@ -70,11 +71,6 @@ function actData(individualDoc){
                }
           });
      }
-
-     // parentDiv.addEventListener('click', () => {
-     //      window.prjId = individualDoc.id;
-     //      location = "project.html";
-     // });
 }
 
 //Real time Event Listeners

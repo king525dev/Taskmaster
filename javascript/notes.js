@@ -7,6 +7,23 @@ const body = document.getElementById("notes-body");
 const deleteBtn = document.getElementById("delete-btn");
 const saveBtn = document.getElementById("save-btn");
 let notesList = document.getElementById("notes-list");
+const todoOption = document.getElementById("Todo");
+const doingOption = document.getElementById("Doing");
+const doneOption = document.getElementById("Done");
+
+//Content Shortening
+function contentShortening(str){
+     let result = "";
+     if(str.length > 25){
+          for(let i = 0; i < 25; i++){
+               result += str[i];
+          }
+          return `${result}...`;
+     }else{
+          result = str;
+          return result;
+     }
+}
 
 //Getting Status
 function statusOutput(){
@@ -64,22 +81,10 @@ auth.onAuthStateChanged(user => {
 
 //Retrieving note list
 function renderData(individualDoc){
-     function contentShortening(str){
-          let result = "";
-          if(str.length > 25){
-               for(let i = 0; i < 25; i++){
-                    result += str[i];
-               }
-               return `${result}...`;
-          }else{
-               result = str;
-               return result;
-          }
-     }
-
      let parentDiv = document.createElement("div");
      parentDiv.className = "notes-list-item";
      parentDiv.setAttribute("data-id", individualDoc.id);
+     parentDiv.id = "project-item";
 
      let noteTitle = document.createElement("div");
      noteTitle.className = "notes-small-title";
@@ -127,7 +132,7 @@ function renderData(individualDoc){
      });
 
      //Updating Notes
-     saveBtn.addEventListener("click", () =>{
+     saveBtn.addEventListener("click",() => {
           const selNotes = document.getElementsByClassName("selected");
           const selNote = selNotes[0];
           let id = selNote.getAttribute('data-id');
@@ -164,7 +169,7 @@ function renderData(individualDoc){
                     if(user) {
                          fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
                               title.value = "";
-                              body.textContent = "";
+                              body.value = "";
                               todoOption.checked = false;
                               doneOption.checked = false;
                               doingOption.checked = false;
@@ -199,7 +204,7 @@ addNoteButton.addEventListener('click', () => {
                })
           }
      })
-})
+});
 
 //Real time Event Listeners
 auth.onAuthStateChanged(user => {
@@ -217,3 +222,84 @@ auth.onAuthStateChanged(user => {
           })
      }
 })
+
+//Shortcuts
+document.addEventListener('keydown', e => { // Save Shortcut
+     if(e.key.toLowerCase() == "s" && e.altKey){
+          e.preventDefault();
+          const selNotes = document.getElementsByClassName("selected");
+     const selNote = selNotes[0];
+     let id = selNote.getAttribute('data-id');
+     updatedTitle = title.value;
+     updatedNote = body.value; 
+     updatedDate = fullDate;
+     updatedStatus = statusOutput();
+     auth.onAuthStateChanged(user => {
+          if(user) {
+               fs.collection(user.uid + "_notes").doc(id).update({
+                    title: updatedTitle,
+                    note: updatedNote,
+                    status: updatedStatus,
+                    lastEdited: updatedDate
+               }).then(() => {
+                    selNote.children[0].textContent = updatedTitle;
+                    selNote.children[1].textContent = contentShortening(updatedNote);
+                    selNote.children[2].children[0].textContent = updatedStatus;
+                    selNote.children[2].children[1].textContent = updatedDate;
+                    console.log("note updated");
+               });
+               
+          }
+     })
+     }
+});
+
+document.addEventListener('keydown', e => { //Delete Shortcut
+     if(e.key.toLowerCase() == "d" && e.altKey){
+          e.preventDefault();
+          if(confirm("Are you sure you want to DELETE this Project")){
+               const selNotes = document.getElementsByClassName("selected");
+               const selNote = selNotes[0];
+               let id = selNote.getAttribute('data-id');
+               auth.onAuthStateChanged(user => {
+                    if(user) {
+                         fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                              title.value = "";
+                              body.value = "";
+                              todoOption.checked = false;
+                              doneOption.checked = false;
+                              doingOption.checked = false;
+                              console.log("note deleted");
+                         });
+                    }
+               })
+          }
+     }
+});
+
+document.addEventListener('keydown', e => { // Add Note Shortcut
+     if(e.key.toLowerCase() == "a" && e.altKey){
+          e.preventDefault();
+          let id = counter += 1;
+          auth.onAuthStateChanged(user => {
+               if(user){
+                    fs.collection(user.uid + "_notes").doc('nb_' + id).set({
+                         id: 'nb_' + id,
+                         title: "New Note",
+                         note: "",
+                         status: "Todo",
+                         lastEdited: fullDate
+                    }).then(() => {
+                         console.log('note added');
+                    }).catch( err => {
+                         console.log(err.message);
+                    })
+               }
+          })
+     }
+});
+
+document.addEventListener('keydown', e => { //Home Shortcut
+     e.preventDefault();
+     location = "dashboard.html";
+});

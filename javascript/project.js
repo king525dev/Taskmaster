@@ -91,6 +91,25 @@ function renderData(individualDoc){
                }
           })
      });
+
+     //Delete Note
+     deleteBtn.addEventListener("click", () => {
+          if(confirm("Are you sure you want to DELETE this Project")){
+               let id = pageID;
+               auth.onAuthStateChanged(user => {
+                    if(user) {
+                         fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                              projectTitle.value = "";
+                              projectBody.value = "";
+                              todoOption.checked = false;
+                              doneOption.checked = false;
+                              doingOption.checked = false;
+                              console.log("note deleted");
+                         });
+                    }
+               })
+          }
+     });
      }
 }
 
@@ -110,3 +129,53 @@ auth.onAuthStateChanged(user => {
           })
      }
 })
+
+//Shortcuts
+document.addEventListener('keydown', e => { // Save Shortcut
+     if(e.key.toLowerCase() == "s" && e.altKey){
+          e.preventDefault();
+          updatedTitle = projectTitle.value;
+          updatedNote = projectBody.value; 
+          updatedDate = fullDate;
+          updatedStatus = statusOutput();
+          auth.onAuthStateChanged(user => {
+               if(user) {
+                    fs.collection(user.uid + "_notes").doc(pageID).update({
+                         title: updatedTitle,
+                         note: updatedNote,
+                         status: updatedStatus,
+                         lastEdited: updatedDate
+                    }).then(() => {
+                         console.log("note updated");
+                    });
+                    
+               }
+          })
+     }
+});
+
+document.addEventListener('keydown', e => { //Delete Shortcut
+     if(e.key.toLowerCase() == "d" && e.altKey){
+          e.preventDefault();
+          if(confirm("Are you sure you want to DELETE this Project")){
+               let id = pageID;
+               auth.onAuthStateChanged(user => {
+                    if(user) {
+                         fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                              projectTitle.value = "";
+                              projectBody.value = "";
+                              todoOption.checked = false;
+                              doneOption.checked = false;
+                              doingOption.checked = false;
+                              console.log("note deleted");
+                         });
+                    }
+               })
+          }
+     }
+});
+
+document.addEventListener('keydown', e => { //Home Shortcut
+     e.preventDefault();
+     location = "dashboard.html";
+});

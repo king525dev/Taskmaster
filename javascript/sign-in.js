@@ -4,6 +4,8 @@
 
 const signInForm = document.getElementById('sign-in-form');
 
+auth.signOut();
+
 signInForm.addEventListener('submit', e => {
      e.preventDefault();
 
