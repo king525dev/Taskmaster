@@ -55,6 +55,82 @@ ul{
      background: var(--colourmn2);
 }
 
+.full-nav-wrapper{
+     position: fixed;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 100%;
+     background: var(--colourmn2);
+     clip-path: circle(0px at calc(100% - 35px) 35px);
+     transition: all 0.3s ease-in-out;
+     z-index: 5;
+}
+
+#active:checked ~ .full-nav-wrapper{
+     clip-path: circle(75%);
+}
+
+.menu-btn{
+     position: absolute;
+     z-index: 100;
+     right: 10px;
+     top: 10px;
+     height: 50px;
+     width: 50px;
+     text-align: center;
+     line-height: 50px;
+     border-radius: 50%;
+     font-size: 20px;
+     color: var(--black);
+     cursor: pointer;
+     background: transparent;
+     transition: all 0.3s ease-in-out;
+}
+
+#active:checked ~ .menu-btn{
+     background: var(--white);
+     color: var(--colourmn2);
+}
+
+#active:checked ~ .menu-btn i:before{
+     content: "\f00d";
+}
+
+.full-nav-wrapper ul{
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     list-style: none;
+     text-align: center;
+}
+
+.full-nav-wrapper ul li{
+     margin: 7em 0;
+}
+.full-nav-wrapper ul li a{
+     color: none;
+     text-decoration: none;
+     font-size: 3.5em;
+     font-weight: 500;
+     padding: 0.7em 1em;
+     color: var(--white);
+     position: relative;
+     line-height: 50px;
+     transition: all 0.3s ease;
+     border-radius: 50px;
+}
+
+.full-nav-wrapper ul li a:hover{
+     color: var(--colourmn2);
+     background-color: var(--white);
+}
+
+input[type="checkbox"]{
+     display: none;
+}
+
 /* --> INTER-PAGE STYLES <-- */
 .sign-wrapper, .dashboard-wrapper, .board-wrapper, .prj-wrapper{
      border-radius: 20px;
