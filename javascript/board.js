@@ -120,6 +120,8 @@ auth.onAuthStateChanged(user => {
 
 //Shortcuts
 document.addEventListener('keydown', e => { //Home Shortcut
-     e.preventDefault();
-     location = "dashboard.html";
+     if(e.key.toLowerCase() == "h" && e.altKey){
+          e.preventDefault();
+          location = "dashboard.html";
+     }
 });
