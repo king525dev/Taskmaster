@@ -135,13 +135,14 @@ ul{
 }
 
 .full-nav-wrapper ul li{
-     margin: 7em 0;
+     margin: 3em 0;
 }
 .full-nav-wrapper ul li a{
+     font-family:  'Ubuntu','Nanum Gothic', sans-serif;
      color: none;
      text-decoration: none;
-     font-size: 3.5em;
-     font-weight: 500;
+     font-size: 2em;
+     font-weight: 100;
      padding: 0.7em 1em;
      color: #fff;
      position: relative;
@@ -205,6 +206,18 @@ header.sign{
      display: flex;
      justify-content: center;
      align-items: center;
+     flex-direction: column;
+}
+
+img.logo {
+     width: 5em;
+}
+
+p.logo-sign {
+     font-family: 'Ubuntu','Nanum Gothic', sans-serif;
+     font-size: 2em;
+     margin-top: 0.5em;
+     color: var(--white);
 }
 
 main.sign{
@@ -591,6 +604,11 @@ span.prj-status{
      grid-template-columns: repeat(auto-fit, 16em);
      grid-template-rows: repeat(min(2), 11em);
      justify-content: center;
+}
+
+.prj-board div.more-dash{
+     width: 95%;
+     height: 90%;
 }
 
 div.project-m{

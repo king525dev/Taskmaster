@@ -3,6 +3,7 @@
 =============================*/
 
 const styleLink = document.getElementById("pg-style");
+const signLogo = document.getElementById("logo");
 
 function themeReader(){
      const theme = localStorage.getItem("theme");
@@ -13,6 +14,7 @@ function themeReader(){
                break;
           case "dark":
                styleLink.setAttribute("href", "css/theme-dark.css");
+               signLogo.setAttribute("src", "resources/Taskmaster Brand Kit/Taskmaster-logo-dark.png");
                console.log("Theme: dark");
                break;
           case "minimalist-light":
@@ -21,6 +23,7 @@ function themeReader(){
                break;
           case "minimalist-dark":
                styleLink.setAttribute("href", "css/theme-min-dark.css");
+               signLogo.setAttribute("src", "resources/Taskmaster Brand Kit/Taskmaster-logo-dark.png");
                console.log("Theme: minimalist-dark");
                break;
           case "animated":

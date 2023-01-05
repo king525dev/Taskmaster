@@ -193,7 +193,7 @@ addNoteButton.addEventListener('click', () => {
           if(user){
                fs.collection(user.uid + "_notes").doc('nb_' + id).set({
                     id: 'nb_' + id,
-                    title: "New Note",
+                    title: "New Project",
                     note: "",
                     status: "Todo",
                     lastEdited: fullDate
@@ -285,7 +285,7 @@ document.addEventListener('keydown', e => { // Add Note Shortcut
                if(user){
                     fs.collection(user.uid + "_notes").doc('nb_' + id).set({
                          id: 'nb_' + id,
-                         title: "New Note",
+                         title: "New Project",
                          note: "",
                          status: "Todo",
                          lastEdited: fullDate

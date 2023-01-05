@@ -5,6 +5,18 @@
 const filter = document.getElementById('filter');
 const board = document.getElementById("board");
 
+//Date 
+const dater = new Date();
+const myDate = dater.getDate();
+const day = dater.toLocaleDateString('default', { weekday: 'long' });
+let hours = dater.getHours();
+let minute =  dater.getMinutes();
+if(hours < 10){hours = `0${hours}`}
+if(minute < 10){minute = `0${minute}`}
+
+fullDate = `${myDate} ${day} ${hours}:${minute}`;
+console.log(fullDate);
+
 //Shortening Content
 function contentShortening(str){
      let result = "";
@@ -84,6 +96,29 @@ function renderData(individualDoc){
                })
           }
      });
+}
+
+//Adding notes
+const date = new Date();
+const time = date.getTime();
+let counter = time;
+function addNote(){
+     let id = counter += 1;
+     auth.onAuthStateChanged(user => {
+          if(user){
+               fs.collection(user.uid + "_notes").doc('nb_' + id).set({
+                    id: 'nb_' + id,
+                    title: "New Project",
+                    note: "",
+                    status: "Todo",
+                    lastEdited: fullDate
+               }).then(() => {
+                    console.log('note added');
+               }).catch( err => {
+                    console.log(err.message);
+               })
+          }
+     })
 }
 
 //Filter Function
