@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "create-electron-app": "^6.0.4"
+  }
+}
