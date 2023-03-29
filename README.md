@@ -1,5 +1,5 @@
 
-![Logo]()
+![Logo](https://github.com/king525dev/Task-Master/blob/main/%20public/resources/Taskmaster%20Brand%20Kit/Taskmaster-banner.png)
 
 
 # Task-Master
@@ -110,6 +110,11 @@ It can be mainly be used to take notes or plan projects.
  **[@king525dev](https://github.com/king525dev)**
 
  For more information click [here](https://king525-portfolio.pages.dev/)
+ 
+## License
+
+- [MIT](https://choosealicense.com/licenses/mit/)
+- [ORE.A. License](https://github.com/king525dev/Task-Master/blob/main/extras/license.txt)
 
 ## Acknowledgements
 

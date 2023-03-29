@@ -1,64 +1,24 @@
-/*============================
-     Taskmaster STYLES
-=============================*/ 
+/*===============================
+     TASKMASTER DEFAULT STYLES
+================================*/ 
 
 /* --> GLOBAL STYLES <-- */
-:root{
-     --white: #fff;
-     --black: #000;
-     --colourmn1: #F5f5f5;
-     --colourmn2: #222222;
-     --colour1: #e0584f;
-     --colour2: #ffc62f;
-     --colour3: #e08a4f;
-     --colour4: #DF9500;
-     --colour5: #14aba2;
-     --colour6: #008080;
-     --colour7: #2effdc;
-     --colour8: #2efff5;
-}
 
-*{
+* {
      box-sizing: border-box;
      margin: 0;
      padding: 0;
 }
 
-body{
+body {
      font-family: 'Nanum Gothic', 'Ubuntu', sans-serif;
      font-size: 1em;
      padding: 3em;
      width: 100%;
      height: 100vh;
-     background-image: linear-gradient(
-          45deg, 
-          var(--colour1),
-          var(--colour3),
-          var(--colour4),
-          var(--colour2)
-     );
-     background-size: 500%;
-     animation: bg-anime 30s infinite;
-     color: var(--colourmn2);
      display: flex;
      justify-content: center;
      align-items: center;
-}
-
-.bg{
-     display: none;
-}
-
-@keyframes bg-anime{
-     0%{
-          background-position: left;
-     }
-     50%{
-          background-position: right;
-     }
-     100%{
-          background-position: left;
-     }
 }
 
 ul{
@@ -74,13 +34,8 @@ ul{
 }
 
 ::-webkit-scrollbar-thumb {
-     background: var(--colour6);
-     border-radius: 5px;
      margin: 2px 0;
-}
-
-::-webkit-scrollbar-thumb:hover {
-     background: var(--colour5);
+     border-radius: 5px;
 }
 
 .full-nav-wrapper{
@@ -89,7 +44,6 @@ ul{
      left: 0;
      height: 100%;
      width: 100%;
-     background: linear-gradient(-135deg, var(--colour6), var(--colour5));
      clip-path: circle(0px at calc(100% - 35px) 35px);
      transition: all 0.3s ease-in-out;
      z-index: 5;
@@ -110,15 +64,9 @@ ul{
      line-height: 50px;
      border-radius: 50%;
      font-size: 20px;
-     color: var(--white);
      cursor: pointer;
      background: transparent;
      transition: all 0.3s ease-in-out;
-}
-
-#active:checked ~ .menu-btn{
-     background: #fff;
-     color: var(--colour6);
 }
 
 #active:checked ~ .menu-btn i:before{
@@ -144,16 +92,10 @@ ul{
      font-size: 2em;
      font-weight: 100;
      padding: 0.7em 1em;
-     color: #fff;
      position: relative;
      line-height: 50px;
      transition: all 0.3s ease;
      border-radius: 50px;
-}
-
-.full-nav-wrapper ul li a:hover{
-     color: var(--colour6);
-     background-color: var(--white);
 }
 
 input[type="checkbox"]{
@@ -161,13 +103,12 @@ input[type="checkbox"]{
 }
 
 /* --> INTER-PAGE STYLES <-- */
+
 .sign-wrapper, .dashboard-wrapper, .board-wrapper, .prj-wrapper{
      border-radius: 20px;
 }
 
 .dashboard-wrapper, .board-wrapper, .notes-wrapper, .prj-wrapper{
-     background-color: rgba(255, 255, 255, 0.7);
-     color: var(--colourmn2);
      height: 100%;
      width: 100%;
 }
@@ -183,25 +124,17 @@ div.more-dash, div.project, div.project-m{
      overflow: hidden;
 }
 
-/* --> SIGN-UP AND SIGN-IN PAGE <-- */
 .sign-wrapper{
      width: 60%;
      height: 80%;
      margin: 3em;
      display: flex;
      flex-direction: row-reverse;
-     background-color: var(--white);
 }
 
 header.sign{
      width: 50%;
      height: 100%;
-     background: linear-gradient(
-          45deg,
-          var(--colour6),
-          var(--colour5),
-          var(--colour7)
-     ); 
      border-radius: 0 20px 20px 0;
      display: flex;
      justify-content: center;
@@ -217,7 +150,6 @@ p.logo-sign {
      font-family: 'Ubuntu','Nanum Gothic', sans-serif;
      font-size: 2em;
      margin-top: 0.5em;
-     color: var(--white);
 }
 
 main.sign{
@@ -265,14 +197,9 @@ form.sign{
 }
 
 .sign-input{
-     border: 1px solid #e6e6e6;
      border-bottom-width: 3px;
      transition: all 0.3s ease;
 }
-
-     input.sign-input:active, .sign-input:focus{
-          border-color: #cccccc;
-     }
 
 div.pass{
      display: flex;
@@ -284,31 +211,16 @@ div.pass i{
      position: absolute;
      right: 1em;
      z-index: 3;
-     color: #e6e6e6;
 }
 
      div.pass i.active::before{
-          color: #333;
           content: "\f070";
      }
 
 .sign-submit{
      margin: 1.1em 0;
-     background: var(--colour5);
-     color: var(--white);
      transition: all 0.3s ease;
 }
-
-     .sign-submit:hover{
-          background: linear-gradient(
-               45deg,
-               var(--colour1),
-               var(--colour3),
-               var(--colour2)
-          );
-          background-size: 300%;
-          animation: bg-anime 2.5s infinite;
-     }
 
 small.sign-link{
      margin-top: 0.1em;
@@ -316,15 +228,14 @@ small.sign-link{
 
 small.sign-link a{
      text-decoration: none;
-     color: var(--colour6);
 }
 
      small.sign-link a:hover{
           text-decoration: underline;
-          color: var(--colour5);
      }
 
 /* --> THE DASHBOARD <-- */
+
 .dashboard-wrapper{
      display: grid;
      gap: 1em;
@@ -333,10 +244,8 @@ small.sign-link a{
 }
 
 .quick-todos, header.dashboard, main.dashboard{
-     background-color: var(--white);
      border-radius: 10px;
      opacity: 80%;
-     box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
 }
 
 header.dashboard, main.dashboard{
@@ -348,20 +257,13 @@ main.dashboard, .quick-todos{
 }
 
 header.dashboard{
-     color: var(--colourmn1);
      display: flex;
      justify-content: space-between;
      flex-direction: column;
      font-family:  'Ubuntu','Nanum Gothic', sans-serif;
-     overflow-x: visible;
-     background-image: linear-gradient(
-          270deg, 
-          var(--colour6),
-          var(--colour5),
-          var(--colourmn1)
-     );
      background-size: 200%;
      background-position: right;
+     overflow-x: visible;
      padding: 1.5em;
      overflow: hidden;
 }
@@ -398,20 +300,15 @@ button.sign-out{
      font-size: 0.9em;
      padding: 0.8em;
      border-radius: 5px;
-     background-color: var(--colourmn1);
-     color: var(--colour6);
      align-self: center;
      margin-top: -4em;
      outline: none;
-     border: solid 1px var(--colour6);
      transition: all 0.3s;
 }
 
-button.sign-out:hover{
-     background-color: transparent;
-     color: var(--colourmn1);
-     border: solid 1px var(--colourmn1);
-}
+     button.sign-out:hover{
+          background-color: transparent;
+     }
 
 header.dashboard span.title{
      display: flex;
@@ -419,7 +316,6 @@ header.dashboard span.title{
      font-size: 3.3em;
      margin: 0.7em 0.7em 0 0;
 }
-
 header span.welcome{
      white-space: pre;
      display: flex;
@@ -449,9 +345,7 @@ form.todo-input{
 }
 
 form.todo-input *{
-     border: 1px solid var(--colour6);
      outline: none;
-     
 }
 
 input.todo-input{
@@ -464,13 +358,10 @@ input.todo-input{
 
 form.todo-input input[type="submit"]{
      width: 20%;
-     color: var(--white);
-     background-color: var(--colour6);
      border-radius: 0 5px 5px 0;
      font-size: 1.5em;
      text-align: center;
      cursor: pointer;
-
 }
 
 aside.quick-todos ul.todos{
@@ -482,7 +373,6 @@ li.todo-item{
      font-size: 0.9em;
      padding: 0.7em 1.7em;
      text-align: left;
-     border-bottom: 1px solid var(--colour5);
      transition: all 0.3s;
      cursor: pointer;
 }
@@ -496,20 +386,8 @@ li.todo-item{
           border-bottom: none
      }
 
-     li.todo-item:hover{
-          background-color: var(--colour6);
-          color: var(--white);
-     }
-
-     li.todo-item:active{
-          background-color: var(--colour8);
-          color: var(--white);
-     }
-
      li.todo-item.completed{
-          background-color: var(--colour6);
           text-decoration: line-through;
-          color: var(--colourmn1);
      }
 
 main.dashboard{
@@ -527,33 +405,13 @@ div.more-dash{
      align-items: center;
      font-size: 1.9em;
      font-weight: bold;
-     background: var(--colour6);
-     color: var(--colourmn1);
      transition: background 0.3s;
 }
-
-     div.more-dash:hover{
-          background: linear-gradient(
-               45deg, 
-               var(--colour6),
-               var(--colour5)
-          );
-     }
-
-     div.more-dash:active{
-          background: linear-gradient(
-               45deg, 
-               var(--colour1),
-               var(--colour4)
-          );
-     }
 
 div.project{
      display: flex;
      flex-direction: column;
      justify-content: space-between;
-     background-color: var(--colourmn1);
-     border: solid 1px var(--colour6);
      padding: 1em;
      overflow-y: scroll;
 }
@@ -561,15 +419,6 @@ div.project{
 div.project::-webkit-scrollbar{
      width: 0;
 }
-
-     div.project:hover{
-               transform: translateY(-0.7em) translateX(0.3em);
-               box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
-          }
-     
-     div.project:active{
-          border-color: var(--colour4);
-     }
 
 p.prj-title{
      font-size: 1.7em;
@@ -581,8 +430,6 @@ p.prj-title{
 span.prj-status{
      width: fit-content;
      font-size: 0.7em;
-     color: var(--white);
-     background-color: var(--colour6);
      border-radius: 5px;
      padding: 0.8em;
      display: flex;
@@ -590,6 +437,7 @@ span.prj-status{
 }
 
 /* --> THE BOARD <-- */
+
 .board-wrapper{
      display: flex;
      flex-direction: row;
@@ -614,8 +462,6 @@ span.prj-status{
 div.project-m{
      width: 15em;
      height: 10em;
-     background-color: var(--colourmn1);
-     border: solid 1px var(--colour6);
      padding: 1em;
      display: flex;
      flex-direction: column;
@@ -624,18 +470,9 @@ div.project-m{
      cursor: pointer;
 }
 
-     div.project-m::-webkit-scrollbar{
-          width: 0;
-     }
-
-     div.project-m:hover{
-          transform: translateY(-0.7em) translateX(0.3em);
-          box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
-     }
-
-     div.project-m:active{
-     border-color: var(--colour4);
-     }
+div.project-m::-webkit-scrollbar{
+     width: 0;
+}
 
 div.nav{
      position: relative;
@@ -658,7 +495,6 @@ div.nav-filter input{
      border-radius: 5px;
      font-size: 1em;
      outline: none;
-     border: 1px solid var(--colour6);
      height: 100%;
      width: 70%;
 }
@@ -674,30 +510,11 @@ div.nav-buttons .to-dashboard, div.nav-buttons .add-note{
      white-space: pre;
      border-radius: 5px;
      width: 15em;
-     color: var(--white);
-     background-color: var(--colour6);
      outline: none;
      border: none;
      font-size: 1em;
      transition: all 0.3s;
 }
-
-     div.nav-buttons .to-dashboard:hover, div.nav-buttons .add-note:hover{
-          font-weight: bold;
-          background: linear-gradient(
-                    45deg, 
-                    var(--colour6),
-                    var(--colour5)
-               );
-     }
-
-     div.nav-buttons .to-dashboard:active, div.nav-buttons .add-note:active{
-          background: linear-gradient(
-                    45deg, 
-                    var(--colour1),
-                    var(--colour4)
-               );
-     }
 
 div.nav-buttons .to-dashboard{
      margin-right: 1.3em;
@@ -712,11 +529,9 @@ body.notes{
 .notes-wrapper{
      display: flex;
      height: 100%;
-     background-color: var(--white);
 }
 
 .notes-sidebar{
-     background-color: var(--white);
      border-right: 2px solid #dddddd;
      flex-shrink: 0;
      overflow-y: auto;
@@ -732,9 +547,7 @@ div.buttons {
 }
 
 .notes-add, .notes-back{
-     background: var(--colour6);
      border: none;
-     color: var(--white);
      cursor: pointer;
      font-size: 1em;
      margin-bottom: 1em;
@@ -752,22 +565,11 @@ div.buttons {
 
 .notes-back{
      border-radius: 7px 0 0 7px;
-     border-right: 1px solid var(--white);
 }
-
-     .notes-add:hover, .notes-back:hover{
-          font-weight: bold;
-          background: linear-gradient(
-                    45deg, 
-                    var(--colour6),
-                    var(--colour5)
-               );
-     }
 
 .notes-list-item {
      padding: 1em 0.4em;
      cursor: pointer;
-     border-bottom: 1px solid var(--colour5);
      transition: all 0.3s;
 }
 
@@ -781,18 +583,7 @@ div.buttons {
 }
 
 .selected {
-     background: var(--colour6);
-     color: var(--white);
      font-weight: 500;
-}
-
-.selected .small-status{
-     color: var(--colour6);
-     background-color: var(--colourmn1);
-}
-
-.selected .notes-small-updated{
-     color: var(--colourmn1);
 }
 
 .notes-small-title,
@@ -818,8 +609,6 @@ div.buttons {
 .small-status{
      width: fit-content;
      font-size: 0.7em;
-     color: var(--white);
-     background-color: var(--colour6);
      border-radius: 5px;
      padding: 0.8em;
      margin: 0.5em;
@@ -856,8 +645,6 @@ div.foot-buttons button{
      padding: 0.5em 0.9em;
      margin: 0 1em;
      font-size: 1em;
-     background-color: var(--colour6);
-     color: var(--white);
      transition: all 0.3s;
      border: none;
      outline: none;
@@ -881,11 +668,8 @@ div.foot-buttons button{
      border-radius: 15px;
      box-shadow: 0 0 5px rgba(0,0,0,0.25);
      font-family: 'Ubuntu','Nanum Gothic', sans-serif;
-     background: var(--white);
-     color: var(--colour6);
      cursor: pointer;
      transition: background 0.1s;
-     border: 1px solid var(--colour6);
 }
 
 .radio-input{
@@ -896,15 +680,6 @@ div.foot-buttons button{
      padding: 8px 14px;
      font-size: 1em;
      transition: background 0.3s;
-}
-
-.radio-label:not(:last-of-type){
-     border-right: 1px solid var(--colour6);
-}
-
-.radio-input:checked + .radio-label{
-     background: var(--colour6);
-     color: var(--white);
 }
 
 .notes-preview, .notes-preview form{
@@ -935,9 +710,9 @@ div.foot-buttons button{
 }
 
 /* --> PROJECT PAGE <-- */
+
 .prj-wrapper{
      overflow-y: scroll;
-     background-color: var(--white);
 }
 
 body.project .prev-foot{
@@ -948,7 +723,7 @@ body.project .notes-body{
      height: 85%;
 }
 
-/* Tablet Version */
+/*  <--> Tablet Version <--> */
 @media (max-width: 900px) and (min-width: 500px){
      .sign-wrapper{
           width: 100%;
@@ -1014,7 +789,7 @@ body.project .notes-body{
      }
 }
 
-/* Phone Version */
+/* <--> Phone Version <--> */
 @media (max-width: 500px){
      ::-webkit-scrollbar {
           width: 4px;
@@ -1099,10 +874,8 @@ body.project .notes-body{
 
      div.nav-buttons .to-dashboard{
           border-radius: 10px 10px 0 0;
-          background-color: var(--colourmn1);
-          color: var(--colourmn2);
      }
-     
+
      div.nav-buttons .add-note{
           border-radius: 0 0 10px 10px ;
      }

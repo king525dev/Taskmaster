@@ -1,6 +1,6 @@
-/*============================
-     ANIMATED STYLES
-=============================*/ 
+/*===============================
+     TASKMASTER DEFAULT STYLES
+================================*/ 
 
 /* --> GLOBAL STYLES <-- */
 :root{
@@ -11,44 +11,39 @@
      --colour1: #e0584f;
      --colour2: #ffc62f;
      --colour3: #e08a4f;
-     --colour4: #008080;
+     --colour4: #DF9500;
      --colour5: #14aba2;
-     --colour6: #DF9500;
+     --colour6: #008080;
      --colour7: #2effdc;
      --colour8: #2efff5;
 }
 
 body{
+     background-image: linear-gradient(
+          45deg, 
+          var(--colour1),
+          var(--colour3),
+          var(--colour4),
+          var(--colour2)
+     );
+     background-size: 500%;
+     animation: bg-anime 30s infinite;
      color: var(--colourmn2);
 }
 
-.bg {
-     animation:slide 3s ease-in-out infinite alternate;
-     background-image: linear-gradient(-60deg, var(--colour6) 50%, var(--colour4) 50%);
-     bottom:0;
-     left:-50%;
-     opacity:.5;
-     position:fixed;
-     right:-50%;
-     top:0;
-     z-index:-1;
+.bg{
+     display: none;
 }
 
-.bg2 {
-     animation-direction:alternate-reverse;
-     animation-duration:4s;
-}
-
-.bg3 {
-animation-duration:5s;
-}
-
-@keyframes slide {
-     0% {
-          transform:translateX(-25%);
+@keyframes bg-anime{
+     0%{
+          background-position: left;
      }
-     100% {
-          transform:translateX(25%);
+     50%{
+          background-position: right;
+     }
+     100%{
+          background-position: left;
      }
 }
 

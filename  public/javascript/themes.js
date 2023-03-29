@@ -9,7 +9,7 @@ function themeReader(){
      const theme = localStorage.getItem("theme");
      switch(theme){
           case "default":
-               styleLink.setAttribute("href", "css/styles.css");
+               styleLink.setAttribute("href", "css/default-style.css");
                console.log("Theme: default");
                break;
           case "dark":
