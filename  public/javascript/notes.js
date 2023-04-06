@@ -25,6 +25,31 @@ function contentShortening(str){
      }
 }
 
+//Sort List
+function sortByDate(){
+     const list = notesList.querySelectorAll(".notes-list-item");
+
+     [...list].sort( (a, b) => {
+               const aRank = a.getAttribute("rank");
+               const bRank = b.getAttribute("rank");
+     
+               if(aRank > bRank){
+                    return -1;
+               }else{
+                    return 1;
+               }
+          }).map(sortedPrj => notesList.appendChild(sortedPrj)); 
+}
+
+function topList(item){
+     const list = [...notesList.children];
+     const itemIndex = list.indexOf(item);
+
+     list.splice(itemIndex, 1)
+     list.unshift(item);
+     list.map(listItem => notesList.appendChild(listItem));
+}
+
 //Getting Status
 function statusOutput(){
      const todoOption = document.getElementById("Todo");
@@ -84,6 +109,7 @@ function renderData(individualDoc){
      let parentDiv = document.createElement("div");
      parentDiv.className = "notes-list-item";
      parentDiv.setAttribute("data-id", individualDoc.id);
+     parentDiv.setAttribute("rank", individualDoc.data().listRank);
      parentDiv.id = "project-item";
 
      let noteTitle = document.createElement("div");
@@ -112,6 +138,8 @@ function renderData(individualDoc){
      parentDiv.appendChild(noteFooter);
      notesList.appendChild(parentDiv);
 
+     sortByDate();
+
      //Adding selecting event to click
      parentDiv.addEventListener('click', e => {
           const selNotes = document.getElementsByClassName("selected");
@@ -139,6 +167,7 @@ function renderData(individualDoc){
           updatedTitle = title.value;
           updatedNote = body.value; 
           updatedDate = fullDate;
+          updatedRank = new Date();
           updatedStatus = statusOutput();
           auth.onAuthStateChanged(user => {
                if(user) {
@@ -146,21 +175,26 @@ function renderData(individualDoc){
                          title: updatedTitle,
                          note: updatedNote,
                          status: updatedStatus,
-                         lastEdited: updatedDate
+                         lastEdited: updatedDate,
+                         listRank: updatedRank
                     }).then(() => {
                          selNote.children[0].textContent = updatedTitle;
                          selNote.children[1].textContent = contentShortening(updatedNote);
                          selNote.children[2].children[0].textContent = updatedStatus;
                          selNote.children[2].children[1].textContent = updatedDate;
+                         selNote.setAttribute("rank", updatedRank);
                          console.log("note updated");
+                         topList(selNote);
                     });
                     
                }
           })
+          
      });
 
      //Delete Note
      deleteBtn.addEventListener("click", () => {
+          setTimeout( 2500, () => {deleteBtn.diabled = true})
           if(confirm("Are you sure you want to DELETE this Project")){
                const selNotes = document.getElementsByClassName("selected");
                const selNote = selNotes[0];
@@ -172,7 +206,9 @@ function renderData(individualDoc){
                               body.value = "";
                               todoOption.checked = false;
                               doneOption.checked = false;
-                              doingOption.checked = false;
+                              doingOption.checked = false;          
+                              sortByDate();
+                              deleteBtn.diabled = false;
                               console.log("note deleted");
                          });
                     }
@@ -196,8 +232,10 @@ addNoteButton.addEventListener('click', () => {
                     title: "New Project",
                     note: "",
                     status: "Todo",
-                    lastEdited: fullDate
+                    lastEdited: fullDate,
+                    listRank: date
                }).then(() => {
+                    sortByDate();
                     console.log('note added');
                }).catch( err => {
                     console.log(err.message);
@@ -228,29 +266,33 @@ document.addEventListener('keydown', e => { // Save Shortcut
      if(e.key.toLowerCase() == "s" && e.altKey){
           e.preventDefault();
           const selNotes = document.getElementsByClassName("selected");
-     const selNote = selNotes[0];
-     let id = selNote.getAttribute('data-id');
-     updatedTitle = title.value;
-     updatedNote = body.value; 
-     updatedDate = fullDate;
-     updatedStatus = statusOutput();
-     auth.onAuthStateChanged(user => {
-          if(user) {
-               fs.collection(user.uid + "_notes").doc(id).update({
-                    title: updatedTitle,
-                    note: updatedNote,
-                    status: updatedStatus,
-                    lastEdited: updatedDate
-               }).then(() => {
-                    selNote.children[0].textContent = updatedTitle;
-                    selNote.children[1].textContent = contentShortening(updatedNote);
-                    selNote.children[2].children[0].textContent = updatedStatus;
-                    selNote.children[2].children[1].textContent = updatedDate;
-                    console.log("note updated");
-               });
-               
-          }
-     })
+          const selNote = selNotes[0];
+          let id = selNote.getAttribute('data-id');
+          updatedTitle = title.value;
+          updatedNote = body.value; 
+          updatedDate = fullDate;
+          updatedRank = new Date();
+          updatedStatus = statusOutput();
+          auth.onAuthStateChanged(user => {
+               if(user) {
+                    fs.collection(user.uid + "_notes").doc(id).update({
+                         title: updatedTitle,
+                         note: updatedNote,
+                         status: updatedStatus,
+                         lastEdited: updatedDate,
+                         listRank: updatedRank
+                    }).then(() => {
+                         selNote.children[0].textContent = updatedTitle;
+                         selNote.children[1].textContent = contentShortening(updatedNote);
+                         selNote.children[2].children[0].textContent = updatedStatus;
+                         selNote.children[2].children[1].textContent = updatedDate;
+                         selNote.setAttribute("rank", updatedRank);
+                         console.log("note updated");
+                         topList(selNote);
+                    });
+                    
+               }
+          });
      }
 });
 
@@ -270,6 +312,7 @@ document.addEventListener('keydown', e => { //Delete Shortcut
                               doneOption.checked = false;
                               doingOption.checked = false;
                               console.log("note deleted");
+                              sortByDate();
                          });
                     }
                })
@@ -288,9 +331,11 @@ document.addEventListener('keydown', e => { // Add Note Shortcut
                          title: "New Project",
                          note: "",
                          status: "Todo",
-                         lastEdited: fullDate
+                         lastEdited: fullDate,
+                         listRank: dater
                     }).then(() => {
                          console.log('note added');
+                         sortByDate();
                     }).catch( err => {
                          console.log(err.message);
                     })

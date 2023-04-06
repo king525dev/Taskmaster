@@ -1,4 +1,5 @@
 const board = document.getElementById("main-dashboard");
+let boardList = [];
 
 //Shortening Content
 function contentShortening(str){
@@ -13,6 +14,20 @@ function contentShortening(str){
           result = str;
           return result;
      }
+}
+
+//Sort List
+function sortByDate(list){
+     return list.sort( (a, b) => {
+               const aRank = a.getAttribute("rank");
+               const bRank = b.getAttribute("rank");
+
+               if(aRank > bRank){
+                    return -1;
+               }else{
+                    return 1;
+               }
+          }) 
 }
 
 //Getting Status
@@ -33,43 +48,56 @@ function checkingStatus(status){
 
 //Retrieving note list
 function actData(individualDoc){
-     if(board.children.length < 6){
-          let parentDiv = document.createElement("div");
-          parentDiv.className = "project";
-          parentDiv.setAttribute("data-id", individualDoc.id);
+     let parentDiv = document.createElement("div");
+     parentDiv.className = "project";
+     parentDiv.setAttribute("rank", individualDoc.data().listRank);
+     parentDiv.setAttribute("data-id", individualDoc.id);
 
-          let prjTitle = document.createElement("p");
-          prjTitle.className = "prj-title";
-          prjTitle.textContent = contentShortening(individualDoc.data().title);
+     let prjTitle = document.createElement("p");
+     prjTitle.className = "prj-title";
+     prjTitle.textContent = contentShortening(individualDoc.data().title);
 
-          let prjStatus = document.createElement("span");
-          prjStatus.className = "prj-status";
-          prjStatus.textContent = individualDoc.data().status;
-          
-          parentDiv.appendChild(prjTitle);
-          parentDiv.appendChild(prjStatus);
-          board.appendChild(parentDiv);
+     let prjStatus = document.createElement("span");
+     prjStatus.className = "prj-status";
+     prjStatus.textContent = individualDoc.data().status;
 
-          //Adding onclick event
+     parentDiv.appendChild(prjTitle);
+     parentDiv.appendChild(prjStatus);
+     boardList.push(parentDiv);
+     
+
+     //Adding onclick event
      parentDiv.addEventListener('click', () => {
-          localStorage.setItem("clickID", individualDoc.id)
+          localStorage.setItem("clickID", individualDoc.id);
           location = "project.html";
      });
 
-          //Delete Note
-          parentDiv.addEventListener("contextmenu", (e) => {
-               e.preventDefault();
-               if(confirm("Are you sure you want to DELETE this Project")){
-                    let id = e.target.getAttribute('data-id');
-                    auth.onAuthStateChanged(user => {
-                         if(user) {
-                              fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
-                                   console.log("project deleted");
-                              });
-                         }
-                    })
-               }
-          });
+     //Delete Note
+     parentDiv.addEventListener("contextmenu", (e) => {
+          e.preventDefault();
+          if(confirm("Are you sure you want to DELETE this Project")){
+               let id = e.target.getAttribute('data-id');
+               auth.onAuthStateChanged(user => {
+                    if(user) {
+                         fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                              console.log("project deleted");
+                         });
+                    }
+               })
+          }
+     });
+
+
+     //Append Sorted Projects
+     sortByDate(boardList).map((sortedPrj) => {
+          board.appendChild(sortedPrj)
+     });
+     if(board.children.length > 4){
+          let length = board.children.length;
+          let lastElement = board.children[length--];
+          while(length > 4){
+               board.removeChild(lastElement);
+          }
      }
 }
 
@@ -88,4 +116,4 @@ auth.onAuthStateChanged(user => {
                     })
           })
      }
-})
+});

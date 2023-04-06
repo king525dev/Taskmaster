@@ -17,6 +17,22 @@ if(minute < 10){minute = `0${minute}`}
 fullDate = `${myDate} ${day} ${hours}:${minute}`;
 console.log(fullDate);
 
+//Sort Board
+function sortByDate(){
+     const list = board.querySelectorAll(".project-m");
+
+     [...list].sort( (a, b) => {
+               const aRank = a.getAttribute("rank");
+               const bRank = b.getAttribute("rank");
+     
+               if(aRank > bRank){
+                    return -1;
+               }else{
+                    return 1;
+               }
+          }).map(sortedPrj => board.appendChild(sortedPrj)); 
+}
+
 //Shortening Content
 function contentShortening(str){
      let result = "";
@@ -62,6 +78,7 @@ auth.onAuthStateChanged(user => {
 function renderData(individualDoc){
      let parentDiv = document.createElement("div");
      parentDiv.className = "project-m";
+     parentDiv.setAttribute("rank", individualDoc.data().listRank);
      parentDiv.setAttribute("data-id", individualDoc.id);
 
      let prjTitle = document.createElement("p");
@@ -75,6 +92,8 @@ function renderData(individualDoc){
      parentDiv.appendChild(prjTitle);
      parentDiv.appendChild(prjStatus);
      board.appendChild(parentDiv);
+
+     sortByDate();
 
      //Adding onclick event
      parentDiv.addEventListener('click', () => {
@@ -111,7 +130,8 @@ function addNote(){
                     title: "New Project",
                     note: "",
                     status: "Todo",
-                    lastEdited: fullDate
+                    lastEdited: fullDate,
+                    listRank: date
                }).then(() => {
                     console.log('note added');
                }).catch( err => {

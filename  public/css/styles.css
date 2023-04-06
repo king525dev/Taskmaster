@@ -104,7 +104,7 @@ input[type="checkbox"]{
 
 /* --> INTER-PAGE STYLES <-- */
 
-.sign-wrapper, .dashboard-wrapper, .board-wrapper, .prj-wrapper{
+.sign-wrapper, .dashboard-wrapper{
      border-radius: 20px;
 }
 
@@ -123,6 +123,16 @@ div.more-dash, div.project, div.project-m{
      transition: all 0.3s;
      overflow: hidden;
 }
+
+.notes-wrapper, .board-wrapper, .prj-wrapper{
+     height: 100%;
+}
+
+body.notes, body.project, body.board{
+     padding: 0 3em;
+}
+
+/* --> SIGN-UP AND SIGN-IN PAGE <-- */
 
 .sign-wrapper{
      width: 60%;
@@ -406,6 +416,7 @@ div.more-dash{
      font-size: 1.9em;
      font-weight: bold;
      transition: background 0.3s;
+     cursor: pointer;
 }
 
 div.project{
@@ -414,6 +425,7 @@ div.project{
      justify-content: space-between;
      padding: 1em;
      overflow-y: scroll;
+     cursor: pointer;
 }
 
 div.project::-webkit-scrollbar{
@@ -522,13 +534,8 @@ div.nav-buttons .to-dashboard{
 
 /* --> NOTES PAGE <-- */
 
-body.notes{
-     padding: 0 3em;
-}
-
 .notes-wrapper{
      display: flex;
-     height: 100%;
 }
 
 .notes-sidebar{
@@ -650,6 +657,7 @@ div.foot-buttons button{
      outline: none;
      font-weight: 100;
      font-family: 'Nanum Gothic', 'Ubuntu', sans-serif;
+     cursor: pointer;
 }
 
      div.prev-foot button.delete:hover{
@@ -680,6 +688,7 @@ div.foot-buttons button{
      padding: 8px 14px;
      font-size: 1em;
      transition: background 0.3s;
+     cursor: pointer;
 }
 
 .notes-preview, .notes-preview form{
@@ -736,7 +745,12 @@ body.project .notes-body{
 
      header.dashboard{
           padding: 1em;
+          overflow: scroll;
      }
+
+          header.dashboard::-webkit-scrollbar{
+               width: 0px;
+          }
 
      .quick-todos, main.dashboard{
           padding: 0.1em;
@@ -836,6 +850,15 @@ body.project .notes-body{
      header.dashboard span.title{
           margin: 0;
      }
+
+     header.dashboard{
+          min-height: 10em;
+          overflow: scroll;
+     }
+
+          header.dashboard::-webkit-scrollbar{
+               width: 0px;
+          }
 
      main.dashboard{
           padding: 0.7em;
