@@ -7,6 +7,7 @@ const projectBody = document.getElementById("prj-body");
 const pageID = localStorage.getItem("clickID");
 const deleteBtn = document.getElementById("delete-btn");
 const saveBtn = document.getElementById("save-btn");
+const downloadBtn = document.getElementById("download-btn");
 
 //Date 
 const dater = new Date();
@@ -108,10 +109,22 @@ function renderData(individualDoc){
                          });
                     }
                })
+               location = "board.html";
           }
      });
      }
 }
+
+//Download Note
+downloadBtn.addEventListener("click", () => {
+     const file = new File([`--${projectTitle.value}--\n${projectBody.value}\n\nStatus: ${statusOutput()}\nLast-Online: ${fullDate}`], `${projectTitle.value}.txt`, {type: 'text/plain',})
+
+     const url = URL.createObjectURL(file);
+     const link = document.createElement('a');
+     link.download = file.name;
+     link.href = url;
+     link.click();
+});
 
 //Real time Event Listeners
 auth.onAuthStateChanged(user => {

@@ -6,6 +6,7 @@ const title = document.getElementById("notes-title");
 const body = document.getElementById("notes-body");
 const deleteBtn = document.getElementById("delete-btn");
 const saveBtn = document.getElementById("save-btn");
+const downloadBtn = document.getElementById("download-btn");
 let notesList = document.getElementById("notes-list");
 const todoOption = document.getElementById("Todo");
 const doingOption = document.getElementById("Doing");
@@ -191,31 +192,42 @@ function renderData(individualDoc){
           })
           
      });
-
-     //Delete Note
-     deleteBtn.addEventListener("click", () => {
-          setTimeout( 2500, () => {deleteBtn.diabled = true})
-          if(confirm("Are you sure you want to DELETE this Project")){
-               const selNotes = document.getElementsByClassName("selected");
-               const selNote = selNotes[0];
-               let id = selNote.getAttribute('data-id');
-               auth.onAuthStateChanged(user => {
-                    if(user) {
-                         fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
-                              title.value = "";
-                              body.value = "";
-                              todoOption.checked = false;
-                              doneOption.checked = false;
-                              doingOption.checked = false;          
-                              sortByDate();
-                              deleteBtn.diabled = false;
-                              console.log("note deleted");
-                         });
-                    }
-               })
-          }
-     });
 }
+
+//Delete Note
+deleteBtn.addEventListener("click", () => {
+     if(confirm("Are you sure you want to DELETE this Project")){
+          const selNotes = document.getElementsByClassName("selected");
+          const selNote = selNotes[0];
+          let id = selNote.getAttribute('data-id');
+          auth.onAuthStateChanged(user => {
+               if(user) {
+                    fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                         title.value = "";
+                         body.value = "";
+                         todoOption.checked = false;
+                         doneOption.checked = false;
+                         doingOption.checked = false;          
+                         sortByDate();
+                         deleteBtn.diabled = false;
+                         console.log("note deleted");
+                    });
+               }
+          })
+          deleteBtn.removeEventListener("click")
+     }
+});
+
+//Download Note
+downloadBtn.addEventListener("click", () => {
+     const file = new File([`--${title.value}--\n${body.value}\n\nStatus: ${statusOutput()}\nLast-Online: ${fullDate}`], `${title.value}.txt`, {type: 'text/plain',})
+
+     const url = URL.createObjectURL(file);
+     const link = document.createElement('a');
+     link.download = file.name;
+     link.href = url;
+     link.click();
+});
 
 //Adding notes
 const form = document.getElementById("note-preview");

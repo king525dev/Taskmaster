@@ -346,6 +346,10 @@ div.foot-buttons button{
      color: var(--white);
 }
 
+div.foot-buttons i{
+     color: var(--colour6);
+}
+
      div.prev-foot button.delete:hover{
           color: #721c24;
           background: #f8d7da;

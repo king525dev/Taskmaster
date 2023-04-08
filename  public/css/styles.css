@@ -644,13 +644,27 @@ div.prev-foot{
 
 div.foot-buttons{
      align-self: flex-end;
-     display: inline-block;
+     display: flex;
+     align-items: center;
+     /* display: inline-block; */
 }
+
+div.foot-buttons i{
+     margin: 0 0.5em;
+     font-size: 2em;
+     cursor: pointer;
+     transition: all 0.3s ease;
+}
+
+     div.foot-buttons i:hover{
+          transform: scale(1.2);
+          z-index: 2;
+     }
 
 div.foot-buttons button{
      border-radius: 7px;
      padding: 0.5em 0.9em;
-     margin: 0 1em;
+     margin: 0 0.7em;
      font-size: 1em;
      transition: all 0.3s;
      border: none;
@@ -801,6 +815,10 @@ body.project .notes-body{
           justify-content: center;
           width: 100%;
      }
+
+     div.prev-foot *{
+          transform: scale(0.95);
+     }
 }
 
 /* <--> Phone Version <--> */
@@ -905,6 +923,10 @@ body.project .notes-body{
 
      div.nav-filter{
           display: none;
+     }
+
+     div.prev-foot *{
+          transform: scale(0.85);
      }
 
      body.notes{
