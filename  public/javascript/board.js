@@ -69,8 +69,17 @@ auth.onAuthStateChanged(user => {
           console.log("User is signed in to Taskmaster");
      }else{
           console.log("User is not signed in to Taskmaster")
-          alert("Your login session has expired or you have logged out, login again to continue");
-          location = "login.html";
+          Alert.open({
+               title: "No User Detected",
+               message: "Your login session has expired or you have logged out, login again to continue",
+               okText: "OK",
+               onok: function () {
+                    location = "login.html";
+               },
+               oncancel: function () {
+                    location = "login.html";
+               }
+          });
      }
 });
 
@@ -104,16 +113,24 @@ function renderData(individualDoc){
      //Delete Note
      parentDiv.addEventListener("contextmenu", (e) => {
           e.preventDefault();
-          if(confirm("Are you sure you want to DELETE this Project")){
-               let id = e.target.getAttribute('data-id');
-               auth.onAuthStateChanged(user => {
-                    if(user) {
-                         fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
-                              console.log("project deleted");
-                         });
-                    }
-               })
-          }
+          Confirm.open({
+               title: "Delete Project",
+               message: "Are you sure you want to permanemtly delete this Project?",
+               okText: "OK",
+               cancelText: "Cancel",
+               preffered: false,
+               onok: function() {
+                    let id = e.target.getAttribute('data-id');
+                    auth.onAuthStateChanged(user => {
+                         if(user) {
+                              fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                                   console.log("project deleted");
+                              });
+                         }
+                    })
+               },
+               oncancel: function() {}
+          });
      });
 }
 

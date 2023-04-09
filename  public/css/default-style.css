@@ -77,6 +77,43 @@ body{
      background-color: var(--white);
 }
 
+.confirm{
+     background: rgba(0, 0, 0, 0.6);
+}
+
+.confirm-window{
+     background: var(--white);
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.confirm-titlebar {
+     background: var(--colour6);
+     color: var(--white);
+}
+
+.confirm-close{
+     color: var(--white);
+}
+
+.confirm-buttons{
+     background: var(--colourmn1);
+}
+
+.confirm-button{
+     border-color: var(--colour6);
+     background: var(--white);
+     color: var(--colour6);
+}
+
+.preffered {
+     background: var(--colour6);
+     color: var(--white);
+}
+
+.confirm-button:focus {
+     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
 /* --> INTER-PAGE STYLES <-- */
 
 .dashboard-wrapper, .board-wrapper, .notes-wrapper, .prj-wrapper{

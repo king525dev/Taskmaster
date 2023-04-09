@@ -75,16 +75,23 @@ function actData(individualDoc){
      //Delete Note
      parentDiv.addEventListener("contextmenu", (e) => {
           e.preventDefault();
-          if(confirm("Are you sure you want to DELETE this Project")){
-               let id = e.target.getAttribute('data-id');
-               auth.onAuthStateChanged(user => {
+          Confirm.open({
+               title: "Delete Project",
+               message: "Are you sure you want to permanemtly delete this Project?",
+               okText: "OK",
+               cancelText: "Cancel",
+               preffered: false,
+               onok: function() {
+                    let id = e.target.getAttribute('data-id');
+                    auth.onAuthStateChanged(user => {
                     if(user) {
                          fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
                               console.log("project deleted");
                          });
                     }
                })
-          }
+               }
+          })
      });
 
 

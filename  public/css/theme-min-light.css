@@ -49,6 +49,39 @@ body{
      background-color: var(--white);
 }
 
+.confirm{
+     background: rgba(0, 0, 0, 0.6);
+}
+
+.confirm-window{
+     background: var(--white);
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.confirm-titlebar {
+     background: var(--colourmn2);
+     color: var(--white);
+}
+
+.confirm-close{
+     color: var(--white);
+}
+
+.confirm-button{
+     border-color: var(--colourmn2);
+     background: var(--white);
+     color: var(--colourmn2);
+}
+
+.preffered {
+     background: var(--colourmn2);
+     color: var(--white);
+}
+
+.confirm-button:focus {
+     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
 /* --> INTER-PAGE STYLES <-- */
 
 .dashboard-wrapper, .board-wrapper, .notes-wrapper, .prj-wrapper{

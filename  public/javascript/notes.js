@@ -100,8 +100,17 @@ auth.onAuthStateChanged(user => {
           console.log("User is signed in to Taskmaster");
      }else{
           console.log("User is not signed in to Taskmaster")
-          alert("Your login session has expired or you have logged out, login again to continue");
-          location = "login.html";
+          Alert.open({
+               title: "No User Detected",
+               message: "Your login session has expired or you have logged out, login again to continue",
+               okText: "OK",
+               onok: function () {
+                    location = "login.html";
+               },
+               oncancel: function () {
+                    location = "login.html";
+               }
+          });
      }
 });
 
@@ -196,26 +205,32 @@ function renderData(individualDoc){
 
 //Delete Note
 deleteBtn.addEventListener("click", () => {
-     if(confirm("Are you sure you want to DELETE this Project")){
-          const selNotes = document.getElementsByClassName("selected");
-          const selNote = selNotes[0];
-          let id = selNote.getAttribute('data-id');
-          auth.onAuthStateChanged(user => {
-               if(user) {
-                    fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
-                         title.value = "";
-                         body.value = "";
-                         todoOption.checked = false;
-                         doneOption.checked = false;
-                         doingOption.checked = false;          
-                         sortByDate();
-                         deleteBtn.diabled = false;
-                         console.log("note deleted");
-                    });
-               }
-          })
-          deleteBtn.removeEventListener("click")
-     }
+     Confirm.open({
+          title: "Delete Project",
+          message: "Are you sure you want to permanemtly delete this Project?",
+          okText: "OK",
+          cancelText: "Cancel",
+          preffered: false,
+          onok: function() {
+               const selNotes = document.getElementsByClassName("selected");
+               const selNote = selNotes[0];
+               let id = selNote.getAttribute('data-id');
+               auth.onAuthStateChanged(user => {
+                    if(user) {
+                         fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                              title.value = "";
+                              body.value = "";
+                              todoOption.checked = false;
+                              doneOption.checked = false;
+                              doingOption.checked = false;          
+                              sortByDate();
+                              deleteBtn.diabled = false;
+                              console.log("note deleted");
+                         });
+                    }
+               })
+          }
+     });
 });
 
 //Download Note
@@ -311,24 +326,32 @@ document.addEventListener('keydown', e => { // Save Shortcut
 document.addEventListener('keydown', e => { //Delete Shortcut
      if(e.key.toLowerCase() == "d" && e.altKey){
           e.preventDefault();
-          if(confirm("Are you sure you want to DELETE this Project")){
-               const selNotes = document.getElementsByClassName("selected");
-               const selNote = selNotes[0];
-               let id = selNote.getAttribute('data-id');
-               auth.onAuthStateChanged(user => {
-                    if(user) {
-                         fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
-                              title.value = "";
-                              body.value = "";
-                              todoOption.checked = false;
-                              doneOption.checked = false;
-                              doingOption.checked = false;
-                              console.log("note deleted");
-                              sortByDate();
-                         });
-                    }
-               })
-          }
+          Confirm.open({
+               title: "Delete Project",
+               message: "Are you sure you want to permanemtly delete this Project?",
+               okText: "OK",
+               cancelText: "Cancel",
+               preffered: false,
+               onok: function() {
+                    const selNotes = document.getElementsByClassName("selected");
+                    const selNote = selNotes[0];
+                    let id = selNote.getAttribute('data-id');
+                    auth.onAuthStateChanged(user => {
+                         if(user) {
+                              fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                                   title.value = "";
+                                   body.value = "";
+                                   todoOption.checked = false;
+                                   doneOption.checked = false;
+                                   doingOption.checked = false;          
+                                   sortByDate();
+                                   deleteBtn.diabled = false;
+                                   console.log("note deleted");
+                              });
+                         }
+                    })
+               }
+          });
      }
 });
 

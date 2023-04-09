@@ -79,9 +79,9 @@ It can be mainly be used to take notes or plan projects.
 
 ![App Screenshot](https://github.com/king525dev/Task-Master/blob/main/%20public/resources/screenshots/screenshot-2.jpeg)
 
-![App Screenshot](https://github.com/king525dev/Task-Master/blob/main/%20public/resources/screenshots/screenshot-3jpeg)
+![App Screenshot](https://github.com/king525dev/Task-Master/blob/main/%20public/resources/screenshots/screenshot-3.jpeg)
 
-![App Screenshot](https://github.com/king525dev/Task-Master/blob/main/%20public/resources/screenshots/screenshot-4.jpeg)
+![App Screenshot](https://github.com/king525dev/Task-Master/blob/main/%20public/resources/screenshots/screenshot-4.png)
 
 ## Tech Stack
 

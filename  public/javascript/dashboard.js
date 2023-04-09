@@ -10,8 +10,14 @@ auth.onAuthStateChanged(user => {
           console.log("User is signed in to Taskmaster");
      }else{
           console.log("User is not signed in to Taskmaster")
-          alert("Your login session has expired or you have logged out, login again to continue");
-          location = "login.html";
+          Alert.open({
+               title: "No User Detected",
+               message: "Your login session has expired or you have logged out, login again to continue",
+               okText: "OK",
+               onok: function () {
+                    location = "login.html";
+               }
+          });
      }
 });
 
@@ -108,24 +114,31 @@ form.addEventListener('submit', e => {
 //Loging Out
 function logOut() {
      auth.signOut();
+     location = "login.html";
 }
 
 //Deleting Account
 function deleteAcc() {
      auth.onAuthStateChanged(user => {
           if(user){
-               if(confirm("Are you sure you want to DELETE your Account?")){
-                    fs.collection('users').doc(user.uid).delete()
+               Confirm.open({
+                    title: "Delete Project",
+                    message: "Are you sure you want to permanemtly delete your Account?",
+                    okText: "OK",
+                    cancelText: "Cancel",
+                    preffered: false,
+                    onok: function() {
+                         fs.collection('users').doc(user.uid).delete()
                          .then(() => {
                               const user = firebase.auth().currentUser;
-
                               user.delete().then(() => {
                                    console.log("user deleted");
                               }).catch((err) => {
                                    console.log(err.message);
                               });
                          })
-               }
+                    }
+               })
           }
      });
 }
