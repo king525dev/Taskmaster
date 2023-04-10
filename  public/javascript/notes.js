@@ -149,6 +149,7 @@ function renderData(individualDoc){
      notesList.appendChild(parentDiv);
 
      sortByDate();
+     notesList.children[0].click();
 
      //Adding selecting event to click
      parentDiv.addEventListener('click', e => {

@@ -144,4 +144,38 @@ const Alert = {
      }
 }
 
+const ForcedMessage = {
+     open(options) {
+          options = Object.assign({}, {
+               title: '',
+               message: ''
+          }, options);
+
+          const html = `
+               <div class="confirm">
+                    <div class="confirm-window">
+                         <div class="confirm-titlebar">
+                              <span class="confirm-title">${options.title}</span>
+                         </div>
+                         <div class="confirm-content">${options.message}</div>
+                    </div>
+               </div>
+          `;
+
+          const template = document.createElement('template');
+          template.innerHTML = html;
+
+          document.body.appendChild(template.content);
+     },
+
+     _close () {
+          const confirmEl = document.querySelector('.confirm');
+          confirmEl.classList.add('close');
+
+          confirmEl.addEventListener('animationend', () => {
+               document.body.removeChild(confirmEl);
+          });
+     }
+}
+
 //Credits: Dcode on YT
