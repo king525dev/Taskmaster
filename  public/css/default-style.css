@@ -268,7 +268,7 @@ div.project{
 
      div.project:hover{
                transform: translateY(-0.7em) translateX(0.3em);
-               box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
+               box-shadow: -0.7em 0.3em 15px 0px rgba(0,0,0,0.4);
           }
      
      div.project:active{
@@ -289,7 +289,8 @@ div.project-m{
 
      div.project-m:hover{
           transform: translateY(-0.7em) translateX(0.3em);
-          box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
+          box-shadow: -0.7em 0.3em 15px 0px rgba(0,0,0,0.4);
+          /* box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4); */
      }
 
      div.project-m:active{

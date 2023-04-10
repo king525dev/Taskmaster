@@ -183,7 +183,7 @@ ul{
      border-radius: 5px;
      font-weight: bold;
      font-size: 1.1em;
-     font-family: 'Noto Sans', sans-serif;
+     font-family: 'Nanum Gothic', 'Ubuntu', sans-serif;
      margin-left: 0.6em;
      cursor: pointer;
      outline: none;
@@ -566,6 +566,12 @@ span.prj-status{
      overflow-y: scroll;
 }
 
+.no-results{
+     font-size: 2em;
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
+     margin: auto;
+}
+
 .prj-board{
      width: 100%;
      display: grid;
@@ -852,6 +858,14 @@ body.project .prev-foot{
 
 body.project .notes-body{
      height: 85%;
+}
+
+/*  <--> Big Devices Version <--> */
+@media (min-width: 1300px){
+     .dashboard-wrapper{
+          aspect-ratio: 1165/593;
+     }
+
 }
 
 /*  <--> Tablet Version <--> */

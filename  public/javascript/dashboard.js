@@ -16,6 +16,9 @@ auth.onAuthStateChanged(user => {
                okText: "OK",
                onok: function () {
                     location = "login.html";
+               },
+               oncancel: function () {
+                    location = "login.html";
                }
           });
      }
@@ -148,7 +151,7 @@ let themeCount = 0;
 
 function themeSetter(){
 
-     if(themeCount < 4){
+     if(themeCount < 5){
           themeCount++;
      }else{
           themeCount = 0;
@@ -159,15 +162,18 @@ function themeSetter(){
                localStorage.setItem("theme", "default");
                break;
           case 1:
-               localStorage.setItem("theme", "dark");
+               localStorage.setItem("theme", "orange");
                break;
           case 2:
-               localStorage.setItem("theme", "minimalist-light");
+               localStorage.setItem("theme", "blue");
                break;
           case 3:
-               localStorage.setItem("theme", "minimalist-dark");
+               localStorage.setItem("theme", "minimalist-light");
                break;
           case 4:
+               localStorage.setItem("theme", "minimalist-dark");
+               break;
+          case 5:
                localStorage.setItem("theme", "animated");
                break;
           default:

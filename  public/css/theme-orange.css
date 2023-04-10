@@ -1,0 +1,413 @@
+/*============================
+     DARK THEME
+=============================*/ 
+
+/* --> GLOBAL STYLES <-- */
+:root{
+     --white: #fff;
+     --black: #000;
+     --colourmn1: #f2f2f2;
+     --colourmn2: #333;
+     --colour1: #f8b500;
+     --colour2: #ffbd08;
+     --colour3: #01d1c1;
+     --colour4: #01e4d1;
+}
+
+body{
+     background: var(--colourmn1);
+     color: var(--colourmn2);
+}
+
+.bg{
+     display: none;
+}
+
+::-webkit-scrollbar-thumb {
+     background: var(--colour1);
+}
+
+.full-nav-wrapper{
+     background: linear-gradient(-135deg, var(--colour1), var(--colour2));
+}
+
+.menu-btn{
+     color: var(--colourmn2);
+}
+
+#active:checked ~ .menu-btn{
+     background: var(--colourmn1);
+     color: var(--colour1);
+}
+
+.full-nav-wrapper ul li a{
+     color: var(--colourmn1);
+}
+
+.full-nav-wrapper ul li a:hover{
+     color: var(--colour1);
+     background-color: var(--colourmn1);
+}
+
+.confirm{
+     background: rgba(0, 0, 0, 0.6);
+}
+
+.confirm-window{
+     background: var(--colourmn1);
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.confirm-titlebar {
+     background: var(--colour1);
+     color: var(--colourmn1);
+}
+
+.confirm-close{
+     color: var(--colourmn1);
+}
+
+.confirm-buttons{
+     background: var(--colourmn1);
+}
+
+.confirm-button{
+     border-color: var(--colour1);
+     background: var(--colourmn1);
+     color: var(--colour1);
+}
+
+.preffered {
+     background: var(--colour1);
+     color: var(--colourmn1);
+}
+
+.confirm-button:focus {
+     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+/* --> INTER-PAGE STYLES <-- */
+
+.dashboard-wrapper, .board-wrapper, .notes-wrapper, .prj-wrapper{
+     color: var(--colourmn2);
+}
+
+/* --> SIGN-UP AND SIGN-IN PAGE <-- */
+.sign-wrapper{
+     background-color: var(--white);
+     box-shadow: -5px 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+header.sign{
+     background: linear-gradient(
+          45deg,
+          var(--colour1),
+          var(--colour2)
+     ); 
+}
+
+p.logo-sign {
+     color: var(--black);
+}
+
+.sign-input{
+     border: 1px solid #e6e6e6;
+}
+
+     input.sign-input:active, .sign-input:focus{
+          border-color: #cccccc;
+     }
+
+div.pass i{
+     color: #e6e6e6;
+}
+
+     div.pass i.active::before{
+          color: #333;
+     }
+
+.sign-submit{
+     background: var(--colour1);
+     color: var(--black);
+     border: 1px solid var(--colour1);
+}
+
+     .sign-submit:hover{
+          background-color: var(--white);
+          color: var(--colour1);
+          border: 1px solid var(--colour1);
+     }
+
+small.sign-link a{
+     color: var(--colour1);
+}
+
+     small.sign-link a:hover{
+          color: var(--colour5);
+     }
+
+/* --> THE DASHBOARD <-- */
+
+.quick-todos, header.dashboard, main.dashboard{
+     background-color: var(--colour1);
+}
+
+header.dashboard{
+     color: var(--colourmn2);
+     background: transparent;
+     border: 1px solid var(--colour1)
+}
+
+button.sign-out{
+     background-color: var(--colour1);
+     color: var(--colourmn2);
+     border: solid 1px var(--colour1);
+}
+
+     button.sign-out:hover{
+          color: var(--colourmn2);
+          border: solid 1px var(--colour1);
+     }
+
+form.todo-input *{
+     border: 1px solid var(--colourmn1);
+}
+
+input.todo-input{
+     background-color: var(--colourmn1);
+     color: var(--colourmn2);
+     border-right: none;
+}
+
+form.todo-input input[type="submit"]{
+     color: var(--colourmn1);
+     background-color: var(--colour1);
+}
+
+li.todo-item{
+     border-bottom: 1px solid var(--colourmn1);
+}
+
+     li.todo-item:hover{
+          background-color: var(--colourmn1);
+          color: var(--colour1);
+     }
+
+     li.todo-item.completed{
+          background-color: var(--colourmn1);
+          color: var(--colourmn2);
+     }
+
+div.more-dash{
+     transition: all 0.3s;
+     background: var(--colourmn1);
+     color: var(--colourmn2);
+}
+
+     div.more-dash:hover{
+          color: var(--colour1);
+     }
+
+     div.more-dash:active{
+          background: linear-gradient(
+               45deg, 
+               var(--colour1),
+               var(--colour2)
+          );
+          color: var(--colourmn1)
+     }
+
+div.project{
+     background-color: var(--colour1);
+     border: solid 1px var(--colourmn1);
+}
+
+     div.project:hover{
+               color: var(--white);
+          }
+
+     div.project:hover span.prj-status{
+          color: var(--colourmn1);
+          background-color: var(--colour1);
+          border: 1px solid var(--colourmn1);
+     }
+     
+     div.project:active{
+          border-color: var(--colour4);
+     }
+
+span.prj-status{
+     color: var(--colour1);
+     background-color: var(--colourmn1);
+     border: 1px solid var(--colourmn1);
+     transition: all 0.3s ease;
+}
+
+/* --> THE BOARD <-- */
+
+.board div.more-dash{
+     background-color: var(--colour1);
+     color: var(--colourmn2);
+}
+
+.board div.more-dash:hover{
+     color: var(--colourmn1);
+}
+
+div.project-m{
+     background-color: var(--colourmn1);
+     border: solid 1px var(--colour1);
+}
+
+div.project-m span.prj-status{
+     color: var(--colourmn1);
+     background-color: var(--colour1);
+     border: 1px solid var(--colour1)
+}
+
+     div.project-m:hover{
+          color: var(--colour1);
+     }
+
+     div.project-m:hover span.prj-status{
+          color: var(--colour1);
+          background-color: var(--colourmn1);
+          border: 1px solid var(--colour1)
+     }
+
+     div.project-m:active{
+     border-color: var(--colour2);
+     }
+
+div.nav-filter input{
+     border: 1px solid var(--colour1);
+     background-color: transparent;
+     color: var(--colourmn2);
+}
+
+div.nav-buttons .to-dashboard, div.nav-buttons .add-note{
+     color: var(--colourmn1);
+     background-color: var(--colour1);
+}
+
+     div.nav-buttons .to-dashboard:hover, div.nav-buttons .add-note:hover{
+          background-color: var(--colourmn1);
+          color: var(--colour1);
+          border: 1px solid var(--colour1);
+     }
+
+     div.nav-buttons .to-dashboard:active, div.nav-buttons .add-note:active{
+          background: linear-gradient(
+                    45deg, 
+                    var(--colour1),
+                    var(--colour2)
+               );
+          color: var(--colourmn1)
+     }
+
+/* --> NOTES PAGE <-- */
+
+.notes-wrapper{
+     background-color: var(--colourmn1);
+}
+
+.notes-sidebar{
+     background-color: var(--colourmn1);
+     border-right: 2px solid #dddddd;
+}
+
+.notes-add, .notes-back{
+     background: var(--colour1);
+     color: var(--colourmn1);
+}
+
+.notes-add{
+     border-radius: 0 7px 7px 0;
+}
+
+.notes-back{
+     border-radius: 7px 0 0 7px;
+     border-right: 1px solid var(--colourmn1);
+}
+
+     .notes-add:hover, .notes-back:hover{
+          background-color: var(--colourmn1);
+          color: var(--colour1);
+          border: 1px solid var(--colour1);
+     }
+
+.notes-list-item {
+     border-bottom: 1px solid var(--colour5);
+}
+
+.selected {
+     background: var(--colour1);
+     color: var(--colourmn1);
+}
+
+.selected .small-status{
+     color: var(--colour1);
+     background-color: var(--colourmn1);
+}
+
+.selected .notes-small-updated{
+     color: var(--colourmn1);
+}
+
+.small-status{
+     color: var(--colourmn1);
+     background-color: var(--colour1);
+}
+
+.notes-title,
+.notes-body {
+     background-color: var(--colourmn1);
+     color: var(--colourmn2)
+}
+
+div.foot-buttons button{
+     background-color: var(--colour1);
+     color: var(--colourmn1);
+}
+
+div.foot-buttons i{
+     color: var(--colour1);
+}
+
+     div.prev-foot button.delete:hover{
+          color: #721c24;
+          background: #f8d7da;
+     }
+
+     div.prev-foot button.save:hover{
+          color: #1c722a;
+          background: #d7f8db;
+     }
+
+.status-radio{
+     background: var(--colourmn1);
+     color: var(--colour1);
+     border: 1px solid var(--colour1);
+}
+
+.radio-label:not(:last-of-type){
+     border-right: 1px solid var(--colour1);
+}
+
+.radio-input:checked + .radio-label{
+     background: var(--colour1);
+     color: var(--colourmn1);
+}
+
+/* --> PROJECT PAGE <-- */
+.prj-wrapper{
+     background-color: var(--colourmn1);
+}
+
+/* <--> Phone Version <--> */
+@media (max-width: 500px){
+     div.nav-buttons .to-dashboard{
+          background-color: var(--colourmn1);
+          color: var(--colourmn2);
+     }
+}

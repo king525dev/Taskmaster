@@ -12,10 +12,14 @@ function themeReader(){
                styleLink.setAttribute("href", "css/default-style.css");
                console.log("Theme: default");
                break;
-          case "dark":
-               styleLink.setAttribute("href", "css/theme-dark.css");
+          case "orange":
+               styleLink.setAttribute("href", "css/theme-orange.css");
                signLogo.setAttribute("src", "resources/Taskmaster Brand Kit/Taskmaster-logo-dark.png");
-               console.log("Theme: dark");
+               console.log("Theme: orange");
+               break;
+          case "blue":
+               styleLink.setAttribute("href", "css/theme-blue.css");
+               console.log("Theme: blue");
                break;
           case "minimalist-light":
                styleLink.setAttribute("href", "css/theme-min-light.css");

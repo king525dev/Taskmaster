@@ -4,6 +4,7 @@
 
 const filter = document.getElementById('filter');
 const board = document.getElementById("board");
+const addNoteBtn = document.getElementById("more-dash");
 
 //Date 
 const dater = new Date();
@@ -159,19 +160,65 @@ function addNote(){
 }
 
 //Filter Function
-     filter.addEventListener('keyup', filterItems);
-     function filterItems(e){
-          const text = e.target.value.toLowerCase();
-          const items = document.getElementsByClassName("project-m");
-          Array.from(items).forEach(function(item){
-               const itemName = item.firstChild.textContent;
-               if(itemName.toLowerCase().indexOf(text) != -1){
-                    item.style.display = 'flex';
-               }else{
-                    item.style.display = 'none';
-               }
-          })
+filter.addEventListener('keyup', filterItems);
+function filterItems(e){
+     const text = e.target.value.toLowerCase();
+     const items = document.getElementsByClassName("project-m");
+
+     addNoteBtn.style.display = 'none';
+
+     Array.from(items).forEach(function(item){
+          const itemName = item.firstChild.textContent;
+          if(itemName.toLowerCase().indexOf(text) != -1){
+               item.style.display = 'flex';
+          }else{
+               item.style.display = 'none';
+          }
+     })
+
+     if(filter.value == "" || filter.value == null || filter.value == undefined){
+          addNoteBtn.style.display = 'flex';
      }
+     
+     function checkDisplay(){
+          let counter = 0;
+          [...board.children].forEach((element) => {
+               if(element.style.display == "none" && element !== document.getElementById("no-results")){
+                    counter++
+               }
+          });
+          return counter
+     }
+
+     function checkLength(){
+          let list1 = board.querySelectorAll("div.more-dash");
+          let list2 = board.querySelectorAll("div.project-m");
+
+          let list = [...list1].concat([...list2]);
+
+          return list.length
+     }
+
+     const noResults = document.createElement("span");
+     noResults.id = "result"
+     noResults.className = "no-results";
+     noResults.textContent = "No Results";
+
+     let displayLength = checkDisplay();
+     let boardLength = checkLength();
+
+     console.log(displayLength)
+     console.log(boardLength)
+
+     if(displayLength == boardLength && document.getElementById("result") == null){
+               board.appendChild(noResults);
+     }
+     
+     if(displayLength !== boardLength){
+          console.log("get fired")
+          board.removeChild(document.querySelector("#result"));
+     }
+}
 
 //Real time Event Listeners
 auth.onAuthStateChanged(user => {
