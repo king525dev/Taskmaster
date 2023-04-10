@@ -207,15 +207,11 @@ function filterItems(e){
      let displayLength = checkDisplay();
      let boardLength = checkLength();
 
-     console.log(displayLength)
-     console.log(boardLength)
-
      if(displayLength == boardLength && document.getElementById("result") == null){
                board.appendChild(noResults);
      }
      
      if(displayLength !== boardLength){
-          console.log("get fired")
           board.removeChild(document.querySelector("#result"));
      }
 }
