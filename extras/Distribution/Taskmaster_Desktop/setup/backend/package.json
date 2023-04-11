@@ -1,5 +1,32 @@
 {
   "dependencies": {
     "create-electron-app": "^6.0.4"
-  }
+  },
+  "name": "taskmaster",
+  "version": "1.1.0",
+  "description": "A project management software to plan everything from life's big projects to the simple things.",
+  "main": "index.js",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.1.1",
+    "electron": "^24.0.0"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/king525dev/Task-Master"
+  },
+  "keywords": [
+    "project",
+    "management",
+    "project",
+    "task",
+    "goals"
+  ],
+  "author": "king525dev",
+  "license": "ISC"
 }
