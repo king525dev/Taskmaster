@@ -22,13 +22,21 @@ signUpForm.addEventListener('submit', e => {
                Password: password
           }).then(() => {
                console.log('success');
-               location = "login.html";
+               auth.signInWithEmailAndPassword(email, password).then(() => {
+                    console.log("login invoked");
+                    location = "dashboard.html";
+               }).catch( err => {
+                    const signUpError = document.getElementById('error-txt');
+                    console.log(err.message);
+                    signUpError.style.display = 'block';
+                    signUpError.innerText = err.message;
+               })
+               // location = "login.html";
           }).catch(err => {
                const signUpError = document.getElementById('error-txt');
                console.log(err.message);
                signUpError.style.display = 'block';
                signUpError.innerText = err.message;
-               console.log(signUpError);
           })
      }).catch(err => {
           console.log(err.message);
