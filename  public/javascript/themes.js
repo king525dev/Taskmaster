@@ -35,7 +35,7 @@ function themeReader(){
                console.log("Theme: animated");
                break;
           default:
-               styleLink.setAttribute("href", "css/styles.css");
+               styleLink.setAttribute("href", "css/default-style.css");
                console.log("Theme: default");
                break;
      }

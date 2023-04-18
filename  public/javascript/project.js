@@ -2,12 +2,16 @@
      [  PROJECT  ].html
 =============================*/ 
 
+const board = document.querySelector(".prj-wrapper");
 const projectTitle = document.getElementById("prj-title");
 const projectBody = document.getElementById("prj-body");
 const pageID = localStorage.getItem("clickID");
 const deleteBtn = document.getElementById("delete-btn");
 const saveBtn = document.getElementById("save-btn");
 const downloadBtn = document.getElementById("download-btn");
+const todoOption = document.getElementById("Todo");
+const doingOption = document.getElementById("Doing");
+const doneOption = document.getElementById("Done");
 
 //Date 
 const dater = new Date();
@@ -121,10 +125,10 @@ function renderData(individualDoc){
                                         doneOption.checked = false;
                                         doingOption.checked = false;
                                         console.log("note deleted");
+                                        location = "board.html";
                                    });
                               }
                          })
-                         location = "board.html";
                     }
                });
           });
@@ -152,7 +156,6 @@ auth.onAuthStateChanged(user => {
                               renderData(change.doc);
                          }else if(change.type == 'removed'){
                               let di = board.querySelector('[data-id=' + change.doc.id + ']');
-                              board.removeChild(di);
                          }
                     })
           })
@@ -203,10 +206,10 @@ document.addEventListener('keydown', e => { //Delete Shortcut
                                    doneOption.checked = false;
                                    doingOption.checked = false;
                                    console.log("note deleted");
+                                   location = "board.html";
                               });
                          }
                     })
-                    location = "board.html";
                }
           });
      }

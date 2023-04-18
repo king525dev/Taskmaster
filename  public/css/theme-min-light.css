@@ -304,6 +304,12 @@ div.nav-buttons .to-dashboard, div.nav-buttons .add-note{
      background-color: var(--colourmn2);
 }
 
+.drag-drop{
+     color: #aaa;
+     border-color: #aaa;
+     background-color: #cccccccf;
+}
+
 div.foot-buttons button{
      background-color: var(--colourmn2);
      color: var(--white);
@@ -333,7 +339,6 @@ div.foot-buttons i{
 .prj-wrapper{
      background-color: var(--white);
 }
-
 
 /* <--> Phone Version <--> */
 @media (max-width: 500px){
