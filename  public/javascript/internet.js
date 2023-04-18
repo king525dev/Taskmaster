@@ -1,3 +1,7 @@
+/*============================
+     GLOBAL [ NETWORK STATUS ]
+=============================*/ 
+
 window.addEventListener('online', (e) => {
      // User is online
      if(document.querySelector('.confirm') !== null){

@@ -1,3 +1,7 @@
+/*============================
+     SERVICE-WORKER LINK
+=============================*/ 
+
 window.addEventListener('load', () => {
      registerSW();
 });

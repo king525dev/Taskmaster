@@ -105,6 +105,8 @@ p.logo-sign {
 
 .sign-input{
      border: 1px solid #e6e6e6;
+     background: var(--white);
+     color: var(--black);
 }
 
      input.sign-input:active, .sign-input:focus{

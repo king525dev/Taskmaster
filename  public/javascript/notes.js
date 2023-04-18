@@ -1,5 +1,5 @@
 /*============================
-     [  NOTES  ].html
+     [  NOTE  ].html
 =============================*/ 
 
 const title = document.getElementById("notes-title");

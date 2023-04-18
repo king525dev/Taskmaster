@@ -1,3 +1,7 @@
+/*============================
+     [  DASHBOARD  ].html
+=============================*/ 
+
 const board = document.getElementById("main-dashboard");
 let boardList = [];
 

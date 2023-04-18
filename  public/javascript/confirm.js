@@ -1,5 +1,5 @@
 /*============================
-     CONFIRM/ALERT UI
+     GLOBAL [ CONFIRM/ALERT UI ]
 =============================*/ 
 
 const Confirm = {

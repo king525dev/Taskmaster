@@ -211,6 +211,87 @@ input[type="checkbox"]{
      display: none;
 }
 
+noscript{
+     width: 100%;
+     height: 100%;
+     background: #ECEFF1; 
+     color: rgba(0,0,0,0.87); 
+     font-family: 'Nanum Gothic', 'Ubuntu', sans-serif; 
+     margin: 0; 
+     padding: 0; 
+     display: flex; 
+     align-items: center; 
+     flex-direction: column;
+}
+
+#noscript-message{ 
+     background: white; 
+     max-width: 360px; 
+     margin: 50px auto 16px; 
+     padding: 32px 24px 16px; 
+     border-radius: 3px; 
+}
+
+#noscript-message h3 { 
+     color: #888; 
+     font-weight: normal; 
+     font-size: 16px; 
+     margin: 16px 0 12px;
+}
+
+#noscript-message h2{ 
+     color: #ffa100; 
+     font-weight: bold; 
+     font-size: 16px; 
+     margin: 0 0 8px; 
+     font-size: 2em; 
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
+}
+
+#noscript-message h1{ 
+     font-size: 22px; 
+     font-weight: 300;
+     color: rgba(0,0,0,0.6); 
+     margin: 0 0 16px;
+}
+
+#noscript-message p{ 
+     line-height: 140%; 
+     margin: 16px 0 24px; 
+     font-size: 14px; 
+}
+
+#noscript-message a { 
+     display: block; 
+     text-align: center; 
+     background: #008080; 
+     text-transform: uppercase; 
+     text-decoration: none; 
+     color: white; 
+     padding: 16px; 
+     border-radius: 4px; 
+     margin-top: 5px; 
+}
+#noscript-message, #noscript-message a {
+     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); 
+}
+
+#load { 
+     color: rgba(0,0,0,0.4); 
+     text-align: center; 
+     font-size: 13px; 
+}
+
+.banner{
+     max-width: 80%; 
+     margin-top: 2em ;
+}
+
+@media (max-width: 600px) {
+     body, #message { margin-top: 0; background: white; box-shadow: none; }
+     body { border-top: 16px solid #ffa100; }
+}
+
 /* --> INTER-PAGE STYLES <-- */
 
 .sign-wrapper, .dashboard-wrapper{
@@ -814,6 +895,10 @@ div.foot-buttons button{
      div.prev-foot button.save:hover{
           color: #1c722a;
           background: #d7f8db;
+     }
+
+     div.foot-buttons button:active{
+          box-shadow: 0 0 5px rgba(0,0,0,0.25);
      }
 
 .status-radio{

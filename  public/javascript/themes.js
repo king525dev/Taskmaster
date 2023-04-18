@@ -1,5 +1,5 @@
 /*============================
-     GLOBAL  
+     GLOBAL [ THEMES ]
 =============================*/
 
 const styleLink = document.getElementById("pg-style");

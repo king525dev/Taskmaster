@@ -1,3 +1,7 @@
+/*============================
+     [  PROJECT  ].html
+=============================*/ 
+
 const dragDropArea = document.getElementById('drag-drop');
 const dropPad = document.getElementById('download-btn');
 const fileTypes = [
