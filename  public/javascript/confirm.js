@@ -178,4 +178,60 @@ const ForcedMessage = {
      }
 }
 
-//Credits: Dcode on YT
+const Toast = {
+
+     open(options){
+          options = Object.assign({}, {
+               type: "info",
+               message: "", 
+               timer: 5000
+          }, options);
+
+          const notifications = document.querySelector(".notifications")
+          if(notifications.children.length > 5){
+               removeChild(notifications.children[0]);
+          }
+
+          const toastDetails = {
+               success: {
+                    icon: 'fa-circle-check',
+                    text: 'Success: ',
+               },
+               error: {
+                    icon: 'fa-circle-xmark',
+                    text: 'Error: ',
+               },
+               warning: {
+                    icon: 'fa-triangle-exclamation',
+                    text: 'Warning: ',
+               },
+               info: {
+                    icon: 'fa-circle-info',
+                    text: 'Info: ',
+               }
+          }
+
+          const { icon, text } = toastDetails[options.type];
+
+          const toast = document.createElement("li");
+          toast.className = `toast ${options.type}`
+          toast.innerHTML = `
+               <div class="column">
+                    <i class="fa-solid ${icon}"></i>
+                    <span>${text}${options.message}</span>
+               </div>
+               <i class="fa-solid fa-xmark" onclick="Toast._close(this.parentElement)"></i>
+          `;
+          notifications.appendChild(toast);
+          
+          toast.timeoutId = setTimeout(() => this._close(toast, options.timer), options.timer);
+     },
+
+     _close(toast, timer){
+          toast.classList.add("hide");
+          if(toast.timeoutId) clearTimeout(timer);
+          setTimeout(() => toast.remove(), 500);
+     }
+}
+
+//Credits: Dcode on YT, CodingNepal on YT

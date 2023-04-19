@@ -100,6 +100,11 @@ function renderData(individualDoc){
                               lastEdited: updatedDate
                          }).then(() => {
                               console.log("note updated");
+                              Toast.open({
+                                   type: "success",
+                                   message: "Project Updated", 
+                                   timer: 5000
+                              });
                          });
                          
                     }
@@ -144,6 +149,11 @@ downloadBtn.addEventListener("click", () => {
      link.download = file.name;
      link.href = url;
      link.click();
+     Toast.open({
+          type: "success",
+          message: "Project Downloaded", 
+          timer: 5000
+     });
 });
 
 //Real time Event Listeners
@@ -166,52 +176,21 @@ auth.onAuthStateChanged(user => {
 document.addEventListener('keydown', e => { // Save Shortcut
      if(e.key.toLowerCase() == "s" && e.altKey){
           e.preventDefault();
-          updatedTitle = projectTitle.value;
-          updatedNote = projectBody.value; 
-          updatedDate = fullDate;
-          updatedStatus = statusOutput();
-          auth.onAuthStateChanged(user => {
-               if(user) {
-                    fs.collection(user.uid + "_notes").doc(pageID).update({
-                         title: updatedTitle,
-                         note: updatedNote,
-                         status: updatedStatus,
-                         lastEdited: updatedDate
-                    }).then(() => {
-                         console.log("note updated");
-                    });
-                    
-               }
-          })
+          saveBtn.click()
      }
 });
 
 document.addEventListener('keydown', e => { //Delete Shortcut
      if(e.key.toLowerCase() == "d" && e.altKey){
           e.preventDefault();
-          Confirm.open({
-               title: "Delete Project",
-               message: "Are you sure you want to permanemtly delete this Project?",
-               okText: "OK",
-               cancelText: "Cancel",
-               preffered: false,
-               onok: function() {
-                    let id = pageID;
-                    auth.onAuthStateChanged(user => {
-                         if(user) {
-                              fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
-                                   projectTitle.value = "";
-                                   projectBody.value = "";
-                                   todoOption.checked = false;
-                                   doneOption.checked = false;
-                                   doingOption.checked = false;
-                                   console.log("note deleted");
-                                   location = "board.html";
-                              });
-                         }
-                    })
-               }
-          });
+          deleteBtn.click();
+     }
+});
+
+document.addEventListener('keydown', e => { // Download Shortcut
+     if(e.key.toLowerCase() == "c" && e.altKey){
+          e.preventDefault();
+          downloadBtn.click()
      }
 });
 

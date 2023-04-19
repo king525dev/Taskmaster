@@ -117,6 +117,11 @@ form.addEventListener('submit', e => {
 //Loging Out
 function logOut() {
      auth.signOut();
+     Toast.open({
+          type: "info",
+          message: "User Logged Out", 
+          timer: 5000
+     });
      location = "login.html";
 }
 
@@ -135,6 +140,12 @@ function deleteAcc() {
                          .then(() => {
                               const user = firebase.auth().currentUser;
                               user.delete().then(() => {
+                                   Toast.open({
+                                        type: "warning",
+                                        message: "Account Deleted", 
+                                        timer: 5000
+                                   });
+                                   setTimeout(5000, () => {location = "login.html"});
                                    console.log("user deleted");
                               }).catch((err) => {
                                    console.log(err.message);

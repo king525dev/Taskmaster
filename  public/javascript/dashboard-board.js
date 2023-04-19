@@ -90,6 +90,11 @@ function actData(individualDoc){
                     auth.onAuthStateChanged(user => {
                     if(user) {
                          fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                              Toast.open({
+                                   type: "info",
+                                   message: "Project Deleted", 
+                                   timer: 5000
+                              });
                               console.log("project deleted");
                          });
                     }

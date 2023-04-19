@@ -125,6 +125,11 @@ function renderData(individualDoc){
                     auth.onAuthStateChanged(user => {
                          if(user) {
                               fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                                   Toast.open({
+                                        type: "info",
+                                        message: "Project Deleted", 
+                                        timer: 5000
+                                   });
                                    console.log("project deleted");
                               });
                          }
@@ -151,6 +156,11 @@ function addNote(){
                     lastEdited: fullDate,
                     listRank: date
                }).then(() => {
+                    Toast.open({
+                         type: "success",
+                         message: "Project Added", 
+                         timer: 5000
+                    });
                     console.log('note added');
                }).catch( err => {
                     console.log(err.message);

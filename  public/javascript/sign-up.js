@@ -23,6 +23,11 @@ signUpForm.addEventListener('submit', e => {
           }).then(() => {
                console.log('success');
                auth.signInWithEmailAndPassword(email, password).then(() => {
+                    Toast.open({
+                         type: "success",
+                         message: "Welcome", 
+                         timer: 5000
+                    });
                     console.log("login invoked");
                     location = "dashboard.html";
                }).catch( err => {
@@ -34,6 +39,11 @@ signUpForm.addEventListener('submit', e => {
                // location = "login.html";
           }).catch(err => {
                const signUpError = document.getElementById('error-txt');
+               Toast.open({
+                    type: "error",
+                    message: "Sign-in Failed", 
+                    timer: 5000
+               });
                console.log(err.message);
                signUpError.style.display = 'block';
                signUpError.innerText = err.message;

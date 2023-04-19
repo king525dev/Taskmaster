@@ -194,6 +194,11 @@ function renderData(individualDoc){
                          selNote.children[2].children[0].textContent = updatedStatus;
                          selNote.children[2].children[1].textContent = updatedDate;
                          selNote.setAttribute("rank", updatedRank);
+                         Toast.open({
+                              type: "success",
+                              message: "Project Updated", 
+                              timer: 5000
+                         });
                          console.log("note updated");
                          topList(selNote);
                     });
@@ -226,6 +231,11 @@ deleteBtn.addEventListener("click", () => {
                               doingOption.checked = false;          
                               sortByDate();
                               deleteBtn.diabled = false;
+                              Toast.open({
+                                   type: "info",
+                                   message: "Project Deleted", 
+                                   timer: 5000
+                              });
                               console.log("note deleted");
                          });
                     }
@@ -243,6 +253,11 @@ downloadBtn.addEventListener("click", () => {
      link.download = file.name;
      link.href = url;
      link.click();
+     Toast.open({
+          type: "success",
+          message: "Project Downloaded", 
+          timer: 5000
+     });
 });
 
 //Adding notes
@@ -264,9 +279,19 @@ addNoteButton.addEventListener('click', () => {
                     listRank: date
                }).then(() => {
                     sortByDate();
+                    Toast.open({
+                         type: "success",
+                         message: "Project Added", 
+                         timer: 5000
+                    });
                     console.log('note added');
                }).catch( err => {
                     console.log(err.message);
+                    Toast.open({
+                         type: "error",
+                         message: "Action Failed", 
+                         timer: 5000
+                    });
                })
           }
      })
@@ -293,90 +318,28 @@ auth.onAuthStateChanged(user => {
 document.addEventListener('keydown', e => { // Save Shortcut
      if(e.key.toLowerCase() == "s" && e.altKey){
           e.preventDefault();
-          const selNotes = document.getElementsByClassName("selected");
-          const selNote = selNotes[0];
-          let id = selNote.getAttribute('data-id');
-          updatedTitle = title.value;
-          updatedNote = body.value; 
-          updatedDate = fullDate;
-          updatedRank = new Date();
-          updatedStatus = statusOutput();
-          auth.onAuthStateChanged(user => {
-               if(user) {
-                    fs.collection(user.uid + "_notes").doc(id).update({
-                         title: updatedTitle,
-                         note: updatedNote,
-                         status: updatedStatus,
-                         lastEdited: updatedDate,
-                         listRank: updatedRank
-                    }).then(() => {
-                         selNote.children[0].textContent = updatedTitle;
-                         selNote.children[1].textContent = contentShortening(updatedNote);
-                         selNote.children[2].children[0].textContent = updatedStatus;
-                         selNote.children[2].children[1].textContent = updatedDate;
-                         selNote.setAttribute("rank", updatedRank);
-                         console.log("note updated");
-                         topList(selNote);
-                    });
-                    
-               }
-          });
+          saveBtn.click();
      }
 });
 
 document.addEventListener('keydown', e => { //Delete Shortcut
      if(e.key.toLowerCase() == "d" && e.altKey){
           e.preventDefault();
-          Confirm.open({
-               title: "Delete Project",
-               message: "Are you sure you want to permanemtly delete this Project?",
-               okText: "OK",
-               cancelText: "Cancel",
-               preffered: false,
-               onok: function() {
-                    const selNotes = document.getElementsByClassName("selected");
-                    const selNote = selNotes[0];
-                    let id = selNote.getAttribute('data-id');
-                    auth.onAuthStateChanged(user => {
-                         if(user) {
-                              fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
-                                   title.value = "";
-                                   body.value = "";
-                                   todoOption.checked = false;
-                                   doneOption.checked = false;
-                                   doingOption.checked = false;          
-                                   sortByDate();
-                                   deleteBtn.diabled = false;
-                                   console.log("note deleted");
-                              });
-                         }
-                    })
-               }
-          });
+          deleteBtn.click();
      }
 });
 
 document.addEventListener('keydown', e => { // Add Note Shortcut
      if(e.key.toLowerCase() == "a" && e.altKey){
           e.preventDefault();
-          let id = counter += 1;
-          auth.onAuthStateChanged(user => {
-               if(user){
-                    fs.collection(user.uid + "_notes").doc('nb_' + id).set({
-                         id: 'nb_' + id,
-                         title: "New Project",
-                         note: "",
-                         status: "Todo",
-                         lastEdited: fullDate,
-                         listRank: dater
-                    }).then(() => {
-                         console.log('note added');
-                         sortByDate();
-                    }).catch( err => {
-                         console.log(err.message);
-                    })
-               }
-          })
+          addNoteButton.click();
+     }
+});
+
+document.addEventListener('keydown', e => { // Download Shortcut
+     if(e.key.toLowerCase() == "c" && e.altKey){
+          e.preventDefault();
+          downloadBtn.click()
      }
 });
 

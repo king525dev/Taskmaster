@@ -33,8 +33,6 @@ function handleDragOver(event) {
 function handleDragLeave(event) {
      event.preventDefault();
      dragDropArea.style.display = 'none';
-     // dropPad.style.transform = 'scale(1)';
-     // dropPad.style.zIndex = '1';
 }
 
 function handleDrop(event) {
@@ -63,6 +61,11 @@ function handleDrop(event) {
                               listRank: date
                          }).then(() => {
                               sortByDate();
+                              Toast.open({
+                                   type: "success",
+                                   message: "Project Added", 
+                                   timer: 5000
+                              });
                               console.log('note added');
                               notesList.children[0].click();
                          }).catch( err => {

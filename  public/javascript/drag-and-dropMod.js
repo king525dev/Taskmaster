@@ -58,7 +58,12 @@ function handleDrop(event) {
                     preffered: false,
                     onok: function() {
                          projectTitle.value = file.name;
-                         projectBody.value = fileContents
+                         projectBody.value = fileContents;
+                         Toast.open({
+                              type: "success",
+                              message: "Project Modified", 
+                              timer: 5000
+                         });
                     }
                });
           }else{
