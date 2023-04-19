@@ -119,6 +119,11 @@ animation-duration:5s;
      box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
+.notifications .toast{
+     background-color: var(--colourmn1);
+     color: var(--black);
+}
+
 /* --> INTER-PAGE STYLES <-- */
 
 .dashboard-wrapper, .board-wrapper, .notes-wrapper, .prj-wrapper{
