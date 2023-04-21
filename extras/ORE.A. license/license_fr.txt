@@ -1,0 +1,47 @@
+Licence MIT
+                                                                                                         
+Copyright (c) 2023 Taskmaster
+                                                                                                         
+L'autorisation est accordée par la présente, gratuitement, à toute personne obtenant une copie de ce logiciel et
+fichiers de documentation associés (le "Logiciel"), pour utiliser, copier, modifier, fusionner, publier, distribuer,
+  sous-licencier et/ou vendre des copies du Logiciel, sous réserve des conditions suivantes :
+                                                                                                         
+  1. L'avis de droit d'auteur ci-dessus et cet avis d'autorisation doivent être inclus dans toutes les copies ou
+     parties du Logiciel.
+                                                                                                         
+  2. Le Logiciel ne peut être utilisé, copié, modifié, fusionné, publié, distribué, sous-licencié,
+     et/ou vendu si le propriétaire et "Oreoluwa Isaac AJIBADE" ont donné leur autorisation explicite de le faire.
+                                                                                                         
+  3. Autorisation d'utiliser, de copier, de modifier, de fusionner, de publier, de distribuer, de sous-licencier et/ou de vendre des copies du
+     Le logiciel est concédé tant que le propriétaire et "Oreoluwa Isaac AJIBADE" continuent de l'autoriser.
+                                                                                                         
+  4. Toute personne utilisant, copiant, modifiant, fusionnant, publiant, distribuant, sous-licenciant et/ou vendant
+     le Logiciel doit être conforme à toutes les lois, règles et réglementations applicables, y compris, mais sans s'y limiter
+     aux lois sur le droit d'auteur et à toute constitution ou traité international applicable.
+                                                                                                                    
+LE LOGICIEL EST FOURNI "TEL QUEL", SANS GARANTIE D'AUCUNE SORTE, EXPRESSE OU IMPLICITE, Y COMPRIS MAIS NON
+LIMITÉ AUX GARANTIES DE QUALITÉ MARCHANDE, D'ADÉQUATION À UN USAGE PARTICULIER ET D'ABSENCE DE CONTREFAÇON. EN NON
+LES AUTEURS OU LES DÉTENTEURS DU COPYRIGHT SERONT-ILS RESPONSABLES DE TOUTE RÉCLAMATION, DOMMAGE OU AUTRE RESPONSABILITÉ, QUE CE SOIT DANS
+UNE ACTION CONTRACTUELLE, DÉLICTUELLE OU AUTRE, RÉSULTANT DE, OU EN RELATION AVEC LE LOGICIEL OU LE
+UTILISATION OU AUTRES TRANSACTIONS DANS LE LOGICIEL.                                                                           
+                                                                                                                    
+   ~king525dev                                                             [https://github.com/king525dev]          
+                                                                                                                    
+___________________________________________________________________________________________________________
+                                                                                                                    
+     La licence MIT est une licence de logiciel libre permissive originaire du Massachusetts
+Institute of Technology (MIT) à la fin des années 1980. En tant que licence permissive, elle met
+seulement une restriction très limitée sur la réutilisation et a, par conséquent, une compatibilité de licence élevée.
+                                                                           
+      Contrairement aux licences de logiciels copyleft, la licence MIT permet également la réutilisation au sein de
+logiciel, à condition que toutes les copies du logiciel ou de ses parties substantielles incluent une
+une copie des conditions de la licence MIT ainsi qu'un avis de droit d'auteur. A partir de 2020, le
+La licence MIT était la licence logicielle la plus populaire trouvée dans une analyse, poursuivant
+d'après des rapports de 2015 selon lesquels la licence MIT était la licence logicielle la plus populaire sur GitHub.
+                                                                                                                                             |
+Plus d'informations sur--> [https://en.wikipedia.org/wiki/MIT_License] ;
+                                                                 
+      Les projets notables qui utilisent la licence MIT incluent le système X Window, Ruby on Rails, Nim,
+Node.js, Lua et jQuery. Les entreprises notables utilisant la licence MIT incluent Microsoft (.NET),
+Google (angulaire) et Meta (réagir).                                                                         
+                                                                                                                    

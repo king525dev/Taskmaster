@@ -1,0 +1,47 @@
+Iwe-aṣẹ MIT
+                                                                                                         
+Aṣẹ-lori-ara (c) 2023 Taskmaster
+                                                                                                         
+Gbigbanilaaye ni bayi, laisi idiyele, si eyikeyi eniyan ti o gba ẹda kan ti sọfitiwia yii ati
+awọn faili iwe ti o somọ (“Software”), lati lo, daakọ, yipada, dapọ, ṣe atẹjade, pin kaakiri,
+  sublicense, ati/tabi ta awọn ẹda ti Software, labẹ awọn ipo wọnyi:
+                                                                                                         
+  1. Akiyesi aṣẹ-lori loke ati akiyesi igbanilaaye yii yoo wa ninu gbogbo awọn ẹda tabi idaran
+     awọn ipin ti Software.
+                                                                                                         
+  2. Software le ṣee lo, daakọ, tunṣe, dapọ, atẹjade, pin kaakiri, ti ni iwe-aṣẹ,
+     ati/tabi ta ti olohun ati “Oreoluwa Isaac AJIBADE” ba ti fun ni laye lati se bee.
+                                                                                                         
+  3. Igbanilaaye lati lo, daakọ, yipada, dapọ, ṣe atẹjade, kaakiri, iwe-aṣẹ, ati/tabi ta awọn ẹda ti
+     Software ti wa ni funni niwọn igba ti oniwun ati "Oreoluwa Isaac AJIBADE" tẹsiwaju lati gba laaye.
+                                                                                                         
+  4. Ẹnikẹni ti o nlo, didakọ, iyipada, dapọ, titẹjade, pinpin, iwe-aṣẹ, ati/tabi tita
+     Software gbọdọ wa ni ibamu pẹlu gbogbo awọn ofin, awọn ofin ati ilana, pẹlu ṣugbọn kii ṣe opin
+     si awọn ofin aṣẹ-lori ati eyikeyi awọn ofin to wulo tabi awọn adehun kariaye.
+                                                                                                                    
+SOFTWARE WA NI “BI O SE WA”, LAISI ATILẸYIN ỌJA TI ORU KANKAN, KIAKIA TABI TIN, PẸLU SUGBON KO
+OPIN SI awọn ATILẸYIN ỌJA TI ỌJA, AGBARA FUN IDI PATAKI ATI aibikita. NI RỌRỌ
+Iṣẹlẹ YOO awọn onkọwe TABI awọn onimu ẹtọ ẹda ni oniduro fun eyikeyi ẹtọ, awọn ibajẹ tabi layabiliti miiran, boya ni
+IṢẸ TI AWỌN ỌMỌRỌ, TABI TABI BABAKỌ, TI O DIDE LATI, IJADE TABI NI Isopọ pẹlu Software TABI
+LILO TABI OMIRAN NINU SOFTWARE.                                      
+                                                                                                                    
+   ~king525dev                                                             [https://github.com/king525dev]          
+                                                                                                                    
+___________________________________________________________________________________________________________
+                                                                                                                    
+     Iwe-aṣẹ MIT jẹ iwe-aṣẹ sọfitiwia ọfẹ ti o bẹrẹ ni Massachusetts
+Institute of Technology (MIT) ni opin 1980. Gẹgẹbi iwe-aṣẹ igbanilaaye, o fi sii
+nikan gan lopin hihamọ lori ilotunlo ati ki o ni, nitorina, ga iwe-aṣẹ ibamu.
+                                                                           
+      Ko dabi awọn iwe-aṣẹ sọfitiwia aladakọ, Iwe-aṣẹ MIT tun ngbanilaaye atunlo laarin ohun-ini
+sọfitiwia, pese pe gbogbo awọn ẹda sọfitiwia naa tabi awọn ipin idaran rẹ pẹlu a
+ẹda ti awọn ofin ti Iwe-aṣẹ MIT ati akiyesi aṣẹ-lori paapaa. Ni ọdun 2020, awọn
+Iwe-aṣẹ MIT jẹ iwe-aṣẹ sọfitiwia olokiki julọ ti a rii ni itupalẹ kan, tẹsiwaju
+lati awọn ijabọ ni ọdun 2015 pe Iwe-aṣẹ MIT jẹ iwe-aṣẹ sọfitiwia olokiki julọ lori GitHub.
+                                                                                                                                             |
+Alaye diẹ sii lori--> [https://en.wikipedia.org/wiki/MIT_License];
+                                                                 
+      Awọn iṣẹ akanṣe akiyesi ti o lo Iwe-aṣẹ MIT pẹlu Eto Window X, Ruby on Rails, Nim,
+Node.js, Lua, ati jQuery. Awọn ile-iṣẹ olokiki ti o nlo Iwe-aṣẹ MIT pẹlu Microsoft (.NET),
+Google (Angular), ati Meta (React).                                                      
+                                                                                                                    

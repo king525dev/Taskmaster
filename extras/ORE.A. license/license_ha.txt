@@ -1,0 +1,47 @@
+Lasisi MIT
+                                                                                                         
+Haƙƙin mallaka (c) 2023 Mai kula da aikin
+                                                                                                         
+Ana ba da izini yanzu, kyauta, ga duk wanda ya sami kwafin wannan software kuma
+fayilolin da ke da alaƙa ("Software"), don amfani, kwafi, gyara, haɗa, bugawa, rarrabawa,
+  ikon mallaka, da/ko sayar da kwafin software, bisa ga sharuɗɗa masu zuwa:
+                                                                                                         
+  1. Sanarwar haƙƙin mallaka na sama da wannan sanarwar izini za a haɗa su cikin duk kwafi ko mahimmanci
+     sassan Software.
+                                                                                                         
+  2. Ana iya amfani da software kawai, kwafi, gyaggyarawa, haɗawa, buga, rarrabawa, ba da lasisi,
+     da/ko sayar idan mai shi da kuma "Oreoluwa Isaac AJIBADE" sun bayar da izinin yin hakan.
+                                                                                                         
+  3. Izinin amfani, kwafi, gyaggyarawa, haɗawa, bugawa, rarrabawa, lasisi, da/ko siyar da kwafin
+     Ana ba da software muddin mai shi da "Oreoluwa Isaac AJIBADE" sun ci gaba da ba da izini.
+                                                                                                         
+  4. Duk wani mutum mai amfani, kwafi, gyarawa, haɗawa, bugawa, rarrabawa, ba da izini, da/ko siyarwa
+     Software dole ne ya bi duk dokoki, ƙa'idodi, da ƙa'idodi, gami da amma ba'a iyakance su ba
+     zuwa dokokin haƙƙin mallaka da duk wani kundin tsarin mulki ko yarjejeniyoyin ƙasa da ƙasa.
+                                                                                                                    
+ANA BAYAR DA SOFTWARE "KAMAR YADDA", BA TARE DA WARRANTI KOWANE IRIN BA, BAYANI KO BAYANI, HADA AMMA BA'A
+IYAKA ZUWA GA GARANTIN SAUKI, KWANTAWA DON MUSAMMAN MANUFAR DA RASHIN TSINCI. A NO
+LABARIN MARUBUTA KO MASU HAQQIN KYAUTA ZA SU DOKA DOMIN DUK WANI LAFIYA, LALATA KO WANI ALHAKI, KO A CIKIN
+MATAKI NA KWANAKI, AZABA KO WANI BA, TASHIN, FITA KO A HADA DA SOFTWARE KO
+AMFANI KO SAURAN MA'AIKI A CIKIN SOFTWARE.       
+                                                                                                                    
+   ~king525dev                                                             [https://github.com/king525dev]          
+                                                                                                                    
+___________________________________________________________________________________________________________
+                                                                                                                    
+     Lasisin MIT lasisin software ne mai izini wanda ya samo asali daga Massachusetts
+Cibiyar Fasaha (MIT) a ƙarshen 1980s. A matsayin lasisin izini, yana sanyawa
+kawai iyakance iyaka akan sake amfani da shi kuma yana da, saboda haka, babban karfin karfin lasisi.
+                                                                           
+      Ba kamar lasisin software na haƙƙin mallaka ba, Lasisin MIT kuma yana ba da izinin sake amfani da shi a cikin mallakar mallaka
+software, muddin dai duk kwafin software ɗin ko manyan sassanta sun haɗa da a
+kwafin sharuɗɗan lasisin MIT da kuma sanarwar haƙƙin mallaka. Kamar yadda na 2020, da
+Lasisin MIT shine mafi mashahuri lasisin software da aka samu a cikin bincike ɗaya, ci gaba
+daga rahotanni a cikin 2015 cewa lasisin MIT shine lasisin software mafi shahara akan GitHub.
+                                                                                                                                             |
+Ƙarin bayani kan--> [https://en.wikipedia.org/wiki/MIT_License];
+                                                                 
+      Sanannun ayyukan da ke amfani da lasisin MIT sun haɗa da Tsarin Window X, Ruby akan Rails, Nim,
+Node.js, Lua, da jQuery. Fitattun kamfanoni masu amfani da lasisin MIT sun haɗa da Microsoft (.NET),
+Google (Angular), da Meta (React).             
+                                                                                                                    

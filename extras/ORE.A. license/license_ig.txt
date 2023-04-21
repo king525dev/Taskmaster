@@ -1,0 +1,47 @@
+Akwụkwọ ikike MIT
+                                                                                                         
+Nwebiisinka (c) 2023 Taskmaster
+                                                                                                         
+A na-enye ikike ugbu a, n'efu, nye onye ọ bụla na-enweta otu ngwa na
+faịlụ ndị emetụtara ("Software"), iji, detuo, gbanwee, jikọta, bipụta, kesaa,
+  sublicense, na/ma ọ bụ ree nnomi nke Software, dabere na ọnọdụ ndị a:
+                                                                                                         
+  1. Ọkwa nwebisiinka dị n'elu yana ọkwa ikike a ga-etinye n'ime mbipụta niile ma ọ bụ nnukwu ihe
+     akụkụ nke Software.
+                                                                                                         
+  2. Enwere ike iji ngwanro naanị, depụtaghachi, gbanwee, jikọta, bipụta, kesaa, nye ikike,
+     na/ma ọ bụ ree ma onye nwe ya na "Oreoluwa Isaac AJIBADE" enyela ikike doro anya ime ya.
+                                                                                                         
+  3. Ikike iji, detuo, megharịa, jikota, bipụta, kesaa, sublicense, na/ma ọ bụ ree mbipụta nke
+     A na-enye ngwanrọ ka onye nwe ya na "Oreoluwa Isaac AJIBADE" na-aga n'ihu na-enye ya ohere.
+                                                                                                         
+  4. Onye ọ bụla na-eji, na-edegharị, na-agbanwe, jikota, na-ebipụta, na-ekesa, sublicensing, na/ma ọ bụ na-ere.
+     Ngwanrọ ga-agbasorịrị iwu niile, iwu na ụkpụrụ, gụnyere mana enweghị oke
+     na iwu nwebiisinka na iwu ọ bụla ma ọ bụ nkwekọrịta mba ụwa ọ bụla dị.
+                                                                                                                    
+ONYE SOFTWARE “DỊ KA Ọ DỊ”, na-enweghị ikike n'ụdị ọ bụla, KWESỊRỊ ma ọ bụ egosipụtara ya, gụnyere ma ọ bụghị.
+NKE MMADỤ NKE NKE AKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWASỊAKWỤKWỤKWỤKWỤKWỌ. NA mba
+ỌMỤMmmemme GA-AKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỊKWỊKWỊKWỊKWỊKWỊKWỊKWỊKWỊKWỊKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWỤKWASỊ Ọ BỤ Ọ BỤ Ọ BỤ.
+ỌMỤMỤ Nkwekọrịta, Mgbu ma ọ bụ ỌZỌ, na-esi na, pụọ ma ọ bụ na njikọ ya na ngwa ngwa ma ọ bụ
+JI ma ọ bụ mmemme ndị ọzọ na ngwa ngwa.                                                                           
+                                                                                                                    
+   ~king525dev                                                             [https://github.com/king525dev]          
+                                                                                                                    
+___________________________________________________________________________________________________________
+                                                                                                                    
+     Akwụkwọ ikike MIT bụ ikike ngwanrọ efu sitere na Massachusetts
+Institute of Technology (MIT) na njedebe 1980s. Dị ka ikike ikike, ọ na-etinye
+naanị mmachi nwere oke na ijigharị ma nwee, yabụ, ndakọrịta ikike dị elu.
+                                                                           
+      N'adịghị ka ikikere ngwanrọ nwebiisinka, Ikikere MIT na-enyekwa ohere ijikwa ya ọzọ n'ime ndị nwe ya
+sọftụwia, ma ọ bụrụhaala na mbipụta niile nke ngwanro ahụ ma ọ bụ akụkụ ya bara ụba gụnyere a
+nnomi nke usoro ikikere MIT yana ọkwa nwebiisinka. Dị ka nke 2020, ndị
+Akwụkwọ ikike MIT bụ ikike ngwanrọ kachasị ewu ewu achọtara n'otu nyocha, na-aga n'ihu
+site na akụkọ na 2015 na MIT License bụ ikike ngwanrọ kachasị ewu ewu na GitHub.
+                                                                                                                                             |
+Ozi ndị ọzọ na--> [https://en.wikipedia.org/wiki/MIT_License];
+                                                                 
+      Ọrụ ndị ama ama na-eji ikikere MIT gụnyere sistemụ windo X, Ruby on Rails, Nim,
+Node.js, Lua, na jQuery. Ụlọ ọrụ ndị ama ama na-eji ikikere MIT gụnyere Microsoft (.NET),
+Google (Angular), na Meta (React).                                                                
+                                                                                                                    
