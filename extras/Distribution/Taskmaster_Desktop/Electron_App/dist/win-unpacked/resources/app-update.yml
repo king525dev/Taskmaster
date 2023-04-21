@@ -1,0 +1,6 @@
+owner: king525dev
+repo: Task-Master
+provider: github
+updaterCacheDirName: taskmaster-updater
+publisherName:
+  - king525dev

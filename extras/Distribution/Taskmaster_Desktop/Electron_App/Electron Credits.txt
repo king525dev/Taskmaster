@@ -1,0 +1,8 @@
+--CREDITS--
+
+- Red Stapler 	-->[https://www.youtube.com/@RedStapler_channel]
+		-->[https://www.youtube.com/watch?v=TnXz_nnQZrw&t=695s]
+
+- Electron 	-->[https://github.com/electron/electron/tree/v24.1.2/docs#readme]
+	   	-->[https://www.electronjs.org/]
+		-->[https://www.electron.build/]
