@@ -1,0 +1,8 @@
+version: 1.1.0
+files:
+  - url: Taskmaster-Setup-1.1.0.exe
+    sha512: swdDT9/KvJl6dkOHILRfeEaf1g0QAlx7lAMTt7VIlifE/CDg7mHF6GnA4xOcy6qaL6hMabGT5yGFjhL9FyRaTw==
+    size: 345678890
+path: Taskmaster-Setup-1.1.0.exe
+sha512: swdDT9/KvJl6dkOHILRfeEaf1g0QAlx7lAMTt7VIlifE/CDg7mHF6GnA4xOcy6qaL6hMabGT5yGFjhL9FyRaTw==
+releaseDate: '2023-04-20T22:59:45.853Z'
