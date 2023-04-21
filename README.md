@@ -9,6 +9,8 @@ A project management software design for to ease the pressure of planning everyt
 It can be mainly be used to take notes or plan projects.
 
 
+**Latest Version:** v1.1.0
+
 
 ## Installation
 
@@ -66,9 +68,9 @@ It can be mainly be used to take notes or plan projects.
 
  **Alt + D:** Deletes the current project. Applicable on the "Edit" and "Project" pages only.
 
-**Alt + A:** Adds a new project. Applicable on the "Edit" page only.
+ **Alt + A:** Adds a new project. Applicable on the "Edit" page only.
 
-**Alt + C:** Downloads current project. Applicable on the "Edit" and "Project" pages only.
+ **Alt + C:** Downloads current project. Applicable on the "Edit" and "Project" pages only.
 
 ### Control Gestures
  **Todo List:** In the to-do list in the dashboard, to create a to-do item, type in the input box and click enter. To complete a todo click the todo item. To delete it double click it.
