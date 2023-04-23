@@ -1,0 +1,354 @@
+/*============================
+     LIGHT MINIMALISTIC
+=============================*/ 
+
+/* --> GLOBAL STYLES <-- */
+:root{
+     --white: #fff;
+     --black: #000;
+     --colourmn1: #dddddd;
+     --colourmn2: #333333;
+}
+
+body{
+     color: var(--colourmn2);
+     background-color: var(--white);
+}
+
+.bg{
+     display: none;
+}
+
+::-webkit-scrollbar-thumb {
+     background: var(--colourmn2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+     background: var(--colourmn2);
+}
+
+.full-nav-wrapper{
+     background: var(--colourmn2);
+}
+
+.menu-btn{
+     color: var(--black);
+}
+
+#active:checked ~ .menu-btn{
+     background: var(--white);
+     color: var(--colourmn2);
+}
+
+.full-nav-wrapper ul li a{
+     color: var(--white);
+}
+
+.full-nav-wrapper ul li a:hover{
+     color: var(--colourmn2);
+     background-color: var(--white);
+}
+
+.confirm{
+     background: rgba(0, 0, 0, 0.6);
+}
+
+.confirm-window{
+     background: var(--white);
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.confirm-titlebar {
+     background: var(--colourmn2);
+     color: var(--white);
+}
+
+.confirm-close{
+     color: var(--white);
+}
+
+.confirm-button{
+     border-color: var(--colourmn2);
+     background: var(--white);
+     color: var(--colourmn2);
+}
+
+.preffered {
+     background: var(--colourmn2);
+     color: var(--white);
+}
+
+.confirm-button:focus {
+     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.notifications .toast{
+     background-color: var(--colourmn2);
+     color: var(--white);
+}
+
+/* --> INTER-PAGE STYLES <-- */
+
+.dashboard-wrapper, .board-wrapper, .notes-wrapper, .prj-wrapper{
+     background-color: rgba(255, 255, 255, 0.7);
+     color: var(--colourmn2);
+}
+
+/* --> SIGN-UP AND SIGN-IN PAGE <-- */
+.sign-wrapper{
+     background-color: var(--white);
+     box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
+}
+
+header.sign{
+     background: var(--colourmn2);
+}
+
+p.logo-sign {
+     color: var(--white);
+}
+
+.sign-input{
+     border: 1px solid #e6e6e6;
+}
+
+     input.sign-input:active, .sign-input:focus{
+          border-color: #cccccc;
+     }
+
+div.pass i{
+     color: #e6e6e6;
+}
+
+     div.pass i.active::before{
+          color: #333;
+     }
+
+.sign-submit{
+     background: var(--colourmn2);
+     color: var(--white);
+     border: 1px solid var(--colourmn2);
+}
+
+     .sign-submit:hover{
+          background-color: var(--white);
+          color: var(--colourmn2);
+          border: 1px solid var(--colourmn2);
+     }
+
+small.sign-link a{
+     color: var(--colour6);
+}
+
+     small.sign-link a:hover{
+          color: var(--colour5);
+     }
+
+/* --> THE DASHBOARD <-- */
+
+.quick-todos, header.dashboard, main.dashboard{
+     background-color: var(--white);
+     box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4);
+}
+
+header.dashboard{
+     color: var(--colourmn1);
+     background-color: var(--colourmn2);
+}
+
+button.sign-out{
+     background-color: var(--colourmn1);
+     color: var(--colourmn2);
+     border: solid 1px var(--colourmn2);
+}
+
+button.sign-out:hover{
+     color: var(--colourmn1);
+     border: solid 1px var(--colourmn1);
+}
+
+form.todo-input *{
+     border: 1px solid var(--colourmn2);
+}
+
+form.todo-input input[type="submit"]{
+     color: var(--white);
+     background-color: var(--colourmn2);
+}
+
+li.todo-item{
+     border-bottom: 1px solid var(--colourmn2);
+}
+
+     li.todo-item:hover{
+          background-color: var(--colourmn2);
+          color: var(--white);
+     }
+
+     li.todo-item:active{
+          background-color: var(--colourmn2);
+          color: var(--white);
+     }
+
+     li.todo-item.completed{
+          background-color: var(--colourmn2);
+          color: var(--colourmn1);
+     }
+
+div.more-dash{
+     background: var(--colourmn2);
+     border: solid 1px var(--colourmn2);
+     color: var(--colourmn1);
+}
+
+     div.more-dash:hover{
+          background: var(--white);
+          color: var(--colourmn2);
+     }
+
+     div.more-dash:active{
+          background: var(--colourmn2);
+          border: solid 1px var(--colourmn1);
+          color: var(--colourmn1);
+     }
+
+div.project{
+     background-color: var(--colourmn1);
+     border: solid 1px var(--colourmn1);
+}
+
+     div.project:hover{
+               box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.4);
+          }
+     
+     div.project:active{
+          border-color: var(--colourmn2);
+     }
+
+span.prj-status{
+     color: var(--white);
+     background-color: var(--colourmn2);
+}
+
+/* --> THE BOARD <-- */
+
+div.project-m{
+     background-color: var(--colourmn1);
+     border: solid 1px var(--colourmn1);
+}
+
+     div.project-m:hover{
+          box-shadow: 0px 2px 20px 0px rgba(0,0,0,0.4);
+     }
+
+     div.project-m:active{
+          border-color: var(--colourmn2);
+     }
+
+div.nav-filter input{
+     border: 1px solid var(--colourmn2);
+}
+
+div.nav-buttons .to-dashboard, div.nav-buttons .add-note{
+     color: var(--white);
+     background-color: var(--colourmn2);
+     border: 1px solid var(--colourmn2);
+}
+
+     div.nav-buttons .to-dashboard:hover, div.nav-buttons .add-note:hover{
+          background-color: var(--white);
+          color: var(--colourmn2);
+          border: 1px solid var(--colourmn2);
+     }
+
+/* --> NOTES PAGE <-- */
+
+.notes-wrapper{
+     background-color: var(--white);
+}
+
+.notes-sidebar{
+     background-color: var(--white);
+}
+
+.notes-add, .notes-back{
+     background: var(--colourmn2);
+     color: var(--white);
+}
+
+.notes-back{
+     border-right: 1px solid var(--white);
+}
+
+     .notes-add:hover, .notes-back:hover{
+          background-color: var(--white);
+          color: var(--colourmn2);
+          border: 1px solid var(--colourmn2);
+     }
+
+.notes-list-item {
+     border-bottom: 1px solid var(--colour5);
+}
+
+.selected {
+     background: var(--colourmn2);
+     color: var(--white);
+}
+
+.selected .small-status{
+     color: var(--colourmn2);
+     background-color: var(--colourmn1);
+}
+
+.selected .notes-small-updated{
+     color: var(--colourmn1);
+}
+
+.small-status{
+     color: var(--white);
+     background-color: var(--colourmn2);
+}
+
+.drag-drop{
+     color: #aaa;
+     border-color: #aaa;
+     background-color: #cccccccf;
+}
+
+div.foot-buttons button{
+     background-color: var(--colourmn2);
+     color: var(--white);
+}
+
+div.foot-buttons i{
+     color: var(--colourmn2);
+}
+
+.status-radio{
+     background: var(--white);
+     color: var(--colourmn2);
+     border: 1px solid var(--colourmn2);
+}
+
+.radio-label:not(:last-of-type){
+     border-right: 1px solid var(--colourmn2);
+}
+
+.radio-input:checked + .radio-label{
+     background: var(--colourmn2);
+     color: var(--white);
+}
+
+/* --> PROJECT PAGE <-- */
+
+.prj-wrapper{
+     background-color: var(--white);
+}
+
+/* <--> Phone Version <--> */
+@media (max-width: 500px){
+     div.nav-buttons .to-dashboard{
+          background-color: var(--colourmn1);
+          color: var(--colourmn2);
+     }
+}
