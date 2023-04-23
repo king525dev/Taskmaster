@@ -1207,7 +1207,7 @@ body.project .notes-body{
      }
 }
 
-/*  <--> Short Devices Version <--> */
+/* <--> Short Devices Version <-->
 @media (max-height: 700px){
      main.dashboard{
           padding: 0.5em;
@@ -1216,7 +1216,7 @@ body.project .notes-body{
           overflow-y: hidden;
      }
 
-}
+} */
 
 /* <--> Phone Version <--> */
 @media (max-width: 500px){
