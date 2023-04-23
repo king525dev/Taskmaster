@@ -1131,6 +1131,17 @@ body.project .notes-body{
 
 }
 
+/*  <--> Short Devices Version <--> */
+@media (max-height: 700px){
+     main.dashboard{
+          padding: 0.5em;
+          grid-template-columns: repeat(auto-fit, 40%);
+          grid-template-rows: repeat(2, 30%);
+          overflow-y: hidden;
+     }
+
+}
+
 /*  <--> Tablet Version <--> */
 @media (max-width: 900px) and (min-width: 500px){
      .sign-wrapper{
