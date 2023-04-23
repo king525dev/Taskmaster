@@ -5,6 +5,7 @@
 const filter = document.getElementById('filter');
 const board = document.getElementById("board");
 const addNoteBtn = document.getElementById("more-dash");
+const boardWrapper = document.querySelector(".board-wrapper");
 
 //Date 
 const dater = new Date();
@@ -75,10 +76,10 @@ auth.onAuthStateChanged(user => {
                message: "Your login session has expired or you have logged out, login again to continue",
                okText: "OK",
                onok: function () {
-                    location = "login.html";
+                    location = "index.html";
                },
                oncancel: function () {
-                    location = "login.html";
+                    location = "index.html";
                }
           });
      }
@@ -161,6 +162,7 @@ function addNote(){
                          message: "Project Added", 
                          timer: 5000
                     });
+                    boardWrapper.scrollTo(0, 0);
                     console.log('note added');
                }).catch( err => {
                     console.log(err.message);

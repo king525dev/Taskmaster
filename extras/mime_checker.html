@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		WebAPI File.type
+	</title>
+	<style>
+		#test {
+			padding: 10px;
+			width: 300px;
+			border: 1px solid green;
+			text-align:center;
+			font-size:22px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id = "test">
+		<div>GeeksforGeeks</div>
+		<div>file.type</div>
+		
+		<input type = "file" multiple onchange
+				= "myGeeks(this)">
+	</div>
+	
+	<script type = "text/javascript">
+		function myGeeks(fileInput) {
+			
+		var files = fileInput.files;
+		
+			for (var i = 0; i < files.length; i++) {
+				
+				var file_name = files[i].name;
+				var file_type = files[i].type;
+
+                    console.log(files[0])
+                    console.log(file_type)
+				
+				console.log("Filename: " + file_name
+					+ ", Type: " + file_type);
+			}
+		}
+	</script>
+	</body>
+</html>							

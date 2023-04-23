@@ -1,5 +1,5 @@
 /*============================
-     [  LOGIN  ].html
+     [  INDEX  ].html
 =============================*/ 
 
 const signInForm = document.getElementById('sign-in-form');

@@ -4,6 +4,7 @@
 
 const dragDropArea = document.getElementById('drag-drop');
 const dropPad = document.getElementById('download-btn');
+const sideBar = document.querySelector(".notes-sidebar")
 const fileTypes = [
      "text/plain", 
      "text/css", 
@@ -12,6 +13,9 @@ const fileTypes = [
      "multipart/byteranges",
      "multipart/form-data",
      "text/calendar",
+     "application/java",
+     "text/ecmascript",
+     "application/rtf",
      "text/markdown",
      "text/rtf",
      "text/strings",
@@ -26,13 +30,15 @@ const fileTypes = [
 function handleDragOver(event) {
      event.preventDefault();
      dropPad.style.transform = 'scale(1.2)';
-     dropPad.style.zIndex = '7';
+     // dropPad.style.zIndex = '9';
      dragDropArea.style.display = 'flex';
 }
 
 function handleDragLeave(event) {
      event.preventDefault();
      dragDropArea.style.display = 'none';
+     dropPad.style.zIndex = '7';
+     dropPad.style.transform = 'scale(1)'
 }
 
 function handleDrop(event) {
@@ -68,6 +74,7 @@ function handleDrop(event) {
                               });
                               console.log('note added');
                               notesList.children[0].click();
+                              sideBar.scrollTo(0, 0);
                          }).catch( err => {
                               console.log(err.message);
                          })

@@ -70,10 +70,10 @@ auth.onAuthStateChanged(user => {
                message: "Your login session has expired or you have logged out, login again to continue",
                okText: "OK",
                onok: function () {
-                    location = "login.html";
+                    location = "index.html";
                },
                oncancel: function () {
-                    location = "login.html";
+                    location = "index.html";
                }
           });
      }
@@ -84,61 +84,61 @@ function renderData(individualDoc){
           projectTitle.value = individualDoc.data().title;
           projectBody.value = individualDoc.data().note;
           checkingStatus(individualDoc.data().status);
-
-          //Updating Notes
-          saveBtn.addEventListener("click", () =>{
-               updatedTitle = projectTitle.value;
-               updatedNote = projectBody.value; 
-               updatedDate = fullDate;
-               updatedStatus = statusOutput();
-               auth.onAuthStateChanged(user => {
-                    if(user) {
-                         fs.collection(user.uid + "_notes").doc(pageID).update({
-                              title: updatedTitle,
-                              note: updatedNote,
-                              status: updatedStatus,
-                              lastEdited: updatedDate
-                         }).then(() => {
-                              console.log("note updated");
-                              Toast.open({
-                                   type: "success",
-                                   message: "Project Updated", 
-                                   timer: 5000
-                              });
-                         });
-                         
-                    }
-               })
-          });
-
-          //Delete Note
-          deleteBtn.addEventListener("click", () => {
-               Confirm.open({
-                    title: "Delete Project",
-                    message: "Are you sure you want to permanemtly delete this Project?",
-                    okText: "OK",
-                    cancelText: "Cancel",
-                    preffered: false,
-                    onok: function() {
-                         let id = pageID;
-                         auth.onAuthStateChanged(user => {
-                              if(user) {
-                                   fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
-                                        projectTitle.value = "";
-                                        projectBody.value = "";
-                                        todoOption.checked = false;
-                                        doneOption.checked = false;
-                                        doingOption.checked = false;
-                                        console.log("note deleted");
-                                        location = "board.html";
-                                   });
-                              }
-                         })
-                    }
-               });
-          });
      }
 }
+
+//Updating Notes
+saveBtn.addEventListener("click", () =>{
+     updatedTitle = projectTitle.value;
+     updatedNote = projectBody.value; 
+     updatedDate = fullDate;
+     updatedStatus = statusOutput();
+     auth.onAuthStateChanged(user => {
+          if(user) {
+               fs.collection(user.uid + "_notes").doc(pageID).update({
+                    title: updatedTitle,
+                    note: updatedNote,
+                    status: updatedStatus,
+                    lastEdited: updatedDate
+               }).then(() => {
+                    console.log("note updated");
+                    Toast.open({
+                         type: "success",
+                         message: "Project Updated", 
+                         timer: 5000
+                    });
+               });
+               
+          }
+     })
+});
+
+//Delete Note
+deleteBtn.addEventListener("click", () => {
+     Confirm.open({
+          title: "Delete Project",
+          message: "Are you sure you want to permanemtly delete this Project?",
+          okText: "OK",
+          cancelText: "Cancel",
+          preffered: false,
+          onok: function() {
+               let id = pageID;
+               auth.onAuthStateChanged(user => {
+                    if(user) {
+                         fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                              projectTitle.value = "";
+                              projectBody.value = "";
+                              todoOption.checked = false;
+                              doneOption.checked = false;
+                              doingOption.checked = false;
+                              console.log("note deleted");
+                              location = "board.html";
+                         });
+                    }
+               })
+          }
+     });
+});
 
 //Download Note
 downloadBtn.addEventListener("click", () => {

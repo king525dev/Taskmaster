@@ -9,7 +9,7 @@ A project management software design for to ease the pressure of planning everyt
 It can be mainly be used to take notes or plan projects.
 
 
-**Latest Version:** v1.1.0
+**Latest Version:** v1.2.0
 
 
 ## Installation

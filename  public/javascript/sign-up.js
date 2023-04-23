@@ -1,5 +1,5 @@
 /*============================
-     [  INDEX ].html
+     [  SIGNUP ].html
 =============================*/ 
 
 const signUpForm = document.getElementById('sign-up-form');

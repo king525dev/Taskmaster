@@ -6,6 +6,7 @@
 
 * {
      box-sizing: border-box;
+     scroll-behavior: smooth;
      margin: 0;
      padding: 0;
 }
@@ -28,7 +29,7 @@ ul{
 /* --> Scroll Bar */
 
 ::-webkit-scrollbar {
-     width: 7px;
+     width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -37,7 +38,7 @@ ul{
 
 ::-webkit-scrollbar-thumb {
      margin: 2px 0;
-     border-radius: 5px;
+     border-radius: 2.5px;
 }
 
 /* --> Navigation */
@@ -50,7 +51,7 @@ ul{
      width: 100%;
      clip-path: circle(0px at calc(100% - 35px) 35px);
      transition: all 0.3s ease-in-out;
-     z-index: 5;
+     z-index: 99;
 }
 
 #active:checked ~ .full-nav-wrapper{
@@ -99,7 +100,7 @@ ul{
      position: relative;
      line-height: 50px;
      transition: all 0.3s ease;
-     border-radius: 50px;
+     border-radius: 10px;
 }
 
 input[type="checkbox"]{
@@ -279,7 +280,13 @@ noscript{
      padding: 16px; 
      border-radius: 4px; 
      margin-top: 5px; 
+     transition: all 0.3s;
 }
+
+#noscript-message a:hover{
+     background: #DF9500;
+}
+
 #noscript-message, #noscript-message a {
      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); 
 }
@@ -595,7 +602,7 @@ header.dashboard, main.dashboard{
      width: 97%;
 }
 
-main.dashboard, .quick-todos{
+.quick-todos{
      overflow-y: scroll;
 }
 
@@ -618,7 +625,7 @@ div.first-line {
 
 div.dash-buttons{
      display: flex;
-     align-content: center;
+     align-items: flex-start;
 }
 
 div.dash-buttons *{
@@ -643,8 +650,6 @@ button.sign-out{
      font-size: 0.9em;
      padding: 0.8em;
      border-radius: 5px;
-     align-self: center;
-     margin-top: -4em;
      outline: none;
      transition: all 0.3s;
 }
@@ -656,9 +661,19 @@ button.sign-out{
 header.dashboard span.title{
      display: flex;
      justify-content: flex-start;
-     font-size: 3.3em;
-     margin: 0.7em 0.7em 0 0;
+     margin: 1.8em 0.7em 0 0;
+     flex-direction: column;
 }
+
+header.dashboard span.title span.fir-date{
+     font-size: 3.1em;
+     /* font-weight: 80; */
+}
+
+header.dashboard span.title small.time-week{
+     font-size: 1.2em;
+}
+
 header span.welcome{
      white-space: pre;
      display: flex;
@@ -737,6 +752,7 @@ main.dashboard{
      display: grid;
      grid-template-columns: repeat(auto-fit, 30%);
      grid-template-rows: repeat(2, 45%);
+     overflow-y: hidden;
      justify-content: center;
      gap: 1.5em;
      padding: 1em;
@@ -1162,7 +1178,8 @@ body.project .notes-body{
      main.dashboard{
           padding: 0.5em;
           grid-template-columns: repeat(auto-fit, 40%);
-          grid-template-rows: repeat(2, 30%);
+          grid-template-rows: repeat(auto-fit, 30%);
+          overflow-y: hidden;
      }
 
      /* div.project, div.more-dash{

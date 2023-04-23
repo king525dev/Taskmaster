@@ -3,6 +3,7 @@
 =============================*/ 
 
 const todoList = document.getElementById("todo-list");
+const mainTitle = document.querySelector(".title");
 
 //Checking If User is logged in
 auth.onAuthStateChanged(user => {
@@ -15,10 +16,10 @@ auth.onAuthStateChanged(user => {
                message: "Your login session has expired or you have logged out, login again to continue",
                okText: "OK",
                onok: function () {
-                    location = "login.html";
+                    location = "index.html";
                },
                oncancel: function () {
-                    location = "login.html";
+                    location = "index.html";
                }
           });
      }
@@ -79,6 +80,65 @@ function renderData(individualDoc){
      });
 }
 
+//Setting Date
+setInterval(
+     () => { 
+          const dater = new Date();
+          let myDate = dater.getDate();
+          const day = dater.toLocaleDateString('default', { weekday: 'long' });
+          const month = dater.toLocaleDateString('default', { month: 'long' });
+          const year = dater.getFullYear();
+          let hours = dater.getHours();
+          let minute =  dater.getMinutes();
+          let mer;
+          if(hours == 0){hours = 12}
+          if(hours < 10){hours = `0${hours}`}
+          if(minute < 10){minute = `0${minute}`}
+          if(hours > 11){
+               mer = "PM"
+          }else{
+               mer = "AM"
+          }
+          if(hours > 12){
+               hours = hours - 12
+               if(hours < 10){hours = `0${hours}`}
+          }
+          switch (myDate){
+               case 1:
+                    myDate = `${myDate}st`;
+                    break;
+               case 2:
+                    myDate = `${myDate}nd`;
+                    break;
+               case 3:
+                    myDate = `${myDate}rd`;
+                    break;
+               case 21:
+                    myDate = `${myDate}st`;
+                    break;
+               case 22:
+                    myDate = `${myDate}nd`;
+                    break;
+               case 23:
+                    myDate = `${myDate}rd`;
+                    break;
+               case 31:
+                    myDate = `${myDate}st`;
+                    break;
+               default:
+                    myDate = `${myDate}th`;
+                    break;
+          }
+
+          let firstDate = `${myDate} ${month} ${year}`;
+          let weekDay = `${day}`;
+          let fullTime = `${hours}:${minute} ${mer}`;
+
+          mainTitle.children[0].innerHTML = firstDate;
+          mainTitle.children[1].innerHTML = `${weekDay} | ${fullTime}`;
+     }
+, 1000);
+
 //Retrieving User's Name
 auth.onAuthStateChanged(user => {
      const username = document.getElementById("usname");
@@ -122,7 +182,7 @@ function logOut() {
           message: "User Logged Out", 
           timer: 5000
      });
-     location = "login.html";
+     location = "index.html";
 }
 
 //Deleting Account
@@ -130,7 +190,7 @@ function deleteAcc() {
      auth.onAuthStateChanged(user => {
           if(user){
                Confirm.open({
-                    title: "Delete Project",
+                    title: "Delete Account",
                     message: "Are you sure you want to permanemtly delete your Account?",
                     okText: "OK",
                     cancelText: "Cancel",
@@ -145,7 +205,7 @@ function deleteAcc() {
                                         message: "Account Deleted", 
                                         timer: 5000
                                    });
-                                   setTimeout(5000, () => {location = "login.html"});
+                                   setTimeout(5000, () => {location = "index.html"});
                                    console.log("user deleted");
                               }).catch((err) => {
                                    console.log(err.message);

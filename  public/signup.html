@@ -25,11 +25,11 @@
           <!-- Icon -->
           <link rel="icon" href="resources/Taskmaster Brand Kit/Taskmaster-icon.ico?v=2">
 
-          <!-- Stylesheet-->
+          <!-- Stylesheets-->
           <link rel="stylesheet" href="css/styles.css">
           <link id="pg-style" rel="stylesheet" href="#">
 
-          <title>Taskmaster | Login</title>
+          <title>Taskmaster | Sign-up</title>
      </head>
      <body onload="themeReader()">
 
@@ -45,21 +45,22 @@
                     <p class="logo-sign">Taskmaster</p>
                </header>
                <main class="sign">
-                    <h3 class="register-title">Login to your Account</h3>
+                    <h3 class="register-title">Create an Account</h3>
                     <div id="error-txt" class="error-txt">Error Msg</div>
                     <div id="error-txt2" class="error-txt">Error Msg</div>
-                    <form id="sign-in-form" class="sign sign-in" action="#">
+                    <form id = "sign-up-form" class = "sign sign-in" action="#">
+                         <input class="sign-input fname" id="fname" type="text" placeholder="Enter your first name" required/>
+                         <input class="sign-input lname" id="lname" type="text" placeholder="Enter your last name" required/>
                          <input class="sign-input email" id="email" type="email" placeholder="Enter your email" required/>
                          <div class="pass">
                               <input class="sign-input passwrd" id="password" type="password" placeholder="Enter your password" required/>
                               <i id="toggle" class="fa-solid fa-eye"></i>
-                         </div>
-                         <input class="sign-submit" type="submit" id="submit" value="Login"/>
+                         </div>                         <input class="sign-submit" id="submit" type="submit" value="Create my account"/>
                     </form>
-                    <small class="sign-link">Don't have an account? <a href="index.html">Sign-up Now!</a></small>
+                    <small class="sign-link">Already have an account? <a href="login.html">Login Now!</a></small>
                </main>
           </div>
-
+          
           <!-- Scripts -->
           <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
           <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
@@ -67,7 +68,7 @@
           <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
           <script src="javascript/firebase.js"></script>
           <script src="javascript/confirm.js"></script>
-          <script src="javascript/sign-in.js"></script>
+          <script src="javascript/sign-up.js"></script>
           <script src="javascript/pass-show-hide.js"></script>
           <script src="javascript/themes.js"></script>
           <script src="javascript/internet.js"></script>

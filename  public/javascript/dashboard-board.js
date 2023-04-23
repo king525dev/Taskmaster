@@ -50,6 +50,8 @@ function checkingStatus(status){
      }
 }
 
+//Record Amount of Data
+
 //Retrieving note list
 function actData(individualDoc){
      let parentDiv = document.createElement("div");
@@ -103,18 +105,30 @@ function actData(individualDoc){
           })
      });
 
-
      //Append Sorted Projects
-     sortByDate(boardList).map((sortedPrj) => {
-          board.appendChild(sortedPrj)
-     });
-     if(board.children.length > 4){
-          let length = board.children.length;
-          let lastElement = board.children[length--];
-          while(length > 4){
-               board.removeChild(lastElement);
+     auth.onAuthStateChanged(user => {
+          if(user){
+               fs.collection(user.uid + "_notes").get().then(
+                    (querySnapshot) => {
+                         let dataCount = 0;
+                         querySnapshot.forEach((doc) => {
+                              dataCount++
+                         });
+                         if(boardList.length == dataCount){
+                              sortByDate(boardList).map((sortedPrj) => {
+                                   board.appendChild(sortedPrj)
+                              });
+                         }
+                    }
+               );
           }
-     }
+     });
+}
+
+while(board.children.length > 4){
+     let length = board.children.length;
+     let lastElement = board.children[length--];
+          board.removeChild(lastElement);
 }
 
 //Real time Event Listeners

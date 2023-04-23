@@ -105,10 +105,10 @@ auth.onAuthStateChanged(user => {
                message: "Your login session has expired or you have logged out, login again to continue",
                okText: "OK",
                onok: function () {
-                    location = "login.html";
+                    location = "index.html";
                },
                oncancel: function () {
-                    location = "login.html";
+                    location = "index.html";
                }
           });
      }
@@ -169,45 +169,46 @@ function renderData(individualDoc){
                parentDiv.classList.add("selected");
           }          
      });
-
-     //Updating Notes
-     saveBtn.addEventListener("click",() => {
-          const selNotes = document.getElementsByClassName("selected");
-          const selNote = selNotes[0];
-          let id = selNote.getAttribute('data-id');
-          updatedTitle = title.value;
-          updatedNote = body.value; 
-          updatedDate = fullDate;
-          updatedRank = new Date();
-          updatedStatus = statusOutput();
-          auth.onAuthStateChanged(user => {
-               if(user) {
-                    fs.collection(user.uid + "_notes").doc(id).update({
-                         title: updatedTitle,
-                         note: updatedNote,
-                         status: updatedStatus,
-                         lastEdited: updatedDate,
-                         listRank: updatedRank
-                    }).then(() => {
-                         selNote.children[0].textContent = updatedTitle;
-                         selNote.children[1].textContent = contentShortening(updatedNote);
-                         selNote.children[2].children[0].textContent = updatedStatus;
-                         selNote.children[2].children[1].textContent = updatedDate;
-                         selNote.setAttribute("rank", updatedRank);
-                         Toast.open({
-                              type: "success",
-                              message: "Project Updated", 
-                              timer: 5000
-                         });
-                         console.log("note updated");
-                         topList(selNote);
-                    });
-                    
-               }
-          })
-          
-     });
 }
+
+//Updating Notes
+saveBtn.addEventListener("click",() => {
+     const selNotes = document.getElementsByClassName("selected");
+     const selNote = selNotes[0];
+     let id = selNote.getAttribute('data-id');
+     updatedTitle = title.value;
+     updatedNote = body.value; 
+     updatedDate = fullDate;
+     updatedRank = new Date();
+     updatedStatus = statusOutput();
+     auth.onAuthStateChanged(user => {
+          if(user) {
+               fs.collection(user.uid + "_notes").doc(id).update({
+                    title: updatedTitle,
+                    note: updatedNote,
+                    status: updatedStatus,
+                    lastEdited: updatedDate,
+                    listRank: updatedRank
+               }).then(() => {
+                    selNote.children[0].textContent = updatedTitle;
+                    selNote.children[1].textContent = contentShortening(updatedNote);
+                    selNote.children[2].children[0].textContent = updatedStatus;
+                    selNote.children[2].children[1].textContent = updatedDate;
+                    selNote.setAttribute("rank", updatedRank);
+                    Toast.open({
+                         type: "success",
+                         message: "Project Updated", 
+                         timer: 5000
+                    });
+                    console.log("note updated");
+                    topList(selNote);
+                    sideBar.scrollTo(0, 0);
+               });
+               
+          }
+     })
+     
+});
 
 //Delete Note
 deleteBtn.addEventListener("click", () => {
@@ -236,6 +237,7 @@ deleteBtn.addEventListener("click", () => {
                                    message: "Project Deleted", 
                                    timer: 5000
                               });
+                              notesList.children[0].click();
                               console.log("note deleted");
                          });
                     }
