@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <!-- Meta Tags -->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="title" content="Taskmaster">
+     <meta name="description" content="A project management software design for to ease the pressure of planning everything from life's big projects to day-to-day tasks.">
+     <meta name="keywords" content="taskmaster, task management, project management, management, productivity, projects, tasks, to-do list, list, easy">
+     <meta name="robots" content="index, follow">
+     <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
+     <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="black">
+     <meta name="language" content="English">
+     <meta name="author" content="Ore Ajibade">
+     <link rel="manifest" href="/manifest.json">
+     <meta name="apple-mobile-web-app-status-bar" content="#DF9500">
+
+     <!-- Font Styles -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Ubuntu:wght@300;400;500&display=swap"
+          rel="stylesheet">
+
+     <!-- Icon -->
+     <link rel="icon" href="resources/Taskmaster Brand Kit/Taskmaster-icon.ico?v=2">
+
+     <!-- Stylesheets-->
+     <link id="pg-style" rel="stylesheet" href="css/styles.css">
+     <script src="https://kit.fontawesome.com/725fb09d99.js" crossorigin="anonymous"></script>
+     
+     <title>Taskmaster | Dashboard</title>
+</head>
+
+<body class="dashboard" onload="themeReader()">
+     
+     <div class="bg"></div>
+     <div class="bg bg2"></div>
+     <div class="bg bg3"></div>
+
+     <input type="checkbox" id="active">
+          <label for="active" class="menu-btn"><i class="fas fa-bars"></i></label>
+     <div class="full-nav-wrapper">
+          <ul>
+               <li><a href="dashboard.html">Dashboard</a></li>
+               <li><a href="board.html">Projects Board</a></li>
+               <li><a href="note.html">Edit Projects</a></li>
+          </ul>
+     </div>   
+
+     <div class="dashboard-wrapper">
+          <aside class="quick-todos">
+               <span class="todos-title">Quick Todos</span>
+               <form class="todo-input" id="todo-input-form">
+                    <input id="todos" type="text" name="todo" id="todo-input" class="todo-input" placeholder="Input your Todo Items">
+                    <input type="submit" value="↵">
+               </form>
+               <ul class="todos" id="todo-list">
+               </ul>
+          </aside>
+          <header class="dashboard">
+               <div class="first-line">
+                    <span class="title">My Dashboard</span>
+                    <div class="dash-buttons">
+                         <i onclick="themeSetter();console.log(themeCount);" id="theme-btn" class="fa-solid fa-palette"></i>
+                         <button id="sign-out" class="sign-out" onclick="deleteAcc()">Delete Account</button>
+                         <button id="delete-acc" class="sign-out" onclick="logOut()">Logout</button>
+                    </div>
+                    
+               </div>
+               
+               <span id="welcome" class="welcome">Hello, <span id="usname">User</span></span>
+          </header>
+          <main class="dashboard" id="main-dashboard">
+                    <div class="more-dash" onclick="location = 'board.html'">
+                         See More →
+                    </div>
+          </main>
+     </div>
+
+     <!-- Scripts -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script> 
+     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+     <script src="javascript/firebase.js"></script>
+     <script src="javascript/dashboard.js"></script>
+     <script src="javascript/dashboard-board.js"></script>
+     <script src="javascript/themes.js"></script>
+     <script src="javascript/serviceworker-lnk.js"></script>
+</body>
+
+</html>
+<!-- ORE.A. ORIGINAL -->
