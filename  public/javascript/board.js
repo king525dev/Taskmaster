@@ -246,6 +246,13 @@ auth.onAuthStateChanged(user => {
 })
 
 //Shortcuts
+document.addEventListener('keydown', e => { // Add Note Shortcut
+     if(e.key.toLowerCase() == "a" && e.altKey){
+          e.preventDefault();
+          addNoteBtn.click();
+     }
+});
+
 document.addEventListener('keydown', e => { //Home Shortcut
      if(e.key.toLowerCase() == "h" && e.altKey){
           e.preventDefault();

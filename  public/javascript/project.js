@@ -59,6 +59,53 @@ function checkingStatus(status){
      }
 }
 
+function getCurrentDate(){
+     const dater = new Date();
+     let myDate = dater.getDate();
+     let month = dater.getMonth();
+     const year = dater.getFullYear();
+     let hours = dater.getHours();
+     let minute =  dater.getMinutes();
+     let mer;
+     if(hours == 0){hours = 12}
+     if(hours < 10){hours = `0${hours}`}
+     if(minute < 10){minute = `0${minute}`}
+     if(myDate < 10){myDate = `0${myDate}`}
+     if(month < 10){month = `0${month}`}
+     if(hours > 11){
+          mer = "PM"
+     }else{
+          mer = "AM"
+     }
+     if(hours > 12){
+          hours = hours - 12
+          if(hours < 10){hours = `0${hours}`}
+     }
+
+     let fullTime = `${hours}:${minute} ${mer}`;
+     const arrDate = `${myDate}/${month}/${year} @ ${fullTime}`
+
+     return arrDate;
+}
+
+function checkPreview(){
+     const todoOption = document.getElementById("Todo");
+     const doingOption = document.getElementById("Doing");
+     const doneOption = document.getElementById("Done");
+
+     if(todoOption.checked || doingOption.checked || doneOption.checked){
+          var isTodo = true;
+     }else{
+          var isTodo = false;
+     }
+
+     if(isTodo){
+          return true;
+     }else{
+          return false;
+     }
+}
+
 //Checking If User is logged in
 auth.onAuthStateChanged(user => {
      if(user){
@@ -90,38 +137,44 @@ function renderData(individualDoc){
 //Updating Notes
 setInterval(
      () =>{
-          updatedTitle = projectTitle.value;
-          updatedNote = projectBody.value; 
-          updatedDate = fullDate;
-          updatedStatus = statusOutput();
-          auth.onAuthStateChanged(user => {
-               if(user) {
-                    fs.collection(user.uid + "_notes").doc(pageID).update({
-                         title: updatedTitle,
-                         note: updatedNote,
-                         status: updatedStatus,
-                         lastEdited: updatedDate
-                    }).then(() => {
-                         console.log("note updated");
-                    });
-                    
-               }
-          })
+          if(checkPreview()){
+               let updatedTitle = projectTitle.value;
+               let updatedNote = projectBody.value; 
+               let updatedDate = fullDate;
+               let updatedStatus = statusOutput();
+               let updatedRank = new Date();
+               auth.onAuthStateChanged(user => {
+                    if(user) {
+                         fs.collection(user.uid + "_notes").doc(pageID).update({
+                              title: updatedTitle,
+                              note: updatedNote,
+                              status: updatedStatus,
+                              lastEdited: updatedDate,
+                              listRank: updatedRank
+                         }).then(() => {
+                              console.log("note updated");
+                         });
+                         
+                    }
+               })
+          }
      }
 ,5000)
 
 saveBtn.addEventListener("click", () =>{
-     updatedTitle = projectTitle.value;
-     updatedNote = projectBody.value; 
-     updatedDate = fullDate;
-     updatedStatus = statusOutput();
+     let updatedTitle = projectTitle.value;
+     let updatedNote = projectBody.value; 
+     let updatedDate = fullDate;
+     let updatedStatus = statusOutput();
+     let updatedRank = new Date();
      auth.onAuthStateChanged(user => {
           if(user) {
                fs.collection(user.uid + "_notes").doc(pageID).update({
                     title: updatedTitle,
                     note: updatedNote,
                     status: updatedStatus,
-                    lastEdited: updatedDate
+                    lastEdited: updatedDate,
+                    listRank: updatedRank
                }).then(() => {
                     console.log("note updated");
                     Toast.open({
@@ -164,7 +217,7 @@ deleteBtn.addEventListener("click", () => {
 
 //Download Note
 downloadBtn.addEventListener("click", () => {
-     const file = new File([`--${projectTitle.value}--\n${projectBody.value}\n\nStatus: ${statusOutput()}\nLast-Online: ${fullDate}`], `${projectTitle.value}.txt`, {type: 'text/plain',})
+     const file = new File([`--${projectTitle.value}--\n${projectBody.value}\n\nStatus: ${statusOutput()}\nLast-Online: ${getCurrentDate()}`], `${projectTitle.value}.txt`, {type: 'text/plain',})
 
      const url = URL.createObjectURL(file);
      const link = document.createElement('a');
