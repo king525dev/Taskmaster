@@ -88,6 +88,28 @@ function renderData(individualDoc){
 }
 
 //Updating Notes
+setInterval(
+     () =>{
+          updatedTitle = projectTitle.value;
+          updatedNote = projectBody.value; 
+          updatedDate = fullDate;
+          updatedStatus = statusOutput();
+          auth.onAuthStateChanged(user => {
+               if(user) {
+                    fs.collection(user.uid + "_notes").doc(pageID).update({
+                         title: updatedTitle,
+                         note: updatedNote,
+                         status: updatedStatus,
+                         lastEdited: updatedDate
+                    }).then(() => {
+                         console.log("note updated");
+                    });
+                    
+               }
+          })
+     }
+,5000)
+
 saveBtn.addEventListener("click", () =>{
      updatedTitle = projectTitle.value;
      updatedNote = projectBody.value; 
@@ -198,5 +220,12 @@ document.addEventListener('keydown', e => { //Home Shortcut
      if(e.key.toLowerCase() == "h" && e.altKey){
           e.preventDefault();
           location = "dashboard.html";
+     }
+});
+
+document.addEventListener('keydown', e => { // Reload Shortcut
+     if(e.key.toLowerCase() == "r" && e.altKey){
+          e.preventDefault();
+          location.reload();
      }
 });

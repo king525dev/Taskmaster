@@ -72,6 +72,8 @@ It can be mainly be used to take notes or plan projects.
 
  **Alt + C:** Downloads current project. Applicable on the "Edit" and "Project" pages only.
 
+ **Alt + R:** Reload Page. Applicable on all pages.
+
 ### Control Gestures
  **Todo List:** In the to-do list in the dashboard, to create a to-do item, type in the input box and click enter. To complete a todo click the todo item. To delete it double click it.
  

@@ -50,8 +50,6 @@ function checkingStatus(status){
      }
 }
 
-//Record Amount of Data
-
 //Retrieving note list
 function actData(individualDoc){
      let parentDiv = document.createElement("div");

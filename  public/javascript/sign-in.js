@@ -30,3 +30,10 @@ signInForm.addEventListener('submit', e => {
           signInError.innerText = err.message;
      })
 });
+
+document.addEventListener('keydown', e => { // Reload Shortcut
+     if(e.key.toLowerCase() == "r" && e.altKey){
+          e.preventDefault();
+          location.reload();
+     }
+});

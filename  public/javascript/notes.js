@@ -26,6 +26,31 @@ function contentShortening(str){
      }
 }
 
+// Check if project is clicked
+function checkPreview(){
+     const todoOption = document.getElementById("Todo");
+     const doingOption = document.getElementById("Doing");
+     const doneOption = document.getElementById("Done");
+
+     if(todoOption.checked || doingOption.checked || doneOption.checked){
+          var isTodo = true;
+     }else{
+          var isTodo = false;
+     }
+     if(title.value == undefined || title.value == ""){
+          var isTitle = false;
+     }
+     if(body.value == undefined || body.value == ""){
+          var isBody = false;
+     }
+
+     if(isTodo){
+          return true;
+     }else{
+          return false;
+     }
+}
+
 //Sort List
 function sortByDate(){
      const list = notesList.querySelectorAll(".notes-list-item");
@@ -163,9 +188,20 @@ function renderData(individualDoc){
                body.textContent = "";
                parentDiv.classList.remove("selected");
           }else{
-               title.value = individualDoc.data().title;
-               body.value = individualDoc.data().note;
-               checkingStatus(individualDoc.data().status);
+               auth.onAuthStateChanged(user => {
+                    if(user){
+                         fs.collection(user.uid + "_notes").doc(individualDoc.id).get().then(
+                              (doc) => {
+                                   const dataTitle = doc.data().title;
+                                   const dataBody = doc.data().note;
+                                   const dataStatus = doc.data().status;
+                                   title.value = dataTitle;
+                                   body.value = dataBody;
+                                   checkingStatus(dataStatus);
+                              }
+                         );
+                    }
+               });
                parentDiv.classList.add("selected");
           }          
      });
@@ -209,6 +245,38 @@ saveBtn.addEventListener("click",() => {
      })
      
 });
+setInterval(
+     () =>{
+          if(checkPreview()){
+               const selNotes = document.getElementsByClassName("selected");
+               const selNote = selNotes[0];
+               let id = selNote.getAttribute('data-id');
+               updatedTitle = title.value;
+               updatedNote = body.value; 
+               updatedDate = fullDate;
+               updatedRank = new Date();
+               updatedStatus = statusOutput();
+               auth.onAuthStateChanged(user => {
+                    if(user) {
+                         fs.collection(user.uid + "_notes").doc(id).update({
+                              title: updatedTitle,
+                              note: updatedNote,
+                              status: updatedStatus,
+                              lastEdited: updatedDate,
+                              listRank: updatedRank
+                         }).then(() => {
+                              selNote.children[0].textContent = updatedTitle;
+                              selNote.children[1].textContent = contentShortening(updatedNote);
+                              selNote.children[2].children[0].textContent = updatedStatus;
+                              selNote.children[2].children[1].textContent = updatedDate;
+                              console.log("note updated");
+                         });
+                         
+                    }
+               })
+          }
+     }
+,5000)
 
 //Delete Note
 deleteBtn.addEventListener("click", () => {
@@ -349,5 +417,12 @@ document.addEventListener('keydown', e => { //Home Shortcut
      if(e.key.toLowerCase() == "h" && e.altKey){
           e.preventDefault();
           location = "dashboard.html";
+     }
+});
+
+document.addEventListener('keydown', e => { // Reload Shortcut
+     if(e.key.toLowerCase() == "r" && e.altKey){
+          e.preventDefault();
+          location.reload();
      }
 });

@@ -196,6 +196,20 @@ function deleteAcc() {
                     cancelText: "Cancel",
                     preffered: false,
                     onok: function() {
+                         fs.collection(user.uid + "_notes").get().then(
+                              (querySnapshot) => {
+                                   querySnapshot.forEach((doc) => {
+                                        doc.delete();
+                                   });
+                              }
+                         );
+                         fs.collection(user.uid + "_notes").get().then(
+                              (querySnapshot) => {
+                                   querySnapshot.forEach((doc) => {
+                                        doc.delete();
+                                   });
+                              }
+                         );
                          fs.collection('users').doc(user.uid).delete()
                          .then(() => {
                               const user = firebase.auth().currentUser;
@@ -271,3 +285,10 @@ auth.onAuthStateChanged(user => {
           })
      }
 })
+
+document.addEventListener('keydown', e => { // Reload Shortcut
+     if(e.key.toLowerCase() == "r" && e.altKey){
+          e.preventDefault();
+          location.reload();
+     }
+});
