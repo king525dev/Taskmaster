@@ -1,5 +1,5 @@
 
-![Logo](public/resources/Taskmaster Brand Kit/Taskmaster-banner.png)
+![Logo](%20public/resources/Taskmaster%20Brand%20Kit/Taskmaster-banner.png)
 
 
 # Task-Master
@@ -82,13 +82,13 @@ Taskmaster is a user-friendly project management software that offers a to-do li
 
 ## Screenshots
 
-![App Screenshot](public/resources/screenshots/screenshot-1.jpeg)
+![App Screenshot](%20public/resources/screenshots/screenshot-1.jpeg)
 
-![App Screenshot](public/resources/screenshots/screenshot-2.jpeg)
+![App Screenshot](%20public/resources/screenshots/screenshot-2.jpeg)
 
-![App Screenshot](public/resources/screenshots/screenshot-3.jpeg)
+![App Screenshot](%20public/resources/screenshots/screenshot-3.jpeg)
 
-![App Screenshot](public/resources/screenshots/screenshot-40.png)
+![App Screenshot](%20public/resources/screenshots/screenshot-4.png)
 
 ## Tech Stack
 
