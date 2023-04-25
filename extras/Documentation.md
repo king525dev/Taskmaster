@@ -55,7 +55,11 @@ So why settle for disorganization and chaos when Taskmaster can help streamline 
 - Run the application to test it and enjoy
 
 ## Features
-You may read the features for each respective page and use the [screenshots](#screenshots) below as references
+You may read the features for each respective page and use the [screenshots](#screenshots) below as references. The details for the demo account used in the screenshots are stated below:
+
+ **Email:** oliver@fakemail.com
+
+ **Password:** qwerty
 
 #### Sign-up and Sign-in 
 The sign-up and sign and sign in pages work like a normal sign up and sign in with [Firebase Email and Password rules](https://firebase.google.com/docs/auth/web/password-auth)
