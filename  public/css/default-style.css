@@ -429,6 +429,58 @@ div.foot-buttons i{
      background-color: var(--white);
 }
 
+div.ast-activator{
+     background-color: var(--colour6);
+     color: var(--white);
+}
+
+div.ass-wrapper{
+     background-color: var(--colourmn1);
+}
+
+div.ass-wrapper header{
+     background: linear-gradient(
+                    45deg, 
+                    var(--colour6),
+                    var(--colour5)
+               );
+     color: var(--colourmn1);
+}
+
+div.chat-box{
+     background-color: var(--colourmn1);
+}
+
+.chat-box .chat-incoming p{
+     background-color: var(--colour6);
+     color: var(--colourmn1);
+}
+
+.chat-box .chat-incoming i{
+     background-color: var(--colour6);
+     color: var(--colourmn1);
+}
+
+.chat-box .chat-outgoing p{
+     background-color: var(--colour4);
+     color: var(--colourmn1);
+}
+
+.typing-area{
+     background-color: var(--white);
+}
+
+.typing-area input{
+     background-color: transparent;
+     border: solid 1px var(--colour4);
+     color: var(--colourmn2);
+}
+
+.typing-area button{
+     background-color: var(--colour4);
+     color: var(--colourmn1);
+}
+
 /* <--> Phone Version <--> */
 @media (max-width: 500px){
      div.nav-buttons .to-dashboard{

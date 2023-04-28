@@ -415,6 +415,51 @@ div.foot-buttons i{
      background-color: var(--colourmn1);
 }
 
+div.ast-activator{
+     background-color: var(--colour1);
+     color: var(--colourmn1);
+}
+
+div.ass-wrapper{
+     background-color: var(--colourmn1);
+}
+
+div.ass-wrapper header{
+     background-color: var(--colour1);
+     color: var(--colourmn1);
+}
+
+div.chat-box{
+     background-color: var(--colourmn1);
+}
+
+.chat-box .chat-incoming p{
+     background-color: var(--colourmn1);
+     color: var(--colour1);
+     border: 1px solid var(--colour1);
+}
+
+.chat-box .chat-incoming i{
+     background-color: var(--colourmn2);
+     color: var(--colourmn1);
+}
+
+.chat-box .chat-outgoing p{
+     background-color: var(--colour1);
+     color: var(--colourmn1);
+}
+
+.typing-area input{
+     background-color: transparent;
+     border: solid 1px var(--colourmn2);
+     color: var(--colourmn2);
+}
+
+.typing-area button{
+     background-color: var(--colour1);
+     color: var(--colourmn2);
+}
+
 /* <--> Phone Version <--> */
 @media (max-width: 500px){
      div.nav-buttons .to-dashboard{

@@ -1123,6 +1123,161 @@ body.project .notes-body{
      height: 85%;
 }
 
+div.ast-activator{
+     position: absolute;
+     top: 45%;
+     right: 0;
+     padding: 1em;
+     border-radius: 5px 0 0 5px;
+     transition: all 1s ease-out;
+     cursor: pointer;
+}
+
+div.ass-wrapper{
+     position: absolute;
+     top: 0;
+     right: 0;
+     width: 0;
+     height: 100%;
+     z-index: 5;
+     box-shadow: -1em 0 30px 0px rgba(0,0,0,0.4);
+     overflow-y: hidden;
+}
+
+@keyframes side-open {
+     from {
+          width: 0%;
+     }
+     to{
+          width: 45%;
+     }
+}
+
+@keyframes side-close {
+     from {
+          width: 45%;
+     }
+     to{
+          width: 0%;
+     }
+}
+
+.open-ast{
+     animation: side-open ease-out 0.5s forwards;
+}
+
+.close-ast{
+     animation: side-close ease-out 0.5s forwards;
+}
+
+div.ass-wrapper header{
+     width: 100%;
+     padding: 1rem 0.5rem 1rem 2rem;
+     font-size: 1.3rem;
+     display: flex;
+     align-items: center;
+     font-family: 'Ubuntu','Nanum Gothic', sans-serif;
+}
+
+span.close-ass{
+     font-size: 2em;
+     justify-self: flex-start;
+     cursor: pointer;
+}
+
+span.ass-heading{
+     margin-left: 20%
+}
+
+div.chat-box{
+     overflow-y: auto;
+     padding: 10px 30px 20px 30px;
+     box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),
+               inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+     height: calc(100% - 12em);
+}
+
+div.chat-box::-webkit-scrollbar{
+     display: none;
+}
+
+.chat-box .chat-incoming{
+     margin: 15px 0;
+}
+
+.chat-box .chat-incoming p{
+     word-wrap: break-word;
+     padding: 1em 2em;
+     box-shadow: 0 0 32px rgb(0 0 0 / 8%),
+               0 16px -16px rgb(0 0 0 / 10%);
+}
+
+.chat-box .chat-outgoing{
+     display: flex;
+     margin: 15px 0;
+}
+
+.chat-outgoing .details{
+     margin-left: auto;
+     max-width: calc(100% - 130px);
+}
+
+.chat-outgoing .details p{
+     padding: 1em 2em;
+     border-radius: 18px 18px 0 18px;
+}
+
+.chat-box .chat-incoming{
+     display: flex;
+     align-items: flex-end;
+}
+
+.chat-box .chat-incoming i{
+     font-size: 1.5em;
+     height: 1.7em;
+     width:  1.7em;
+     display: flex;
+     border-radius: 50%;
+     align-items: center;
+     justify-content: center;
+}
+
+.chat-incoming .details{
+     margin-left: 10px;
+     margin-right: auto;
+     max-width: calc(100% - 130px);
+}
+
+.chat-incoming .details p{
+     border-radius: 18px 18px 18px 0;
+}
+
+.typing-area{
+     padding: 2em 1em;
+     display: flex;
+     justify-content: space-between;
+}
+
+.typing-area input{
+     height: 3rem;
+     width: calc(100% - 3.4rem);
+     font-size: 17px;
+     padding: 0 13px;
+     border-radius: 5px 0 0 5px;
+     outline: none;
+}
+
+.typing-area button{
+     width: 3rem;
+     height: 3rem;
+     border: none;
+     outline: none;
+     font-size: 19px;
+     cursor: pointer;
+     color: #fff;
+     border-radius: 0 5px 5px 0;
+}
+
 /*  <--> Big Devices Version <--> */
 @media (min-width: 1300px){
      .dashboard-wrapper{
