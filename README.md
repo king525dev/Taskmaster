@@ -8,9 +8,9 @@ A project management software design for to ease the pressure of planning everyt
 
 It can be mainly be used to take notes or plan projects.
 
-Taskmaster is a user-friendly project management software that offers a to-do list and a simplistic project page that is easy to edit. With the ability to download and upload projects as plain text files, and the option to customize the software to your liking through one of our pre-set themes, Taskmaster is perfect for anyone looking for a versatile and convenient way to manage their projects. Plus, with 24/7 customer support, you can rest assured that any issues or breakdowns will be taken care of promptly. Give Taskmaster a try and experience the ease and simplicity of project management at its finest.
+Taskmaster is a user-friendly project management software that offers a to-do list, an AI assistant and a simplistic project page that is easy to edit. With the ability to download and upload projects as plain text files, and the option to customize the software to your liking through one of our pre-set themes, Taskmaster is perfect for anyone looking for a versatile and convenient way to manage their projects. Plus, with 24/7 customer support, you can rest assured that any issues or breakdowns will be taken care of promptly. Give Taskmaster a try and experience the ease and simplicity of project management at its finest.
 
-**Latest Version:** v1.2.0
+**Latest Version:** v1.2.1
 
 
 ## Installation
@@ -61,19 +61,20 @@ Taskmaster is a user-friendly project management software that offers a to-do li
 - Todo List
 - Navigation
 - Shortcuts for quick navigation
+- AI Assistant
 
 ### Shortcuts
  **Alt + H:** Directs users to the Dashboard. Applicable on all pages.
 
  **Alt + R:** Reload Page. Applicable on all pages.
 
- **Alt + S:** Saves the current project. Applicable on the "Edit" and "Project" pages only.
+ **Alt + S:** Saves the current project. Applicable on the ["Edit"](extras/Documentation.md/#edit) and ["Project"](extras/Documentation.md/#project) pages only.
 
- **Alt + D:** Deletes the current project. Applicable on the "Edit" and "Project" pages only.
+ **Alt + D:** Deletes the current project. Applicable on the ["Edit"](extras/Documentation.md/#edit) and ["Project"](extras/Documentation.md/#project) pages only.
 
- **Alt + A:** Adds a new project. Applicable on the "Edit" and "Board" pages only.
+ **Alt + A:** Adds a new project. Applicable on the ["Edit"](extras/Documentation.md/#edit) and ["Board"](extras/Documentation.md/#board) pages only.
 
- **Alt + C:** Downloads current project. Applicable on the "Edit" and "Project" pages only.
+ **Alt + C:** Downloads current project. Applicable on the ["Edit"](extras/Documentation.md/#edit) and ["Project"](extras/Documentation.md/#project) pages only.
 
 ### Control Gestures
  **Todo List:** In the to-do list in the dashboard, to create a to-do item, type in the input box and click enter. To complete a todo click the todo item. To delete it double click it.

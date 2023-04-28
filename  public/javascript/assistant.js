@@ -71,6 +71,7 @@ const Task = {
           const url = `https://www.google.com/search?q=${query}`;
           const link = document.createElement('a');
           link.href = url;
+          link.setAttribute("target", "_blank")
           link.click();
      },
      static(msg){
@@ -244,6 +245,7 @@ const Task = {
 
           if(finalResponse == undefined){
                this.wiki(msg)
+               return;
           }
           createAIChat(finalResponse);
      },
@@ -276,6 +278,7 @@ const Task = {
                          const lockUrl = `https://www.google.com/`;
                          const lockLink = document.createElement('a');
                          lockLink.href = lockUrl;
+                         lockLink.setAttribute("target", "_blank");
                          lockLink.click();
                          break;
                     case "--search":
@@ -283,6 +286,7 @@ const Task = {
                          const serchUrl = `https://www.google.com/`;
                          const searchLink = document.createElement('a');
                          searchLink.href = serchUrl;
+                         searchLink.setAttribute("target", "_blank")
                          searchLink.click();
                          break;
                     case "--lorem-ipsum":

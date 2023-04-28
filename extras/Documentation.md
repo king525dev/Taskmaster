@@ -4,7 +4,7 @@
 
 Are you tired of constantly forgetting important tasks and deadlines? Do you find yourself drowning in a sea of sticky notes and endless to-do lists? Look no further than Taskmaster, project management software design for to ease the pressure of planning everything from life's big projects to day-to-day tasks.
 
-Taskmaster offers a sleek and user-friendly interface, making it easy for even the most technologically challenged individuals to navigate. Its to-do list feature will help you stay on top of all your tasks, while the simplistic project page allows you to edit and update your projects like a digital notepad. Plus, with the ability to download and upload projects as plain text files, you can easily share your work with others.
+Taskmaster offers a sleek and user-friendly interface, making it easy for even the most technologically challenged individuals to navigate. Its to-do list feature will help you stay on top of all your tasks, while the simplistic project page allows you to edit and update your projects like a digital notepad. Plus, with the ability to download and upload projects as plain text files, you can easily share your work with others. And lets not forget the handy AI assistant (Taskmaster Assistant) available on the [Project page](#project) to help you get all you need for the perfect brainstorm.
 
 But what sets Taskmaster apart from other project management software is its unbeatable customer support. With 24/7 assistance available, you can rest easy knowing that any issues or breakdowns will be quickly resolved.
 
@@ -14,7 +14,7 @@ So why settle for disorganization and chaos when Taskmaster can help streamline 
 
 --TLDR: It can be mainly be used to take notes or plan projects in a convenient manner.
 
-**Latest Version:** v1.2.0
+**Latest Version:** v1.2.1
 
 ## Installation
 
@@ -96,6 +96,9 @@ It contains the title and the body, which you can edit normally and a few button
 
 The download icon also serves as a platform to upload various projects. Though unlike in the [Edit Page](#edit) it will modify the current project, not add a new one. Though plain text files are highly reccomended for uploading, these files are also supported by Taskmaster (displayed by their [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)): [ text/plain, text/css, text/html, text/javascript, multipart/byteranges, multipart/form-data, application/rtf, application/xml, text/ecmascript, application/java, text/calendar, text/markdown, text/rtf, text/strings, text/vtt, text/xml, text/csv, multipart/report, application/json, application/batch-SMTP ]
 
+The Project Page is also where the Taskmaster Assistant is located (right of the screen with a robot icon). This is a simple AI that can be used to search for common terms to helpthe user. Though it isn't built for chatting it still has some 
+chat features. It also answers to specific commands: `--version` will display the current chatbot and application version, `--search` will take you to google chrome to search for a website and `--lorem-ipsum` will display a paragraph or two of filler text. Note: If the chatbot cannot come up with a response for anything, it will google it and show you the page.
+
 ###### Shortcuts
 
  **Alt + H:** Directs users to the Dashboard.
@@ -161,8 +164,8 @@ This project is used by the following companies:
 | Release as Windows Application                   | ![#1c722a](https://placehold.co/15x15/1c722a/1c722a.png) |
 | Prune Application                                | ![#1c722a](https://placehold.co/15x15/1c722a/1c722a.png) |
 | Re-release till fully Pruned                     | ![#1c722a](https://placehold.co/15x15/1c722a/1c722a.png) |
-| Release Final Version                            | ![#721c24](https://placehold.co/15x15/721c24/721c24.png) |
-| Submit Application to Whitesands for Competition | ![#721c24](https://placehold.co/15x15/721c24/721c24.png) |
+| Release Final Version                            | ![#1c722a](https://placehold.co/15x15/1c722a/1c722a.png) |
+| Submit Application to Whitesands for Competition | ![#1c722a](https://placehold.co/15x15/1c722a/1c722a.png) |
 | Debug Taskmaster Mobile version                  | ![#721c24](https://placehold.co/15x15/721c24/721c24.png) |
 | Host Application Download online                 | ![#721c24](https://placehold.co/15x15/721c24/721c24.png) |
 | Release on Mac OS                                | ![#721c24](https://placehold.co/15x15/721c24/721c24.png) |
