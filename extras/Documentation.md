@@ -170,8 +170,8 @@ This project is used by the following companies:
 | Re-release till fully Pruned                     | ![#1c722a](https://placehold.co/15x15/1c722a/1c722a.png) |
 | Release Final Version                            | ![#1c722a](https://placehold.co/15x15/1c722a/1c722a.png) |
 | Submit Application to Whitesands for Competition | ![#1c722a](https://placehold.co/15x15/1c722a/1c722a.png) |
+| Host Application Download online                 | ![#1c722a](https://placehold.co/15x15/1c722a/1c722a.png) |
 | Debug Taskmaster Mobile version                  | ![#721c24](https://placehold.co/15x15/721c24/721c24.png) |
-| Host Application Download online                 | ![#721c24](https://placehold.co/15x15/721c24/721c24.png) |
 | Release on Mac OS                                | ![#721c24](https://placehold.co/15x15/721c24/721c24.png) |
 | Release on Linux OS                              | ![#721c24](https://placehold.co/15x15/721c24/721c24.png) |
 | Integrate a Code Editor into the Application     | ![#721c24](https://placehold.co/15x15/721c24/721c24.png) |
