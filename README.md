@@ -2,7 +2,7 @@
 ![Logo](%20public/resources/Taskmaster%20Brand%20Kit/Taskmaster-banner.png)
 
 
-# Task-Master
+# Taskmaster
 
 A project management software design for to ease the pressure of planning everything from life's big projects to day-to-day tasks.
 
