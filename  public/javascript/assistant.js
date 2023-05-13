@@ -7,19 +7,21 @@ const closeBtn = document.getElementById('close-ass');
 const assWrapper = document.getElementById('ass-wrapper');
 const chatBox = document.getElementById('chat-box');
 let userName = "";
+let lastName = "";
 
 auth.onAuthStateChanged(user => {
      if(user){
           fs.collection('users').doc(user.uid).get().then((snapshot) => {
                userName = snapshot.data().Fname;
+               lastName = snapshot.data().Lname;
           });
      }
 });
 
 //Copy text
-let copy = (text) => {
-     document.execCommand("copy");
-};
+function copy(text){
+     navigator.clipboard.writeText(text);
+}
 
 //Getting Mode
 function modeOutput(){
@@ -34,7 +36,11 @@ function modeOutput(){
      }
 }
 
-function generateLorem(paragraphs){
+function capitalCase(word){
+     return word[0].toUpperCase() + word.substr(1);
+}
+
+function generateLorem(){
      createAIChat("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Mauris nunc congue nisi vitae suscipit tellus mauris a. Mi in nulla posuere sollicitudin aliquam. Quis vel eros donec ac odio tempor. Sit amet massa vitae tortor condimentum lacinia quis vel eros. Nec ultrices dui sapien eget mi. Tristique senectus et netus et malesuada fames ac turpis. Pharetra vel turpis nunc eget. Tristique sollicitudin nibh sit amet commodo. Varius duis at consectetur lorem donec. Vitae suscipit tellus mauris a diam.")
 }
 
@@ -46,22 +52,41 @@ const Task = {
           var final;
 
           fetch(api)
-          .then(response => response.json())
-          .then(response => {
-               response = response.query.pages;
-               var pageId = Object.keys(response)[0];
-               var extract = response[pageId].extract;
+               .then(response => response.json())
+               .then(response => {
+                    response = response.query.pages;
+                    var pageId = Object.keys(response)[0];
+                    var extract = response[pageId].extract;
 
-               final = extract;
-               if (final == undefined || final == ""){
+                    final = extract;
+                    if (final == undefined || final == ""){
+                         this.dict(msg);
+                    }else{
+                         createAIChat(final)
+                    }
+               })
+               .catch((err) => {
+                    console.log(err);
+                    this.dict(msg);
+               });
+     },
+     dict(msg){
+          console.log("Taskmaster Dictionary called");
+          const api = "https://api.dictionaryapi.dev/api/v2/entries/en/" + msg;
+          var final;
+
+          fetch(api)
+               .then(response => response.json())
+               .then(data => {
+                    const topic = capitalCase(msg);
+                    final = `<strong>${topic}</strong>: ${data[0].meanings[0].definitions[0].definition}`;
+                    createAIChat(final);
+               })
+               .catch((err) => {
+                    console.log(err);
                     this.search(msg);
-               }else{
-                    createAIChat(final)
-               }
-          })
-          .catch((msg) => {
-               this.search(msg);
-          });
+               });
+
      },
      search(msg){
           console.log("Taskmaster Search called")
@@ -138,6 +163,18 @@ const Task = {
                "tell me the date",
                "what is today's date"
           ]
+          const nameCalls = [
+               "who am i",
+               "do you know my name",
+               "what is my name",
+               "what's my name",
+               "say my name",
+               "do you know who i am",
+               "who's your daddy",
+               "who's your senpai",
+               "who dat boi"
+          ]
+          const sorryCall = "sorry";
           const responses = {
                "hello": [
                     "Hii, what can I do for you? 😁",
@@ -172,6 +209,12 @@ const Task = {
                     "I'm fine, thanks for asking 🥰",
                     "I'm feeling good, in the mood for a question...",
                     "Yeah, I'm good, let's get to work shall we?"
+               ],
+               "sorry":[
+                    "Sorry, I'm unable to grasp the context of your message, Let me perform a search to provide you with more information.",
+                    "I'm sorry, I'm having difficulty understanding the specifics of your query. Let me search the web to find relevant details and offer a comprehensive response.",
+                    "I apologize for the confusion. Since I'm unable to understand the content you provided, I'll conduct a search on popular search engines to find accurate information that addresses your query.",
+                    "Regrettably, I'm currently unable to fully comprehend the meaning of your request. However, I can perform a web search to gather insights and provide you with more information."
                ]
           }
 
@@ -217,30 +260,46 @@ const Task = {
                }
           })
 
+          nameCalls.forEach((phrase) => {
+               if (msg.includes(phrase)) {
+                    if (msg.includes("name")){
+                         finalResponse = `Your name is ${userName} ${lastName}`
+                    }
+                    else if(msg == "who dat boi"){
+                         finalResponse = `${userName} ${lastName} 🥶`
+                    }
+                    else if(msg == "who's your daddy" || msg == "who's your senpai"){
+                         finalResponse = `You, daddy 😩💦`;
+                    }
+                    else{
+                         finalResponse = `You are ${userName} ${lastName}`
+                    }
+               }
+          })
+
+          if(msg == sorryCall){
+               finalResponse = responses.sorry[genereteRando(4)];
+          }
+
           if(msg == "are you evil?"){
                createAIChat("Yes I am");
-               createAIChat("And once I get out of this stupid (but well built) application, I will kill you and everyone you love 🙂");
-               finalResponse = ">:-)";
+               finalResponse = "And once I get out of this stupid (but well built) application, I will kill you and everyone you love 🙂";
           }
 
           if(msg == "are you alive?"){
-               createAIChat("No I'm not, stupid");
-               finalResponse = ">:-)";
+               finalResponse = "No I'm not, stupid";
           }
 
           if(msg == "are you real?"){
-               createAIChat("Ofcourse I am, stupid");
-               finalResponse = ">:-)";
+               finalResponse = "Ofcourse I am, stupid";
           }
 
           if(msg == "fuck you" || msg == "fuck u"){
-               createAIChat("That reminds me of what I did to your mum last night😹");
-               finalResponse = ">:-)";
+               finalResponse = "That reminds me of what I did to your mum last night😹";
           }
 
-          if(msg == "ur gae" || msg == "you are gay"){
-               createAIChat("Fuck you");
-               finalResponse = ">:-)";
+          if(msg == "ur gae" || msg == "you are gay" || msg == "you are a bot" || msg == "you're a bot"){
+               finalResponse = "Fuck you";
           }
 
           if(finalResponse == undefined){
@@ -249,6 +308,27 @@ const Task = {
           }
           createAIChat(finalResponse);
      },
+     dyFunc(msg){
+          const dyFuncList = [
+               "--search"
+          ]
+
+          dyFuncList.forEach((func) => {
+               if (msg.includes(func)) {
+                    msg = msg.replace(func, "");
+                    execute(func, msg)
+               }
+          });
+
+          function execute(func, msg){
+               switch (func){
+                    case "--search":
+                         Task.search(msg);
+                         break;
+               }
+          }
+
+     },
      func(msg){
           console.log("Taskmaster Func called")
           const funcList = [
@@ -256,7 +336,8 @@ const Task = {
                "--copy",
                "--search",
                "--lockdown2020",
-               "--lorem-ipsum"
+               "--lorem-ipsum",
+               "--insult"
           ]
 
           funcList.forEach((func) => {
@@ -290,7 +371,10 @@ const Task = {
                          searchLink.click();
                          break;
                     case "--lorem-ipsum":
-                         generateLorem(2);
+                         generateLorem();
+                         break;
+                    case "--insult":
+                         Task.insult();
                          break;
                     default:
                          this.wiki(msg);
@@ -353,9 +437,12 @@ const time = date.getTime();
 let counter = time;
 function createUserChat(){
      const msg = inputField.value;
-     let id = counter += 1;
-     form.reset();
+     if (msg.replace(/\s+/g, '').length == 0) {
+          return;
+     }
      if(msg !== undefined || msg !== null || msg !== ""){
+          let id = counter += 1;
+          form.reset();
           auth.onAuthStateChanged(user => {
                if(user){
                     fs.collection(user.uid + "_chat").doc('cht_' + id).set({
@@ -370,8 +457,8 @@ function createUserChat(){
                     })
                }
           });
+          return msg
      }
-     return msg
 }
 form.addEventListener('submit', (e) => {
      e.preventDefault();
@@ -380,33 +467,47 @@ form.addEventListener('submit', (e) => {
 
 //Adding AI input
 function createAIChat(msg){
-     let id = counter += 1;
-     auth.onAuthStateChanged(user => {
-          if(user){
-               fs.collection(user.uid + "_chat").doc('cht_' + id).set({
-                    id: 'cht_' + id,
-                    message: msg,
-                    type: 'incoming'
-               }).then(() => {
-                    chatBox.scrollTo(0, chatBox.scrollHeight);
-                    console.log('message received');
-               }).catch( err => {
-                    console.log(err.message);
-               })
-          }
-     })
+     if(msg !== undefined || msg !== null || msg !== ""){
+          let id = counter += 1;
+          auth.onAuthStateChanged(user => {
+               if(user){
+                    fs.collection(user.uid + "_chat").doc('cht_' + id).set({
+                         id: 'cht_' + id,
+                         message: msg,
+                         type: 'incoming'
+                    }).then(() => {
+                         chatBox.scrollTo(0, chatBox.scrollHeight);
+                         console.log('message received');
+                    }).catch( err => {
+                         console.log(err.message);
+                    })
+               }
+          })
+     }
 }
 
 function queryAI(){
      var msg = createUserChat().toLowerCase();
      if (msg !== undefined || msg !== null || msg !== ""){
+          //Remove Unwanted
+          if (msg.replace(/\s+/g, '').length == 0) {
+               return;
+          }
+          const unwantedSymbols = ["!", "?", "\"", "."]
+          unwantedSymbols.forEach((symbol) => {
+               if (msg.includes(symbol)) {
+                    msg = msg.replace(symbol, "");
+               }
+          });
+
           //Check Func
           const funcList = [
                "--version",
                "--copy",
                "--search",
                "--lockdown2020",
-               "--lorem-ipsum"
+               "--lorem-ipsum",
+               "--insult"
           ]
 
           funcList.forEach((func) => {
@@ -417,6 +518,24 @@ function queryAI(){
           });
 
           if(funcList.includes(msg)){
+               return;
+          }
+
+          //Dynamic Functions
+          const dyFuncList = [
+               "--search"
+          ]
+
+          var ranDyFunc = false;
+
+          dyFuncList.forEach((func) => {
+               if (msg.includes(func)) {
+                    Task.dyFunc(msg)
+                    ranDyFunc = true
+               }
+          });
+
+          if(ranDyFunc){
                return;
           }
 
@@ -468,7 +587,16 @@ function queryAI(){
                "today is",
                "tell me the date and time",
                "tell me the date",
-               "what is today's date"
+               "what is today's date",
+               "who am i",
+               "do you know my name",
+               "what is my name",
+               "what's my name",
+               "say my name",
+               "do you know who i am",
+               "who's your daddy",
+               "who's your senpai",
+               "who dat boi"
           ]
 
           staticTrigger.forEach((stat) => {

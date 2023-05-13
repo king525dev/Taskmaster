@@ -17,7 +17,8 @@ Taskmaster is a user-friendly project management software that offers a to-do li
 
 #### Go to website
 - The program can simply be accessed from the browser through this link [here](https://task-master-e14a8.firebaseapp.com/)
-- You can also download a link as an executable file in the relaese section of the repository (refer to as a direct application `Taskmaster-lnk`), although it's vunerable to getting blocked by antiviruses.
+- You can also download a link as an executable file in the relaese section of the repository (refer to as a direct application `Taskmaster-lnk`) , 
+  although it's vunerable to getting blocked by antiviruses.
 
 #### As a Progressive Web Application (PWA)
 - The program can be installed as a PWA on Microsoft Edge Or Google Chrome, or any browser that runs on Chromium.
@@ -27,31 +28,33 @@ Taskmaster is a user-friendly project management software that offers a to-do li
 
 #### As a Direct Application
 - This installation installs the application as a normal executable file.
-- Download the `Applications.zip` file from releases on the (github repository) [https://github.com/king525dev/Task-Master/]
+- Download the `Applications.zip` file from [releases](https://github.com/king525dev/Taskmaster/releases) on the [github repository](https://github.com/king525dev/Task-Master/).
 - Extract the `Applications` from the .zip file
 - Double tap the `Taskmaster`, `Taskmaster-initial` or `Taskmaster-lnk` application to run. (`Taskmaster` is preffered over `Taskmaster-initial` and `Taskmaster-lnk`)
 
 #### Quick Installation
 - This installation is for users who simply want to quickly download the application regardless of the settings.
-- Download the `Setups.zip` file from releases on the (github repository)[https://github.com/king525dev/Task-Master/]
+- Download the `Setups.zip` file from [releases](https://github.com/king525dev/Taskmaster/releases) on the [github repository](https://github.com/king525dev/Task-Master/)
 - Extract the `Setups` from the .zip file
 - Double tap the `Taskmaster 1.2.1 DirectSetup` application to install and run
 
 #### Normal Installation
 - This installation is for users who want to control parts of the installation like location. This method is reccomended over Quick Installation and as a Direct Application.
-- Download the `Setups.zip` file from releases on the (github repository)[https://github.com/king525dev/Task-Master/]
+- Download the `Setups.zip` file from [releases](https://github.com/king525dev/Taskmaster/releases) on the [github repository](https://github.com/king525dev/Task-Master/).
 - Extract the `Setups` from the .zip file
 - Double tap on the installer `Taskmaster Setup 1.2.1` and follow the installation wizard
 - Run the application to test it and enjoy
 
-[ NOTE: These steps only apply to the latest version on Taskmaster as of 28/02/2023 which is v1.2.1, to go to the releases section, click [here](https://github.com/king525dev/Taskmaster/releases/tag/Taskmasterv1.2.1)]
-
 #### As a Mobile Application
 - This installation is for users who want to access the application on a mobile device (Android only)
-- Download the installer from releases on the (github repository)[https://github.com/king525dev/Task-Master/]
+- Download the installer from [releases](https://github.com/king525dev/Taskmaster/releases) on the [github repository](https://github.com/king525dev/Task-Master/)
 - Extract the installer from the .zip file
 - Double tap on the installer and follow the installation wizard
 - Run the application to test it and enjoy
+
+
+
+[ NOTE: These steps only apply to the latest version on Taskmaster as of 28/02/2023 which is v1.2.1, to go to the releases section, click [here](https://github.com/king525dev/Taskmaster/releases/tag/Taskmasterv1.2.1)]
 
 
 

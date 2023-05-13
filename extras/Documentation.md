@@ -12,7 +12,7 @@ Taskmaster is more than just a software. It's a solution. It's a way to make you
 
 So why settle for disorganization and chaos when Taskmaster can help streamline your life? Don't wait any longer. Try Taskmaster today and see the difference for yourself. You won't regret it. Sign up now and experience the magic of efficient project management.
 
---TLDR: It can be mainly be used to take notes or plan projects in a convenient manner.
+**--TLDR:** Taskmaster is a user-friendly project management software that offers a to-do list and a simplistic project page that is easy to edit. With the ability to download and upload projects as plain text or rich text files, and the option to customize the software to your liking, Taskmaster is perfect for anyone looking for a versatile and convenient way to manage their projects. Plus, with 24/7 customer support, you can rest assured that any issues or breakdowns will be taken care of promptly. Give Taskmaster a try and experience the ease and simplicity of project management at its finest.
 
 **Latest Version:** v1.2.1
 
@@ -31,32 +31,33 @@ So why settle for disorganization and chaos when Taskmaster can help streamline 
 
 #### As a Direct Application
 - This installation installs the application as a normal executable file.
-- Download the `Applications.zip` file from releases on the (github repository) [https://github.com/king525dev/Task-Master/]
+- Download the `Applications.zip` file from [releases](https://github.com/king525dev/Taskmaster/releases) on the [github repository](https://github.com/king525dev/Task-Master/).
 - Extract the `Applications` from the .zip file
 - Double tap the `Taskmaster`, `Taskmaster-initial` or `Taskmaster-lnk` application to run. (`Taskmaster` is preffered over `Taskmaster-initial` and `Taskmaster-lnk`)
 
 #### Quick Installation
 - This installation is for users who simply want to quickly download the application regardless of the settings.
-- Download the `Setups.zip` file from releases on the (github repository)[https://github.com/king525dev/Task-Master/]
+- Download the `Setups.zip` file from [releases](https://github.com/king525dev/Taskmaster/releases) on the [github repository](https://github.com/king525dev/Task-Master/)
 - Extract the `Setups` from the .zip file
 - Double tap the `Taskmaster 1.2.1 DirectSetup` application to install and run
 
 #### Normal Installation
 - This installation is for users who want to control parts of the installation like location. This method is reccomended over Quick Installation and as a Direct Application.
-- Download the `Setups.zip` file from releases on the (github repository)[https://github.com/king525dev/Task-Master/]
+- Download the `Setups.zip` file from [releases](https://github.com/king525dev/Taskmaster/releases) on the [github repository](https://github.com/king525dev/Task-Master/).
 - Extract the `Setups` from the .zip file
 - Double tap on the installer `Taskmaster Setup 1.2.1` and follow the installation wizard
 - Run the application to test it and enjoy
 
-[ NOTE: These steps only apply to the latest version on Taskmaster as of 28/02/2023 which is v1.2.1, to go to the releases section, click [here](https://github.com/king525dev/Taskmaster/releases/tag/Taskmasterv1.2.1)]
-
-
 #### As a Mobile Application
 - This installation is for users who want to access the application on a mobile device (Android only)
-- Download the installer from releases on the (github repository)[https://github.com/king525dev/Task-Master/]
+- Download the installer from [releases](https://github.com/king525dev/Taskmaster/releases) on the [github repository](https://github.com/king525dev/Task-Master/)
 - Extract the installer from the .zip file
 - Double tap on the installer and follow the installation wizard
 - Run the application to test it and enjoy
+
+
+[ NOTE: These steps only apply to the latest version on Taskmaster as of 28/02/2023 which is v1.2.1, to go to the releases section, click [here](https://github.com/king525dev/Taskmaster/releases/tag/Taskmasterv1.2.1)]
+
 
 ## Features
 You may read the features for each respective page and use the [screenshots](#screenshots) below as references. The details for the demo account used in the screenshots are stated below:
