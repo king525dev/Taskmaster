@@ -40,8 +40,9 @@ function capitalCase(word){
      return word[0].toUpperCase() + word.substr(1);
 }
 
-function generateLorem(){
-     createAIChat("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Mauris nunc congue nisi vitae suscipit tellus mauris a. Mi in nulla posuere sollicitudin aliquam. Quis vel eros donec ac odio tempor. Sit amet massa vitae tortor condimentum lacinia quis vel eros. Nec ultrices dui sapien eget mi. Tristique senectus et netus et malesuada fames ac turpis. Pharetra vel turpis nunc eget. Tristique sollicitudin nibh sit amet commodo. Varius duis at consectetur lorem donec. Vitae suscipit tellus mauris a diam.")
+function generateLorem(num){
+     const paragraphs = LoremIpsum.paragraphs(num, true);
+     createAIChat(paragraphs);
 }
 
 //Taskmaster Assistant API
@@ -310,7 +311,8 @@ const Task = {
      },
      dyFunc(msg){
           const dyFuncList = [
-               "--search"
+               "--search",
+               "--lorem"
           ]
 
           dyFuncList.forEach((func) => {
@@ -325,6 +327,12 @@ const Task = {
                     case "--search":
                          Task.search(msg);
                          break;
+                    case "--lorem":
+                         if(isNaN(msg)){
+                              msg.replace(" ", "");
+                              Number(msg);
+                         }
+                         generateLorem(msg)
                }
           }
 
@@ -371,7 +379,7 @@ const Task = {
                          searchLink.click();
                          break;
                     case "--lorem-ipsum":
-                         generateLorem();
+                         generateLorem(2);
                          break;
                     case "--insult":
                          Task.insult();
@@ -523,7 +531,8 @@ function queryAI(){
 
           //Dynamic Functions
           const dyFuncList = [
-               "--search"
+               "--search",
+               "--lorem"
           ]
 
           var ranDyFunc = false;
