@@ -10,7 +10,7 @@ It can be mainly be used to take notes or plan projects.
 
 Taskmaster is a user-friendly project management software that offers a to-do list, an AI assistant and a simplistic project page that is easy to edit. With the ability to download and upload projects as plain text files, and the option to customize the software to your liking through one of our pre-set themes, Taskmaster is perfect for anyone looking for a versatile and convenient way to manage their projects. Plus, with 24/7 customer support, you can rest assured that any issues or breakdowns will be taken care of promptly. Give Taskmaster a try and experience the ease and simplicity of project management at its finest.
 
-**Latest Version:** v1.2.1
+**Latest Version:** v1.2.2
 
 
 ## Installation
@@ -36,13 +36,13 @@ Taskmaster is a user-friendly project management software that offers a to-do li
 - This installation is for users who simply want to quickly download the application regardless of the settings.
 - Download the `Setups.zip` file from [releases](https://github.com/king525dev/Taskmaster/releases) on the [github repository](https://github.com/king525dev/Task-Master/)
 - Extract the `Setups` from the .zip file
-- Double tap the `Taskmaster 1.2.1 DirectSetup` application to install and run
+- Double tap the `Taskmaster 1.2.2 DirectSetup` application to install and run
 
 #### Normal Installation
 - This installation is for users who want to control parts of the installation like location. This method is reccomended over Quick Installation and as a Direct Application.
 - Download the `Setups.zip` file from [releases](https://github.com/king525dev/Taskmaster/releases) on the [github repository](https://github.com/king525dev/Task-Master/).
 - Extract the `Setups` from the .zip file
-- Double tap on the installer `Taskmaster Setup 1.2.1` and follow the installation wizard
+- Double tap on the installer `Taskmaster Setup 1.2.2` and follow the installation wizard
 - Run the application to test it and enjoy
 
 #### As a Mobile Application
@@ -54,7 +54,7 @@ Taskmaster is a user-friendly project management software that offers a to-do li
 
 
 
-[ NOTE: These steps only apply to the latest version on Taskmaster as of 28/02/2023 which is v1.2.1, to go to the releases section, click [here](https://github.com/king525dev/Taskmaster/releases/tag/Taskmasterv1.2.1)]
+[ NOTE: These steps only apply to the latest version on Taskmaster as of 28/02/2023 which is v1.2.1, to go to the releases section, click [here](https://github.com/king525dev/Taskmaster/releases/)]
 
 
 
@@ -120,7 +120,7 @@ Taskmaster is a user-friendly project management software that offers a to-do li
 
 ## Documentation
 
-[Documentation](extras/Documentation.md)
+[[ --> Documentation <-- ]](extras/Documentation.md)
 
 
 ## Author
