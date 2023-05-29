@@ -451,6 +451,35 @@ div.chat-box{
      color: var(--colourmn1);
 }
 
+.ldio-5srrg96ko17 div{
+     background: var(--colour1);
+}
+
+.ldio-5srrg96ko17 div:nth-child(1){
+     background: var(--colour1);
+}
+
+.ldio-5srrg96ko17 div:nth-child(2){
+     background: var(--colour1);
+}
+
+.ldio-5srrg96ko17 div:nth-child(3){
+     background: var(--colour1);
+}
+
+.ldio-5srrg96ko17 div:nth-child(4){
+     background: var(--colour1);
+}
+
+.ldio-5srrg96ko17 div:nth-child(5){
+     background: var(--colour1);
+}
+
+.loadingio-spinner-ellipsis-pspcyit56cn{
+     background-color: var(--colourmn1);
+     border: 1px solid var(--colour1);
+}
+
 .typing-area input{
      background-color: transparent;
      border: solid 1px var(--colourmn2);

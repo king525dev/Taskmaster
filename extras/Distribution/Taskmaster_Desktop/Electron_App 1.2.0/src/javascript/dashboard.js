@@ -92,7 +92,6 @@ setInterval(
           let minute =  dater.getMinutes();
           let mer;
           if(hours == 0){hours = 12}
-          if(hours < 10){hours = `0${hours}`}
           if(minute < 10){minute = `0${minute}`}
           if(hours > 11){
                mer = "PM"
@@ -101,7 +100,6 @@ setInterval(
           }
           if(hours > 12){
                hours = hours - 12
-               if(hours < 10){hours = `0${hours}`}
           }
           switch (myDate){
                case 1:
@@ -196,6 +194,20 @@ function deleteAcc() {
                     cancelText: "Cancel",
                     preffered: false,
                     onok: function() {
+                         fs.collection(user.uid + "_notes").get().then(
+                              (querySnapshot) => {
+                                   querySnapshot.forEach((doc) => {
+                                        doc.delete();
+                                   });
+                              }
+                         );
+                         fs.collection(user.uid + "_notes").get().then(
+                              (querySnapshot) => {
+                                   querySnapshot.forEach((doc) => {
+                                        doc.delete();
+                                   });
+                              }
+                         );
                          fs.collection('users').doc(user.uid).delete()
                          .then(() => {
                               const user = firebase.auth().currentUser;
@@ -271,3 +283,10 @@ auth.onAuthStateChanged(user => {
           })
      }
 })
+
+document.addEventListener('keydown', e => { // Reload Shortcut
+     if(e.key.toLowerCase() == "r" && e.altKey){
+          e.preventDefault();
+          location.reload();
+     }
+});

@@ -360,6 +360,85 @@ div.foot-buttons i{
      background-color: var(--white);
 }
 
+div.ast-activator{
+     background-color: var(--colourmn2);
+     color: var(--white);
+}
+
+div.ass-wrapper{
+     background-color: var(--colourmn1);
+     box-shadow: -1em 0 30px 0px rgba(255,255,255,0.4);
+}
+
+div.ass-wrapper header{
+     background-color: var(--colourmn2);
+     color: var(--colourmn1);
+}
+
+div.chat-box{
+     background-color: var(--white);
+}
+
+.chat-box .chat-incoming p{
+     background-color: var(--white);
+     color: var(--colourmn2);
+     border: 1px solid var(--colourmn2);
+}
+
+.chat-box .chat-incoming i{
+     background-color: var(--colourmn2);
+     color: var(--white);
+}
+
+.chat-box .chat-outgoing p{
+     background-color: var(--colourmn2);
+     color: var(--colourmn1);
+}
+
+.ldio-5srrg96ko17 div{
+     background: var(--colourmn2);
+}
+
+.ldio-5srrg96ko17 div:nth-child(1){
+     background: var(--colourmn2);
+}
+
+.ldio-5srrg96ko17 div:nth-child(2){
+     background: var(--colourmn2);
+}
+
+.ldio-5srrg96ko17 div:nth-child(3){
+     background: var(--colourmn2);
+}
+
+.ldio-5srrg96ko17 div:nth-child(4){
+     background: var(--colourmn2);
+}
+
+.ldio-5srrg96ko17 div:nth-child(5){
+     background: var(--colourmn2);
+}
+
+.loadingio-spinner-ellipsis-pspcyit56cn{
+     background-color: var(--white);
+     border: 1px solid var(--colourmn2);
+}
+
+.typing-area{
+     background-color: var(--colourmn1);
+}
+
+.typing-area input{
+     background-color: transparent;
+     border: solid 1px var(--colourmn2);
+     color: var(--colourmn2);
+}
+
+.typing-area button{
+     background-color: var(--colourmn1);
+     color: var(--colourmn2);
+}
+
 /* <--> Phone Version <--> */
 @media (max-width: 500px){
      div.nav-buttons .to-dashboard{

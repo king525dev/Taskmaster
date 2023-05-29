@@ -1,6 +1,6 @@
 /*===============================
      TASKMASTER DEFAULT STYLES
-================================*/ 
+================================*/
 
 /* --> GLOBAL STYLES <-- */
 
@@ -22,7 +22,7 @@ body {
      align-items: center;
 }
 
-ul{
+ul {
      list-style-type: none;
 }
 
@@ -43,7 +43,7 @@ ul{
 
 /* --> Navigation */
 
-.full-nav-wrapper{
+.full-nav-wrapper {
      position: fixed;
      top: 0;
      left: 0;
@@ -54,11 +54,11 @@ ul{
      z-index: 99;
 }
 
-#active:checked ~ .full-nav-wrapper{
+#active:checked~.full-nav-wrapper {
      clip-path: circle(75%);
 }
 
-.menu-btn{
+.menu-btn {
      position: absolute;
      z-index: 100;
      right: 10px;
@@ -74,11 +74,11 @@ ul{
      transition: all 0.3s ease-in-out;
 }
 
-#active:checked ~ .menu-btn i:before{
+#active:checked~.menu-btn i:before {
      content: "\f00d";
 }
 
-.full-nav-wrapper ul{
+.full-nav-wrapper ul {
      position: absolute;
      top: 50%;
      left: 50%;
@@ -87,11 +87,12 @@ ul{
      text-align: center;
 }
 
-.full-nav-wrapper ul li{
+.full-nav-wrapper ul li {
      margin: 3em 0;
 }
-.full-nav-wrapper ul li a{
-     font-family:  'Ubuntu','Nanum Gothic', sans-serif;
+
+.full-nav-wrapper ul li a {
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
      color: none;
      text-decoration: none;
      font-size: 2em;
@@ -103,7 +104,7 @@ ul{
      border-radius: 10px;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
      display: none;
 }
 
@@ -202,13 +203,23 @@ input[type="checkbox"]{
 }
 
 @keyframes confirm-opening {
-     from { opacity: 0 }
-     to { opacity: 1 }
+     from {
+          opacity: 0
+     }
+
+     to {
+          opacity: 1
+     }
 }
 
 @keyframes confirm-closing {
-     from { opacity: 1 }
-     to { opacity: 0 }
+     from {
+          opacity: 1
+     }
+
+     to {
+          opacity: 0
+     }
 }
 
 @keyframes confirm-window-opening {
@@ -220,91 +231,101 @@ input[type="checkbox"]{
 
 /* --> No Script */
 
-noscript{
+noscript {
      width: 100%;
      height: 100%;
-     background: #ECEFF1; 
-     color: rgba(0,0,0,0.87); 
-     font-family: 'Nanum Gothic', 'Ubuntu', sans-serif; 
-     margin: 0; 
-     padding: 0; 
-     display: flex; 
-     align-items: center; 
+     background: #ECEFF1;
+     color: rgba(0, 0, 0, 0.87);
+     font-family: 'Nanum Gothic', 'Ubuntu', sans-serif;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     align-items: center;
      flex-direction: column;
 }
 
-#noscript-message{ 
-     background: white; 
-     max-width: 360px; 
-     margin: 50px auto 16px; 
-     padding: 32px 24px 16px; 
-     border-radius: 3px; 
+#noscript-message {
+     background: white;
+     max-width: 360px;
+     margin: 50px auto 16px;
+     padding: 32px 24px 16px;
+     border-radius: 3px;
 }
 
-#noscript-message h3 { 
-     color: #888; 
-     font-weight: normal; 
-     font-size: 16px; 
+#noscript-message h3 {
+     color: #888;
+     font-weight: normal;
+     font-size: 16px;
      margin: 16px 0 12px;
 }
 
-#noscript-message h2{ 
-     color: #ffa100; 
-     font-weight: bold; 
-     font-size: 16px; 
-     margin: 0 0 8px; 
-     font-size: 2em; 
+#noscript-message h2 {
+     color: #ffa100;
+     font-weight: bold;
+     font-size: 16px;
+     margin: 0 0 8px;
+     font-size: 2em;
      font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
 }
 
-#noscript-message h1{ 
-     font-size: 22px; 
+#noscript-message h1 {
+     font-size: 22px;
      font-weight: 300;
-     color: rgba(0,0,0,0.6); 
+     color: rgba(0, 0, 0, 0.6);
      margin: 0 0 16px;
 }
 
-#noscript-message p{ 
-     line-height: 140%; 
-     margin: 16px 0 24px; 
-     font-size: 14px; 
+#noscript-message p {
+     line-height: 140%;
+     margin: 16px 0 24px;
+     font-size: 14px;
 }
 
-#noscript-message a { 
-     display: block; 
-     text-align: center; 
-     background: #008080; 
-     text-transform: uppercase; 
-     text-decoration: none; 
-     color: white; 
-     padding: 16px; 
-     border-radius: 4px; 
-     margin-top: 5px; 
+#noscript-message a {
+     display: block;
+     text-align: center;
+     background: #008080;
+     text-transform: uppercase;
+     text-decoration: none;
+     color: white;
+     padding: 16px;
+     border-radius: 4px;
+     margin-top: 5px;
      transition: all 0.3s;
 }
 
-#noscript-message a:hover{
+#noscript-message a:hover {
      background: #DF9500;
 }
 
-#noscript-message, #noscript-message a {
-     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); 
+#noscript-message,
+#noscript-message a {
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-#load { 
-     color: rgba(0,0,0,0.4); 
-     text-align: center; 
-     font-size: 13px; 
+#load {
+     color: rgba(0, 0, 0, 0.4);
+     text-align: center;
+     font-size: 13px;
 }
 
-.banner{
-     max-width: 80%; 
-     margin-top: 2em ;
+.banner {
+     max-width: 80%;
+     margin-top: 2em;
 }
 
 @media (max-width: 600px) {
-     body, #message { margin-top: 0; background: white; box-shadow: none; }
-     body { border-top: 16px solid #ffa100; }
+
+     body,
+     #message {
+          margin-top: 0;
+          background: white;
+          box-shadow: none;
+     }
+
+     body {
+          border-top: 16px solid #ffa100;
+     }
 }
 
 /* --> Toast */
@@ -337,12 +358,15 @@ noscript{
      0% {
           transform: translateX(100%);
      }
+
      40% {
           transform: translateX(-5%);
      }
+
      80% {
           transform: translateX(0%);
      }
+
      100% {
           transform: translateX(-10px);
      }
@@ -356,16 +380,20 @@ noscript{
      0% {
           transform: translateX(-10px);
      }
+
      40% {
           transform: translateX(0%);
      }
+
      80% {
           transform: translateX(-5%);
      }
+
      100% {
           transform: translateX(calc(100% + 20px));
      }
 }
+
 .toast::before {
      position: absolute;
      content: "";
@@ -382,19 +410,23 @@ noscript{
      }
 }
 
-.toast.success::before, .btn#success {
+.toast.success::before,
+.btn#success {
      background: #0ABF30;
 }
 
-.toast.error::before, .btn#error {
+.toast.error::before,
+.btn#error {
      background: #E24D4C;
 }
 
-.toast.warning::before, .btn#warning {
+.toast.warning::before,
+.btn#warning {
      background: #E9BD0C;
 }
 
-.toast.info::before, .btn#info {
+.toast.info::before,
+.btn#info {
      background: #3498DB;
 }
 
@@ -434,48 +466,61 @@ noscript{
 
 @media screen and (max-width: 530px) {
      .notifications {
-     width: 95%;
+          width: 95%;
      }
+
      .notifications .toast {
-     width: 100%;
-     font-size: 1rem;
-     margin-left: 20px;
+          width: 100%;
+          font-size: 1rem;
+          margin-left: 20px;
      }
 }
 
 /* --> INTER-PAGE STYLES <-- */
 
-.sign-wrapper, .dashboard-wrapper{
+.sign-wrapper,
+.dashboard-wrapper {
      border-radius: 20px;
 }
 
-.dashboard-wrapper, .board-wrapper, .notes-wrapper, .prj-wrapper{
+.dashboard-wrapper,
+.board-wrapper,
+.notes-wrapper,
+.prj-wrapper {
      height: 100%;
      width: 100%;
 }
 
-.dashboard-wrapper, .board-wrapper, .prj-wrapper{
+.dashboard-wrapper,
+.board-wrapper,
+.prj-wrapper {
      padding: 2em;
 }
 
-div.more-dash, div.project, div.project-m{
+div.more-dash,
+div.project,
+div.project-m {
      border-radius: 10px;
      margin: 5px;
      transition: all 0.3s;
      overflow: hidden;
 }
 
-.notes-wrapper, .board-wrapper, .prj-wrapper{
+.notes-wrapper,
+.board-wrapper,
+.prj-wrapper {
      height: 100%;
 }
 
-body.notes, body.project, body.board{
+body.notes,
+body.project,
+body.board {
      padding: 0 3em;
 }
 
 /* --> SIGN-UP AND SIGN-IN PAGE <-- */
 
-.sign-wrapper{
+.sign-wrapper {
      width: 60%;
      height: 80%;
      margin: 3em;
@@ -483,7 +528,7 @@ body.notes, body.project, body.board{
      flex-direction: row-reverse;
 }
 
-header.sign{
+header.sign {
      width: 50%;
      height: 100%;
      border-radius: 0 20px 20px 0;
@@ -498,12 +543,12 @@ img.logo {
 }
 
 p.logo-sign {
-     font-family: 'Ubuntu','Nanum Gothic', sans-serif;
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
      font-size: 2em;
      margin-top: 0.5em;
 }
 
-main.sign{
+main.sign {
      width: 50%;
      padding: 2em;
      display: flex;
@@ -511,14 +556,14 @@ main.sign{
      align-items: center;
 }
 
-h3.register-title{
+h3.register-title {
      font-size: 2em;
      font-weight: 200;
-     font-family: 'Ubuntu','Nanum Gothic', sans-serif;
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
      padding-bottom: 0.5em;
 }
 
-div.error-txt{
+div.error-txt {
      width: 100%;
      margin-bottom: 0.5em;
      color: #721c24;
@@ -528,14 +573,15 @@ div.error-txt{
      display: none;
 }
 
-form.sign{
+form.sign {
      width: 90%;
      display: flex;
      flex-direction: column;
      overflow-y: scroll;
 }
 
-.sign-input, .sign-submit{
+.sign-input,
+.sign-submit {
      width: 100%;
      font-size: 1em;
      padding: 0 0.5em;
@@ -546,71 +592,74 @@ form.sign{
      outline: none;
 }
 
-.sign-input{
+.sign-input {
      border-bottom-width: 3px;
      transition: all 0.3s ease;
 }
 
-div.pass{
+div.pass {
      display: flex;
      align-items: center;
      position: relative;
 }
 
-div.pass i{
+div.pass i {
      position: absolute;
      right: 1em;
      z-index: 3;
 }
 
-     div.pass i.active::before{
-          content: "\f070";
-     }
+div.pass i.active::before {
+     content: "\f070";
+}
 
-.sign-submit{
+.sign-submit {
      margin: 1.1em 0;
      transition: all 0.3s ease;
 }
 
-small.sign-link{
+small.sign-link {
      margin-top: 0.1em;
 }
 
-small.sign-link a{
+small.sign-link a {
      text-decoration: none;
 }
 
-     small.sign-link a:hover{
-          text-decoration: underline;
-     }
+small.sign-link a:hover {
+     text-decoration: underline;
+}
 
 /* --> THE DASHBOARD <-- */
 
-.dashboard-wrapper{
+.dashboard-wrapper {
      display: grid;
      gap: 1em;
      grid-template-columns: 25% 75%;
      grid-template-rows: 35% 65%;
 }
 
-.quick-todos, header.dashboard, main.dashboard{
+.quick-todos,
+header.dashboard,
+main.dashboard {
      border-radius: 10px;
      opacity: 80%;
 }
 
-header.dashboard, main.dashboard{
+header.dashboard,
+main.dashboard {
      width: 97%;
 }
 
-.quick-todos{
+.quick-todos {
      overflow-y: scroll;
 }
 
-header.dashboard{
+header.dashboard {
      display: flex;
      justify-content: space-between;
      flex-direction: column;
-     font-family:  'Ubuntu','Nanum Gothic', sans-serif;
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
      background-size: 200%;
      background-position: right;
      overflow-x: visible;
@@ -623,30 +672,30 @@ div.first-line {
      justify-content: space-between;
 }
 
-div.dash-buttons{
+div.dash-buttons {
      display: flex;
      align-items: flex-start;
 }
 
-div.dash-buttons *{
+div.dash-buttons * {
      margin-right: 0.5em;
 }
 
-div.dash-buttons i{
+div.dash-buttons i {
      font-size: 2em;
      transition: all 0.3s;
 }
 
-div.dash-buttons i:hover{
+div.dash-buttons i:hover {
      transform: scale(1.1);
      z-index: 2;
 }
 
-div.dash-buttons:not(:last-child){
+div.dash-buttons:not(:last-child) {
      margin: 0;
 }
 
-button.sign-out{
+button.sign-out {
      font-size: 0.9em;
      padding: 0.8em;
      border-radius: 5px;
@@ -654,27 +703,27 @@ button.sign-out{
      transition: all 0.3s;
 }
 
-     button.sign-out:hover{
-          background-color: transparent;
-     }
+button.sign-out:hover {
+     background-color: transparent;
+}
 
-header.dashboard span.title{
+header.dashboard span.title {
      display: flex;
      justify-content: flex-start;
      margin: 1.8em 0.7em 0 0;
      flex-direction: column;
 }
 
-header.dashboard span.title span.fir-date{
+header.dashboard span.title span.fir-date {
      font-size: 3.1em;
      /* font-weight: 80; */
 }
 
-header.dashboard span.title small.time-week{
+header.dashboard span.title small.time-week {
      font-size: 1.2em;
 }
 
-header span.welcome{
+header span.welcome {
      white-space: pre;
      display: flex;
      justify-content: flex-end;
@@ -682,7 +731,7 @@ header span.welcome{
      margin: 5px;
 }
 
-aside.quick-todos{
+aside.quick-todos {
      padding: 0.7em;
      grid-row: span 2 / auto;
      display: flex;
@@ -690,23 +739,23 @@ aside.quick-todos{
      padding: 1em;
 }
 
-aside.quick-todos span.todos-title{
-     font-family:  'Ubuntu','Nanum Gothic', sans-serif;
+aside.quick-todos span.todos-title {
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
      text-align: center;
      margin: 0.5em;
      font-size: 1.8em;
 }
 
-form.todo-input{
+form.todo-input {
      display: flex;
      margin: 0 -2px;
 }
 
-form.todo-input *{
+form.todo-input * {
      outline: none;
 }
 
-input.todo-input{
+input.todo-input {
      border-radius: 5px 0 0 5px;
      font-size: 0.9em;
      width: 80%;
@@ -714,7 +763,7 @@ input.todo-input{
      padding: 0.5em;
 }
 
-form.todo-input input[type="submit"]{
+form.todo-input input[type="submit"] {
      width: 20%;
      border-radius: 0 5px 5px 0;
      font-size: 1.5em;
@@ -722,11 +771,11 @@ form.todo-input input[type="submit"]{
      cursor: pointer;
 }
 
-aside.quick-todos ul.todos{
+aside.quick-todos ul.todos {
      padding: 1em 0.5em;
 }
 
-li.todo-item{
+li.todo-item {
      width: 100%;
      font-size: 0.9em;
      padding: 0.7em 1.7em;
@@ -735,20 +784,20 @@ li.todo-item{
      cursor: pointer;
 }
 
-     li.todo-item:first-child{
-          border-radius: 5px 5px 0 0;
-     }
+li.todo-item:first-child {
+     border-radius: 5px 5px 0 0;
+}
 
-     li.todo-item:last-child{
-          border-radius: 0 0 5px 5px;
-          border-bottom: none
-     }
+li.todo-item:last-child {
+     border-radius: 0 0 5px 5px;
+     border-bottom: none
+}
 
-     li.todo-item.completed{
-          text-decoration: line-through;
-     }
+li.todo-item.completed {
+     text-decoration: line-through;
+}
 
-main.dashboard{
+main.dashboard {
      display: grid;
      grid-template-columns: repeat(auto-fit, 30%);
      grid-template-rows: repeat(2, 45%);
@@ -758,7 +807,7 @@ main.dashboard{
      padding: 1em;
 }
 
-div.more-dash{
+div.more-dash {
      display: flex;
      justify-content: center;
      align-items: center;
@@ -768,7 +817,7 @@ div.more-dash{
      cursor: pointer;
 }
 
-div.project{
+div.project {
      display: flex;
      flex-direction: column;
      justify-content: space-between;
@@ -777,18 +826,18 @@ div.project{
      cursor: pointer;
 }
 
-div.project::-webkit-scrollbar{
+div.project::-webkit-scrollbar {
      width: 0;
 }
 
-p.prj-title{
+p.prj-title {
      font-size: 1.7em;
      font-weight: bold;
      display: flex;
      align-self: flex-start;
 }
 
-span.prj-status{
+span.prj-status {
      width: fit-content;
      font-size: 0.7em;
      border-radius: 5px;
@@ -799,7 +848,7 @@ span.prj-status{
 
 /* --> THE BOARD <-- */
 
-.board-wrapper{
+.board-wrapper {
      display: flex;
      flex-direction: row;
      flex-wrap: wrap;
@@ -807,13 +856,13 @@ span.prj-status{
      overflow-y: scroll;
 }
 
-.no-results{
+.no-results {
      font-size: 2em;
      font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
      margin: auto;
 }
 
-.prj-board{
+.prj-board {
      width: 100%;
      display: grid;
      grid-template-columns: repeat(auto-fit, 16em);
@@ -821,12 +870,12 @@ span.prj-status{
      justify-content: center;
 }
 
-.prj-board div.more-dash{
+.prj-board div.more-dash {
      width: 95%;
      height: 90%;
 }
 
-div.project-m{
+div.project-m {
      width: 15em;
      height: 10em;
      padding: 1em;
@@ -837,11 +886,11 @@ div.project-m{
      cursor: pointer;
 }
 
-div.project-m::-webkit-scrollbar{
+div.project-m::-webkit-scrollbar {
      width: 0;
 }
 
-div.nav{
+div.nav {
      position: relative;
      top: 0;
      width: 100%;
@@ -850,14 +899,14 @@ div.nav{
      justify-content: space-between;
 }
 
-div.nav-filter{
+div.nav-filter {
      width: 50%;
      height: 2.5em;
      display: flex;
      justify-content: flex-start;
 }
 
-div.nav-filter input{
+div.nav-filter input {
      padding: 0.7em;
      border-radius: 5px;
      font-size: 1em;
@@ -866,14 +915,15 @@ div.nav-filter input{
      width: 70%;
 }
 
-div.nav-buttons{
+div.nav-buttons {
      width: 50%;
      height: 2.5em;
      display: flex;
      justify-content: flex-end;
 }
 
-div.nav-buttons .to-dashboard, div.nav-buttons .add-note{
+div.nav-buttons .to-dashboard,
+div.nav-buttons .add-note {
      white-space: pre;
      border-radius: 5px;
      width: 15em;
@@ -883,17 +933,17 @@ div.nav-buttons .to-dashboard, div.nav-buttons .add-note{
      transition: all 0.3s;
 }
 
-div.nav-buttons .to-dashboard{
+div.nav-buttons .to-dashboard {
      margin-right: 1.3em;
 }
 
 /* --> NOTES PAGE <-- */
 
-.notes-wrapper{
+.notes-wrapper {
      display: flex;
 }
 
-.notes-sidebar{
+.notes-sidebar {
      border-right: 2px solid #dddddd;
      flex-shrink: 0;
      overflow-y: auto;
@@ -908,7 +958,8 @@ div.buttons {
      margin-bottom: 1em;
 }
 
-.notes-add, .notes-back{
+.notes-add,
+.notes-back {
      border: none;
      cursor: pointer;
      font-size: 1em;
@@ -921,11 +972,11 @@ div.buttons {
      font-weight: 100;
 }
 
-.notes-add{
+.notes-add {
      border-radius: 0 7px 7px 0;
 }
 
-.notes-back{
+.notes-back {
      border-radius: 7px 0 0 7px;
 }
 
@@ -935,12 +986,12 @@ div.buttons {
      transition: all 0.3s;
 }
 
-.notes-list-item:first-child{
-     border-radius: 7px 7px 0 0; 
+.notes-list-item:first-child {
+     border-radius: 7px 7px 0 0;
 }
 
-.notes-list-item:last-child{
-     border-radius: 0 0 7px 7px; 
+.notes-list-item:last-child {
+     border-radius: 0 0 7px 7px;
      border-bottom: none;
 }
 
@@ -955,20 +1006,21 @@ div.buttons {
 
 .notes-small-title {
      font-size: 1.5em;
-     font-family: 'Ubuntu','Nanum Gothic', sans-serif;
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
 }
+
 .notes-small-body {
      padding: 0 10px;
 }
 
-.small-bottom{
+.small-bottom {
      display: flex;
      align-items: center;
      justify-content: space-between;
      margin: 0.3em 0;
 }
 
-.small-status{
+.small-status {
      width: fit-content;
      font-size: 0.7em;
      border-radius: 5px;
@@ -990,7 +1042,7 @@ div.buttons {
      flex-grow: 1;
 }
 
-.drag-drop{
+.drag-drop {
      position: absolute;
      width: 100%;
      height: 100%;
@@ -1005,36 +1057,36 @@ div.buttons {
      text-align: center;
      cursor: pointer;
      font-size: 4em;
-     font-family: 'Ubuntu','Nanum Gothic', sans-serif;
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
 }
 
-div.prev-foot{
+div.prev-foot {
      display: flex;
      flex-direction: row-reverse;
      align-items: center;
      justify-content: space-between;
 }
 
-div.foot-buttons{
+div.foot-buttons {
      align-self: flex-end;
      display: flex;
      align-items: center;
      /* display: inline-block; */
 }
 
-div.foot-buttons i{
+div.foot-buttons i {
      margin: 0 0.5em;
      font-size: 2em;
      cursor: pointer;
      transition: all 0.3s ease;
 }
 
-     div.foot-buttons i:hover{
-          transform: scale(1.2);
-          z-index: 2;
-     }
+div.foot-buttons i:hover {
+     transform: scale(1.2);
+     z-index: 2;
+}
 
-div.foot-buttons button{
+div.foot-buttons button {
      border-radius: 7px;
      padding: 0.5em 0.9em;
      margin: 0 0.7em;
@@ -1047,42 +1099,43 @@ div.foot-buttons button{
      cursor: pointer;
 }
 
-     div.prev-foot button.delete:hover{
-          color: #721c24;
-          background: #f8d7da;
-     }
+div.prev-foot button.delete:hover {
+     color: #721c24;
+     background: #f8d7da;
+}
 
-     div.prev-foot button.save:hover{
-          color: #1c722a;
-          background: #d7f8db;
-     }
+div.prev-foot button.save:hover {
+     color: #1c722a;
+     background: #d7f8db;
+}
 
-     div.foot-buttons button:active{
-          box-shadow: 0 0 5px rgba(0,0,0,0.25);
-     }
+div.foot-buttons button:active {
+     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
 
-.status-radio{
+.status-radio {
      display: inline-flex;
      overflow: hidden;
      border-radius: 15px;
-     box-shadow: 0 0 5px rgba(0,0,0,0.25);
-     font-family: 'Ubuntu','Nanum Gothic', sans-serif;
+     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
      cursor: pointer;
      transition: background 0.1s;
 }
 
-.radio-input{
+.radio-input {
      display: none;
 }
 
-.radio-label{
+.radio-label {
      padding: 8px 14px;
      font-size: 1em;
      transition: background 0.3s;
      cursor: pointer;
 }
 
-.notes-preview, .notes-preview form{
+.notes-preview,
+.notes-preview form {
      height: 100%;
 }
 
@@ -1096,7 +1149,7 @@ div.foot-buttons button{
 .notes-title {
      font-size: 3em;
      font-weight: 500;
-     font-family: 'Ubuntu','Nanum Gothic', sans-serif;
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
 }
 
 .notes-body {
@@ -1111,19 +1164,19 @@ div.foot-buttons button{
 
 /* --> PROJECT PAGE <-- */
 
-.prj-wrapper{
+.prj-wrapper {
      overflow-y: scroll;
 }
 
-body.project .prev-foot{
+body.project .prev-foot {
      margin-top: 3em;
 }
 
-body.project .notes-body{
+body.project .notes-body {
      height: 85%;
 }
 
-div.ast-activator{
+div.ast-activator {
      position: absolute;
      top: 45%;
      right: 0;
@@ -1133,14 +1186,14 @@ div.ast-activator{
      cursor: pointer;
 }
 
-div.ass-wrapper{
+div.ass-wrapper {
      position: absolute;
      top: 0;
      right: 0;
      width: 0;
      height: 100%;
      z-index: 5;
-     box-shadow: -1em 0 30px 0px rgba(0,0,0,0.4);
+     box-shadow: -1em 0 30px 0px rgba(0, 0, 0, 0.4);
      overflow-y: hidden;
 }
 
@@ -1148,7 +1201,8 @@ div.ass-wrapper{
      from {
           width: 0%;
      }
-     to{
+
+     to {
           width: 45%;
      }
 }
@@ -1157,67 +1211,68 @@ div.ass-wrapper{
      from {
           width: 45%;
      }
-     to{
+
+     to {
           width: 0%;
      }
 }
 
-.open-ast{
+.open-ast {
      animation: side-open ease-out 0.5s forwards;
 }
 
-.close-ast{
+.close-ast {
      animation: side-close ease-out 0.5s forwards;
 }
 
-div.ass-wrapper header{
+div.ass-wrapper header {
      width: 100%;
      padding: 1rem 0.5rem 1rem 2rem;
      font-size: 1.3rem;
      display: flex;
      align-items: center;
-     font-family: 'Ubuntu','Nanum Gothic', sans-serif;
+     font-family: 'Ubuntu', 'Nanum Gothic', sans-serif;
 }
 
-span.close-ass{
+span.close-ass {
      font-size: 2em;
      justify-self: flex-start;
      cursor: pointer;
 }
 
-span.ass-heading{
+span.ass-heading {
      margin-left: 20%
 }
 
-div.chat-box{
+div.chat-box {
      overflow-y: auto;
      padding: 10px 30px 20px 30px;
      box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),
-               inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+          inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
      height: calc(100% - 12em);
 }
 
-div.chat-box::-webkit-scrollbar{
+div.chat-box::-webkit-scrollbar {
      display: none;
 }
 
-.chat-box .chat-incoming{
+.chat-box .chat-incoming {
      margin: 15px 0;
 }
 
-.chat-box .chat-incoming p{
+.chat-box .chat-incoming p {
      word-wrap: break-word;
      padding: 1em 2em;
      box-shadow: 0 0 32px rgb(0 0 0 / 8%),
-               0 16px -16px rgb(0 0 0 / 10%);
+          0 16px -16px rgb(0 0 0 / 10%);
 }
 
-.chat-box .chat-outgoing{
+.chat-box .chat-outgoing {
      display: flex;
      margin: 15px 0;
 }
 
-.chat-outgoing .details{
+.chat-outgoing .details {
      margin-left: auto;
      max-width: calc(100% - 130px);
 }
@@ -1227,22 +1282,22 @@ div.chat-box::-webkit-scrollbar{
      border-radius: 18px 18px 0 18px;
 }
 
-.chat-box .chat-incoming{
+.chat-box .chat-incoming {
      display: flex;
      align-items: flex-end;
 }
 
-.chat-box .chat-incoming i{
+.chat-box .chat-incoming i {
      font-size: 1.5em;
      height: 1.7em;
-     width:  1.7em;
+     width: 1.7em;
      display: flex;
      border-radius: 50%;
      align-items: center;
      justify-content: center;
 }
 
-.chat-incoming .details{
+.chat-incoming .details {
      margin-left: 10px;
      margin-right: auto;
      max-width: calc(100% - 130px);
@@ -1252,13 +1307,100 @@ div.chat-box::-webkit-scrollbar{
      border-radius: 18px 18px 18px 0;
 }
 
-.typing-area{
+@keyframes ldio-5srrg96ko17 {
+     0% {
+          transform: translate(10px, 44px) scale(0);
+     }
+
+     25% {
+          transform: translate(10px, 44px) scale(0);
+     }
+
+     50% {
+          transform: translate(10px, 44px) scale(1);
+     }
+
+     75% {
+          transform: translate(44px, 44px) scale(1);
+     }
+
+     100% {
+          transform: translate(78px, 44px) scale(1);
+     }
+}
+
+@keyframes ldio-5srrg96ko17-r {
+     0% {
+          transform: translate(78px, 44px) scale(1);
+     }
+
+     100% {
+          transform: translate(78px, 44px) scale(0);
+     }
+}
+
+.ldio-5srrg96ko17 div {
+     position: absolute;
+     width: 1em;
+     height: 1em;
+     border-radius: 50%;
+     transform: translate(44px, 44px) scale(1);
+     animation: ldio-5srrg96ko17 1.0204081632653061s infinite cubic-bezier(0, 0.5, 0.5, 1);
+}
+
+.ldio-5srrg96ko17 div:nth-child(1) {
+     transform: translate(78px, 44px) scale(1);
+     animation: ldio-5srrg96ko17-r 0.25510204081632654s infinite cubic-bezier(0, 0.5, 0.5, 1), ldio-5srrg96ko17-c 1.0204081632653061s infinite step-start;
+}
+
+.ldio-5srrg96ko17 div:nth-child(2) {
+     animation-delay: -0.25510204081632654s;
+}
+
+.ldio-5srrg96ko17 div:nth-child(3) {
+     animation-delay: -0.5102040816326531s;
+}
+
+.ldio-5srrg96ko17 div:nth-child(4) {
+     animation-delay: -0.7653061224489796s;
+}
+
+.ldio-5srrg96ko17 div:nth-child(5) {
+     animation-delay: -1.0204081632653061s;
+}
+
+.loadingio-spinner-ellipsis-pspcyit56cn {
+     width: 4.7em;
+     height: 2.5em;
+     display: inline-block;
+     overflow: hidden;
+     border-radius: 18px 18px 18px 0;
+     padding: 0em 1em;
+}
+
+.ldio-5srrg96ko17 {
+     width: 100%;
+     height: 100%;
+     position: relative;
+     transform: translateZ(0) scale(0.38);
+     backface-visibility: hidden;
+     transform-origin: 0 0;
+     /* see note above */
+}
+
+.ldio-5srrg96ko17 div {
+     box-sizing: content-box;
+}
+
+/* generated by https://loading.io/ */
+
+.typing-area {
      padding: 2em 1em;
      display: flex;
      justify-content: space-between;
 }
 
-.typing-area input{
+.typing-area input {
      height: 3rem;
      width: calc(100% - 3.4rem);
      font-size: 17px;
@@ -1267,7 +1409,7 @@ div.chat-box::-webkit-scrollbar{
      outline: none;
 }
 
-.typing-area button{
+.typing-area button {
      width: 3rem;
      height: 3rem;
      border: none;
@@ -1279,44 +1421,45 @@ div.chat-box::-webkit-scrollbar{
 }
 
 /*  <--> Big Devices Version <--> */
-@media (min-width: 1300px){
-     .dashboard-wrapper{
+@media (min-width: 1300px) {
+     .dashboard-wrapper {
           aspect-ratio: 1165/593;
      }
 
 }
 
 /*  <--> Tablet Version <--> */
-@media (max-width: 900px) and (min-width: 500px){
-     .sign-wrapper{
+@media (max-width: 900px) and (min-width: 500px) {
+     .sign-wrapper {
           width: 100%;
           height: 100%;
      }
 
-     .dashboard-wrapper{
+     .dashboard-wrapper {
           font-size: 70%;
      }
 
-     header.dashboard{
+     header.dashboard {
           padding: 1em;
           overflow: scroll;
      }
 
-          header.dashboard::-webkit-scrollbar{
-               width: 0px;
-          }
+     header.dashboard::-webkit-scrollbar {
+          width: 0px;
+     }
 
-     .quick-todos, main.dashboard{
+     .quick-todos,
+     main.dashboard {
           padding: 0.1em;
      }
 
-     form.todo-input{
+     form.todo-input {
           display: flex;
           flex-direction: column;
           padding: 0.3em;
      }
 
-     form.todo-input *{
+     form.todo-input * {
           margin: 2px;
           border-radius: 5px;
           font-size: 1em;
@@ -1324,13 +1467,13 @@ div.chat-box::-webkit-scrollbar{
           width: 100%;
      }
 
-     form.todo-input input[type="submit"]{
+     form.todo-input input[type="submit"] {
           width: 100%;
           border-radius: 5px;
           min-height: 1em;
      }
 
-     main.dashboard{
+     main.dashboard {
           padding: 0.5em;
           grid-template-columns: repeat(auto-fit, 40%);
           grid-template-rows: repeat(auto-fit, 30%);
@@ -1344,20 +1487,20 @@ div.chat-box::-webkit-scrollbar{
           height: 11em; 
      } */
 
-     .board-wrapper{
+     .board-wrapper {
           padding: 3em;
      }
 
-     div.nav-filter{
+     div.nav-filter {
           display: none;
      }
 
-     div.nav-buttons{
+     div.nav-buttons {
           justify-content: center;
           width: 100%;
      }
 
-     div.prev-foot *{
+     div.prev-foot * {
           transform: scale(0.95);
      }
 }
@@ -1374,33 +1517,34 @@ div.chat-box::-webkit-scrollbar{
 } */
 
 /* <--> Phone Version <--> */
-@media (max-width: 500px){
+@media (max-width: 500px) {
      ::-webkit-scrollbar {
           width: 4px;
      }
 
-     .sign-wrapper{
+     .sign-wrapper {
           width: 100%;
           height: 100%;
           display: flex;
           flex-direction: column;
           font-size: 80%;
      }
-     
-     header.sign,main.sign{
+
+     header.sign,
+     main.sign {
           width: 100%;
      }
 
-     header.sign{
+     header.sign {
           border-radius: 20px 20px 0 0;
           height: 25%;
      }
 
-     body{
+     body {
           padding: 1em;
      }
 
-     .dashboard-wrapper{
+     .dashboard-wrapper {
           font-size: 60%;
           display: flex;
           flex-direction: column;
@@ -1408,51 +1552,54 @@ div.chat-box::-webkit-scrollbar{
           padding: 7%;
      }
 
-     .quick-todos, header.dashboard, main.dashboard{
+     .quick-todos,
+     header.dashboard,
+     main.dashboard {
           margin: 0.5em 0;
           width: 100%;
      }
 
-     .quick-todos{
+     .quick-todos {
           min-height: 30%;
      }
 
-     header.dashboard span.title{
+     header.dashboard span.title {
           margin: 0;
      }
 
-     header.dashboard{
+     header.dashboard {
           min-height: 10em;
           overflow: scroll;
      }
 
-          header.dashboard::-webkit-scrollbar{
-               width: 0px;
-          }
+     header.dashboard::-webkit-scrollbar {
+          width: 0px;
+     }
 
-     main.dashboard{
+     main.dashboard {
           padding: 0.7em;
           display: flex;
           flex-direction: column;
      }
 
-     .board-wrapper{
+     .board-wrapper {
           display: flex;
           justify-content: center;
      }
 
-     div.more-dash, div.project{
+     div.more-dash,
+     div.project {
           margin: 0;
           /* width: 100%; */
           height: fit-content;
           min-height: 5rem;
      }
 
-     div.more-dash{
+     div.more-dash {
           margin-top: 1em;
      }
 
-     div.nav-buttons{
+     div.nav-buttons {
           height: 5em;
           display: flex;
           flex-direction: column;
@@ -1460,28 +1607,29 @@ div.chat-box::-webkit-scrollbar{
           width: 100%;
      }
 
-     div.nav-buttons .to-dashboard, div.nav-buttons .add-note{
+     div.nav-buttons .to-dashboard,
+     div.nav-buttons .add-note {
           width: 100%;
           height: 50%;
      }
 
-     div.nav-buttons .to-dashboard{
+     div.nav-buttons .to-dashboard {
           border-radius: 10px 10px 0 0;
      }
 
-     div.nav-buttons .add-note{
-          border-radius: 0 0 10px 10px ;
+     div.nav-buttons .add-note {
+          border-radius: 0 0 10px 10px;
      }
 
-     div.nav-filter{
+     div.nav-filter {
           display: none;
      }
 
-     div.prev-foot *{
+     div.prev-foot * {
           transform: scale(0.85);
      }
 
-     body.notes{
+     body.notes {
           font-size: 50%;
      }
 }

@@ -92,7 +92,6 @@ setInterval(
           let minute =  dater.getMinutes();
           let mer;
           if(hours == 0){hours = 12}
-          if(hours < 10){hours = `0${hours}`}
           if(minute < 10){minute = `0${minute}`}
           if(hours > 11){
                mer = "PM"
@@ -101,7 +100,6 @@ setInterval(
           }
           if(hours > 12){
                hours = hours - 12
-               if(hours < 10){hours = `0${hours}`}
           }
           switch (myDate){
                case 1:

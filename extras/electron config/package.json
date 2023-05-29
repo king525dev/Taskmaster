@@ -1,0 +1,78 @@
+{
+  "name": "taskmaster",
+  "productName": "Taskmaster",
+  "version": "1.2.0",
+  "description": "A project management software to plan everything from life's big projects to the simple things.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\"",
+    "build-installer": "electron-builder"
+  },
+  "build": {
+    "appId": "taskmaster",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "src/icon[1].ico",
+      "publisherName": "king525dev"
+    },
+    "nsis": {
+      "installerIcon": "src/icon[2].ico",
+      "uninstallerIcon": "src/icon[2].ico",
+      "uninstallDisplayName": "Taskmaster",
+      "license": "license.txt",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "Taskmaster",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "runAfterFinish": true
+    }
+  },
+  "keywords": [
+    "project",
+    "management",
+    "task",
+    "goals",
+    "text-editor",
+    "to-do",
+    "note",
+    "taskmaster",
+    "notion",
+    "obsidian",
+    "milanote",
+    "note-taking",
+    "taskmaster",
+    "planner",
+    "create"
+  ],
+  "author": {
+    "name": "king525dev",
+    "email": "oreoluwa.ajibade525@yahoo.com",
+    "url": "https://king525-portfolio.pages.dev/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/king525dev/Task-Master"
+  },
+  "homepage": "https://github.com/king525dev/Task-Master",
+  "license": "SEE LICENSE IN license.txt",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.1.1",
+    "@electron-forge/maker-deb": "^6.1.1",
+    "@electron-forge/maker-rpm": "^6.1.1",
+    "@electron-forge/maker-squirrel": "^6.1.1",
+    "@electron-forge/maker-zip": "^6.1.1",
+    "electron": "24.1.2",
+    "electron-builder": "^23.6.0"
+  }
+}

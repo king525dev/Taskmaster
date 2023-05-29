@@ -395,6 +395,35 @@ div.chat-box{
      color: var(--colourmn1);
 }
 
+.ldio-5srrg96ko17 div{
+     background: var(--colourmn2);
+}
+
+.ldio-5srrg96ko17 div:nth-child(1){
+     background: var(--colourmn2);
+}
+
+.ldio-5srrg96ko17 div:nth-child(2){
+     background: var(--colourmn2);
+}
+
+.ldio-5srrg96ko17 div:nth-child(3){
+     background: var(--colourmn2);
+}
+
+.ldio-5srrg96ko17 div:nth-child(4){
+     background: var(--colourmn2);
+}
+
+.ldio-5srrg96ko17 div:nth-child(5){
+     background: var(--colourmn2);
+}
+
+.loadingio-spinner-ellipsis-pspcyit56cn{
+     background-color: var(--white);
+     border: 1px solid var(--colourmn2);
+}
+
 .typing-area{
      background-color: var(--colourmn1);
 }

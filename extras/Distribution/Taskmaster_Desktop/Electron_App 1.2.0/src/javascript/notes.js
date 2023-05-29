@@ -26,6 +26,25 @@ function contentShortening(str){
      }
 }
 
+// Check if project is clicked
+function checkPreview(){
+     const todoOption = document.getElementById("Todo");
+     const doingOption = document.getElementById("Doing");
+     const doneOption = document.getElementById("Done");
+
+     if(todoOption.checked || doingOption.checked || doneOption.checked){
+          var isTodo = true;
+     }else{
+          var isTodo = false;
+     }
+
+     if(isTodo){
+          return true;
+     }else{
+          return false;
+     }
+}
+
 //Sort List
 function sortByDate(){
      const list = notesList.querySelectorAll(".notes-list-item");
@@ -82,13 +101,41 @@ function checkingStatus(status){
      }
 }
 
+function getCurrentDate(){
+     const dater = new Date();
+     let myDate = dater.getDate();
+     let month = dater.getMonth();
+     const year = dater.getFullYear();
+     let hours = dater.getHours();
+     let minute =  dater.getMinutes();
+     let mer;
+     if(hours == 0){hours = 12}
+     if(hours < 10){hours = `0${hours}`}
+     if(minute < 10){minute = `0${minute}`}
+     if(myDate < 10){myDate = `0${myDate}`}
+     if(month < 10){month = `0${month}`}
+     if(hours > 11){
+          mer = "PM"
+     }else{
+          mer = "AM"
+     }
+     if(hours > 12){
+          hours = hours - 12
+          if(hours < 10){hours = `0${hours}`}
+     }
+
+     let fullTime = `${hours}:${minute} ${mer}`;
+     const arrDate = `${myDate}/${month}/${year} @ ${fullTime}`
+
+     return arrDate;
+}
+
 //Date 
 const dater = new Date();
 const myDate = dater.getDate();
 const day = dater.toLocaleDateString('default', { weekday: 'long' });
 let hours = dater.getHours();
 let minute =  dater.getMinutes();
-if(hours < 10){hours = `0${hours}`}
 if(minute < 10){minute = `0${minute}`}
 
 fullDate = `${myDate} ${day} ${hours}:${minute}`;
@@ -163,9 +210,20 @@ function renderData(individualDoc){
                body.textContent = "";
                parentDiv.classList.remove("selected");
           }else{
-               title.value = individualDoc.data().title;
-               body.value = individualDoc.data().note;
-               checkingStatus(individualDoc.data().status);
+               auth.onAuthStateChanged(user => {
+                    if(user){
+                         fs.collection(user.uid + "_notes").doc(individualDoc.id).get().then(
+                              (doc) => {
+                                   const dataTitle = doc.data().title;
+                                   const dataBody = doc.data().note;
+                                   const dataStatus = doc.data().status;
+                                   title.value = dataTitle;
+                                   body.value = dataBody;
+                                   checkingStatus(dataStatus);
+                              }
+                         );
+                    }
+               });
                parentDiv.classList.add("selected");
           }          
      });
@@ -176,11 +234,11 @@ saveBtn.addEventListener("click",() => {
      const selNotes = document.getElementsByClassName("selected");
      const selNote = selNotes[0];
      let id = selNote.getAttribute('data-id');
-     updatedTitle = title.value;
-     updatedNote = body.value; 
-     updatedDate = fullDate;
-     updatedRank = new Date();
-     updatedStatus = statusOutput();
+     let updatedTitle = title.value;
+     let updatedNote = body.value; 
+     let updatedDate = fullDate;
+     let updatedRank = new Date();
+     let updatedStatus = statusOutput();
      auth.onAuthStateChanged(user => {
           if(user) {
                fs.collection(user.uid + "_notes").doc(id).update({
@@ -209,6 +267,38 @@ saveBtn.addEventListener("click",() => {
      })
      
 });
+setInterval(
+     () =>{
+          if(checkPreview()){
+               const selNotes = document.getElementsByClassName("selected");
+               const selNote = selNotes[0];
+               let id = selNote.getAttribute('data-id');
+               let updatedTitle = title.value;
+               let updatedNote = body.value; 
+               let updatedDate = fullDate;
+               let updatedRank = new Date();
+               let updatedStatus = statusOutput();
+               auth.onAuthStateChanged(user => {
+                    if(user) {
+                         fs.collection(user.uid + "_notes").doc(id).update({
+                              title: updatedTitle,
+                              note: updatedNote,
+                              status: updatedStatus,
+                              lastEdited: updatedDate,
+                              listRank: updatedRank
+                         }).then(() => {
+                              selNote.children[0].textContent = updatedTitle;
+                              selNote.children[1].textContent = contentShortening(updatedNote);
+                              selNote.children[2].children[0].textContent = updatedStatus;
+                              selNote.children[2].children[1].textContent = updatedDate;
+                              console.log("note updated");
+                         });
+                         
+                    }
+               })
+          }
+     }
+,5000)
 
 //Delete Note
 deleteBtn.addEventListener("click", () => {
@@ -248,7 +338,7 @@ deleteBtn.addEventListener("click", () => {
 
 //Download Note
 downloadBtn.addEventListener("click", () => {
-     const file = new File([`--${title.value}--\n${body.value}\n\nStatus: ${statusOutput()}\nLast-Online: ${fullDate}`], `${title.value}.txt`, {type: 'text/plain',})
+     const file = new File([`--${title.value}--\n${body.value}\n\nStatus: ${statusOutput()}\nLast-Online: ${getCurrentDate()}`], `${title.value}.txt`, {type: 'text/plain',})
 
      const url = URL.createObjectURL(file);
      const link = document.createElement('a');
@@ -349,5 +439,12 @@ document.addEventListener('keydown', e => { //Home Shortcut
      if(e.key.toLowerCase() == "h" && e.altKey){
           e.preventDefault();
           location = "dashboard.html";
+     }
+});
+
+document.addEventListener('keydown', e => { // Reload Shortcut
+     if(e.key.toLowerCase() == "r" && e.altKey){
+          e.preventDefault();
+          location.reload();
      }
 });

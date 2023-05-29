@@ -136,7 +136,6 @@ const myDate = dater.getDate();
 const day = dater.toLocaleDateString('default', { weekday: 'long' });
 let hours = dater.getHours();
 let minute =  dater.getMinutes();
-if(hours < 10){hours = `0${hours}`}
 if(minute < 10){minute = `0${minute}`}
 
 fullDate = `${myDate} ${day} ${hours}:${minute}`;
