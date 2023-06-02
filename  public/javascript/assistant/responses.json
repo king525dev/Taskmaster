@@ -184,6 +184,20 @@
                "/>joke</",
                "/>joke</",
                "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
                "/>joke</"
           ],
           "response_type": "joke",
@@ -860,7 +874,9 @@
                "am",
                "very",
                "sorry",
-               "apologise", "pele", "sir"
+               "apologise",
+               "pele",
+               "sir"
           ],
           "bot_response": [
                "I forgive you 😊",
@@ -869,7 +885,8 @@
           ],
           "required_words": [
                "sorry",
-               "apologise", "pele"
+               "apologise",
+               "pele"
           ]
      },
      {
@@ -905,15 +922,46 @@
           ],
           "required_words": [
                "quote",
-               "saying", "inspire"
+               "saying",
+               "inspire"
           ]
      },
      {
           "response_type": "troll",
           "user_input": [
-               "bored", "something", "interesting", "comic", "comic", "i", "i'm", "am", "show", "me", "comics"
+               "bored",
+               "something",
+               "interesting",
+               "comic",
+               "comic",
+               "i",
+               "i'm",
+               "am",
+               "show",
+               "me",
+               "comics"
           ],
-          "bot_response": ["/>comic</"],
-          "required_words": ["bored", "comic", "interesting"]
+          "bot_response": [
+               "/>comic</",
+               "/>comic</",
+               "/>comic</",
+               "/>comic</",
+               "/>comic</",
+               "/>comic</",
+               "/>comic</",
+               "/>comic</",
+               "/>quote</",
+               "/>joke</",
+               "Get into a cleaning spree around the house",
+               "Bake designer chocolate cakes and cookies",
+               "Take in nature and go for a walk",
+               "Respond appropriately to all messages in your email",
+               "Call your friend (only if you have any) and indulge in guilt-free talking for hours"
+          ],
+          "required_words": [
+               "bored",
+               "comic",
+               "interesting"
+          ]
      }
 ]

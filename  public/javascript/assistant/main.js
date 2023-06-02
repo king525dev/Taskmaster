@@ -112,7 +112,8 @@ const Task = {
                "/>all-todos</",
                "/>joke</",
                "/>insult</",
-               "/>quote</"
+               "/>quote</",
+               "/>comic</"
           ]
           if (lightResponse == false || typeof(lightResponse) !== 'string'){
                if(response == false || typeof(response) !== 'string'){
@@ -176,6 +177,9 @@ const Task = {
                          break;
                     case "/>quote</":
                          Task.quote();
+                         break;
+                    case "/>comic</":
+                         Task.comic();
                          break;
                     default:
                          const randomSorry = genereteRando(sorry.length);
@@ -249,6 +253,67 @@ const Task = {
                     console.log(err);
                     Task.deepThink("quote", "quote");
                });
+     },
+     comic(){
+          console.log("Taskmaster Bored called");
+          const whtToDo = [
+               "comic",
+               "activity"
+          ];
+          function genereteRando(max) { return Math.floor(Math.random() * max) }
+          const act = whtToDo[genereteRando(whtToDo.length)];
+
+          switch(act){
+               case "comic":
+                    generateComic();
+                    break;
+               case "activity":
+                    generateActivity();
+                    break;
+               default:
+                    generateComic();
+          }
+
+          function generateComic(){
+               const api= "http://xkcd.com/info.0.json";
+               fetch(api)
+                    .then(response => response.json())
+                    .then(data => {
+                         if(data == undefined){
+                              Task.deepThink("bored", "bored");
+                         }else{
+                              const img = document.createElement("img");
+                              img.setAttribute("src", data.img);
+                              img.setAttribute("alt", data.safe_title);
+                              createAIChat(img);
+                         }
+                    })
+                    .catch((err) => {
+                         console.log(err);
+                         Task.deepThink("bored", "bored");
+                    });
+          }
+
+          function generateActivity(){
+               const api= "https://www.boredapi.com/api/activity?participants=1";
+               fetch(api)
+                    .then(response => response.json())
+                    .then(data => {
+                         if(data == undefined){
+                              Task.deepThink("bored", "bored");
+                         }else{
+                              if(data.link !== ""){
+                                   createAIChat(`${data.activity} [ ${data.link} ]`);
+                              }else{
+                                   createAIChat(`${data.activity}`);
+                              }
+                         }
+                    })
+                    .catch((err) => {
+                         console.log(err);
+                         Task.deepThink("bored", "bored");
+                    });
+          }
      },
      allFails(msg, list){
           console.log("Taskmaster AllFails called");
