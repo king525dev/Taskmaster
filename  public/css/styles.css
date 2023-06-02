@@ -1164,6 +1164,10 @@ div.foot-buttons button:active {
 
 /* --> PROJECT PAGE <-- */
 
+body.project::-webkit-scrollbar{
+     display: none;
+}
+
 .prj-wrapper {
      overflow-y: scroll;
 }
@@ -1200,29 +1204,33 @@ div.ass-wrapper {
 @keyframes side-open {
      from {
           width: 0%;
+          right: -25%;
      }
 
      to {
+          right: 0%;
           width: 45%;
      }
 }
 
 @keyframes side-close {
      from {
+          right: 0%;
           width: 45%;
      }
 
      to {
+          right: -25%;
           width: 0%;
      }
 }
 
 .open-ast {
-     animation: side-open ease-out 0.5s forwards;
+     animation: side-open ease-in-out 0.7s forwards;
 }
 
 .close-ast {
-     animation: side-close ease-out 0.5s forwards;
+     animation: side-close ease-in-out 0.7s forwards;
 }
 
 div.ass-wrapper header {

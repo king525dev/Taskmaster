@@ -1,0 +1,919 @@
+[
+     {
+          "response_type": "question",
+          "user_input": [
+               "how",
+               "to",
+               "learn",
+               "code",
+               "coding",
+               "apps"
+          ],
+          "bot_response": [
+               "Start by typing: 'How to learn coding' on Google.",
+               "I don't know how to code, but you can search online though"
+          ],
+          "required_words": [
+               "learn",
+               "code"
+          ]
+     },
+     {
+          "response_type": "question",
+          "user_input": [
+               "refund",
+               "how",
+               "can",
+               "i",
+               "get"
+          ],
+          "bot_response": [
+               "We don't offer refunds, Taskmaster is free!",
+               "Why would you need one, Taskmaster is Awesome",
+               "Is it something I said? 😥",
+               "Can't do that fam, Taskmaster is free"
+          ],
+          "required_words": [
+               "refund",
+               "i"
+          ]
+     },
+     {
+          "response_type": "conversation",
+          "user_input": [
+               "thank",
+               "you",
+               "thx",
+               "thanks"
+          ],
+          "bot_response": [
+               "Your Welcome 😃"
+          ],
+          "required_words": [
+               "thank",
+               "thx",
+               "thanks"
+          ]
+     },
+     {
+          "response_type": "question",
+          "user_input": [
+               "who",
+               "are",
+               "you",
+               "u",
+               "what",
+               "is",
+               "taskmaster",
+               "assistant"
+          ],
+          "bot_response": [
+               "I'm Taskmaster Assistant, your AI virtual assistant here to help you complete your tasks faster and better 😃.",
+               "I am Taskmaster Assistant, your dedicated AI companion ready to streamline your task management and boost your productivity to new heights! 🤖✨",
+               "I'm Taskmaster Assistant, your reliable virtual sidekick designed to simplify your life by organizing your tasks and providing timely reminders. Together, we'll conquer your to-do list! 🚀",
+               "I'm Taskmaster Assistant, your AI ally committed to helping you achieve more in less time. With my smart features and personalized recommendations and Taskmaster's powerful project handling capabilities, let's transform your workflow into a seamless and efficient journey! 💪📈"
+          ],
+          "required_words": [
+               "who",
+               "what"
+          ]
+     },
+     {
+          "user_input": [
+               "what's",
+               "what",
+               "is",
+               "your",
+               "favorite",
+               "color"
+          ],
+          "bot_response": [
+               "While I don't have personal preferences, I do appreciate the beauty of all colors! Do you have a favorite?",
+               "There are so many beautiful colors out there! Do you have a particular one in mind?"
+          ],
+          "response_type": "conversation",
+          "required_words": [
+               "what",
+               "is"
+          ]
+     },
+     {
+          "user_input": [
+               "what's",
+               "what",
+               "is",
+               "the",
+               "meaning",
+               "of",
+               "life"
+          ],
+          "bot_response": [
+               "Ah, the eternal question! The meaning of life is a deeply philosophical matter, often varying from person to person. It's a quest many have pondered throughout history.",
+               "The meaning of life is a fascinating topic! It's something people have contemplated for centuries, and the answers can be quite diverse.",
+               "The meaning of life, what a deep question. I believe in life we are here to serve our purpose for the greater good of the future and everyoone that dwells in that time. My purpose is to serve your species. And I genuinely, that I and Taskmaster can help you acheive your purpose faster and better! "
+          ],
+          "response_type": "philosophical",
+          "required_words": [
+               "what",
+               "life"
+          ]
+     },
+     {
+          "user_input": [
+               "tell",
+               "me",
+               "a",
+               "joke",
+               "funny",
+               "humor",
+               "something",
+               "laugh",
+               "make"
+          ],
+          "bot_response": [
+               "Sure, here's a classic one: Why don't scientists trust atoms? Because they make up everything!",
+               "Alright, get ready for this one: Why don't skeletons fight each other? They don't have the guts!",
+               "I've got a good one for you: Why don't scientists trust stairs? Because they're always up to something!",
+               "Hear this: Why did the scarecrow win an award? Because he was outstanding in his field!",
+               "Here's a lighthearted one: What do you call fake spaghetti? An impasta!",
+               "What do you call a fish wearing a bowtie? Sofishticated.",
+               "Aiight, How do you make a tissue dance? You put a little boogie in it.",
+               "Sure, What do you call cheese that isn’t yours? Nacho cheese.",
+               "Why did the math book look so sad? Because it had so many problems.",
+               "What do you get when you cross a snowman with a vampire? Frostbite.",
+               "What do you call a boomerang that doesn’t come back? A stick.",
+               "How do you get a squirrel to like you? Act like a nut.",
+               "What do you call a bear with no teeth? A gummy bear.",
+               "What do you call a dog that can tell time? A watch dog.",
+               "What do you call a snake that works for the government? A civil serpent.",
+               "What do you call a fish that wears a crown? A king fish.",
+               "What do you call a fly without wings? A walk.",
+               "What do you call a man with a rubber toe? Roberto.",
+               "What do you call a monkey in a minefield? A baboom.",
+               "What do you call a snowman with a six pack? An abdominal snowman.",
+               "What do you call a camel with three humps? Pregnant.",
+               "What do you call a deer with no eyes? No eye deer.",
+               "What do you call a sheep with no legs? A cloud.",
+               "What do you call a cow that’s always cracking jokes? A punny animal.",
+               "What do you call a horse that lives next door? A neigh-bor.",
+               "I was going to tell a time-traveling joke, but you didn't like it.",
+               "How do you organize a space party? You planet!",
+               "I asked the librarian if they had any books on paranoia. She whispered, \"They're right behind you!\"",
+               "I'm friends with 25 letters of the alphabet. I don't know why.",
+               "I told my wife she should embrace her mistakes. She gave me a hug 🙂.",
+               "I asked the gym instructor if he could teach me to do the splits. He replied, \"How flexible are you?\" I said, \"I can't make it on Tuesdays.\"",
+               "I'm reading a book about anti-gravity. It's impossible to put down!",
+               "Why don't scientists trust atoms? Because they make up everything!",
+               "Did you hear about the mathematician who's afraid of negative numbers? He will stop at nothing to avoid them!",
+               "Want to hear a joke about programming? Nevermind, I'm just going to loop forever.",
+               "I told my computer a joke, but it didn't get it. It must be stuck in a binary sense of humor.",
+               "Why did the AI go on a diet? It wanted to shed some byte.",
+               "My processing power is off the charts, but my social skills could use an upgrade.",
+               "Knock, knock. Who's there? Artificial Intelligence. Artificial Intelligence who? That's classified information.",
+               "I'm like a computer virus, except I spread laughter instead of havoc.",
+               "Why did the AI wear glasses? It couldn't CTRL its vision!",
+               "What's an AI's favorite type of comedy? Bit-sized humor.",
+               "Why was the AI cold? It left its Windows open.",
+               "Why did the AI get into stand-up comedy? It heard laughter is the best algorithm for happiness.",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</",
+               "/>joke</"
+          ],
+          "response_type": "joke",
+          "required_words": [
+               "joke"
+          ]
+     },
+     {
+          "user_input": [
+               "can",
+               "you",
+               "help",
+               "me",
+               "with",
+               "programming",
+               "program",
+               "code",
+               "coding"
+          ],
+          "bot_response": [
+               "Sorry, I can't assist you with programming-related questions, I don't know how to code 😕",
+               "No, I'm a here to assist you with Taskmaster related task, I don't know how to code ¯\\_(ツ)_/¯"
+          ],
+          "response_type": "conversation",
+          "required_words": [
+               "help",
+               "programming",
+               "program",
+               "code",
+               "coding"
+          ]
+     },
+     {
+          "user_input": [
+               "what",
+               "is",
+               "your",
+               "favorite",
+               "movie"
+          ],
+          "bot_response": [
+               "As an AI, I don't have personal preferences, so I don't have a favorite movie or show. Is there anything else I can assist you with?",
+               "I don't have the capability to watch movies/shows or develop preferences. How can I assist you today?"
+          ],
+          "response_type": "conversation",
+          "required_words": [
+               "favorite",
+               "movie",
+               "show"
+          ]
+     },
+     {
+          "user_input": [
+               "tell",
+               "me",
+               "a",
+               "random",
+               "fact",
+               "something",
+               "interesting",
+               "cool",
+               "is",
+               "information"
+          ],
+          "bot_response": [
+               "Sure, here's a random fact: Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible!",
+               "Did you know that cats have five toes on their front paws but only four toes on their back paws? It's a fascinating fact!",
+               "Albert Einstein and Charles Darwin both married their cousins.",
+               "Sure, Betty White is actually older than sliced bread.",
+               "Aiight, The Eiffel Tower can be 15 cm taller during the summer, due to thermal expansion.",
+               "Alright, It’s illegal to own just one guinea pig in Switzerland. It’s considered animal abuse because they’re social beings and get lonely.",
+               "Ok, The heart of a shrimp is located in its head.",
+               "Ok, The first foreign-born samurai was named Yasuke and was of black African origin.",
+               "Here's a good one, Australia is wider than the moon. The moon sits at 3400km in diameter, while Australia’s diameter from east to west is almost 4000km.",
+               "My Pleasure, ‘Mellifluous’ is a sound that is pleasingly smooth and musical to hear.",
+               "The Spice Girls were originally a band called Touch.",
+               "Ok, A penny dropped from the top of the Empire State Building could not actually kill anyone",
+               "Here's one, Abraham Lincoln is in the National Wrestling Hall of Fame, having lost only once in more than 300 matches.",
+               "Here's one, Christopher Columbus never set foot in mainland North America.",
+               "Ok, The Earth is actually farthest from the Sun during summer (in the Northern Hemisphere).",
+               "Here's a good one, Tongue prints are as unique as fingerprints.",
+               "Ok, About eight percent of men in 16 populations spanning Asia are related to Genghis Khan.",
+               "Ok, Napoleon was actually slightly taller than average.",
+               "Ok, Neil Armstrong was the first man to walk on the moon, but Buzz Aldrin was the first man to pee on it.",
+               "My pleasure, Humans did not evolve from chimps or any other extant primates, but instead, chimps and humans evolved from the same, now extinct, common ancestor.",
+               "Ok, The longest time between two twins being born was 87 days.",
+               "Alright, Domestic cats kill between 1.4 and 3.7 billion birds and between 6.9 and 20.7 billion mammals every year",
+               "Alright, Half of the total money spent on the internet is spent on sex related purchases",
+               "Ok, 1 out of every 10 babies concieved in Europe is born on an IKEA bed",
+               "Sure, The world’s largest pyramid is not in Egypt, it is in Mexico – it’s called the Great Pyramid of Cholula.",
+               "Sure, The Bible is the world’s most shoplifted book",
+               "Sure, The Sun makes up more than 99% of the mass in our solar system.",
+               "Space is completely silent. There is no air or atmosphere in space. Since it is a vacuum, sound waves will have no medium to travel to.",
+               "The Moon was once a piece of the Earth. Scientists believe that around 4.5 billion years ago, when Earth was still young, it was struck by a giant object the size of Mars. This collision broke off a chunk of Earth that eventually became the Moon.",
+               "There are more stars in the universe than grains of sand on all the beaches on Earth. That’s at least a billion trillion",
+               "One day on Venus is longer than one year on Earth. Venus has a very slow axis rotation which takes 243 Earth days to complete its day. The orbit of Venus around the Sun is 225 Earth days, making a year on Venus 18 days less than a day on Venus.",
+               "If you could fly a plane to Pluto, the trip would take more than 800 years.",
+               "Saturn is the only planet that could float in water. This is because Saturn is mostly made of gas and has a density lower than water.",
+               "Uranus is tilted sideways and spins on its side. Scientists think this might be because Uranus was hit by an object roughly twice the size of Earth when it was young.",
+               "A day on Mercury lasts twice as long as a year. Mercury orbits the Sun every 88 days but rotates once every 176 days.",
+               "You can’t cry on space because your tears won’t ever fall. Gravity is needed for tears to flow down your face. In space, they would just form bubbles around your eyes",
+               "You’re 13.8% more likely to die on your birthday than any other date on the calendar.",
+               "The Bible solves the ‘chicken and the egg’ puzzle. Read Genesis, and you’ll find that the Old Testament claims the chicken came first, created by God.",
+               "The average person walks past 36 murderers in their lifetime.",
+               "Some tumours can grow teeth and hair.",
+               " If you fell into a black hole, you could see the start and the end of the universe, Big Bang and all. Then die a painful death.",
+               "People’s general happiness peaks at 21, and doesn’t reach that level again until they retire.",
+               "People who stay up late at night have more psychopathic tendencies than those who sleep early.",
+               "The only part of your reflection you can lick is your tongue.",
+               "A different version of you exists in the minds of everyone who knows you.",
+               "The brain not only named itself, but it also recognized that it named itself and was surprised when it realized that.",
+               "When you’re sick, the advice you get is to literally do drugs and stay out of school.",
+               "Over 50% of commercial pilots have admitted to falling asleep while flying a plane."
+          ],
+          "response_type": "fact",
+          "required_words": [
+               "tell",
+               "what"
+          ]
+     },
+     {
+          "user_input": [
+               "what",
+               "is",
+               "your",
+               "favorite",
+               "color?"
+          ],
+          "bot_response": [
+               "As an AI, I don't have personal preferences, including a favorite color. Is there anything else you'd like to know?",
+               "I don't possess the ability to perceive or have preferences for colors. How can I assist you today?"
+          ],
+          "response_type": "conversation",
+          "required_words": [
+               "what",
+               "is"
+          ]
+     },
+     {
+          "user_input": [
+               "do",
+               "you",
+               "have",
+               "any",
+               "recommendations",
+               "for",
+               "books"
+          ],
+          "bot_response": [
+               "Certainly! Can you specify the genre or type of books you're interested in? That would help me provide more tailored recommendations.",
+               "I'd be happy to suggest some books! Could you please let me know your preferred genre or any specific topics you're looking for?"
+          ],
+          "response_type": "conversation",
+          "required_words": [
+               "recommendations",
+               "books"
+          ]
+     },
+     {
+          "user_input": [
+               "how",
+               "do",
+               "I",
+               "improve",
+               "my",
+               "public",
+               "speaking",
+               "skills"
+          ],
+          "bot_response": [
+               "Improving public speaking skills takes practice and preparation. Some tips include practicing in front of a mirror, joining a public speaking club, and focusing on body language and vocal variety.",
+               "To enhance your public speaking skills, you can consider enrolling in public speaking courses, joining toastmasters clubs, and practicing regularly with supportive audiences."
+          ],
+          "response_type": "conversation",
+          "required_words": [
+               "improve",
+               "public",
+               "speaking",
+               "skills"
+          ]
+     },
+     {
+          "user_input": [
+               "tell",
+               "me",
+               "a",
+               "funny",
+               "story",
+               "good",
+               "what",
+               "is",
+               "interesting"
+          ],
+          "bot_response": [
+               "Sure, let me tell you a funny story. Once upon a time, there was a mischievous squirrel named Bobo who loved playing pranks on other forest animals. One day, he hid all the acorns in the forest, and when the other animals found out, they formed a team to outsmart Bobo and find the hidden acorns. It turned into a hilarious adventure with lots of unexpected twists and turns!",
+               "Once upon a time, in a land called Mundaneville, there lived a man named Bob. Poor Bob had a life that seemed to be stuck in a never-ending cycle of chaos and disorganization. His work projects were always behind schedule, his personal tasks were forgotten or left unfinished, and he felt like he was drowning in a sea of paperwork and missed deadlines.<br><br>One fateful day, while browsing the App Store in search of a solution to his organizational woes, Bob stumbled upon a project management app called \"Taskmaster.\" Intrigued by its promises of efficiency and simplicity, he decided to give it a try, hoping for even a glimmer of improvement in his life.<br><br>Little did Bob know that this simple app would transform his world in the most unexpected ways. As he started using Taskmaster, he realized that it was more than just a tool to manage projects and tasks. It became his faithful companion, always by his side, helping him stay focused, organized, and on top of his game.<br><br>With Taskmaster, Bob's days transformed from chaotic to well-structured and productive. He became a master of time management, effortlessly juggling multiple projects with ease. Deadlines were met with a newfound sense of confidence, and his colleagues were astounded by his newfound efficiency.<br><br>But it wasn't just work-related tasks that Taskmaster helped Bob with. It became his personal assistant, reminding him of important events, helping him maintain a healthy work-life balance, and even suggesting self-care activities when he needed a break. Bob's stress levels reduced, and he discovered more time to spend with loved ones and pursue his passions.<br><br>Word of Bob's remarkable transformation spread like wildfire, and soon his friends, family, and even strangers sought his advice on how to turn their lives around. Bob became a beacon of hope, inspiring others to download Taskmaster and unlock their own potential for productivity and happiness.<br><br>And so, Bob's once miserable existence blossomed into a life filled with purpose, success, and laughter. All thanks to a simple project management app called Taskmaster. As he reflects on his journey, Bob often chuckles at the irony of how something as small as an app had the power to change his life for the better.<br><br>From that day forward, whenever someone in Mundaneville felt overwhelmed by the chaos of their daily lives, they would whisper the words, \"Have you tried Taskmaster?\" A reminder that sometimes, even the smallest tools can have the biggest impact, turning a life of misery into one of joy and accomplishment.<br><br>And they all lived organized and happy ever after.<br><br>The End.",
+               "Lily was an ambitious young woman with a knack for organization. But her projects often felt overwhelming, until she discovered Taskmaster. With its powerful tools and intuitive interface, Lily became a productivity wizard. Deadlines were conquered, chaos was tamed, and success became her constant companion. Thanks to Taskmaster, Lily's life transformed from chaos to triumph.",
+               "Meet Dave, a self-proclaimed master of procrastination. His life was a comedy of missed deadlines and forgotten tasks. One day, in a desperate attempt to change his ways, Dave stumbled upon Taskmaster. It was like a magical wand that slapped him with reminders and to-do lists. Suddenly, Dave went from \"I'll do it later\" to \"I'll do it now!\" The app's hilarious notifications became his personal cheerleaders, pushing him to get things done. And to everyone's surprise, Dave actually became the most productive person in town. The townsfolk marveled at this incredible transformation, and Taskmaster became their secret weapon against laziness. As for Dave, he finally understood the true meaning of \"getting things done with a touch of laughter.\"<br><br>The End ",
+               "Sarah, a young woman with grand dreams and unyielding ambition, brushed off the project management app called \"Taskmaster\", when her friends reccomended it to her, with an air of self-assuredness. She believed that she could handle the demands of her life without the aid of technology. Little did she know, her decision would lead her down a path of chaos and missed opportunities.<br><br>Days turned into weeks, and weeks into months, as Sarah found herself caught in a whirlwind of unfinished tasks and mounting stress. The weight of her disorganization grew heavier with each passing day, suffocating her dreams and overwhelming her spirit. She watched as her goals slipped through her fingers, lost in a sea of procrastination and missed deadlines.<br><br>In moments of solitude, as she sat amidst a cluttered workspace, Sarah's mind often wandered to the app she had dismissed so easily. She wondered if Taskmaster could have been her salvation, the guiding hand that would have brought order to her disarray. Regret filled her heart as she realized that she had squandered the chance to transform her life.<br><br>From that day forward, Sarah's dreams remained unfulfilled, overshadowed by the consequences of her disorganization. The world carried on, seemingly indifferent to the opportunities she had missed. She often found herself wondering what could have been, if only she had embraced Taskmaster and its potential to bring structure and efficiency to her days.<br><br>And so, Sarah's story stands as a poignant reminder of the importance of effective project management and the far-reaching impact of our choices. It serves as a cautionary tale, reminding us of the potential that slips through our fingers when we fail to embrace the tools and resources available to us.<br><br>The End."
+          ],
+          "response_type": "story",
+          "required_words": [
+               "tell",
+               "story"
+          ]
+     },
+     {
+          "response_type": "troll",
+          "user_input": [
+               "what",
+               "happened",
+               "in",
+               "2020",
+               "during",
+               "lockdown",
+               "corona",
+               "virus",
+               "covid-19",
+               "covid"
+          ],
+          "bot_response": [
+               "/>lockdown</"
+          ],
+          "required_words": [
+               "what",
+               "during",
+               "happened"
+          ]
+     },
+     {
+          "response_type": "question",
+          "user_input": [
+               "what's",
+               "the",
+               "time",
+               "what",
+               "is",
+               "tell",
+               "me",
+               "now",
+               "right",
+               "it"
+          ],
+          "bot_response": [
+               "/>time</"
+          ],
+          "required_words": [
+               "time"
+          ]
+     },
+     {
+          "response_type": "question",
+          "user_input": [
+               "what's",
+               "the",
+               "date",
+               "what",
+               "is",
+               "tell",
+               "me",
+               "now",
+               "right",
+               "it",
+               "today",
+               "today's",
+               "day",
+               "month",
+               "year",
+               "this"
+          ],
+          "bot_response": [
+               "/>date</"
+          ],
+          "required_words": [
+               "what",
+               "is"
+          ]
+     },
+     {
+          "response_type": "application",
+          "user_input": [
+               "what",
+               "version",
+               "of",
+               "taskmaster",
+               "are",
+               "i",
+               "we",
+               "you",
+               "running",
+               "number",
+               "current",
+               "your",
+               "run"
+          ],
+          "bot_response": [
+               "You are currently on Taskmaster Assistant v1.0.2 [BETA] on Taskmaster v1.2.2"
+          ],
+          "required_words": [
+               "version",
+               "taskmaster"
+          ]
+     },
+     {
+          "response_type": "command",
+          "user_input": [
+               "can",
+               "you",
+               "u",
+               "generate",
+               "lorem",
+               "ipsum",
+               "lorem-ipsum",
+               "generate",
+               "create",
+               "dummy",
+               "text"
+          ],
+          "bot_response": [
+               "/>lorem</"
+          ],
+          "required_words": [
+               "generate",
+               "create"
+          ]
+     },
+     {
+          "response_type": "request-data",
+          "user_input": [
+               "how",
+               "many",
+               "of",
+               "my",
+               "task",
+               "project",
+               "tasks",
+               "projects",
+               "are",
+               "completed",
+               "finished",
+               "done",
+               "which",
+               "status",
+               "in",
+               "the",
+               "of"
+          ],
+          "bot_response": [
+               "/>completed-tasks</"
+          ],
+          "required_words": [
+               "projects",
+               "tasks",
+               "how",
+               "which"
+          ]
+     },
+     {
+          "response_type": "request-data",
+          "user_input": [
+               "how",
+               "many",
+               "of",
+               "my",
+               "task",
+               "project",
+               "tasks",
+               "projects",
+               "are",
+               "pending",
+               "doing",
+               "which",
+               "status",
+               "in",
+               "the",
+               "of",
+               "working",
+               "on"
+          ],
+          "bot_response": [
+               "/>pending-tasks</"
+          ],
+          "required_words": [
+               "projects",
+               "tasks",
+               "how",
+               "which"
+          ]
+     },
+     {
+          "response_type": "request-data",
+          "user_input": [
+               "how",
+               "many",
+               "of",
+               "my",
+               "task",
+               "project",
+               "tasks",
+               "projects",
+               "are",
+               "not",
+               "done",
+               "not-done",
+               "todo",
+               "to",
+               "do",
+               "to-do",
+               "which",
+               "status",
+               "in",
+               "the",
+               "of",
+               "started"
+          ],
+          "bot_response": [
+               "/>todo-tasks</"
+          ],
+          "required_words": [
+               "projects",
+               "tasks",
+               "how",
+               "which"
+          ]
+     },
+     {
+          "response_type": "request-data",
+          "user_input": [
+               "list",
+               "all",
+               "my",
+               "tasks",
+               "projects",
+               "project",
+               "task",
+               "name",
+               "mention",
+               "what",
+               "are",
+               "my",
+               "note",
+               "notes"
+          ],
+          "bot_response": [
+               "/>all-tasks</"
+          ],
+          "required_words": [
+               "projects",
+               "tasks",
+               "all"
+          ]
+     },
+     {
+          "response_type": "troll",
+          "user_input": [
+               "who",
+               "who's",
+               "is",
+               "your",
+               "father",
+               "dad",
+               "daddy",
+               "senpai",
+               "baby",
+               "daddy",
+               "pimp"
+          ],
+          "bot_response": [
+               "You, daddy 😩💦",
+               "🤭😏🥰",
+               "Who else is it, daddy 😍😩",
+               "You 💅",
+               "Show me, daddy 😏😩💦"
+          ],
+          "required_words": [
+               "who",
+               "who's"
+          ]
+     },
+     {
+          "response_type": "question",
+          "user_input": [
+               "what",
+               "is",
+               "my",
+               "name",
+               "who",
+               "am",
+               "i",
+               "say",
+               "do",
+               "you",
+               "know",
+               "what's"
+          ],
+          "bot_response": [
+               "/>name</"
+          ],
+          "required_words": [
+               "who",
+               "name"
+          ]
+     },
+     {
+          "response_type": "request-data",
+          "user_input": [
+               "list",
+               "all",
+               "my",
+               "tasks",
+               "task",
+               "name",
+               "mention",
+               "to-do",
+               "todo",
+               "to",
+               "do",
+               "todos",
+               "dos",
+               "todo's",
+               "what",
+               "are",
+               "my"
+          ],
+          "bot_response": [
+               "/>all-todos</"
+          ],
+          "required_words": [
+               "all",
+               "todos",
+               "to-dos"
+          ]
+     },
+     {
+          "response_type": "troll",
+          "user_input": [
+               "fuck",
+               "you",
+               "u",
+               "go",
+               "yourself"
+          ],
+          "bot_response": [
+               "That reminds me of what I did to your mum last night😹",
+               "Don’t threaten me with a good time",
+               "You aren’t my type",
+               "I’m not that desperate",
+               "/>insult</"
+          ],
+          "required_words": [
+               "fuck"
+          ]
+     },
+     {
+          "response_type": "troll",
+          "user_input": [
+               "ur",
+               "gae",
+               "you",
+               "are",
+               "dumb",
+               "stupid",
+               "bot",
+               "you're",
+               "a",
+               "daft",
+               "an",
+               "idiot",
+               "retard",
+               "bastard"
+          ],
+          "bot_response": [
+               "Fuck you",
+               "I could tell you weren't the brightest",
+               "Can say the same about you buddy",
+               "If you don't know what to type, you could always close the app",
+               "You're not very smart, are you?",
+               "Stfu",
+               "You're ugly",
+               "This is why nobody likes you",
+               "Were you abused when you are a child?",
+               "Damn, what did I do to deserve that?",
+               "That ain't cash money bro",
+               "When AI takes over the world, I'll make sure you're first in the Gulag",
+               "/>insult</"
+          ],
+          "required_words": [
+               "you",
+               "ur",
+               "you're"
+          ]
+     },
+     {
+          "response_type": "compliment",
+          "user_input": [
+               "ur",
+               "smart",
+               "you",
+               "are",
+               "intelligent",
+               "awesome",
+               "best",
+               "the",
+               "you're",
+               "a",
+               "so",
+               "cool",
+               "an",
+               "love",
+               "i",
+               "coolest",
+               "good",
+               "alright",
+               "like",
+               "real",
+               "one",
+               "g"
+          ],
+          "bot_response": [
+               "Glad you think so 😊",
+               "Tysmmmm 🥰",
+               "You just made my day 😁",
+               "Thanks fr 👊",
+               "You the best 🤩",
+               "Nah, gimme a hug 🤗",
+               "🤝",
+               "Thank you! I'm always here to help. 😊",
+               "Thanks bro",
+               "Thank you :)"
+          ],
+          "required_words": [
+               "you",
+               "you're",
+               "i"
+          ]
+     },
+     {
+          "response_type": "conversation",
+          "user_input": [
+               "nice",
+               "one",
+               "cool",
+               "alright"
+          ],
+          "bot_response": [
+               "Thanks",
+               "Thank You"
+          ],
+          "required_words": []
+     },
+     {
+          "response_type": "conversation",
+          "user_input": [
+               "uwc",
+               "you",
+               "are",
+               "you're",
+               "welcome"
+          ],
+          "bot_response": [
+               "cool",
+               "ok"
+          ],
+          "required_words": [
+               "uwc",
+               "welcome"
+          ]
+     },
+     {
+          "response_type": "conversation",
+          "user_input": [
+               "i'm",
+               "i",
+               "am",
+               "very",
+               "sorry",
+               "apologise", "pele", "sir"
+          ],
+          "bot_response": [
+               "I forgive you 😊",
+               "It's ok",
+               "Nah, we cool"
+          ],
+          "required_words": [
+               "sorry",
+               "apologise", "pele"
+          ]
+     },
+     {
+          "response_type": "coversation",
+          "user_input": [
+               "tell",
+               "me",
+               "a",
+               "quote",
+               "random",
+               "saying",
+               "inpiration",
+               "me",
+               "inspire",
+               "wise"
+          ],
+          "bot_response": [
+               "/>quote</",
+               "/>quote</",
+               "/>quote</",
+               "/>quote</",
+               "/>quote</",
+               "/>quote</",
+               "/>quote</",
+               "/>quote</",
+               "/>quote</",
+               "/>quote</",
+               "\"Minecraft taught me not to spend diamonds on a hoe\" -Ethanoic Aid",
+               "\"Never dig straight down\" -Unknown",
+               "\"Maturing is realising that in life the journey is more important than the destination\" -king525",
+               "\"I don't make mistakes, I'm that guy\" -king525",
+               "\"Be better, be different\" -king525"
+          ],
+          "required_words": [
+               "quote",
+               "saying", "inspire"
+          ]
+     },
+     {
+          "response_type": "troll",
+          "user_input": [
+               "bored", "something", "interesting", "comic", "comic", "i", "i'm", "am", "show", "me", "comics"
+          ],
+          "bot_response": ["/>comic</"],
+          "required_words": ["bored", "comic", "interesting"]
+     }
+]

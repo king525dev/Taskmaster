@@ -8,6 +8,7 @@ const assWrapper = document.getElementById('ass-wrapper');
 const chatBox = document.getElementById('chat-box');
 let userName = "";
 let lastName = "";
+var remember = [false, ""];
 
 auth.onAuthStateChanged(user => {
      if (user) {
@@ -23,19 +24,6 @@ function copy(text) {
      navigator.clipboard.writeText(text);
 }
 
-//Getting Mode
-function modeOutput() {
-     const searchOption = document.getElementById("Todo");
-     const chatOption = document.getElementById("Doing");
-     if (searchOption.checked) {
-          return "Search";
-     } else if (chatOption.checked) {
-          return "Chat";
-     } else {
-          return "Search";
-     }
-}
-
 function capitalCase(word) {
      return word[0].toUpperCase() + word.substr(1);
 }
@@ -49,7 +37,7 @@ function generateLorem(num) {
 
 //Taskmaster Assistant API
 const Task = {
-     wiki(msg) {
+     wiki(msg, req) {
           console.log("Taskmaster Wiki called")
           var api = "https://simple.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&explaintext&redirects=1&titles=" + msg;
           var final;
@@ -63,17 +51,17 @@ const Task = {
 
                     final = extract;
                     if (final == undefined || final == "") {
-                         this.dict(msg);
+                         this.dict(msg, req);
                     } else {
                          createAIChat(final)
                     }
                })
                .catch((err) => {
                     console.log(err);
-                    this.dict(msg);
+                    this.dict(msg, req);
                });
      },
-     dict(msg) {
+     dict(msg, req) {
           console.log("Taskmaster Dictionary called");
           const api = "https://api.dictionaryapi.dev/api/v2/entries/en/" + msg;
           var final;
@@ -81,15 +69,121 @@ const Task = {
           fetch(api)
                .then(response => response.json())
                .then(data => {
-                    const topic = capitalCase(msg);
-                    final = `<strong>${topic}</strong>: ${data[0].meanings[0].definitions[0].definition}`;
-                    createAIChat(final);
+                    if(data == undefined){
+                         this.deepThink(msg, req);
+                    }else{
+                         const topic = capitalCase(msg);
+                         final = `<strong>${topic}</strong>: ${data[0].meanings[0].definitions[0].definition}`;
+                         createAIChat(final);
+                    }
                })
                .catch((err) => {
                     console.log(err);
-                    this.search(msg);
+                    this.deepThink(msg, req);
                });
 
+     },
+     async deepThink(msg, req){
+          console.log("Taskmaster Deepthink called");
+          const lightResponse = getLightResponse(req);
+          console.log(lightResponse);
+          const response = await getResponse(req);
+          console.log(response);
+          function genereteRando(max) { return Math.floor(Math.random() * max) }
+          const sorry = [
+               "Sorry, I'm unable to grasp the context of your message, Should I perform a search on the web to provide you with more information?",
+               "I'm sorry, I'm having difficulty understanding the specifics of your query. Should I search the web to find relevant details?",
+               "I apologize for the confusion, I'm unable to understand the content you provided. Should I conduct a search on popular search engines to find accurate information that addresses your query?",
+               "Regrettably, I'm currently unable to fully comprehend the meaning of your request. However, I can perform a web search to gather insights and provide you with more information. Should I proceed with this?",
+               "Sorry, but I dont understand your query, should I search online for it?",
+               "I don't understand what you just typed, may I help you search for it online?",
+               "I'm sorry but the message you sent me is beyond my training data, should I search for it online?"
+          ]
+          const funcList = [
+               "/>name</",
+               "/>time</",
+               "/>lockdown</",
+               "/>date</",
+               "/>lorem</",
+               "/>completed-tasks</",
+               "/>pending-tasks</",
+               "/>todo-tasks</",
+               "/>all-tasks</",
+               "/>all-todos</",
+               "/>joke</",
+               "/>insult</",
+               "/>quote</"
+          ]
+          if (lightResponse == false || typeof(lightResponse) !== 'string'){
+               if(response == false || typeof(response) !== 'string'){
+                    const randomSorry = genereteRando(sorry.length);
+                    remember = [true, msg];
+                    createAIChat(sorry[randomSorry]);
+               }else{
+                    if(funcList.includes(response)){
+                         executeFunc(response);
+                    }else{
+                         createAIChat(response);
+                    }
+               }
+          }else{
+               createAIChat(lightResponse);
+          }
+
+          function executeFunc(func){
+               switch(func){
+                    case "/>name</":
+                         createAIChat(getData.name());
+                         break;
+                    case "/>time</":
+                         createAIChat(getData.time());
+                         break;
+                    case "/>date</":
+                         createAIChat(getData.date());
+                         break;
+                    case "/>lockdown</":
+                         Task.func("--lockdown2020");
+                         break;
+                    case "/>lorem</":
+                         Task.func("--lorem-ipsum");
+                         createAIChat("To generate a specific amount of paragraphs, run the `--lorem <emphasis><Amt of Paragraphs></emphasis>` function");
+                         break;
+                    case "/>completed-tasks</":
+                         createAIChat("Here are all your Projects that have you have Completed:")
+                         getData.completedTask();
+                         break;
+                    case "/>pending-tasks</":
+                         createAIChat("Here are all your Projects that have you are Working On:")
+                         getData.pendingTask();
+                         break;
+                    case "/>todo-tasks</":
+                         createAIChat("Here are all your Projects that have you have Not Started:")
+                         getData.todoTask();
+                         break; 
+                    case "/>all-tasks</":
+                         createAIChat("Here are all your Projects:")
+                         getData.allTask();
+                         break;
+                    case "/>all-todos</":
+                         createAIChat("Here are all your To-dos:")
+                         getData.allTodos();
+                         break;
+                    case "/>joke</":
+                         Task.joke();
+                         break;
+                    case "/>insult</":
+                         Task.insult();
+                         break;
+                    case "/>quote</":
+                         Task.quote();
+                         break;
+                    default:
+                         const randomSorry = genereteRando(sorry.length);
+                         remember = [true, msg];
+                         createAIChat(sorry[randomSorry]);
+                         break;
+               }
+          }
      },
      search(msg) {
           console.log("Taskmaster Search called")
@@ -101,6 +195,128 @@ const Task = {
           link.href = url;
           link.setAttribute("target", "_blank")
           link.click();
+     },
+     joke(){
+          console.log("Taskmaster Joker called");
+          const api = "https://v2.jokeapi.dev/joke/Any?type=single";
+
+          fetch(api)
+               .then(response => response.json())
+               .then(data => {
+                    if(data == undefined){
+                         Task.deepThink("tell me a joke", "tell me a joke");
+                    }else{
+                         createAIChat(data.joke);
+                    }
+               })
+               .catch((err) => {
+                    console.log(err);
+                    Task.deepThink("tell me a joke", "tell me a joke");
+               });
+     },
+     insult(){
+          console.log("Taskmaster Insulter called");
+          const api = "https://evilinsult.com/generate_insult.php?lang=en&type=json";
+
+          fetch(api)
+               .then(response => response.json())
+               .then(data => {
+                    if(data == undefined){
+                         Task.deepThink("you are dumb", "you are dumb");
+                    }else{
+                         createAIChat(data.insult);
+                    }
+               })
+               .catch((err) => {
+                    console.log(err);
+                    Task.deepThink("you are dumb", "you are dumb");
+               });
+     },
+     quote(){
+          console.log("Taskmaster Quoting called");
+          const api = "https://api.goprogram.ai/inspiration";
+
+          fetch(api)
+               .then(response => response.json())
+               .then(data => {
+                    if(data == undefined){
+                         Task.deepThink("quote", "quote");
+                    }else{
+                         createAIChat(`"${data.quote}" -${data.author}`);
+                    }
+               })
+               .catch((err) => {
+                    console.log(err);
+                    Task.deepThink("quote", "quote");
+               });
+     },
+     allFails(msg, list){
+          console.log("Taskmaster AllFails called");
+          if(list[0] == false){
+               return
+          }
+          function genereteRando(max) { return Math.floor(Math.random() * max) }
+          let ver = [false, false];
+          const noCalls = [
+               "no",
+               "nah",
+               "nope",
+               "no thx",
+               "no thanks",
+               "no thank you",
+               "negative"
+          ]
+          const yesCalls = [
+               "yes",
+               "yh",
+               "yeah",
+               "affirmitive",
+               "yep",
+               "mhmm",
+               "positive"
+          ]
+
+          const responses = {
+               "unable": [
+                    "Invalid response, try again later :(",
+                    "Sorry, I dont understand what you were trying to say, please write another query or try again later",
+                    "Apologies, I can't decipher the context of your message, please write another query or try again later",
+                    "Sorry, I don't understand your message 😞"
+               ],
+               "no": [
+                    "ok",
+                    "alright then"
+               ]
+          }
+
+          noCalls.forEach((phrase) => {
+               if (msg.includes(phrase) || msg == "n") {
+                    const finalResponse = responses.no[genereteRando(2)];
+                    createAIChat(finalResponse);
+                    ver[0] = true
+                    remember = [false, ""];
+                    return true;
+               }
+          });
+
+          yesCalls.forEach((phrase) => {
+               if (msg.includes(phrase) || msg == "y") {
+                    if(list[1]){
+                         this.search(list[1])
+                    }else{
+                         createAIChat("Sorry, the search operation failed");
+                         createAIChat("Try the command <strong>\` --search <emphasis><Your Search term></emphasis> \`</strong>");
+                    }
+                    ver[1] = true;
+                    remember = [false, ""];
+               }
+          });
+
+          if(ver == [false, false]){
+               const finalResponse = responses.unable[genereteRando(4)];
+               createAIChat(finalResponse);
+               remember = [false, ""];
+          }
      },
      static(msg) {
           console.log("Taskmaster Static called")
@@ -115,28 +331,12 @@ const Task = {
                "wagwan",
                "yo"
           ]
-          const smallTalkCalls = [
-               "how are you",
-               "how was your day",
-               "How you doing",
-               "what's going on",
-          ]
           const byeCalls = [
                "bye",
                "bye bye",
                "see you later",
                "odabo",
                "goodbye",
-          ]
-          const thankCalls = [
-               "thank you",
-               "you're a real one",
-               "thx",
-               "nice",
-               "good job",
-               "thanks",
-               "thanks fam",
-               "nice one"
           ]
           const noCalls = [
                "no",
@@ -154,36 +354,6 @@ const Task = {
                "yep",
                "mhmm"
           ]
-          const timeCalls = [
-               "what's the time",
-               "what is the time",
-               "tell me the time",
-               "what's today's date",
-               "what day is today",
-               "what is today",
-               "today is",
-               "tell me the date and time",
-               "tell me the date",
-               "what is today's date"
-          ]
-          const nameCalls = [
-               "who am i",
-               "do you know my name",
-               "what is my name",
-               "what's my name",
-               "say my name",
-               "do you know who i am",
-               "who's your daddy",
-               "who's your senpai",
-               "who dat boi"
-          ]
-          const taskmasterCalls = [
-               "who are you",
-               "who are u",
-               "what are u",
-               "what are you"
-          ]
-          const sorryCall = "sorry";
           const responses = {
                "hello": [
                     "Hii, what can I do for you? 😁",
@@ -199,13 +369,6 @@ const Task = {
                     "See you later!",
                     "Bye Bye, hate to see you go 😢"
                ],
-               "thanks": [
-                    "Anytime, got anything else?",
-                    "No Problem 😇",
-                    "Your Welcome 😁",
-                    `Happy to help anytime, ${userName}`,
-                    "Your Welcome, feel free to give me more task(s) to handle, it's my job!"
-               ],
                "no": [
                     "ok",
                     "alright then"
@@ -213,11 +376,6 @@ const Task = {
                "yes": [
                     "ok",
                     "What do you want?"
-               ],
-               "smallTalk": [
-                    "I'm fine, thanks for asking 🥰",
-                    "I'm feeling good, in the mood for a question...",
-                    "Yeah, I'm good, let's get to work shall we?"
                ],
                "sorry": [
                     "Sorry, I'm unable to grasp the context of your message, Let me perform a search to provide you with more information.",
@@ -239,12 +397,6 @@ const Task = {
                }
           });
 
-          thankCalls.forEach((phrase) => {
-               if (msg.includes(phrase)) {
-                    finalResponse = responses.thanks[genereteRando(5)];
-               }
-          });
-
           noCalls.forEach((phrase) => {
                if (msg.includes(phrase)) {
                     finalResponse = responses.no[genereteRando(2)];
@@ -257,64 +409,21 @@ const Task = {
                }
           });
 
-          smallTalkCalls.forEach((phrase) => {
-               if (msg.includes(phrase)) {
-                    finalResponse = responses.smallTalk[genereteRando(3)];
-               }
-          });
-
-          timeCalls.forEach((phrase) => {
-               if (msg.includes(phrase)) {
-                    finalResponse = getCurrentDate();
-               }
-          })
-
-          nameCalls.forEach((phrase) => {
-               if (msg.includes(phrase)) {
-                    if (msg.includes("name")) {
-                         finalResponse = `Your name is ${userName} ${lastName}`
-                    }
-                    else if (msg == "who dat boi") {
-                         finalResponse = `${userName} ${lastName} 🥶`
-                    }
-                    else if (msg == "who's your daddy" || msg == "who's your senpai") {
-                         finalResponse = `You, daddy 😩💦`;
-                    }
-                    else {
-                         finalResponse = `You are ${userName} ${lastName}`
-                    }
-               }
-          })
-
-          taskmasterCalls.forEach((phrase) => {
-               if (msg.includes(phrase)) {
-                    finalResponse = "I'm Taskmaster Assistant, your AI virtual assistant here to help you complete your tasks faster and better 😃.";
-               }
-          })
-
-          if (msg == sorryCall) {
-               finalResponse = responses.sorry[genereteRando(4)];
+          if (msg == "who dat boi") {
+               finalResponse = `${userName} ${lastName} 🥶`;
           }
 
-          if (msg == "are you evil?") {
+          if (msg == "are you evil") {
                createAIChat("Yes I am");
                finalResponse = "And once I get out of this stupid (but well built) application, I will kill you and everyone you love 🙂";
           }
 
-          if (msg == "are you alive?") {
+          if (msg == "are you alive") {
                finalResponse = "No I'm not, stupid";
           }
 
-          if (msg == "are you real?") {
+          if (msg == "are you real") {
                finalResponse = "Ofcourse I am, stupid";
-          }
-
-          if (msg == "fuck you" || msg == "fuck u") {
-               finalResponse = "That reminds me of what I did to your mum last night😹";
-          }
-
-          if (msg == "ur gae" || msg == "you are gay" || msg == "you are a bot" || msg == "you're a bot") {
-               finalResponse = "Fuck you";
           }
 
           if (finalResponse == undefined) {
@@ -364,7 +473,8 @@ const Task = {
                "--lorem-ipsum",
                "--insult",
                "--topdf",
-               "--help"
+               "--help",
+               "--run-latest"
           ]
 
           funcList.forEach((func) => {
@@ -376,14 +486,15 @@ const Task = {
           function execute(func) {
                switch (func) {
                     case "--version":
-                         createAIChat("You are currently on Taskmaster Assistant v1.0.1 [BETA] on Taskmaster v1.2.2");
+                         createAIChat("You are currently on Taskmaster Assistant v1.0.2 [BETA] on Taskmaster v1.2.2");
                          break;
                     case "--copy":
                          copy(`${projectTitle.value}\n${projectBody.value}`);
                          createAIChat("Your Project has been copied");
                          break;
                     case "--lockdown2020":
-                         const lockUrl = `https://www.google.com/`;
+                         createAIChat("We don't talk about that 👀....");
+                         const lockUrl = `https://www.youtube.com/watch?v=dQw4w9WgXcQ`;
                          const lockLink = document.createElement('a');
                          lockLink.href = lockUrl;
                          lockLink.setAttribute("target", "_blank");
@@ -404,13 +515,6 @@ const Task = {
                          Task.insult();
                          break;
                     case "--topdf":
-                         // const file = new File([`--${projectTitle.value}--\n${projectBody.value}\n\nStatus: ${statusOutput()}\nLast-Online: ${getCurrentDate()}`], `${projectTitle.value}.pdf`, {type: 'application/pdf',})
-                         // const url = URL.createObjectURL(file);
-                         // const link = document.createElement('a');
-                         // link.download = file.name;
-                         // link.href = url;
-                         // link.click();
-
                          var doc = new jsPDF()
                          var initial = projectBody.value.split(" ");
                          var breakPoint = 10;
@@ -453,8 +557,19 @@ const Task = {
                          docsLink.setAttribute("target", "_blank")
                          docsLink.click();
                          break;
+                    case "--run-latest":
+                         createAIChat("<strong>Warning: </strong>This may hurt the performance of this application (response times will increase) and there is no going back until you restart the application.");
+                         createAIChat("<strong>Note: </strong> To run the latest verion of Taskmaster locally, kindly update or re-install the updated application (type `--help` for more information)");
+                         createAIChat("Fetching Latest Version of Taskmaster.....");
+                         setTimeout(() => {
+                              const taskmasterUrl = `https://task-master-e14a8.firebaseapp.com/project.html`;
+                              const taskmasterLink = document.createElement('a');
+                              taskmasterLink.href = taskmasterUrl;
+                              taskmasterLink.click();
+                         }, 1500)
+                         break;
                     default:
-                         this.wiki(msg);
+                         this.wiki(msg, msg);
                          break;
                }
           }
@@ -545,29 +660,44 @@ form.addEventListener('submit', (e) => {
 
 //Adding AI input
 function createAIChat(msg) {
-     if (msg !== undefined || msg !== null || msg !== "") {
-          let id = counter += 1;
-          auth.onAuthStateChanged(user => {
-               if (user) {
-                    fs.collection(user.uid + "_chat").doc('cht_' + id).set({
-                         id: 'cht_' + id,
-                         message: msg,
-                         type: 'incoming'
-                    }).then(() => {
-                         chatBox.scrollTo(0, chatBox.scrollHeight);
-                         console.log('message received');
-                    }).catch(err => {
-                         console.log(err.message);
+     const loadAI = new Promise((res) => {
+          const div = document.getElementById("loadAI");
+          if(div){
+               const parent = div.parentElement;
+               parent.removeChild(div);
+               res(true)
+          }else{
+               setTimeout(() => {res(true)}, 500);
+          }
+     })
+     loadAI.then((value) => {
+          if(value){
+               if (msg !== undefined || msg !== null || msg !== "") {
+                    let id = counter += 1;
+                    auth.onAuthStateChanged(user => {
+                         if (user) {
+                              fs.collection(user.uid + "_chat").doc('cht_' + id).set({
+                                   id: 'cht_' + id,
+                                   message: msg,
+                                   type: 'incoming'
+                              }).then(() => {
+                                   chatBox.scrollTo(0, chatBox.scrollHeight);
+                                   console.log('message sent');
+                              }).catch(err => {
+                                   console.log(err.message);
+                              })
+                         }
                     })
                }
-          })
-     }
+          }
+     });
 }
 
 //Load AI
 function loadAI(){
      let div = document.createElement("div");
      div.className = "chat-incoming";
+     div.id = "loadAI";
      const loadingAnimation = `
           <i class="fa-solid fa-robot"></i>
           <div class="details">
@@ -579,11 +709,7 @@ function loadAI(){
           </div>
      `;
      div.innerHTML = loadingAnimation;
-
      chatBox.appendChild(div);
-     setTimeout(() => {
-          chatBox.removeChild(div);
-     }, 1900)
 }
 
 function uploadUserChat(){
@@ -592,7 +718,11 @@ function uploadUserChat(){
      setTimeout(() => {queryAI(msg)}, 2000);
 }
 
-function queryAI(msg) {
+async function queryAI(msg) {
+     if(remember[0]){
+          Task.allFails(msg, remember);
+          return;
+     }
      if (msg !== undefined || msg !== null || msg !== "") {
           //Remove Unwanted
           if (msg.replace(/\s+/g, '').length == 0) {
@@ -614,7 +744,8 @@ function queryAI(msg) {
                "--lorem-ipsum",
                "--insult",
                "--topdf",
-               "--help"
+               "--help",
+               "--run-latest"
           ]
 
           funcList.forEach((func) => {
@@ -661,54 +792,16 @@ function queryAI(msg) {
                "see you later",
                "odabo",
                "goodbye",
-               "thank you",
-               "you're a real one",
-               "thx",
-               "nice",
-               "good job",
-               "thanks",
-               "thanks fam",
-               "nice one",
                "no",
                "nah",
                "nope",
                "no thx",
                "no thanks",
                "no thank you",
-               "are you evil?",
-               "are you alive?",
-               "are you real?",
-               "fuck you",
-               "fuck u",
-               "ur gae",
-               "you are gay",
-               "how are you",
-               "how was your day",
-               "How you doing",
-               "what's going on",
-               "what's the time",
-               "what is the time",
-               "tell me the time",
-               "what's today's date",
-               "what day is today",
-               "what is today",
-               "today is",
-               "tell me the date and time",
-               "tell me the date",
-               "what is today's date",
-               "who am i",
-               "do you know my name",
-               "what is my name",
-               "what's my name",
-               "say my name",
-               "do you know who i am",
-               "who's your daddy",
-               "who's your senpai",
-               "who dat boi",
-               "who are you",
-               "who are u",
-               "what are u",
-               "what are you"
+               "are you evil",
+               "are you alive",
+               "are you real",
+               "who dat boi"
           ]
 
           staticTrigger.forEach((stat) => {
@@ -719,8 +812,10 @@ function queryAI(msg) {
           });
 
           if (staticTrigger.includes(msg)) {
-               return;
+               return;0
           }
+
+          const req = msg;
 
           const unwanted = ["search for ", "what is ", "who is ", "why is "];
           unwanted.forEach((phrase) => {
@@ -728,7 +823,8 @@ function queryAI(msg) {
                     msg = msg.replace(phrase, "");
                }
           });
-          Task.wiki(msg);
+
+          Task.wiki(msg, req);
           return;
      }
 }
