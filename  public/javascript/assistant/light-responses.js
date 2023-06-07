@@ -1,118 +1,26 @@
-const lightResponses = [
-     {
-          "response_type": "greeting",
-          "user_input": [
-               "hello",
-               "hi",
-               "hey",
-               "kaaro",
-               "what's",
-               "up",
-               "wagwan",
-               "yo",
-               "hii",
-               "wags"
-          ],
-          "bot_response": [
-               "Hey there!",
-               "Hii",
-               "Hello",
-               "Hii, what can I do for you? 😁",
-               "Hey, what's up, need any help?",
-               "Hello, what can I do for you today?",
-               "What's up?, got any questions for me? 🤓"
-          ],
-          "required_words": []
-     },
-     {
-          "response_type": "greeting",
-          "user_input": [
-               "see you",
-               "goodbye",
-               "bye",
-               "bye bye",
-               "later",
-               "odabo"
-          ],
-          "bot_response": [
-               "See you later!",
-               "Byee",
-               "Byee 👋",
-               "Goodbye, see you soon",
-               "Thank for your time 🙋‍♀️",
-               "See you later!",
-               "Bye Bye, hate to see you go 😢"
-          ],
-          "required_words": []
-     },
-     {
-          "response_type": "greeting",
-          "user_input": [
-               "you",
-               "your",
-               "day",
-               "how",
-               "was",
-               "are",
-               "you",
-               "doing",
-               "what's",
-               "going",
-               "on",
-               "been"
-          ],
-          "bot_response": [
-               "I'm fine, thanks for asking 🥰",
-               "I'm feeling good, in the mood for a question...",
-               "Yeah, I'm good, let's get to work shall we?",
-               "I'm great! Thanks for asking."
-          ],
-          "required_words": ["how", "what's", "you"]
-     },
-     {
-          "response_type": "greeting",
-          "user_input": [
-               "nice",
-               "to",
-               "meet",
-               "finally",
-               "you"
-          ],
-          "bot_response": [
-               "The pleasure is all mine!",
-               "Nice to meet you too 🥰"
-          ],
-          "required_words": [
-               "nice"
-          ]
-     },
-     {
-          "user_input": [
-               "how",
-               "was",
-               "your",
-               "day",
-               "doing",
-               "today",
-               "feeling",
-               "good"
-          ],
-          "bot_response": [
-               "It's been quite delightful so far. How about yours? Any interesting highlights?",
-               "Pretty good! Anything exciting happening with you?",
-               "Very Productive 🤓",
-               "Pretty good so far, thanks for asking"
-          ],
-          "response_type": "conversation",
-          "required_words": [
-               "day",
-               "how"
-          ]
-     },
-]
+/*============================
+     DEEP THINKING
+=============================*/
 
-function getLightResponse(input){
-     const responseData = lightResponses;
+/*
+ * Credits: Indently on YT [ https://www.youtube.com/@Indently ]
+ * Link: [ https://www.youtube.com/watch?v=azP_d7SiRDg ]
+ */
+
+async function fetchLightResponses(){
+     let jsonData;
+     try{
+          const response = await fetch('./javascript/assistant/light-static-responses.json');
+          const data = await response.json();
+          jsonData = data;
+     }catch (error){
+          console.log("Error: " + error);
+     }
+     return jsonData;
+}
+
+async function getLightResponse(input){
+     const responseData = await fetchLightResponses();
      const splitMsg = input.toLowerCase().split(/\s+|[,;?!.\-]\s*/);
      const scoreList = [];
      function genereteRando(max) { return Math.floor(Math.random() * max) }
@@ -141,14 +49,14 @@ function getLightResponse(input){
                          responseScore += 3;
                     }
                });
-          }else if(requiredScore == (requiredWords.length/2)){
+          }else if(requiredScore >= (requiredWords.length/2)){
                splitMsg.forEach(word => {
                     //If the word is in the response, add the score
                     if (response["user_input"].includes(word)){
                          responseScore += 2;
                     }
                });
-          }else if(requiredScore > (requiredWords.length/3)){
+          }else if(requiredScore >= (requiredWords.length/3)){
                splitMsg.forEach(word => {
                     //If the word is in the response, add the score
                     if (response["user_input"].includes(word)){

@@ -8,7 +8,8 @@ const assWrapper = document.getElementById('ass-wrapper');
 const chatBox = document.getElementById('chat-box');
 let userName = "";
 let lastName = "";
-var remember = [false, ""];
+var remember = [false, "", ""];
+var deepLearningToggle =  false;
 
 auth.onAuthStateChanged(user => {
      if (user) {
@@ -61,6 +62,30 @@ const Task = {
                     this.dict(msg, req);
                });
      },
+     longWiki(msg, req){
+          console.log("Taskmaster Long-Wiki called")
+          var api = "https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&explaintext&redirects=1&titles=" + msg;
+          var final;
+
+          fetch(api)
+               .then(response => response.json())
+               .then(response => {
+                    response = response.query.pages;
+                    var pageId = Object.keys(response)[0];
+                    var extract = response[pageId].extract;
+
+                    final = extract;
+                    if (final == undefined || final == "") {
+                         this.dict(msg, req);
+                    } else {
+                         createAIChat(final)
+                    }
+               })
+               .catch((err) => {
+                    console.log(err);
+                    this.dict(msg, req);
+               });
+     },
      dict(msg, req) {
           console.log("Taskmaster Dictionary called");
           const api = "https://api.dictionaryapi.dev/api/v2/entries/en/" + msg;
@@ -81,15 +106,14 @@ const Task = {
                     console.log(err);
                     this.deepThink(msg, req);
                });
-
      },
      async deepThink(msg, req){
           console.log("Taskmaster Deepthink called");
-          const lightResponse = getLightResponse(req);
-          console.log(lightResponse);
+          const lightResponse = await getLightResponse(req);
           const response = await getResponse(req);
-          console.log(response);
+          const dyResponse = searchDynamicBase(req);
           function genereteRando(max) { return Math.floor(Math.random() * max) }
+          const questTypes = ["search-for", "tell-me-about", "why", "what", "who"];
           const sorry = [
                "Sorry, I'm unable to grasp the context of your message, Should I perform a search on the web to provide you with more information?",
                "I'm sorry, I'm having difficulty understanding the specifics of your query. Should I search the web to find relevant details?",
@@ -98,6 +122,27 @@ const Task = {
                "Sorry, but I dont understand your query, should I search online for it?",
                "I don't understand what you just typed, may I help you search for it online?",
                "I'm sorry but the message you sent me is beyond my training data, should I search for it online?"
+          ]
+          const whoSorry = [
+               "I'm sorry, but I don't who that is, should I search for him/her?",
+               "Sorry, I couldn't find any information about the person specified. Can I begin a search operation?",
+               "I apologize, but the person you mentioned is not in my database. Should I initiate a search?",
+               "Regretfully, I don't have any details on the person you wish to know about. Can I perform a search for you?",
+               "I'm sorry, I am not familiar with the person. Would you like me to search for information on him/her?"
+          ]
+          const whatSorry = [
+               "I'm sorry, but I don't know what you are talking about, should I perform a search operation on it?",
+               "Sorry, I don't understand. Do you want me to initiate a search operation for the topic?"
+          ]
+          const whySorry = [
+               "I'm sorry, but I don't know why that is, should I perform a search operation on it?",
+               "I apologize, but i can't find a reason for why that is, should I initiate a search operation on the topic?"
+          ]
+          const curiousRes = [
+               "Sorry, I don't know how to respond to that. Can you tell me how to respond to it next time?",
+               "Sorry, I don't understand, can you teach me how to respond to this?",
+               "I apologize for the confusion, I'm unable to understand the content you provided. Can you tell me how to respond to it next time?",
+               "I'm sorry, I am not familiar with this query. Can you teach me how to respond to it?"
           ]
           const funcList = [
                "/>name</",
@@ -113,17 +158,59 @@ const Task = {
                "/>joke</",
                "/>insult</",
                "/>quote</",
-               "/>comic</"
+               "/>comic</",
+               "/>can't-train-self</"
           ]
           if (lightResponse == false || typeof(lightResponse) !== 'string'){
                if(response == false || typeof(response) !== 'string'){
-                    const randomSorry = genereteRando(sorry.length);
-                    remember = [true, msg];
-                    createAIChat(sorry[randomSorry]);
+                    if(dyResponse == false || typeof(dyResponse) !== 'string'){
+                         if(deepLearningToggle == false){
+                              const jointedReq = req.replaceAll(" ", "-");
+                              if(questTypes.includes(jointedReq)){
+                                   questTypes.forEach(phrase => {
+                                        if (jointedReq.includes(phrase)) {
+                                             switch (phrase){
+                                                  case "search-for" || "what":
+                                                       remember = [true, msg, "failed"];
+                                                       createAIChat(whatSorry[genereteRando(whatSorry.length)]);
+                                                       break;
+                                                  case "who":
+                                                       remember = [true, msg, "failed"];
+                                                       createAIChat(whoSorry[genereteRando(whoSorry.length)]);
+                                                       break;
+                                                  case "why":
+                                                       remember = [true, msg, "failed"];
+                                                       createAIChat(whySorry[genereteRando(whySorry.length)]);
+                                                       break;
+                                                  default:
+                                                       remember = [true, msg, "failed"];
+                                                       createAIChat(sorry[genereteRando(sorry.length)]);
+                                                       break;
+                                             }
+                                        }
+                                   }); 
+                              }else{
+                                   remember = [true, msg, "failed"];
+                                   createAIChat(sorry[genereteRando(sorry.length)]);
+                              }
+                         }else{
+                              const failedDyResponse = teachDynamicBase(req);
+                              if(failedDyResponse == "/>not-included-in-db</"){
+                                   executeFunc("/>not-included-in-db</");
+                              }else{
+                                   createAIChat(failedDyResponse);
+                              }
+                         }
+                    }else{
+                         createAIChat(capitalCase(dyResponse));
+                    }
                }else{
                     if(funcList.includes(response)){
                          executeFunc(response);
                     }else{
+                         if(response.includes("<img")){
+                              createAIChat("Ok")
+                         }
                          createAIChat(response);
                     }
                }
@@ -146,6 +233,7 @@ const Task = {
                          Task.func("--lockdown2020");
                          break;
                     case "/>lorem</":
+                         createAIChat("Ok")
                          Task.func("--lorem-ipsum");
                          createAIChat("To generate a specific amount of paragraphs, run the `--lorem <emphasis><Amt of Paragraphs></emphasis>` function");
                          break;
@@ -181,9 +269,19 @@ const Task = {
                     case "/>comic</":
                          Task.comic();
                          break;
+                    case "/>not-included-in-db</":
+                         const randomCuriousRes = genereteRando(curiousRes.length);
+                         remember = [true, msg, "learn"];
+                         createAIChat(curiousRes[randomCuriousRes]);
+                         break;
+                    case "/>can't-train-self</":
+                         createAIChat("I'm sorry, I don't have access to run this command on myself. Run the command <emphasis>`--training-mode`</emphasis> instead");
+                         const input = document.getElementById("input-field");
+                         input.value = "--training-mode"
+                         break;
                     default:
                          const randomSorry = genereteRando(sorry.length);
-                         remember = [true, msg];
+                         remember = [true, msg, "failed"];
                          createAIChat(sorry[randomSorry]);
                          break;
                }
@@ -359,7 +457,7 @@ const Task = {
                     const finalResponse = responses.no[genereteRando(2)];
                     createAIChat(finalResponse);
                     ver[0] = true
-                    remember = [false, ""];
+                    remember = [false, "", ""];
                     return true;
                }
           });
@@ -373,14 +471,14 @@ const Task = {
                          createAIChat("Try the command <strong>\` --search <emphasis><Your Search term></emphasis> \`</strong>");
                     }
                     ver[1] = true;
-                    remember = [false, ""];
+                    remember = [false, "", ""];
                }
           });
 
-          if(ver == [false, false]){
+          if(ver[0] == false && ver[1] ==false){
                const finalResponse = responses.unable[genereteRando(4)];
                createAIChat(finalResponse);
-               remember = [false, ""];
+               remember = [false, "", ""];
           }
      },
      static(msg) {
@@ -539,7 +637,8 @@ const Task = {
                "--insult",
                "--topdf",
                "--help",
-               "--run-latest"
+               "--run-latest",
+               "--training-mode"
           ]
 
           funcList.forEach((func) => {
@@ -554,7 +653,11 @@ const Task = {
                          createAIChat("You are currently on Taskmaster Assistant v1.0.2 [BETA] on Taskmaster v1.2.2");
                          break;
                     case "--copy":
-                         copy(`${projectTitle.value}\n${projectBody.value}`);
+                         if(projectTitle){
+                              copy(`${projectTitle.value}\n${projectBody.value}`);
+                         }else{
+                              copy(`${title.value}\n${body.value}`);
+                         }
                          createAIChat("Your Project has been copied");
                          break;
                     case "--lockdown2020":
@@ -581,7 +684,7 @@ const Task = {
                          break;
                     case "--topdf":
                          var doc = new jsPDF()
-                         var initial = projectBody.value.split(" ");
+                         var initial = projectBody ? projectBody.value.split(" ") : body.value.split(" ");
                          var breakPoint = 10;
                          var pdfBody;
                          if (initial.length > breakPoint){
@@ -600,9 +703,15 @@ const Task = {
                          }else{
                               var doc = new jsPDF();
                          }
-                         doc.text(`--${projectTitle.value}--\n`, 10, 10);
-                         doc.text(`${pdfBody}\n\nStatus: ${statusOutput()}\nLast-Online: ${getCurrentDate()}`, 10, 20);
-                         doc.save(`${projectTitle.value}.pdf`)
+                         if(projectTitle){
+                              doc.text(`--${projectTitle.value}--\n`, 10, 10);
+                              doc.text(`${pdfBody}\n\nStatus: ${statusOutput()}\nLast-Online: ${getCurrentDate()}`, 10, 20);
+                              doc.save(`${projectTitle.value}.pdf`)
+                         }else{
+                              doc.text(`--${title.value}--\n`, 10, 10);
+                              doc.text(`${pdfBody}\n\nStatus: ${statusOutput()}\nLast-Online: ${getCurrentDate()}`, 10, 20);
+                              doc.save(`${title.value}.pdf`)
+                         }
 
                          createAIChat("<strong>Warning: </strong>This feature  is experimental")
                          createAIChat("Generating PDF file...")
@@ -627,14 +736,23 @@ const Task = {
                          createAIChat("<strong>Note: </strong> To run the latest verion of Taskmaster locally, kindly update or re-install the updated application (type `--help` for more information)");
                          createAIChat("Fetching Latest Version of Taskmaster.....");
                          setTimeout(() => {
-                              const taskmasterUrl = `https://task-master-e14a8.firebaseapp.com/project.html`;
+                              const taskmasterUrl = "https://task-master-e14a8.firebaseapp.com/project.html";
                               const taskmasterLink = document.createElement('a');
                               taskmasterLink.href = taskmasterUrl;
                               taskmasterLink.click();
                          }, 1500)
                          break;
+                    case "--training-mode":
+                         if(deepLearningToggle == false){
+                              deepLearningToggle = true;
+                              createAIChat("Training Mode Activated 🤖⚡")
+                         }else{
+                              deepLearningToggle = false;
+                              createAIChat("Training Mode De-activated 💤")
+                         }
+                         break;
                     default:
-                         this.wiki(msg, msg);
+                         Task.wiki(msg, msg);
                          break;
                }
           }
@@ -655,6 +773,7 @@ closeBtn.addEventListener("click", () => {
           assWrapper.classList.remove("open-ast")
      }
      assWrapper.classList.add("close-ast");
+     chatBox.scrollTo(0, chatBox.scrollHeight);
 });
 
 //Store Chat with assistant on Firebase
@@ -705,7 +824,8 @@ function createUserChat() {
                     fs.collection(user.uid + "_chat").doc('cht_' + id).set({
                          id: 'cht_' + id,
                          message: msg,
-                         type: 'outgoing'
+                         type: 'outgoing',
+                         timeStamp: new Date()
                     }).then(() => {
                          console.log('message received');
                          chatBox.scrollTo(0, chatBox.scrollHeight);
@@ -732,7 +852,7 @@ function createAIChat(msg) {
                parent.removeChild(div);
                res(true)
           }else{
-               setTimeout(() => {res(true)}, 500);
+               setTimeout(() => {res(true)}, 800);
           }
      })
      loadAI.then((value) => {
@@ -750,6 +870,7 @@ function createAIChat(msg) {
                                    console.log('message sent');
                               }).catch(err => {
                                    console.log(err.message);
+                                   createAIChat("Can't upload any Chats. Check your Internet Connection")
                               })
                          }
                     })
@@ -784,8 +905,13 @@ function uploadUserChat(){
 }
 
 async function queryAI(msg) {
-     if(remember[0]){
+     msg.trim();
+     if(remember[0] && remember[2] == "failed"){
           Task.allFails(msg, remember);
+          return;
+     }else if(remember[0] && remember[2] == "learn"){
+          createAIChat(teachDynamicBase(msg));
+          remember = [false, "", ""];
           return;
      }
      if (msg !== undefined || msg !== null || msg !== "") {
@@ -793,7 +919,7 @@ async function queryAI(msg) {
           if (msg.replace(/\s+/g, '').length == 0) {
                return;
           }
-          const unwantedSymbols = ["!", "?", "\"", "."]
+          const unwantedSymbols = ["!", "?", "\"", ".", "(", ")", "'", "[", "]", "{", "}"];
           unwantedSymbols.forEach((symbol) => {
                if (msg.includes(symbol)) {
                     msg = msg.replace(symbol, "");
@@ -810,7 +936,8 @@ async function queryAI(msg) {
                "--insult",
                "--topdf",
                "--help",
-               "--run-latest"
+               "--run-latest",
+               "--training-mode"
           ]
 
           funcList.forEach((func) => {
@@ -881,15 +1008,29 @@ async function queryAI(msg) {
           }
 
           const req = msg;
+          var detailDeterminer = false;
 
-          const unwanted = ["search for ", "what is ", "who is ", "why is "];
+          const unwanted = ["search for ", "what is ", "who is ", "why is ", "tell me about "];
+          const detailCall = ["explain in details", "explain in detail","in details","in detail", "elaborate on it", "tell me more about"];
+
+          detailCall.forEach((phrase) => {
+               if (msg.includes(phrase)) {
+                    msg = msg.replace(phrase, "");
+                    detailDeterminer = true
+               }
+          });
+
           unwanted.forEach((phrase) => {
                if (msg.includes(phrase)) {
                     msg = msg.replace(phrase, "");
                }
           });
 
-          Task.wiki(msg, req);
+          if(detailDeterminer){
+               Task.longWiki(msg, req)
+          }else{
+               Task.wiki(msg, req);
+          }
           return;
      }
 }
@@ -911,3 +1052,63 @@ auth.onAuthStateChanged(user => {
           })
      }
 })
+
+let msgNo = 0;
+
+document.addEventListener('keydown', e => { // Reload Shortcut
+     if(e.key == "ArrowUp"){
+          e.preventDefault();
+          auth.onAuthStateChanged(user => {
+               if (user) {
+                    msgNo += 1;
+                    const input = document.getElementById("input-field");
+                    const db = fs.collection(user.uid + "_chat");
+                    const list = [];
+                    db.where("type", "==", "outgoing").get().then(snapshot => {
+                         snapshot.forEach(doc => {
+                              list.push(doc.data().message);
+                    });
+                    if (msgNo > list.length || msgNo < 0){
+                         msgNo = 0
+                    }
+                    const selectedNo = list.length - msgNo;
+                    const selected = list[selectedNo];
+                    if(selected == undefined){
+                         input.value = "";
+                    }else{
+                         input.value = selected;
+                    }
+                    });
+               }
+          });
+     }
+});
+
+document.addEventListener('keydown', e => { // Reload Shortcut
+     if(e.key == "ArrowDown"){
+          e.preventDefault();
+          auth.onAuthStateChanged(user => {
+               if (user) {
+                    msgNo -= 1;
+                    const input = document.getElementById("input-field");
+                    const db = fs.collection(user.uid + "_chat");
+                    const list = [];
+                    db.where("type", "==", "outgoing").get().then(snapshot => {
+                         snapshot.forEach(doc => {
+                              list.push(doc.data().message);
+                    });
+                    if (msgNo > list.length || msgNo < 0){
+                         msgNo = 0
+                    }
+                    const selectedNo = list.length - msgNo;
+                    const selected = list[selectedNo];
+                    if(selected == undefined){
+                         input.value = "";
+                    }else{
+                         input.value = selected;
+                    }
+                    });
+               }
+          });
+     }
+});

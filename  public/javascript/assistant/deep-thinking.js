@@ -6,11 +6,12 @@
  * Credits: Indently on YT [ https://www.youtube.com/@Indently ]
  * Link: [ https://www.youtube.com/watch?v=azP_d7SiRDg ]
  */
+
 //Load JSON Data
 async function fetchResponses(){
      let jsonData;
      try{
-          const response = await fetch('./javascript/assistant/responses.json');
+          const response = await fetch('./javascript/assistant/static-responses.json');
           const data = await response.json();
           jsonData = data;
      }catch (error){
@@ -68,8 +69,6 @@ async function getResponse(input){
           //Add Score to List
           scoreList.push(responseScore);
      });
-
-     console.log(scoreList)
 
      const bestResponse = scoreList.reduce((a, b) => Math.max(a, b), -Infinity);
      const responseIndex = scoreList.indexOf(bestResponse);

@@ -1,0 +1,7 @@
+{
+          "index": 0,
+          "response_type": "",
+          "user_input": [],
+          "bot_response": [],
+          "required_words": []
+     }

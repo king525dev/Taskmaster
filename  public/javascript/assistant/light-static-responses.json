@@ -1,0 +1,124 @@
+[
+     {
+          "index": 0,
+          "response_type": "greeting",
+          "user_input": [
+               "hello",
+               "hi",
+               "hey",
+               "kaaro",
+               "what's",
+               "up",
+               "wagwan",
+               "yo",
+               "hii",
+               "wags"
+          ],
+          "bot_response": [
+               "Hey there!",
+               "Hii",
+               "Hello",
+               "Hii, what can I do for you? 😁",
+               "Hey, what's up, need any help?",
+               "Hello, what can I do for you today?",
+               "What's up?, got any questions for me? 🤓"
+          ],
+          "required_words": []
+     },
+     {
+          "index": 1,
+          "response_type": "greeting",
+          "user_input": [
+               "see you",
+               "goodbye",
+               "bye",
+               "bye bye",
+               "later",
+               "odabo"
+          ],
+          "bot_response": [
+               "See you later!",
+               "Byee",
+               "Byee 👋",
+               "Goodbye, see you soon",
+               "Thank for your time 🙋‍♀️",
+               "See you later!",
+               "Bye Bye, hate to see you go 😢"
+          ],
+          "required_words": []
+     },
+     {
+          "index": 2,
+          "response_type": "greeting",
+          "user_input": [
+               "you",
+               "your",
+               "day",
+               "how",
+               "was",
+               "are",
+               "you",
+               "doing",
+               "what's",
+               "going",
+               "on",
+               "been"
+          ],
+          "bot_response": [
+               "I'm fine, thanks for asking 🥰",
+               "I'm feeling good, in the mood for a question...",
+               "Yeah, I'm good, let's get to work shall we?",
+               "I'm great! Thanks for asking."
+          ],
+          "required_words": ["how", "what's", "you"]
+     },
+     {
+          "index": 3,
+          "response_type": "greeting",
+          "user_input": [
+               "nice",
+               "to",
+               "meet",
+               "finally",
+               "you"
+          ],
+          "bot_response": [
+               "The pleasure is all mine!",
+               "Nice to meet you too 🥰"
+          ],
+          "required_words": [
+               "meet"
+          ]
+     },
+     {
+          "index": 4,
+          "response_type": "conversation",
+          "user_input": ["i","didn't", "ask", "shut", "up", "stfu", "keep", "quiet"],
+          "bot_response": ["😐"],
+          "required_words": ["shut", "ask", "quiet"]
+     },
+     {
+          "index": 5,
+          "user_input": [
+               "how",
+               "was",
+               "your",
+               "day",
+               "doing",
+               "today",
+               "feeling",
+               "good"
+          ],
+          "bot_response": [
+               "It's been quite delightful so far. How about yours? Any interesting highlights?",
+               "Pretty good! Anything exciting happening with you?",
+               "Very Productive 🤓",
+               "Pretty good so far, thanks for asking"
+          ],
+          "response_type": "conversation",
+          "required_words": [
+               "day",
+               "how"
+          ]
+     }
+]

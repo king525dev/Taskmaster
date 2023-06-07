@@ -1204,7 +1204,7 @@ div.ass-wrapper {
 @keyframes side-open {
      from {
           width: 0%;
-          right: -25%;
+          right: -50%;
      }
 
      to {
@@ -1220,17 +1220,17 @@ div.ass-wrapper {
      }
 
      to {
-          right: -25%;
+          right: -50%;
           width: 0%;
      }
 }
 
 .open-ast {
-     animation: side-open ease-in-out 0.7s forwards;
+     animation: side-open ease-out 1s forwards;
 }
 
 .close-ast {
-     animation: side-close ease-in-out 0.7s forwards;
+     animation: side-close ease-in 1s forwards;
 }
 
 div.ass-wrapper header {
@@ -1313,6 +1313,12 @@ div.chat-box::-webkit-scrollbar {
 
 .chat-incoming .details p{
      border-radius: 18px 18px 18px 0;
+}
+
+.ai-pic{
+     max-width: 18em;
+     max-height: 20em;
+     object-fit: scale-down;
 }
 
 @keyframes ldio-5srrg96ko17 {
@@ -1429,7 +1435,7 @@ div.chat-box::-webkit-scrollbar {
 }
 
 /*  <--> Big Devices Version <--> */
-@media (min-width: 1300px) {
+@media (min-width: 1300px) {  
      .dashboard-wrapper {
           aspect-ratio: 1165/593;
      }
@@ -1437,7 +1443,7 @@ div.chat-box::-webkit-scrollbar {
 }
 
 /*  <--> Tablet Version <--> */
-@media (max-width: 900px) and (min-width: 500px) {
+@media (max-width: 992px) and (min-width: 600px) {
      .sign-wrapper {
           width: 100%;
           height: 100%;
@@ -1525,7 +1531,7 @@ div.chat-box::-webkit-scrollbar {
 } */
 
 /* <--> Phone Version <--> */
-@media (max-width: 500px) {
+@media (max-width: 600px) {
      ::-webkit-scrollbar {
           width: 4px;
      }

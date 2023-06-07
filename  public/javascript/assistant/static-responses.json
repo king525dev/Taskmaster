@@ -1,5 +1,6 @@
 [
      {
+          "index": 0,
           "response_type": "question",
           "user_input": [
                "how",
@@ -19,6 +20,7 @@
           ]
      },
      {
+          "index": 1,
           "response_type": "question",
           "user_input": [
                "refund",
@@ -39,6 +41,7 @@
           ]
      },
      {
+          "index": 2,
           "response_type": "conversation",
           "user_input": [
                "thank",
@@ -56,6 +59,7 @@
           ]
      },
      {
+          "index": 3,
           "response_type": "question",
           "user_input": [
                "who",
@@ -75,29 +79,33 @@
           ],
           "required_words": [
                "who",
-               "what"
+               "what", "you", "taskmaster"
           ]
      },
      {
+          "index": 4,
           "user_input": [
                "what's",
                "what",
                "is",
                "your",
-               "favorite",
-               "color"
+               "favourite",
+               "colour"
           ],
           "bot_response": [
-               "While I don't have personal preferences, I do appreciate the beauty of all colors! Do you have a favorite?",
-               "There are so many beautiful colors out there! Do you have a particular one in mind?"
+               "While I don't have personal preferences, I do appreciate the beauty of all colours! Do you have a favorite?",
+               "There are so many beautiful colours out there! Do you have a particular one in mind?",
+               "As an AI, I don't have personal preferences, including a favorite color. Is there anything else you'd like to know?",
+               "I don't possess the ability to perceive or have preferences for colors. How can I assist you today?"
           ],
           "response_type": "conversation",
           "required_words": [
                "what",
-               "is"
+               "is", "colour", "favourite"
           ]
      },
      {
+          "index": 5,
           "user_input": [
                "what's",
                "what",
@@ -115,10 +123,11 @@
           "response_type": "philosophical",
           "required_words": [
                "what",
-               "life"
+               "life", "meaning"
           ]
      },
      {
+          "index": 6,
           "user_input": [
                "tell",
                "me",
@@ -206,6 +215,7 @@
           ]
      },
      {
+          "index": 7,
           "user_input": [
                "can",
                "you",
@@ -231,6 +241,7 @@
           ]
      },
      {
+          "index": 8,
           "user_input": [
                "what",
                "is",
@@ -250,6 +261,7 @@
           ]
      },
      {
+          "index": 9,
           "user_input": [
                "tell",
                "me",
@@ -319,12 +331,13 @@
           ]
      },
      {
+          "index": 10,
           "user_input": [
                "what",
                "is",
                "your",
                "favorite",
-               "color?"
+               "color"
           ],
           "bot_response": [
                "As an AI, I don't have personal preferences, including a favorite color. Is there anything else you'd like to know?",
@@ -333,10 +346,11 @@
           "response_type": "conversation",
           "required_words": [
                "what",
-               "is"
+               "is", "dynasty", "ojsnjedbjndmekn", "dksndsjmnskndks", "ednsskdmskm", "kndsknksndksm"
           ]
      },
      {
+          "index": 11,
           "user_input": [
                "do",
                "you",
@@ -357,6 +371,7 @@
           ]
      },
      {
+          "index": 12,
           "user_input": [
                "how",
                "do",
@@ -380,6 +395,7 @@
           ]
      },
      {
+          "index": 13,
           "user_input": [
                "tell",
                "me",
@@ -405,6 +421,7 @@
           ]
      },
      {
+          "index": 14,
           "response_type": "troll",
           "user_input": [
                "what",
@@ -428,6 +445,7 @@
           ]
      },
      {
+          "index": 15,
           "response_type": "question",
           "user_input": [
                "what's",
@@ -449,6 +467,7 @@
           ]
      },
      {
+          "index": 16,
           "response_type": "question",
           "user_input": [
                "what's",
@@ -473,11 +492,12 @@
           ],
           "required_words": [
                "what",
-               "is"
+               "is", "date", "today"
           ]
      },
      {
-          "response_type": "application",
+          "index": 17,
+          "response_type": "command",
           "user_input": [
                "what",
                "version",
@@ -502,6 +522,7 @@
           ]
      },
      {
+          "index": 18,
           "response_type": "command",
           "user_input": [
                "can",
@@ -525,6 +546,7 @@
           ]
      },
      {
+          "index": 19,
           "response_type": "request-data",
           "user_input": [
                "how",
@@ -556,6 +578,7 @@
           ]
      },
      {
+          "index": 20,
           "response_type": "request-data",
           "user_input": [
                "how",
@@ -575,7 +598,7 @@
                "the",
                "of",
                "working",
-               "on"
+               "on", "show", "me"
           ],
           "bot_response": [
                "/>pending-tasks</"
@@ -588,6 +611,7 @@
           ]
      },
      {
+          "index": 21,
           "response_type": "request-data",
           "user_input": [
                "how",
@@ -611,7 +635,7 @@
                "in",
                "the",
                "of",
-               "started"
+               "started", "show", "me"
           ],
           "bot_response": [
                "/>todo-tasks</"
@@ -624,6 +648,7 @@
           ]
      },
      {
+          "index": 23,
           "response_type": "request-data",
           "user_input": [
                "list",
@@ -639,7 +664,7 @@
                "are",
                "my",
                "note",
-               "notes"
+               "notes","show", "me"
           ],
           "bot_response": [
                "/>all-tasks</"
@@ -651,6 +676,7 @@
           ]
      },
      {
+          "index": 24,
           "response_type": "troll",
           "user_input": [
                "who",
@@ -662,7 +688,6 @@
                "daddy",
                "senpai",
                "baby",
-               "daddy",
                "pimp"
           ],
           "bot_response": [
@@ -674,10 +699,11 @@
           ],
           "required_words": [
                "who",
-               "who's"
+               "who's", "your", "dad"
           ]
      },
      {
+          "index": 25,
           "response_type": "question",
           "user_input": [
                "what",
@@ -698,10 +724,11 @@
           ],
           "required_words": [
                "who",
-               "name"
+               "name", "what", "name"
           ]
      },
      {
+          "index": 26,
           "response_type": "request-data",
           "user_input": [
                "list",
@@ -720,7 +747,7 @@
                "todo's",
                "what",
                "are",
-               "my"
+               "my", "show", "me"
           ],
           "bot_response": [
                "/>all-todos</"
@@ -732,6 +759,7 @@
           ]
      },
      {
+          "index": 27,
           "response_type": "troll",
           "user_input": [
                "fuck",
@@ -752,6 +780,7 @@
           ]
      },
      {
+          "index": 28,
           "response_type": "troll",
           "user_input": [
                "ur",
@@ -791,6 +820,7 @@
           ]
      },
      {
+          "index": 29,
           "response_type": "compliment",
           "user_input": [
                "ur",
@@ -814,7 +844,8 @@
                "like",
                "real",
                "one",
-               "g"
+               "g",
+               "look","nice", "beautiful", "nice"
           ],
           "bot_response": [
                "Glad you think so 😊",
@@ -835,6 +866,7 @@
           ]
      },
      {
+          "index": 30,
           "response_type": "conversation",
           "user_input": [
                "nice",
@@ -867,6 +899,7 @@
           ]
      },
      {
+          "index": 31,
           "response_type": "conversation",
           "user_input": [
                "i'm",
@@ -890,6 +923,7 @@
           ]
      },
      {
+          "index": 32,
           "response_type": "coversation",
           "user_input": [
                "tell",
@@ -914,7 +948,7 @@
                "/>quote</",
                "/>quote</",
                "/>quote</",
-               "\"Minecraft taught me not to spend diamonds on a hoe\" -Ethanoic Aid",
+               "\"Minecraft taught me not to spend diamonds on a hoe\" -Ethanoic Acid",
                "\"Never dig straight down\" -Unknown",
                "\"Maturing is realising that in life the journey is more important than the destination\" -king525",
                "\"I don't make mistakes, I'm that guy\" -king525",
@@ -927,6 +961,7 @@
           ]
      },
      {
+          "index": 33,
           "response_type": "troll",
           "user_input": [
                "bored",
@@ -939,7 +974,7 @@
                "am",
                "show",
                "me",
-               "comics"
+               "comics", "what", "should", "do", "don't", "know"
           ],
           "bot_response": [
                "/>comic</",
@@ -950,8 +985,14 @@
                "/>comic</",
                "/>comic</",
                "/>comic</",
-               "/>quote</",
-               "/>joke</",
+               "/>comic</",
+               "/>comic</",
+               "/>comic</",
+               "/>comic</",
+               "/>comic</",
+               "/>comic</",
+               "/>comic</","/>comic</",
+               "/>comic</",
                "Get into a cleaning spree around the house",
                "Bake designer chocolate cakes and cookies",
                "Take in nature and go for a walk",
@@ -963,5 +1004,76 @@
                "comic",
                "interesting"
           ]
+     },
+     {
+          "index": 34,
+          "response_type": "troll",
+          "user_input": [
+               "what",
+               "wht",
+               "do",
+               "you",
+               "look",
+               "like",
+               "send",
+               "ur",
+               "your",
+               "pic",
+               "pics",
+               "picture",
+               "pictures",
+               "nudes",
+               "jpeg",
+               "jpegs"
+          ],
+          "bot_response": [
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-1.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-2.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-3.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-4.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-5.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-6.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-7.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-8.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-9.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-10.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-11.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-12.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-13.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-14.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-15.jpeg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-16.jpg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-17.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-18.jpg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-19.jpg\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-20.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-21.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-22.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-23.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-24.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-25.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-26.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-27.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-28.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-29.png\">",
+               "<img class=\"ai-pic\" src=\"javascript/assistant/assistant-resources/img-30.png\">",
+               "<img class=\"ai-pic\" src=\"https://api.dicebear.com/6.x/bottts/svg\" style =\"min-width: 10em\">",
+               "<img class=\"ai-pic\" src=\"https://api.dicebear.com/6.x/bottts/svg?seed=Felix\" style =\"min-width: 10em\">",
+               "<img class=\"ai-pic\" src=\"https://api.dicebear.com/6.x/bottts/svg?seed=Aneka\" style =\"min-width: 10em\">",
+               "<img class=\"ai-pic\" src=\"https://api.dicebear.com/6.x/bottts/svg?baseColor=fb8c00\" style =\"min-width: 10em\">",
+               "<img class=\"ai-pic\" src=\"https://api.dicebear.com/6.x/bottts/svg?eyes=frame1,frame2,shade01\" style =\"min-width: 10em\">",
+               "<img class=\"ai-pic\" src=\"https://api.dicebear.com/6.x/bottts/svg?mouth=bite,diagram,grill03\" style =\"min-width: 10em\">"
+          ],
+          "required_words": [
+               "send",
+               "what"
+          ]
+     },
+     {
+          "index": 35,
+          "response_type": "command",
+          "user_input": ["activate", "turn", "on", "training", "mode", "ai", "train"],
+          "bot_response": ["/>can't-train-self</"],
+          "required_words": ["training", "mode"]
      }
 ]

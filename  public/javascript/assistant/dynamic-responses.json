@@ -1,0 +1,36 @@
+{
+     "questions": [
+          {
+               "question": "what is the color of the sky",
+               "answer": "Blue"
+          },
+          {
+               "question": "how are you",
+               "answer": "I'm doing great!"
+          },
+          {
+               "question": "how are you doing mate",
+               "answer": "I'm doing good"
+          },
+          {
+               "question": "what's up",
+               "answer": "Not much, what about you?"
+          },
+          {
+               "question": "who made you dynamic",
+               "answer": "king525dev, _indently on YT and ChatGPT"
+          },
+          {
+               "question": "say something funny",
+               "answer": "Your love life"
+          },
+          {
+               "question": "tell me more",
+               "answer": "I don't want to"
+          },
+          {
+               "question": "ok",
+               "answer": "ok?"
+          }
+     ]
+}
