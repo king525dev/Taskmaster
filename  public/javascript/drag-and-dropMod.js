@@ -54,6 +54,14 @@ function handleDrop(event) {
      reader.onload = function() {
           if (fileTypes.includes(file.type) || file.name.endsWith(".txt")){
                var fileContents = reader.result;
+               function getFileName(){
+                    const fileName = file.name;
+                    const fileArray = fileName.split("");
+                    const cutOff = fileArray.lastIndexOf(".");
+                    const editedArray = fileArray.splice(0, cutOff);
+                    const editedName = editedArray.join("");
+                    return editedName;
+               }
                Confirm.open({
                     title: "Modify Project",
                     message: "Are you sure you want to change the contents this Project?",
@@ -61,7 +69,7 @@ function handleDrop(event) {
                     cancelText: "Cancel",
                     preffered: false,
                     onok: function() {
-                         projectTitle.value = file.name;
+                         projectTitle.value = getFileName();
                          projectBody.value = fileContents;
                          Toast.open({
                               type: "success",

@@ -70,7 +70,7 @@
                "Yeah, I'm good, let's get to work shall we?",
                "I'm great! Thanks for asking."
           ],
-          "required_words": ["how", "what's", "you"]
+          "required_words": ["how", "whats", "you"]
      },
      {
           "index": 3,
@@ -93,7 +93,7 @@
      {
           "index": 4,
           "response_type": "conversation",
-          "user_input": ["i","didn't", "ask", "shut", "up", "stfu", "keep", "quiet"],
+          "user_input": ["i","didnt", "ask", "shut", "up", "stfu", "keep", "quiet"],
           "bot_response": ["😐"],
           "required_words": ["shut", "ask", "quiet"]
      },
@@ -118,7 +118,7 @@
           "response_type": "conversation",
           "required_words": [
                "day",
-               "how"
+               "how", "today"
           ]
      }
 ]

@@ -49,18 +49,26 @@ function handleDrop(event) {
      var file = event.dataTransfer.files[0];
      var reader = new FileReader();
 
-     reader.onload = function() {
+     reader.onload = () => {
           if (fileTypes.includes(file.type) || file.name.endsWith(".txt")){
                var fileContents = reader.result;
                const date = new Date();
                const time = date.getTime();
                let counter = time;
                let id = counter += 1;
+               function getFileName(){
+                    const fileName = file.name;
+                    const fileArray = fileName.split("");
+                    const cutOff = fileArray.lastIndexOf(".");
+                    const editedArray = fileArray.splice(0, cutOff);
+                    const editedName = editedArray.join("");
+                    return editedName;
+               }
                auth.onAuthStateChanged(user => {
                     if(user){
                          fs.collection(user.uid + "_notes").doc('nb_' + id).set({
                               id: 'nb_' + id,
-                              title: file.name,
+                              title: getFileName(),
                               note: fileContents,
                               status: "Todo",
                               lastEdited: fullDate,

@@ -17,7 +17,7 @@ async function loadKnowledgeBase() {
      if (localStorage.getItem("myAiData")){
           const dynamicResponses = localStorage.getItem("myAiData");
           const data = JSON.parse(dynamicResponses);
-          dynamicBase = data;
+          dynamicBase = data.questions;
      }else{
           try{
                const response = await fetch(dynamicBaseFile);

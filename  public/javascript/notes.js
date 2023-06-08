@@ -448,3 +448,6 @@ document.addEventListener('keydown', e => { // Reload Shortcut
           location.reload();
      }
 });
+
+let projectTitle = false;
+let projectBody = false;

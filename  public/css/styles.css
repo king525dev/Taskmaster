@@ -939,6 +939,11 @@ div.nav-buttons .to-dashboard {
 
 /* --> NOTES PAGE <-- */
 
+
+body.notes::-webkit-scrollbar{
+     display: none;
+}
+
 .notes-wrapper {
      display: flex;
 }

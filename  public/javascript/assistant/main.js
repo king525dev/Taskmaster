@@ -453,7 +453,7 @@ const Task = {
           }
 
           noCalls.forEach((phrase) => {
-               if (msg.includes(phrase) || msg == "n") {
+               if (msg.includes(phrase)) {
                     const finalResponse = responses.no[genereteRando(2)];
                     createAIChat(finalResponse);
                     ver[0] = true
@@ -461,9 +461,16 @@ const Task = {
                     return true;
                }
           });
+          if (msg == "n") {
+               const finalResponse = responses.no[genereteRando(2)];
+               createAIChat(finalResponse);
+               ver[0] = true
+               remember = [false, "", ""];
+               return
+          }
 
           yesCalls.forEach((phrase) => {
-               if (msg.includes(phrase) || msg == "y") {
+               if (msg.includes(phrase)) {
                     if(list[1]){
                          this.search(list[1])
                     }else{
@@ -474,6 +481,16 @@ const Task = {
                     remember = [false, "", ""];
                }
           });
+          if (msg == "y") {
+               if(list[1]){
+                    this.search(list[1])
+               }else{
+                    createAIChat("Sorry, the search operation failed");
+                    createAIChat("Try the command <strong>\` --search <emphasis><Your Search term></emphasis> \`</strong>");
+               }
+               ver[1] = true;
+               remember = [false, "", ""];
+          }
 
           if(ver[0] == false && ver[1] ==false){
                const finalResponse = responses.unable[genereteRando(4)];
@@ -805,20 +822,20 @@ function pushData(individualDoc) {
 }
 
 //Adding User input
-const form = document.getElementById("typing-area");
+const chatForm = document.getElementById("typing-area");
 const inputField = document.getElementById("input-field");
 const sendBtn = document.getElementById("send-chat");
-const date = new Date();
-const time = date.getTime();
-let counter = time;
+const chatDate = new Date();
+const chatTime = chatDate.getTime();
+let chatCounter = chatTime;
 function createUserChat() {
      const msg = inputField.value;
      if (msg.replace(/\s+/g, '').length == 0) {
           return;
      }
      if (msg !== undefined || msg !== null || msg !== "") {
-          let id = counter += 1;
-          form.reset();
+          let id = chatCounter += 1;
+          chatForm.reset();
           auth.onAuthStateChanged(user => {
                if (user) {
                     fs.collection(user.uid + "_chat").doc('cht_' + id).set({
@@ -838,7 +855,7 @@ function createUserChat() {
           return msg
      }
 }
-form.addEventListener('submit', (e) => {
+chatForm.addEventListener('submit', (e) => {
      e.preventDefault();
      uploadUserChat();
 });
@@ -858,7 +875,7 @@ function createAIChat(msg) {
      loadAI.then((value) => {
           if(value){
                if (msg !== undefined || msg !== null || msg !== "") {
-                    let id = counter += 1;
+                    let id = chatCounter += 1;
                     auth.onAuthStateChanged(user => {
                          if (user) {
                               fs.collection(user.uid + "_chat").doc('cht_' + id).set({
@@ -906,13 +923,19 @@ function uploadUserChat(){
 
 async function queryAI(msg) {
      msg.trim();
-     if(remember[0] && remember[2] == "failed"){
-          Task.allFails(msg, remember);
-          return;
-     }else if(remember[0] && remember[2] == "learn"){
-          createAIChat(teachDynamicBase(msg));
-          remember = [false, "", ""];
-          return;
+     if(remember[0]){
+          switch(remember[2]){
+               case "failed":
+                    Task.allFails(msg, remember);
+                    return;
+               case "learn":
+                    createAIChat(teachDynamicBase(msg));
+                    remember = [false, "", ""];
+                    return;
+               default:
+                    Task.allFails(msg, remember);
+                    return;
+          }
      }
      if (msg !== undefined || msg !== null || msg !== "") {
           //Remove Unwanted
