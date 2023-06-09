@@ -1,6 +1,6 @@
-/*============================
-     DEEP THINKING
-=============================*/
+/*=================================
+     DEEP THINKING [ASSISTANT API]
+===================================*/
 
 /*
  * Credits: Indently on YT [ https://www.youtube.com/@Indently ]
@@ -8,19 +8,20 @@
  */
 
 //Load JSON Data
-async function fetchResponses(){
+async function fetchResponses() {
      let jsonData;
-     try{
+     try {
           const response = await fetch('./javascript/assistant/static-responses.json');
           const data = await response.json();
           jsonData = data;
-     }catch (error){
+     } catch (error) {
           console.log("Error: " + error);
      }
      return jsonData;
 }
 
-async function getResponse(input){
+//Use input to score responses and return the best one
+async function getResponse(input) {
      const responseData = await fetchResponses();
      const splitMsg = input.toLowerCase().split(/\s+|[,;?!.\-]\s*/);
      console.log(splitMsg);
@@ -34,34 +35,34 @@ async function getResponse(input){
           let requiredWords = response["required_words"];
 
           //Check if there are any required words
-          if(requiredWords){
-               splitMsg.forEach( word => {
-                    if (requiredWords.includes(word)){
+          if (requiredWords) {
+               splitMsg.forEach(word => {
+                    if (requiredWords.includes(word)) {
                          requiredScore += 1;
                     }
                });
           }
 
           //Amount of required words should match the required score
-          if (requiredScore == requiredWords.length){
+          if (requiredScore == requiredWords.length) {
                //Check each word the User has typed
                splitMsg.forEach(word => {
                     //If the word is in the response, add the score
-                    if (response["user_input"].includes(word)){
+                    if (response["user_input"].includes(word)) {
                          responseScore += 3;
                     }
                });
-          }else if(requiredScore >= (requiredWords.length/2)){
+          } else if (requiredScore >= (requiredWords.length / 2)) {
                splitMsg.forEach(word => {
                     //If the word is in the response, add the score
-                    if (response["user_input"].includes(word)){
+                    if (response["user_input"].includes(word)) {
                          responseScore += 2;
                     }
                });
-          }else if(requiredScore >= (requiredWords.length/3)){
+          } else if (requiredScore >= (requiredWords.length / 3)) {
                splitMsg.forEach(word => {
                     //If the word is in the response, add the score
-                    if (response["user_input"].includes(word)){
+                    if (response["user_input"].includes(word)) {
                          responseScore += 1;
                     }
                });
@@ -77,15 +78,19 @@ async function getResponse(input){
      const responseIndex = scoreList.indexOf(bestResponse);
 
      //Check if input sting is empty
-     if(input == ""){
+     if (input == "") {
           return false;
      }
 
      //If there is no good response, return  false
-     if (bestResponse > 0){
+     if (bestResponse > 0) {
           const botAnswer = responseData[responseIndex]["bot_response"]
           return botAnswer[genereteRando(botAnswer.length)];
-     }else{
+     } else {
           return false;
      }
 }
+
+/*
+ * FOR: [  MAIN  ].js
+ */

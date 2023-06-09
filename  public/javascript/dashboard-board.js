@@ -1,57 +1,57 @@
 /*============================
-     [  DASHBOARD  ].html
-=============================*/ 
+     [ DASHBOARD-BOARD ].js
+=============================*/
 
 const board = document.getElementById("main-dashboard");
 let boardList = [];
 
 //Shortening Content
-function contentShortening(str){
+function contentShortening(str) {
      const strLen = str.length;
      let result = "";
-     if(strLen > 20){
-          for(let i = 0; i < 10; i++){
+     if (strLen > 20) {
+          for (let i = 0; i < 10; i++) {
                result += str[i];
           }
           return `${result}...`;
-     }else{
+     } else {
           result = str;
           return result;
      }
 }
 
 //Sort List
-function sortByDate(list){
-     return list.sort( (a, b) => {
-               const aRank = a.getAttribute("rank");
-               const bRank = b.getAttribute("rank");
+function sortByDate(list) {
+     return list.sort((a, b) => {
+          const aRank = a.getAttribute("rank");
+          const bRank = b.getAttribute("rank");
 
-               if(aRank > bRank){
-                    return -1;
-               }else{
-                    return 1;
-               }
-          }) 
+          if (aRank > bRank) {
+               return -1;
+          } else {
+               return 1;
+          }
+     })
 }
 
 //Getting Status
-function checkingStatus(status){
+function checkingStatus(status) {
      const todoOption = document.getElementById("Todo");
      const doingOption = document.getElementById("Doing");
      const doneOption = document.getElementById("Done");
-     if(status == "Todo"){
+     if (status == "Todo") {
           todoOption.checked = true;
-     }else if(status == "Doing"){
+     } else if (status == "Doing") {
           doingOption.checked = true;
-     }else if(status == "Done"){
+     } else if (status == "Done") {
           doneOption.checked = true;
-     }else{
+     } else {
           todoOption.checked = true;
      }
 }
 
 //Retrieving note list
-function actData(individualDoc){
+function actData(individualDoc) {
      let parentDiv = document.createElement("div");
      parentDiv.className = "project";
      parentDiv.setAttribute("rank", individualDoc.data().listRank);
@@ -68,7 +68,7 @@ function actData(individualDoc){
      parentDiv.appendChild(prjTitle);
      parentDiv.appendChild(prjStatus);
      boardList.push(parentDiv);
-     
+
 
      //Adding onclick event
      parentDiv.addEventListener('click', () => {
@@ -85,34 +85,34 @@ function actData(individualDoc){
                okText: "OK",
                cancelText: "Cancel",
                preffered: false,
-               onok: function() {
+               onok: function () {
                     let id = e.target.getAttribute('data-id');
                     auth.onAuthStateChanged(user => {
-                    if(user) {
-                         fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
-                              Toast.open({
-                                   type: "info",
-                                   message: "Project Deleted", 
-                                   timer: 5000
+                         if (user) {
+                              fs.collection(user.uid + "_notes").doc(id).delete().then(() => {
+                                   Toast.open({
+                                        type: "info",
+                                        message: "Project Deleted",
+                                        timer: 5000
+                                   });
+                                   console.log("project deleted");
                               });
-                              console.log("project deleted");
-                         });
-                    }
-               })
+                         }
+                    })
                }
           })
      });
 
      //Append Sorted Projects
      auth.onAuthStateChanged(user => {
-          if(user){
+          if (user) {
                fs.collection(user.uid + "_notes").get().then(
                     (querySnapshot) => {
                          let dataCount = 0;
                          querySnapshot.forEach((doc) => {
                               dataCount++
                          });
-                         if(boardList.length == dataCount){
+                         if (boardList.length == dataCount) {
                               sortByDate(boardList).map((sortedPrj) => {
                                    board.appendChild(sortedPrj)
                               });
@@ -123,25 +123,29 @@ function actData(individualDoc){
      });
 }
 
-while(board.children.length > 4){
+while (board.children.length > 4) {
      let length = board.children.length;
      let lastElement = board.children[length--];
-          board.removeChild(lastElement);
+     board.removeChild(lastElement);
 }
 
 //Real time Event Listeners
 auth.onAuthStateChanged(user => {
-     if(user){
+     if (user) {
           fs.collection(user.uid + "_notes").onSnapshot((snapshot) => {
-                    let changes = snapshot.docChanges();
-                    changes.forEach(change => {
-                         if(change.type == 'added'){
-                              actData(change.doc);
-                         }else if(change.type == 'removed'){
-                              let di = board.querySelector('[data-id=' + change.doc.id + ']');
-                              board.removeChild(di);
-                         }
-                    })
+               let changes = snapshot.docChanges();
+               changes.forEach(change => {
+                    if (change.type == 'added') {
+                         actData(change.doc);
+                    } else if (change.type == 'removed') {
+                         let di = board.querySelector('[data-id=' + change.doc.id + ']');
+                         board.removeChild(di);
+                    }
+               })
           })
      }
 });
+
+/*
+ * FOR: [  DASHBOARD  ].html
+ */

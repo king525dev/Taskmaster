@@ -1,33 +1,37 @@
+/*==============================
+	GET DATA [ASSISTANT API]
+================================*/
+
 const getData = {
-     time(){
+     time() {
           const dater = new Date();
           let hours = dater.getHours();
-          let minute =  dater.getMinutes();
+          let minute = dater.getMinutes();
           let mer;
-          if(hours == 0){hours = 12}
-          if(hours < 10){hours = `0${hours}`}
-          if(minute < 10){minute = `0${minute}`}
-          if(hours > 11){
+          if (hours == 0) { hours = 12 }
+          if (hours < 10) { hours = `0${hours}` }
+          if (minute < 10) { minute = `0${minute}` }
+          if (hours > 11) {
                mer = "PM";
-          }else{
+          } else {
                mer = "AM";
           }
-          if(hours > 12){
+          if (hours > 12) {
                hours = hours - 12
-               if(hours < 10){hours = `0${hours}`}
+               if (hours < 10) { hours = `0${hours}` }
           }
 
           let fullTime = `${hours}:${minute} ${mer}`;
 
           return `The time is currently ${fullTime}`;
      },
-     date(){
+     date() {
           const dater = new Date();
           let myDate = dater.getDate();
           const day = dater.toLocaleDateString('default', { weekday: 'long' });
           const month = dater.toLocaleDateString('default', { month: 'long' });
           const year = dater.getFullYear();
-          switch (myDate){
+          switch (myDate) {
                case 1:
                     myDate = `${myDate}st`;
                     break;
@@ -58,7 +62,7 @@ const getData = {
 
           return `Today is ${fullDate}`;
      },
-     name(){
+     name() {
           return auth.onAuthStateChanged(user => {
                if (user) {
                     fs.collection('users').doc(user.uid).get().then((snapshot) => {
@@ -66,16 +70,16 @@ const getData = {
                          const lastName = snapshot.data().Lname;
 
                          const fullName = `Your name is ${userName} ${lastName}`;
-                         
+
                          return fullName;
                     });
                }
           });
      },
-     allTodos(){
+     allTodos() {
           const tempArray = [];
           auth.onAuthStateChanged(user => {
-               if(user){
+               if (user) {
                     const db = fs.collection(user.uid);
                     db.get().then(snapshot => {
                          snapshot.forEach(doc => {
@@ -83,7 +87,7 @@ const getData = {
                               tempArray.push(template);
                          });
                          let tempString = tempArray.join("");
-                         if(tempString == undefined || tempString == ""){
+                         if (tempString == undefined || tempString == "") {
                               tempString = "Sorry, I can't find any of your To-dos";
                          }
                          createAIChat(tempString);
@@ -91,9 +95,9 @@ const getData = {
                }
           });
      },
-     allTask(){
+     allTask() {
           auth.onAuthStateChanged(user => {
-               if(user){
+               if (user) {
                     const tempArray = [];
                     const db = fs.collection(user.uid + "_notes")
                     db.get().then(snapshot => {
@@ -102,7 +106,7 @@ const getData = {
                               tempArray.push(template);
                          });
                          let tempString = tempArray.join("");
-                         if(tempString == undefined || tempString == ""){
+                         if (tempString == undefined || tempString == "") {
                               tempString = "Sorry, I can't find any of your Projects";
                          }
                          createAIChat(tempString);
@@ -110,10 +114,10 @@ const getData = {
                }
           });
      },
-     todoTask(){
+     todoTask() {
           const tempArray = [];
           auth.onAuthStateChanged(user => {
-               if(user){
+               if (user) {
                     const db = fs.collection(user.uid + "_notes")
                     db.where("status", "==", "Todo").get().then(snapshot => {
                          snapshot.forEach(doc => {
@@ -121,7 +125,7 @@ const getData = {
                               tempArray.push(template);
                          });
                          let tempString = tempArray.join("");
-                         if(tempString == undefined || tempString == ""){
+                         if (tempString == undefined || tempString == "") {
                               tempString = "Sorry, I can't find any of your Projects that are Not Started";
                          }
                          createAIChat(tempString);
@@ -129,10 +133,10 @@ const getData = {
                }
           });
      },
-     pendingTask(){
+     pendingTask() {
           const tempArray = [];
           auth.onAuthStateChanged(user => {
-               if(user){
+               if (user) {
                     const db = fs.collection(user.uid + "_notes")
                     db.where("status", "==", "Doing").get().then(snapshot => {
                          snapshot.forEach(doc => {
@@ -140,7 +144,7 @@ const getData = {
                               tempArray.push(template);
                          });
                          let tempString = tempArray.join("");
-                         if(tempString == undefined || tempString == ""){
+                         if (tempString == undefined || tempString == "") {
                               tempString = "Sorry, I can't find any of your Projects that are being Worked on";
                          }
                          createAIChat(tempString);
@@ -148,10 +152,10 @@ const getData = {
                }
           });
      },
-     completedTask(){
+     completedTask() {
           const tempArray = [];
           auth.onAuthStateChanged(user => {
-               if(user){
+               if (user) {
                     const db = fs.collection(user.uid + "_notes")
                     db.where("status", "==", "Done").get().then(snapshot => {
                          snapshot.forEach(doc => {
@@ -159,7 +163,7 @@ const getData = {
                               tempArray.push(template);
                          });
                          let tempString = tempArray.join("");
-                         if(tempString == undefined || tempString == ""){
+                         if (tempString == undefined || tempString == "") {
                               tempString = "Sorry, I can't find any of your Projects that are Completed";
                          }
                          createAIChat(tempString);
@@ -168,3 +172,7 @@ const getData = {
           });
      },
 };
+
+/*
+ * FOR: [  MAIN  ].js
+ */

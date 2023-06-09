@@ -1,13 +1,13 @@
 /*============================
-     GLOBAL [ THEMES ]
+     THEMES SETTER/READER
 =============================*/
 
 const styleLink = document.getElementById("pg-style");
 const signLogo = document.getElementById("logo");
 
-function themeReader(){
+function themeReader() {
      const theme = localStorage.getItem("theme");
-     switch(theme){
+     switch (theme) {
           case "default":
                styleLink.setAttribute("href", "css/default-style.css");
                console.log("Theme: default");
@@ -40,3 +40,7 @@ function themeReader(){
                break;
      }
 }
+
+/*
+ * FOR: GLOBAL
+ */

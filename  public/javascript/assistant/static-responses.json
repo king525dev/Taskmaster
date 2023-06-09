@@ -1132,9 +1132,24 @@
                "latest",
                "version",
                "of",
-               "taskmaster", "run", "load", "the", "newest", "type", "update", "application", "app", "this", "reload" 
+               "taskmaster",
+               "run",
+               "load",
+               "the",
+               "newest",
+               "type",
+               "update",
+               "application",
+               "app",
+               "this",
+               "reload"
           ],
-          "bot_response": ["/>can't-run-latest</"],
-          "required_words": ["version", "taskmaster"]
+          "bot_response": [
+               "/>can't-run-latest</"
+          ],
+          "required_words": [
+               "version",
+               "taskmaster"
+          ]
      }
 ]

@@ -1,14 +1,14 @@
 /*============================
-     [  PROJECT  ].html
-=============================*/ 
+     UPLOAD AND MODIFY PROJECT
+=============================*/
 
 const dragDropArea = document.getElementById('drag-drop');
 const dropPad = document.getElementById('download-btn');
 const fileTypes = [
-     "text/plain", 
-     "text/css", 
-     "text/html", 
-     "text/javascript", 
+     "text/plain",
+     "text/css",
+     "text/html",
+     "text/javascript",
      "multipart/byteranges",
      "multipart/form-data",
      "application/rtf",
@@ -51,10 +51,10 @@ function handleDrop(event) {
      var file = event.dataTransfer.files[0];
      var reader = new FileReader();
 
-     reader.onload = function() {
-          if (fileTypes.includes(file.type) || file.name.endsWith(".txt")){
+     reader.onload = function () {
+          if (fileTypes.includes(file.type) || file.name.endsWith(".txt")) {
                var fileContents = reader.result;
-               function getFileName(){
+               function getFileName() {
                     const fileName = file.name;
                     const fileArray = fileName.split("");
                     const cutOff = fileArray.lastIndexOf(".");
@@ -68,17 +68,17 @@ function handleDrop(event) {
                     okText: "OK",
                     cancelText: "Cancel",
                     preffered: false,
-                    onok: function() {
+                    onok: function () {
                          projectTitle.value = getFileName();
                          projectBody.value = fileContents;
                          Toast.open({
                               type: "success",
-                              message: "Project Modified", 
+                              message: "Project Modified",
                               timer: 5000
                          });
                     }
                });
-          }else{
+          } else {
                Alert.open({
                     title: "Invalid File Type",
                     message: "The file type you have uploaded is not supported on this application. We reccomend you upload Plain Text files.",
@@ -99,3 +99,7 @@ dropPad.addEventListener('dragleave', handleDragLeave);
 dropPad.addEventListener('dragenter', handleDragOver);
 dropPad.addEventListener('dragover', handleDragOver);
 dropPad.addEventListener('drop', handleDrop);
+
+/*
+ * FOR: [  PROJECT  ].html
+ */

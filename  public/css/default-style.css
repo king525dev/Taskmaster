@@ -1,9 +1,9 @@
 /*===============================
      TASKMASTER DEFAULT STYLES
-================================*/ 
+================================*/
 
 /* --> GLOBAL STYLES <-- */
-:root{
+:root {
      --white: #fff;
      --black: #000;
      --colourmn1: #F5f5f5;
@@ -18,31 +18,31 @@
      --colour8: #2efff5;
 }
 
-body{
-     background-image: linear-gradient(
-          45deg, 
-          var(--colour1),
-          var(--colour3),
-          var(--colour4),
-          var(--colour2)
-     );
+body {
+     background-image: linear-gradient(45deg,
+               var(--colour1),
+               var(--colour3),
+               var(--colour4),
+               var(--colour2));
      background-size: 500%;
      animation: bg-anime 30s infinite;
      color: var(--colourmn2);
 }
 
-.bg{
+.bg {
      display: none;
 }
 
-@keyframes bg-anime{
-     0%{
+@keyframes bg-anime {
+     0% {
           background-position: left;
      }
-     50%{
+
+     50% {
           background-position: right;
      }
-     100%{
+
+     100% {
           background-position: left;
      }
 }
@@ -55,33 +55,33 @@ body{
      background: var(--colour5);
 }
 
-.full-nav-wrapper{
+.full-nav-wrapper {
      background: linear-gradient(-135deg, var(--colour6), var(--colour5));
 }
 
-.menu-btn{
+.menu-btn {
      color: var(--white);
 }
 
-#active:checked ~ .menu-btn{
+#active:checked~.menu-btn {
      background: #fff;
      color: var(--colour6);
 }
 
-.full-nav-wrapper ul li a{
+.full-nav-wrapper ul li a {
      color: #fff;
 }
 
-.full-nav-wrapper ul li a:hover{
+.full-nav-wrapper ul li a:hover {
      color: var(--colour6);
      background-color: var(--white);
 }
 
-.confirm{
+.confirm {
      background: rgba(0, 0, 0, 0.6);
 }
 
-.confirm-window{
+.confirm-window {
      background: var(--white);
      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
@@ -91,15 +91,15 @@ body{
      color: var(--white);
 }
 
-.confirm-close{
+.confirm-close {
      color: var(--white);
 }
 
-.confirm-buttons{
+.confirm-buttons {
      background: var(--colourmn1);
 }
 
-.confirm-button{
+.confirm-button {
      border-color: var(--colour6);
      background: var(--white);
      color: var(--colour6);
@@ -114,252 +114,247 @@ body{
      box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
-.notifications .toast{
+.notifications .toast {
      background-color: var(--colourmn1);
      color: var(--black);
 }
 
 /* --> INTER-PAGE STYLES <-- */
 
-.dashboard-wrapper, .board-wrapper, .notes-wrapper, .prj-wrapper{
+.dashboard-wrapper,
+.board-wrapper,
+.notes-wrapper,
+.prj-wrapper {
      background-color: rgba(255, 255, 255, 0.7);
      color: var(--colourmn2);
 }
 
 /* --> SIGN-UP AND SIGN-IN PAGE <-- */
-.sign-wrapper{
+.sign-wrapper {
      background-color: var(--white);
 }
 
-header.sign{
-     background: linear-gradient(
-          45deg,
-          var(--colour6),
-          var(--colour5),
-          var(--colour7)
-     ); 
+header.sign {
+     background: linear-gradient(45deg,
+               var(--colour6),
+               var(--colour5),
+               var(--colour7));
 }
 
 p.logo-sign {
      color: var(--white);
 }
 
-.sign-input{
+.sign-input {
      border: 1px solid #e6e6e6;
 }
 
-     input.sign-input:active, .sign-input:focus{
-          border-color: #cccccc;
-     }
+input.sign-input:active,
+.sign-input:focus {
+     border-color: #cccccc;
+}
 
-div.pass i{
+div.pass i {
      color: #e6e6e6;
 }
 
-     div.pass i.active::before{
-          color: #333;
-     }
+div.pass i.active::before {
+     color: #333;
+}
 
-.sign-submit{
+.sign-submit {
      background: var(--colour5);
      color: var(--white);
 }
 
-     .sign-submit:hover{
-          background: linear-gradient(
-               45deg,
+.sign-submit:hover {
+     background: linear-gradient(45deg,
                var(--colour1),
                var(--colour3),
-               var(--colour2)
-          );
-          background-size: 300%;
-          animation: bg-anime 2.5s infinite;
-     }
+               var(--colour2));
+     background-size: 300%;
+     animation: bg-anime 2.5s infinite;
+}
 
-small.sign-link a{
+small.sign-link a {
      color: var(--colour6);
 }
 
-     small.sign-link a:hover{
-          color: var(--colour5);
-     }
+small.sign-link a:hover {
+     color: var(--colour5);
+}
 
 /* --> THE DASHBOARD <-- */
-.dashboard-wrapper{
+.dashboard-wrapper {
      display: grid;
      gap: 1em;
      grid-template-columns: 25% 75%;
      grid-template-rows: 35% 65%;
 }
 
-.quick-todos, header.dashboard, main.dashboard{
+.quick-todos,
+header.dashboard,
+main.dashboard {
      background-color: var(--white);
 }
 
-header.dashboard{
+header.dashboard {
      color: var(--colourmn1);
-     background-image: linear-gradient(
-          270deg, 
-          var(--colour6),
-          var(--colour5),
-          var(--colourmn1)
-     );
+     background-image: linear-gradient(270deg,
+               var(--colour6),
+               var(--colour5),
+               var(--colourmn1));
 }
 
-button.sign-out{
+button.sign-out {
      background-color: var(--colourmn1);
      color: var(--colour6);
      border: solid 1px var(--colour6);
 }
 
-     button.sign-out:hover{
-          color: var(--colourmn1);
-          border: solid 1px var(--colourmn1);
-     }
+button.sign-out:hover {
+     color: var(--colourmn1);
+     border: solid 1px var(--colourmn1);
+}
 
-form.todo-input *{
+form.todo-input * {
      border: 1px solid var(--colour6);
 }
 
-form.todo-input input[type="submit"]{
+form.todo-input input[type="submit"] {
      color: var(--white);
      background-color: var(--colour6);
 }
 
-li.todo-item{
+li.todo-item {
      border-bottom: 1px solid var(--colour5);
 }
 
-     li.todo-item:hover{
-          background-color: var(--colour6);
-          color: var(--white);
-     }
+li.todo-item:hover {
+     background-color: var(--colour6);
+     color: var(--white);
+}
 
-     li.todo-item:active{
-          background-color: var(--colour8);
-          color: var(--white);
-     }
+li.todo-item:active {
+     background-color: var(--colour8);
+     color: var(--white);
+}
 
-     li.todo-item.completed{
-          background-color: var(--colour6);
-          color: var(--colourmn1);
-     }
+li.todo-item.completed {
+     background-color: var(--colour6);
+     color: var(--colourmn1);
+}
 
-div.more-dash{
+div.more-dash {
      background: var(--colour6);
      color: var(--colourmn1);
 }
 
-     div.more-dash:hover{
-          background: linear-gradient(
-               45deg, 
+div.more-dash:hover {
+     background: linear-gradient(45deg,
                var(--colour6),
-               var(--colour5)
-          );
-     }
+               var(--colour5));
+}
 
-     div.more-dash:active{
-          background: linear-gradient(
-               45deg, 
+div.more-dash:active {
+     background: linear-gradient(45deg,
                var(--colour1),
-               var(--colour4)
-          );
-     }
+               var(--colour4));
+}
 
-div.project{
+div.project {
      background-color: var(--colourmn1);
      border: solid 1px var(--colour6);
 }
 
-     div.project:hover{
-               transform: translateY(-0.7em) translateX(0.3em);
-               box-shadow: -0.7em 0.3em 15px 0px rgba(0,0,0,0.4);
-          }
-     
-     div.project:active{
-          border-color: var(--colour4);
-     }
+div.project:hover {
+     transform: translateY(-0.7em) translateX(0.3em);
+     box-shadow: -0.7em 0.3em 15px 0px rgba(0, 0, 0, 0.4);
+}
 
-span.prj-status{
+div.project:active {
+     border-color: var(--colour4);
+}
+
+span.prj-status {
      color: var(--white);
      background-color: var(--colour6);
 }
 
 /* --> THE BOARD <-- */
 
-div.project-m{
+div.project-m {
      background-color: var(--colourmn1);
      border: solid 1px var(--colour6);
 }
 
-     div.project-m:hover{
-          transform: translateY(-0.7em) translateX(0.3em);
-          box-shadow: -0.7em 0.3em 15px 0px rgba(0,0,0,0.4);
-          /* box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4); */
-     }
+div.project-m:hover {
+     transform: translateY(-0.7em) translateX(0.3em);
+     box-shadow: -0.7em 0.3em 15px 0px rgba(0, 0, 0, 0.4);
+     /* box-shadow: 0px 2px 30px 0px rgba(0,0,0,0.4); */
+}
 
-     div.project-m:active{
+div.project-m:active {
      border-color: var(--colour4);
-     }
+}
 
-div.nav-filter input{
+div.nav-filter input {
      border: 1px solid var(--colour6);
 }
 
-div.nav-buttons .to-dashboard, div.nav-buttons .add-note{
+div.nav-buttons .to-dashboard,
+div.nav-buttons .add-note {
      color: var(--white);
      background-color: var(--colour6);
 }
 
-     div.nav-buttons .to-dashboard:hover, div.nav-buttons .add-note:hover{
-          background: linear-gradient(
-                    45deg, 
-                    var(--colour6),
-                    var(--colour5)
-               );
-     }
+div.nav-buttons .to-dashboard:hover,
+div.nav-buttons .add-note:hover {
+     background: linear-gradient(45deg,
+               var(--colour6),
+               var(--colour5));
+}
 
-     div.nav-buttons .to-dashboard:active, div.nav-buttons .add-note:active{
-          background: linear-gradient(
-                    45deg, 
-                    var(--colour1),
-                    var(--colour4)
-               );
-     }
+div.nav-buttons .to-dashboard:active,
+div.nav-buttons .add-note:active {
+     background: linear-gradient(45deg,
+               var(--colour1),
+               var(--colour4));
+}
 
 /* --> NOTES PAGE <-- */
 
-.notes-wrapper{
+.notes-wrapper {
      background-color: var(--white);
 }
 
-.notes-sidebar{
+.notes-sidebar {
      background-color: var(--white);
      border-right: 2px solid #dddddd;
 }
 
-.notes-add, .notes-back{
+.notes-add,
+.notes-back {
      background: var(--colour6);
      color: var(--white);
 }
 
-.notes-add{
+.notes-add {
      border-radius: 0 7px 7px 0;
 }
 
-.notes-back{
+.notes-back {
      border-radius: 7px 0 0 7px;
      border-right: 1px solid var(--white);
 }
 
-     .notes-add:hover, .notes-back:hover{
-          font-weight: bold;
-          background: linear-gradient(
-                    45deg, 
-                    var(--colour6),
-                    var(--colour5)
-               );
-     }
+.notes-add:hover,
+.notes-back:hover {
+     font-weight: bold;
+     background: linear-gradient(45deg,
+               var(--colour6),
+               var(--colour5));
+}
 
 .notes-list-item {
      border-bottom: 1px solid var(--colour5);
@@ -370,98 +365,96 @@ div.nav-buttons .to-dashboard, div.nav-buttons .add-note{
      color: var(--white);
 }
 
-.selected .small-status{
+.selected .small-status {
      color: var(--colour6);
      background-color: var(--colourmn1);
 }
 
-.selected .notes-small-updated{
+.selected .notes-small-updated {
      color: var(--colourmn1);
 }
 
-.small-status{
+.small-status {
      color: var(--white);
      background-color: var(--colour6);
 }
 
-.drag-drop{
+.drag-drop {
      color: #aaa;
      border-color: #aaa;
      background-color: #cccccccf;
 }
 
-div.foot-buttons button{
+div.foot-buttons button {
      background-color: var(--colour6);
      color: var(--white);
 }
 
-div.foot-buttons i{
+div.foot-buttons i {
      color: var(--colour6);
 }
 
-     div.prev-foot button.delete:hover{
-          color: #721c24;
-          background: #f8d7da;
-     }
+div.prev-foot button.delete:hover {
+     color: #721c24;
+     background: #f8d7da;
+}
 
-     div.prev-foot button.save:hover{
-          color: #1c722a;
-          background: #d7f8db;
-     }
+div.prev-foot button.save:hover {
+     color: #1c722a;
+     background: #d7f8db;
+}
 
-.status-radio{
+.status-radio {
      background: var(--white);
      color: var(--colour6);
      border: 1px solid var(--colour6);
 }
 
-.radio-label:not(:last-of-type){
+.radio-label:not(:last-of-type) {
      border-right: 1px solid var(--colour6);
 }
 
-.radio-input:checked + .radio-label{
+.radio-input:checked+.radio-label {
      background: var(--colour6);
      color: var(--white);
 }
 
 /* --> PROJECT PAGE <-- */
-.prj-wrapper{
+.prj-wrapper {
      background-color: var(--white);
 }
 
-div.ast-activator{
+div.ast-activator {
      background-color: var(--colour6);
      color: var(--white);
 }
 
-div.ass-wrapper{
+div.ass-wrapper {
      background-color: var(--colourmn1);
 }
 
-div.ass-wrapper header{
-     background: linear-gradient(
-                    45deg, 
-                    var(--colour6),
-                    var(--colour5)
-               );
+div.ass-wrapper header {
+     background: linear-gradient(45deg,
+               var(--colour6),
+               var(--colour5));
      color: var(--colourmn1);
 }
 
-div.chat-box{
+div.chat-box {
      background-color: var(--colourmn1);
 }
 
-.chat-box .chat-incoming p{
+.chat-box .chat-incoming p {
      background-color: var(--colour6);
      color: var(--colourmn1);
 }
 
-.chat-box .chat-incoming i{
+.chat-box .chat-incoming i {
      background-color: var(--colour6);
      color: var(--colourmn1);
 }
 
-.chat-box .chat-outgoing p{
+.chat-box .chat-outgoing p {
      background-color: var(--colour4);
      color: var(--colourmn1);
 }
@@ -488,53 +481,57 @@ div.chat-box{
      }
 }
 
-.ldio-5srrg96ko17 div{
+.ldio-5srrg96ko17 div {
      background: var(--colourmn1);
 }
 
-.ldio-5srrg96ko17 div:nth-child(1){
+.ldio-5srrg96ko17 div:nth-child(1) {
      background: var(--colourmn1);
 }
 
-.ldio-5srrg96ko17 div:nth-child(2){
+.ldio-5srrg96ko17 div:nth-child(2) {
      background: var(--colourmn1);
 }
 
-.ldio-5srrg96ko17 div:nth-child(3){
+.ldio-5srrg96ko17 div:nth-child(3) {
      background: var(--colourmn1);
 }
 
-.ldio-5srrg96ko17 div:nth-child(4){
+.ldio-5srrg96ko17 div:nth-child(4) {
      background: var(--colourmn1);
 }
 
-.ldio-5srrg96ko17 div:nth-child(5){
+.ldio-5srrg96ko17 div:nth-child(5) {
      background: var(--colourmn1);
 }
 
-.loadingio-spinner-ellipsis-pspcyit56cn{
+.loadingio-spinner-ellipsis-pspcyit56cn {
      background: var(--colour6);
 }
 
-.typing-area{
+.typing-area {
      background-color: var(--white);
 }
 
-.typing-area input{
+.typing-area input {
      background-color: transparent;
      border: solid 1px var(--colour4);
      color: var(--colourmn2);
 }
 
-.typing-area button{
+.typing-area button {
      background-color: var(--colour4);
      color: var(--colourmn1);
 }
 
 /* <--> Phone Version <--> */
-@media (max-width: 500px){
-     div.nav-buttons .to-dashboard{
+@media (max-width: 500px) {
+     div.nav-buttons .to-dashboard {
           background-color: var(--colourmn1);
           color: var(--colourmn2);
      }
 }
+
+/*
+ * FOR: GLOBAL
+ */

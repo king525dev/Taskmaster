@@ -1,5 +1,5 @@
 /*============================
-     [  PROJECT  ].html
+     TASKMASTER ASSISTANT
 =============================*/
 
 const openBtn = document.getElementById('ast-activator');
@@ -9,8 +9,9 @@ const chatBox = document.getElementById('chat-box');
 let userName = "";
 let lastName = "";
 var remember = [false, "", ""];
-var deepLearningToggle =  false;
+var deepLearningToggle = false;
 
+//Get User's First and Last Name
 auth.onAuthStateChanged(user => {
      if (user) {
           fs.collection('users').doc(user.uid).get().then((snapshot) => {
@@ -25,10 +26,12 @@ function copy(text) {
      navigator.clipboard.writeText(text);
 }
 
+//Capitalise first letter in a word
 function capitalCase(word) {
      return word[0].toUpperCase() + word.substr(1);
 }
 
+//Generate Lorem-ipsum
 function generateLorem(num) {
      const paragraphs = LoremIpsum.paragraphs(num, true);
      createAIChat(paragraphs);
@@ -38,6 +41,7 @@ function generateLorem(num) {
 
 //Taskmaster Assistant API
 const Task = {
+     //Using Wikipedia API for short answers
      wiki(msg, req) {
           console.log("Taskmaster Wiki called")
           var api = "https://simple.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&explaintext&redirects=1&titles=" + msg;
@@ -62,7 +66,8 @@ const Task = {
                     this.dict(msg, req);
                });
      },
-     longWiki(msg, req){
+     //Using Wikipedia API for longer answers
+     longWiki(msg, req) {
           console.log("Taskmaster Long-Wiki called")
           var api = "https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&explaintext&redirects=1&titles=" + msg;
           var final;
@@ -86,6 +91,7 @@ const Task = {
                     this.dict(msg, req);
                });
      },
+     //Checking dictionary if word exists
      dict(msg, req) {
           console.log("Taskmaster Dictionary called");
           const api = "https://api.dictionaryapi.dev/api/v2/entries/en/" + msg;
@@ -94,9 +100,9 @@ const Task = {
           fetch(api)
                .then(response => response.json())
                .then(data => {
-                    if(data == undefined){
+                    if (data == undefined) {
                          this.deepThink(msg, req);
-                    }else{
+                    } else {
                          const topic = capitalCase(msg);
                          final = `<strong>${topic}</strong>: ${data[0].meanings[0].definitions[0].definition}`;
                          createAIChat(final);
@@ -107,7 +113,8 @@ const Task = {
                     this.deepThink(msg, req);
                });
      },
-     async deepThink(msg, req){
+     //Think deeply about responses through the resposes.json files
+     async deepThink(msg, req) {
           console.log("Taskmaster Deepthink called");
           const lightResponse = await getLightResponse(req);
           const response = await getResponse(req);
@@ -162,15 +169,15 @@ const Task = {
                "/>can't-train-self</",
                "/>can't-run-latest</"
           ]
-          if (lightResponse == false || typeof(lightResponse) !== 'string'){
-               if(response == false || typeof(response) !== 'string'){
-                    if(dyResponse == false || typeof(dyResponse) !== 'string'){
-                         if(deepLearningToggle == false){
+          if (lightResponse == false || typeof (lightResponse) !== 'string') {
+               if (response == false || typeof (response) !== 'string') {
+                    if (dyResponse == false || typeof (dyResponse) !== 'string') {
+                         if (deepLearningToggle == false) {
                               const jointedReq = req.replaceAll(" ", "-");
-                              if(questTypes.includes(jointedReq)){
+                              if (questTypes.includes(jointedReq)) {
                                    questTypes.forEach(phrase => {
                                         if (jointedReq.includes(phrase)) {
-                                             switch (phrase){
+                                             switch (phrase) {
                                                   case "search-for" || "what":
                                                        remember = [true, msg, "failed"];
                                                        createAIChat(whatSorry[genereteRando(whatSorry.length)]);
@@ -189,38 +196,38 @@ const Task = {
                                                        break;
                                              }
                                         }
-                                   }); 
-                              }else{
+                                   });
+                              } else {
                                    remember = [true, msg, "failed"];
                                    createAIChat(sorry[genereteRando(sorry.length)]);
                               }
-                         }else{
+                         } else {
                               const failedDyResponse = teachDynamicBase(req);
-                              if(failedDyResponse == "/>not-included-in-db</"){
+                              if (failedDyResponse == "/>not-included-in-db</") {
                                    executeFunc("/>not-included-in-db</");
-                              }else{
+                              } else {
                                    createAIChat(failedDyResponse);
                               }
                          }
-                    }else{
+                    } else {
                          createAIChat(capitalCase(dyResponse));
                     }
-               }else{
-                    if(funcList.includes(response)){
+               } else {
+                    if (funcList.includes(response)) {
                          executeFunc(response);
-                    }else{
-                         if(response.includes("<img")){
+                    } else {
+                         if (response.includes("<img")) {
                               createAIChat("Ok")
                          }
                          createAIChat(response);
                     }
                }
-          }else{
+          } else {
                createAIChat(lightResponse);
           }
 
-          function executeFunc(func){
-               switch(func){
+          function executeFunc(func) {
+               switch (func) {
                     case "/>name</":
                          createAIChat(getData.name());
                          break;
@@ -249,7 +256,7 @@ const Task = {
                     case "/>todo-tasks</":
                          createAIChat("Here are all your Projects that have you have Not Started:")
                          getData.todoTask();
-                         break; 
+                         break;
                     case "/>all-tasks</":
                          createAIChat("Here are all your Projects:")
                          getData.allTask();
@@ -293,6 +300,7 @@ const Task = {
                }
           }
      },
+     //Search on google for a certain term
      search(msg) {
           console.log("Taskmaster Search called")
           let query = msg;
@@ -304,16 +312,17 @@ const Task = {
           link.setAttribute("target", "_blank")
           link.click();
      },
-     joke(){
+     // Say a joke through the joke API
+     joke() {
           console.log("Taskmaster Joker called");
           const api = "https://v2.jokeapi.dev/joke/Any?type=single";
 
           fetch(api)
                .then(response => response.json())
                .then(data => {
-                    if(data == undefined){
+                    if (data == undefined) {
                          Task.deepThink("tell me a joke", "tell me a joke");
-                    }else{
+                    } else {
                          createAIChat(data.joke);
                     }
                })
@@ -322,16 +331,17 @@ const Task = {
                     Task.deepThink("tell me a joke", "tell me a joke");
                });
      },
-     insult(){
+     // Say an insult through the insult API
+     insult() {
           console.log("Taskmaster Insulter called");
           const api = "https://evilinsult.com/generate_insult.php?lang=en&type=json";
 
           fetch(api)
                .then(response => response.json())
                .then(data => {
-                    if(data == undefined){
+                    if (data == undefined) {
                          Task.deepThink("you are dumb", "you are dumb");
-                    }else{
+                    } else {
                          createAIChat(data.insult);
                     }
                })
@@ -340,16 +350,17 @@ const Task = {
                     Task.deepThink("you are dumb", "you are dumb");
                });
      },
-     quote(){
+     //Say a quote through the quote API
+     quote() {
           console.log("Taskmaster Quoting called");
           const api = "https://api.goprogram.ai/inspiration";
 
           fetch(api)
                .then(response => response.json())
                .then(data => {
-                    if(data == undefined){
+                    if (data == undefined) {
                          Task.deepThink("quote", "quote");
-                    }else{
+                    } else {
                          createAIChat(`"${data.quote}" -${data.author}`);
                     }
                })
@@ -358,7 +369,7 @@ const Task = {
                     Task.deepThink("quote", "quote");
                });
      },
-     comic(){
+     comic() {
           console.log("Taskmaster Bored called");
           const whtToDo = [
                "comic",
@@ -367,7 +378,7 @@ const Task = {
           function genereteRando(max) { return Math.floor(Math.random() * max) }
           const act = whtToDo[genereteRando(whtToDo.length)];
 
-          switch(act){
+          switch (act) {
                case "comic":
                     generateComic();
                     break;
@@ -378,14 +389,14 @@ const Task = {
                     generateComic();
           }
 
-          function generateComic(){
-               const api= "http://xkcd.com/info.0.json";
+          function generateComic() {
+               const api = "http://xkcd.com/info.0.json";
                fetch(api)
                     .then(response => response.json())
                     .then(data => {
-                         if(data == undefined){
+                         if (data == undefined) {
                               Task.deepThink("bored", "bored");
-                         }else{
+                         } else {
                               const img = document.createElement("img");
                               img.setAttribute("src", data.img);
                               img.setAttribute("alt", data.safe_title);
@@ -398,17 +409,17 @@ const Task = {
                     });
           }
 
-          function generateActivity(){
-               const api= "https://www.boredapi.com/api/activity?participants=1";
+          function generateActivity() {
+               const api = "https://www.boredapi.com/api/activity?participants=1";
                fetch(api)
                     .then(response => response.json())
                     .then(data => {
-                         if(data == undefined){
+                         if (data == undefined) {
                               Task.deepThink("bored", "bored");
-                         }else{
-                              if(data.link !== ""){
+                         } else {
+                              if (data.link !== "") {
                                    createAIChat(`${data.activity} [ ${data.link} ]`);
-                              }else{
+                              } else {
                                    createAIChat(`${data.activity}`);
                               }
                          }
@@ -419,9 +430,10 @@ const Task = {
                     });
           }
      },
-     allFails(msg, list){
+     //Respond appropriately to User's second response after a question
+     allFails(msg, list) {
           console.log("Taskmaster AllFails called");
-          if(list[0] == false){
+          if (list[0] == false) {
                return
           }
           function genereteRando(max) { return Math.floor(Math.random() * max) }
@@ -477,9 +489,9 @@ const Task = {
 
           yesCalls.forEach((phrase) => {
                if (msg.includes(phrase)) {
-                    if(list[1]){
+                    if (list[1]) {
                          this.search(list[1])
-                    }else{
+                    } else {
                          createAIChat("Sorry, the search operation failed");
                          createAIChat("Try the command <strong>\` --search <emphasis><Your Search term></emphasis> \`</strong>");
                     }
@@ -488,9 +500,9 @@ const Task = {
                }
           });
           if (msg == "y") {
-               if(list[1]){
+               if (list[1]) {
                     this.search(list[1])
-               }else{
+               } else {
                     createAIChat("Sorry, the search operation failed");
                     createAIChat("Try the command <strong>\` --search <emphasis><Your Search term></emphasis> \`</strong>");
                }
@@ -498,12 +510,13 @@ const Task = {
                remember = [false, "", ""];
           }
 
-          if(ver[0] == false && ver[1] ==false){
+          if (ver[0] == false && ver[1] == false) {
                const finalResponse = responses.unable[genereteRando(4)];
                createAIChat(finalResponse);
                remember = [false, "", ""];
           }
      },
+     //Built-in replies (usually common user-queries)
      static(msg) {
           console.log("Taskmaster Static called")
           let finalResponse;
@@ -618,6 +631,7 @@ const Task = {
           }
           createAIChat(finalResponse);
      },
+     //Carry out functions that take in parameters or "dynamic" functions
      dyFunc(msg) {
           const dyFuncList = [
                "--search",
@@ -637,7 +651,7 @@ const Task = {
                          Task.search(msg);
                          break;
                     case "--lorem":
-                         if (msg == " " || msg === ""){
+                         if (msg == " " || msg === "") {
                               msg = 1;
                          }
                          if (isNaN(msg)) {
@@ -649,6 +663,7 @@ const Task = {
           }
 
      },
+     //Carry out functions that don't take in parameters or "static" functions
      func(msg) {
           console.log("Taskmaster Func called")
           const funcList = [
@@ -676,9 +691,9 @@ const Task = {
                          createAIChat("You are currently on Taskmaster Assistant v1.0.2 [BETA] on Taskmaster v1.2.2");
                          break;
                     case "--copy":
-                         if(projectTitle){
+                         if (projectTitle) {
                               copy(`${projectTitle.value}\n${projectBody.value}`);
-                         }else{
+                         } else {
                               copy(`${title.value}\n${body.value}`);
                          }
                          createAIChat("Your Project has been copied");
@@ -710,27 +725,27 @@ const Task = {
                          var initial = projectBody ? projectBody.value.split(" ") : body.value.split(" ");
                          var breakPoint = 10;
                          var pdfBody;
-                         if (initial.length > breakPoint){
+                         if (initial.length > breakPoint) {
                               var doc = new jsPDF({
                                    orientation: "landscape",
                                    unit: "px",
                                    format: [500, 400]
                               });
-                              for (let i = 0; i < initial.length; i++){
-                                   if(breakPoint < initial.length && i == breakPoint){
+                              for (let i = 0; i < initial.length; i++) {
+                                   if (breakPoint < initial.length && i == breakPoint) {
                                         initial.splice(i, 0, "\n");
-                                        breakPoint  += breakPoint;
+                                        breakPoint += breakPoint;
                                    }
                                    pdfBody = initial.join(" ");
                               }
-                         }else{
+                         } else {
                               var doc = new jsPDF();
                          }
-                         if(projectTitle){
+                         if (projectTitle) {
                               doc.text(`--${projectTitle.value}--\n`, 10, 10);
                               doc.text(`${pdfBody}\n\nStatus: ${statusOutput()}\nLast-Online: ${getCurrentDate()}`, 10, 20);
                               doc.save(`${projectTitle.value}.pdf`)
-                         }else{
+                         } else {
                               doc.text(`--${title.value}--\n`, 10, 10);
                               doc.text(`${pdfBody}\n\nStatus: ${statusOutput()}\nLast-Online: ${getCurrentDate()}`, 10, 20);
                               doc.save(`${title.value}.pdf`)
@@ -766,10 +781,10 @@ const Task = {
                          }, 1500)
                          break;
                     case "--training-mode":
-                         if(deepLearningToggle == false){
+                         if (deepLearningToggle == false) {
                               deepLearningToggle = true;
                               createAIChat("Training Mode Activated 🤖⚡")
-                         }else{
+                         } else {
                               deepLearningToggle = false;
                               createAIChat("Training Mode De-activated 💤")
                          }
@@ -870,16 +885,16 @@ chatForm.addEventListener('submit', (e) => {
 function createAIChat(msg) {
      const loadAI = new Promise((res) => {
           const div = document.getElementById("loadAI");
-          if(div){
+          if (div) {
                const parent = div.parentElement;
                parent.removeChild(div);
                res(true)
-          }else{
-               setTimeout(() => {res(true)}, 800);
+          } else {
+               setTimeout(() => { res(true) }, 800);
           }
      })
      loadAI.then((value) => {
-          if(value){
+          if (value) {
                if (msg !== undefined || msg !== null || msg !== "") {
                     let id = chatCounter += 1;
                     auth.onAuthStateChanged(user => {
@@ -903,7 +918,7 @@ function createAIChat(msg) {
 }
 
 //Load AI
-function loadAI(){
+function loadAI() {
      let div = document.createElement("div");
      div.className = "chat-incoming";
      div.id = "loadAI";
@@ -921,16 +936,18 @@ function loadAI(){
      chatBox.appendChild(div);
 }
 
-function uploadUserChat(){
+//Upload user chat to AI [queryAI() function]
+function uploadUserChat() {
      var msg = createUserChat().toLowerCase();
      setTimeout(loadAI, 100);
-     setTimeout(() => {queryAI(msg)}, 2000);
+     setTimeout(() => { queryAI(msg) }, 2000);
 }
 
-async function queryAI(msg) {
+//Remove unwanted parts of the user-query and call the appropriate method of the AI
+function queryAI(msg) {
      msg.trim();
-     if(remember[0]){
-          switch(remember[2]){
+     if (remember[0]) {
+          switch (remember[2]) {
                case "failed":
                     Task.allFails(msg, remember);
                     return;
@@ -1033,14 +1050,14 @@ async function queryAI(msg) {
           });
 
           if (staticTrigger.includes(msg)) {
-               return;0
+               return; 0
           }
 
           const req = msg;
           var detailDeterminer = false;
 
           const unwanted = ["search for ", "what is ", "who is ", "why is ", "tell me about "];
-          const detailCall = ["explain in details", "explain in detail","in details","in detail", "elaborate on it", "tell me more about"];
+          const detailCall = ["explain in details", "explain in detail", "in details", "in detail", "elaborate on it", "tell me more about"];
 
           detailCall.forEach((phrase) => {
                if (msg.includes(phrase)) {
@@ -1055,9 +1072,9 @@ async function queryAI(msg) {
                }
           });
 
-          if(detailDeterminer){
+          if (detailDeterminer) {
                Task.longWiki(msg, req)
-          }else{
+          } else {
                Task.wiki(msg, req);
           }
           return;
@@ -1084,8 +1101,8 @@ auth.onAuthStateChanged(user => {
 
 let msgNo = 0;
 
-document.addEventListener('keydown', e => { // Reload Shortcut
-     if(e.key == "ArrowUp"){
+document.addEventListener('keydown', e => { // Get Past Chats Shortcut [Backward]
+     if (e.key == "ArrowUp") {
           e.preventDefault();
           auth.onAuthStateChanged(user => {
                if (user) {
@@ -1096,25 +1113,25 @@ document.addEventListener('keydown', e => { // Reload Shortcut
                     db.where("type", "==", "outgoing").get().then(snapshot => {
                          snapshot.forEach(doc => {
                               list.push(doc.data().message);
-                    });
-                    if (msgNo > list.length || msgNo < 0){
-                         msgNo = 0
-                    }
-                    const selectedNo = list.length - msgNo;
-                    const selected = list[selectedNo];
-                    if(selected == undefined){
-                         input.value = "";
-                    }else{
-                         input.value = selected;
-                    }
+                         });
+                         if (msgNo > list.length || msgNo < 0) {
+                              msgNo = 0
+                         }
+                         const selectedNo = list.length - msgNo;
+                         const selected = list[selectedNo];
+                         if (selected == undefined) {
+                              input.value = "";
+                         } else {
+                              input.value = selected;
+                         }
                     });
                }
           });
      }
 });
 
-document.addEventListener('keydown', e => { // Reload Shortcut
-     if(e.key == "ArrowDown"){
+document.addEventListener('keydown', e => { // Get Past Chats Shortcut [Forward]
+     if (e.key == "ArrowDown") {
           e.preventDefault();
           auth.onAuthStateChanged(user => {
                if (user) {
@@ -1125,19 +1142,23 @@ document.addEventListener('keydown', e => { // Reload Shortcut
                     db.where("type", "==", "outgoing").get().then(snapshot => {
                          snapshot.forEach(doc => {
                               list.push(doc.data().message);
-                    });
-                    if (msgNo > list.length || msgNo < 0){
-                         msgNo = 0
-                    }
-                    const selectedNo = list.length - msgNo;
-                    const selected = list[selectedNo];
-                    if(selected == undefined){
-                         input.value = "";
-                    }else{
-                         input.value = selected;
-                    }
+                         });
+                         if (msgNo > list.length || msgNo < 0) {
+                              msgNo = 0
+                         }
+                         const selectedNo = list.length - msgNo;
+                         const selected = list[selectedNo];
+                         if (selected == undefined) {
+                              input.value = "";
+                         } else {
+                              input.value = selected;
+                         }
                     });
                }
           });
      }
 });
+
+/*
+ * FOR: [  PROJECT and MAIN ].html
+ */

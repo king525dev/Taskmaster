@@ -940,7 +940,7 @@ div.nav-buttons .to-dashboard {
 /* --> NOTES PAGE <-- */
 
 
-body.notes::-webkit-scrollbar{
+body.notes::-webkit-scrollbar {
      display: none;
 }
 
@@ -1169,7 +1169,7 @@ div.foot-buttons button:active {
 
 /* --> PROJECT PAGE <-- */
 
-body.project::-webkit-scrollbar{
+body.project::-webkit-scrollbar {
      display: none;
 }
 
@@ -1290,7 +1290,7 @@ div.chat-box::-webkit-scrollbar {
      max-width: calc(100% - 130px);
 }
 
-.chat-outgoing .details p{
+.chat-outgoing .details p {
      padding: 1em 2em;
      border-radius: 18px 18px 0 18px;
 }
@@ -1316,11 +1316,11 @@ div.chat-box::-webkit-scrollbar {
      max-width: calc(100% - 130px);
 }
 
-.chat-incoming .details p{
+.chat-incoming .details p {
      border-radius: 18px 18px 18px 0;
 }
 
-.ai-pic{
+.ai-pic {
      max-width: 18em;
      max-height: 20em;
      object-fit: scale-down;
@@ -1440,7 +1440,7 @@ div.chat-box::-webkit-scrollbar {
 }
 
 /*  <--> Big Devices Version <--> */
-@media (min-width: 1300px) {  
+@media (min-width: 1300px) {
      .dashboard-wrapper {
           aspect-ratio: 1165/593;
      }
@@ -1652,3 +1652,7 @@ div.chat-box::-webkit-scrollbar {
           font-size: 50%;
      }
 }
+
+/*
+ * FOR: GLOBAL
+ */

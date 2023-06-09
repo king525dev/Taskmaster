@@ -1,15 +1,15 @@
 /*============================
-     [  DASHBOARD  ].html
-=============================*/ 
+     [  DASHBOARD  ].js
+=============================*/
 
 const todoList = document.getElementById("todo-list");
 const mainTitle = document.querySelector(".title");
 
 //Checking If User is logged in
 auth.onAuthStateChanged(user => {
-     if(user){
+     if (user) {
           console.log("User is signed in to Taskmaster");
-     }else{
+     } else {
           console.log("User is not signed in to Taskmaster")
           Alert.open({
                title: "No User Detected",
@@ -26,24 +26,24 @@ auth.onAuthStateChanged(user => {
 });
 
 //Retrieving Todos
-function renderData(individualDoc){
+function renderData(individualDoc) {
      let li = document.createElement("li");
      li.className = "todo-item";
      li.setAttribute("data-id", individualDoc.id);
-     li.textContent = individualDoc.data().todos; 
+     li.textContent = individualDoc.data().todos;
      todoList.appendChild(li);
 
      //Showing Statuses
      auth.onAuthStateChanged(user => {
           let id = individualDoc.id;
-          if(user){
+          if (user) {
                fs.collection(user.uid).doc(id).get().then(snapshot => {
                     status = snapshot.data().status;
-                    if(status == 'completed'){
-                         li.classList.add("completed");  
+                    if (status == 'completed') {
+                         li.classList.add("completed");
                     }
                });
-               
+
           }
      });
 
@@ -51,7 +51,7 @@ function renderData(individualDoc){
      li.addEventListener('dblclick', e => {
           let id = e.target.getAttribute('data-id');
           auth.onAuthStateChanged(user => {
-               if(user) {
+               if (user) {
                     fs.collection(user.uid).doc(id).delete();
                     console.log("todo deleted");
                }
@@ -62,15 +62,15 @@ function renderData(individualDoc){
      li.addEventListener('click', e => {
           let id = e.target.getAttribute('data-id');
           auth.onAuthStateChanged(user => {
-               if(user){
+               if (user) {
                     fs.collection(user.uid).doc(id).get().then(snapshot => {
                          status = snapshot.data().status;
-                         if (status !== 'completed'){
-                              fs.collection(user.uid).doc(id).update({status: "completed"});
-                              li.classList.add("completed"); 
+                         if (status !== 'completed') {
+                              fs.collection(user.uid).doc(id).update({ status: "completed" });
+                              li.classList.add("completed");
                               console.log("status updated -c");
-                         }else {
-                              fs.collection(user.uid).doc(id).update({status: "incompleted"});
+                         } else {
+                              fs.collection(user.uid).doc(id).update({ status: "incompleted" });
                               li.classList.remove("completed");
                               console.log("status updated -inc");
                          }
@@ -82,26 +82,26 @@ function renderData(individualDoc){
 
 //Setting Date
 setInterval(
-     () => { 
+     () => {
           const dater = new Date();
           let myDate = dater.getDate();
           const day = dater.toLocaleDateString('default', { weekday: 'long' });
           const month = dater.toLocaleDateString('default', { month: 'long' });
           const year = dater.getFullYear();
           let hours = dater.getHours();
-          let minute =  dater.getMinutes();
+          let minute = dater.getMinutes();
           let mer;
-          if(hours == 0){hours = 12}
-          if(minute < 10){minute = `0${minute}`}
-          if(hours > 11){
+          if (hours == 0) { hours = 12 }
+          if (minute < 10) { minute = `0${minute}` }
+          if (hours > 11) {
                mer = "PM"
-          }else{
+          } else {
                mer = "AM"
           }
-          if(hours > 12){
+          if (hours > 12) {
                hours = hours - 12
           }
-          switch (myDate){
+          switch (myDate) {
                case 1:
                     myDate = `${myDate}st`;
                     break;
@@ -135,12 +135,12 @@ setInterval(
           mainTitle.children[0].innerHTML = firstDate;
           mainTitle.children[1].innerHTML = `${weekDay} | ${fullTime}`;
      }
-, 1000);
+     , 1000);
 
 //Retrieving User's Name
 auth.onAuthStateChanged(user => {
      const username = document.getElementById("usname");
-     if(user){
+     if (user) {
           fs.collection('users').doc(user.uid).get().then((snapshot) => {
                username.innerText = snapshot.data().Fname;
           });
@@ -158,14 +158,14 @@ form.addEventListener('submit', e => {
      let id = counter += 1;
      form.reset();
      auth.onAuthStateChanged(user => {
-          if(user){
+          if (user) {
                fs.collection(user.uid).doc('_' + id).set({
                     id: '_' + id,
                     todos,
                     status: 'incompleted'
                }).then(() => {
                     console.log('todo added');
-               }).catch( err => {
+               }).catch(err => {
                     console.log(err.message);
                })
           }
@@ -177,7 +177,7 @@ function logOut() {
      auth.signOut();
      Toast.open({
           type: "info",
-          message: "User Logged Out", 
+          message: "User Logged Out",
           timer: 5000
      });
      location = "index.html";
@@ -186,14 +186,14 @@ function logOut() {
 //Deleting Account
 function deleteAcc() {
      auth.onAuthStateChanged(user => {
-          if(user){
+          if (user) {
                Confirm.open({
                     title: "Delete Account",
                     message: "Are you sure you want to permanemtly delete your Account?",
                     okText: "OK",
                     cancelText: "Cancel",
                     preffered: false,
-                    onok: function() {
+                    onok: function () {
                          fs.collection(user.uid + "_notes").get().then(
                               (querySnapshot) => {
                                    querySnapshot.forEach((doc) => {
@@ -209,20 +209,20 @@ function deleteAcc() {
                               }
                          );
                          fs.collection('users').doc(user.uid).delete()
-                         .then(() => {
-                              const user = firebase.auth().currentUser;
-                              user.delete().then(() => {
-                                   Toast.open({
-                                        type: "warning",
-                                        message: "Account Deleted", 
-                                        timer: 5000
+                              .then(() => {
+                                   const user = firebase.auth().currentUser;
+                                   user.delete().then(() => {
+                                        Toast.open({
+                                             type: "warning",
+                                             message: "Account Deleted",
+                                             timer: 5000
+                                        });
+                                        setTimeout(5000, () => { location = "index.html" });
+                                        console.log("user deleted");
+                                   }).catch((err) => {
+                                        console.log(err.message);
                                    });
-                                   setTimeout(5000, () => {location = "index.html"});
-                                   console.log("user deleted");
-                              }).catch((err) => {
-                                   console.log(err.message);
-                              });
-                         })
+                              })
                     }
                })
           }
@@ -232,15 +232,15 @@ function deleteAcc() {
 //Setting Theme
 let themeCount = 0;
 
-function themeSetter(){
+function themeSetter() {
 
-     if(themeCount < 5){
+     if (themeCount < 5) {
           themeCount++;
-     }else{
+     } else {
           themeCount = 0;
      }
 
-     switch(themeCount){
+     switch (themeCount) {
           case 0:
                localStorage.setItem("theme", "default");
                break;
@@ -269,24 +269,28 @@ function themeSetter(){
 
 //Real time Event Listeners
 auth.onAuthStateChanged(user => {
-     if(user){
+     if (user) {
           fs.collection(user.uid).onSnapshot((snapshot) => {
-                    let changes = snapshot.docChanges();
-                    changes.forEach(change => {
-                         if(change.type == 'added'){
-                              renderData(change.doc);
-                         }else if(change.type == 'removed'){
-                              let di = todoList.querySelector('[data-id=' + change.doc.id + ']');
-                              todoList.removeChild(di);
-                         }
-                    })
+               let changes = snapshot.docChanges();
+               changes.forEach(change => {
+                    if (change.type == 'added') {
+                         renderData(change.doc);
+                    } else if (change.type == 'removed') {
+                         let di = todoList.querySelector('[data-id=' + change.doc.id + ']');
+                         todoList.removeChild(di);
+                    }
+               })
           })
      }
 })
 
 document.addEventListener('keydown', e => { // Reload Shortcut
-     if(e.key.toLowerCase() == "r" && e.altKey){
+     if (e.key.toLowerCase() == "r" && e.altKey) {
           e.preventDefault();
           location.reload();
      }
 });
+
+/*
+ * FOR: [  DASHBOARD  ].html
+ */

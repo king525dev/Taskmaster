@@ -1,15 +1,15 @@
 /*============================
-     [  NOTE  ].html
-=============================*/ 
+     UPLOAD AND ADD PROJECT
+=============================*/
 
 const dragDropArea = document.getElementById('drag-drop');
 const dropPad = document.getElementById('download-btn');
 const sideBar = document.querySelector(".notes-sidebar")
 const fileTypes = [
-     "text/plain", 
-     "text/css", 
-     "text/html", 
-     "text/javascript", 
+     "text/plain",
+     "text/css",
+     "text/html",
+     "text/javascript",
      "multipart/byteranges",
      "multipart/form-data",
      "text/calendar",
@@ -50,13 +50,13 @@ function handleDrop(event) {
      var reader = new FileReader();
 
      reader.onload = () => {
-          if (fileTypes.includes(file.type) || file.name.endsWith(".txt")){
+          if (fileTypes.includes(file.type) || file.name.endsWith(".txt")) {
                var fileContents = reader.result;
                const date = new Date();
                const time = date.getTime();
                let counter = time;
                let id = counter += 1;
-               function getFileName(){
+               function getFileName() {
                     const fileName = file.name;
                     const fileArray = fileName.split("");
                     const cutOff = fileArray.lastIndexOf(".");
@@ -65,7 +65,7 @@ function handleDrop(event) {
                     return editedName;
                }
                auth.onAuthStateChanged(user => {
-                    if(user){
+                    if (user) {
                          fs.collection(user.uid + "_notes").doc('nb_' + id).set({
                               id: 'nb_' + id,
                               title: getFileName(),
@@ -77,18 +77,18 @@ function handleDrop(event) {
                               sortByDate();
                               Toast.open({
                                    type: "success",
-                                   message: "Project Added", 
+                                   message: "Project Added",
                                    timer: 5000
                               });
                               console.log('note added');
                               notesList.children[0].click();
                               sideBar.scrollTo(0, 0);
-                         }).catch( err => {
+                         }).catch(err => {
                               console.log(err.message);
                          })
                     }
                })
-          }else{
+          } else {
                Alert.open({
                     title: "Invalid File Type",
                     message: "The file type you have uploaded is not supported on this application. We reccomend you upload Plain Text files.",
@@ -111,3 +111,7 @@ dropPad.addEventListener('dragleave', handleDragLeave);
 dropPad.addEventListener('dragenter', handleDragOver);
 dropPad.addEventListener('dragover', handleDragOver);
 dropPad.addEventListener('drop', handleDrop);
+
+/*
+ * FOR: [  NOTE  ].html
+ */

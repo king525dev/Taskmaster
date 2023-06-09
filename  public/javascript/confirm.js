@@ -1,19 +1,19 @@
 /*============================
-     GLOBAL [ CONFIRM/ALERT UI ]
-=============================*/ 
+     CONFIRM/ALERT UI
+=============================*/
 
 const Confirm = {
-     open (options){
+     open(options) {
           options = Object.assign({}, {
                title: '',
                message: '',
                okText: 'OK',
                cancelText: 'Cancel',
                preffered: true,
-               onok: function () {},
-               oncancel: function () {}
+               onok: function () { },
+               oncancel: function () { }
           }, options);
-          
+
           const html = `
                <div class="confirm">
                     <div class="confirm-window">
@@ -40,9 +40,9 @@ const Confirm = {
           const btnCancel = template.content.querySelector('.cancel-button');
 
           //Determine Preffered Option
-          if(options.preffered == true){
+          if (options.preffered == true) {
                btnOk.classList.add("preffered");
-          }else{
+          } else {
                btnCancel.classList.add("preffered");
           }
 
@@ -71,7 +71,7 @@ const Confirm = {
           document.body.appendChild(template.content);
      },
 
-     _close (confirmEl) {
+     _close(confirmEl) {
           confirmEl.classList.add('close');
 
           confirmEl.addEventListener('animationend', () => {
@@ -86,7 +86,7 @@ const Alert = {
                title: '',
                message: '',
                okText: 'OK',
-               onok: function () {}
+               onok: function () { }
           }, options);
 
           const html = `
@@ -135,7 +135,7 @@ const Alert = {
           document.body.appendChild(template.content);
      },
 
-     _close (confirmEl) {
+     _close(confirmEl) {
           confirmEl.classList.add('close');
 
           confirmEl.addEventListener('animationend', () => {
@@ -168,7 +168,7 @@ const ForcedMessage = {
           document.body.appendChild(template.content);
      },
 
-     _close () {
+     _close() {
           const confirmEl = document.querySelector('.confirm');
           confirmEl.classList.add('close');
 
@@ -180,15 +180,15 @@ const ForcedMessage = {
 
 const Toast = {
 
-     open(options){
+     open(options) {
           options = Object.assign({}, {
                type: "info",
-               message: "", 
+               message: "",
                timer: 5000
           }, options);
 
           const notifications = document.querySelector(".notifications")
-          if(notifications.children.length > 5){
+          if (notifications.children.length > 5) {
                removeChild(notifications.children[0]);
           }
 
@@ -223,15 +223,19 @@ const Toast = {
                <i class="fa-solid fa-xmark" onclick="Toast._close(this.parentElement)"></i>
           `;
           notifications.appendChild(toast);
-          
+
           toast.timeoutId = setTimeout(() => this._close(toast, options.timer), options.timer);
      },
 
-     _close(toast, timer){
+     _close(toast, timer) {
           toast.classList.add("hide");
-          if(toast.timeoutId) clearTimeout(timer);
+          if (toast.timeoutId) clearTimeout(timer);
           setTimeout(() => toast.remove(), 500);
      }
 }
 
 //Credits: Dcode on YT, CodingNepal on YT
+
+/*
+ * FOR: GLOBAL
+ */

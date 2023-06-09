@@ -1,16 +1,22 @@
 /*============================
-     [  INDEX and LOGIN ].html 
-=============================*/ 
+     SHOW OR HIDE PASSWORD 
+=============================*/
 
 const pswrdField = document.getElementById('password');
 const toggleBtn = document.getElementById('toggle');
 
-toggleBtn.onclick= ()=>{
-     if(pswrdField.type == "password"){
-          pswrdField.type= "text"; 
+toggleBtn.onclick = () => {
+     if (pswrdField.type == "password") {
+          pswrdField.type = "text";
           toggleBtn.classList.add("active");
-     }else{
+     } else {
           pswrdField.type = "password";
           toggleBtn.classList.remove("active");
      }
 }
+
+//Credits: Coding Nepal on YT
+
+/*
+ * FOR: [  INDEX and SIGN-UP  ].html
+ */

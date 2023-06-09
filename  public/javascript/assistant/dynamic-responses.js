@@ -1,6 +1,6 @@
-/*============================
-     DEEP THINKING
-=============================*/
+/*=====================================
+     DYNAMIC THINKING [ASSISTANT API]
+=======================================*/
 
 /*
  * Credits: Indently on YT [ https://www.youtube.com/@Indently ]
@@ -14,18 +14,18 @@ let dynamicMessage;
 
 // Load the knowledge base from a JSON file
 async function loadKnowledgeBase() {
-     if (localStorage.getItem("myAiData")){
+     if (localStorage.getItem("myAiData")) {
           const dynamicResponses = localStorage.getItem("myAiData");
           const data = JSON.parse(dynamicResponses);
           dynamicBase = data.questions;
-     }else{
-          try{
+     } else {
+          try {
                const response = await fetch(dynamicBaseFile);
                const data = await response.json();
                dynamicBase = data.questions;
                const jsonString = JSON.stringify(data);
                localStorage.setItem("myAiData", jsonString)
-          }catch (error){
+          } catch (error) {
                console.log("Error loading Dynamic base: " + error);
           }
      }
@@ -47,18 +47,20 @@ function getAnswerForQuestion(question) {
      return match ? match.answer : null;
 }
 
-function searchDynamicBase(msg){
+//Search and return the response that matches the query
+function searchDynamicBase(msg) {
      const bestMatch = findBestMatch(msg);
-          if (bestMatch) {
-               const answer = getAnswerForQuestion(bestMatch);
-               return answer;
-          } else {
-               return false;
-          }
+     if (bestMatch) {
+          const answer = getAnswerForQuestion(bestMatch);
+          return answer;
+     } else {
+          return false;
+     }
 
 }
 
-function teachDynamicBase(msg){
+// Teaching the dynamic chatbot new responses based on user input
+function teachDynamicBase(msg) {
      function genereteRando(max) { return Math.floor(Math.random() * max) }
      const learntThanks = [
           "Thank you! I've learnt something new.",
@@ -66,7 +68,8 @@ function teachDynamicBase(msg){
           "Training Data has been added to database, thank you for your contribution",
           "Just got smarter 🤓"
      ]
-     if(dynamicRemember){
+
+     if (dynamicRemember) {
           const newAnswer = msg;
           dynamicBase.push({ question: dynamicMessage, answer: newAnswer });
           const newDynamicBase = JSON.stringify(dynamicBase)
@@ -74,7 +77,7 @@ function teachDynamicBase(msg){
           dynamicRemember = false;
           dynamicMessage = "";
           return learntThanks[genereteRando(learntThanks.length)];
-     }else{
+     } else {
           const bestMatch = findBestMatch(msg);
           if (bestMatch) {
                const answer = getAnswerForQuestion(bestMatch);
@@ -90,3 +93,7 @@ function teachDynamicBase(msg){
 
 // Load the knowledge base and start the dynamic chatbot
 loadKnowledgeBase();
+
+/*
+ * FOR: [  MAIN  ].js
+ */

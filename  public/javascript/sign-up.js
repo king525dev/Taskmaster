@@ -1,5 +1,5 @@
 /*============================
-     [  SIGNUP ].html
+     [  SIGN-UP ].js
 =============================*/ 
 
 const signUpForm = document.getElementById('sign-up-form');
@@ -62,3 +62,7 @@ document.addEventListener('keydown', e => { // Reload Shortcut
           location.reload();
      }
 });
+
+/*
+ * FOR: [  SIGNUP  ].html
+ */

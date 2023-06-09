@@ -1,6 +1,6 @@
 /*============================
      SERVICE-WORKER LINK
-=============================*/ 
+=============================*/
 
 window.addEventListener('load', () => {
      registerSW();
@@ -19,3 +19,7 @@ async function registerSW() {
           }
      }
 }
+
+/*
+ * FOR: GLOBAL
+ */
