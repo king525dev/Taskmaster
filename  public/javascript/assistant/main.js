@@ -159,7 +159,8 @@ const Task = {
                "/>insult</",
                "/>quote</",
                "/>comic</",
-               "/>can't-train-self</"
+               "/>can't-train-self</",
+               "/>can't-run-latest</"
           ]
           if (lightResponse == false || typeof(lightResponse) !== 'string'){
                if(response == false || typeof(response) !== 'string'){
@@ -277,7 +278,12 @@ const Task = {
                     case "/>can't-train-self</":
                          createAIChat("I'm sorry, I don't have access to run this command on myself. Run the command <emphasis>`--training-mode`</emphasis> instead");
                          const input = document.getElementById("input-field");
-                         input.value = "--training-mode"
+                         input.value = "--training-mode";
+                         break;
+                    case "/>can't-run-latest</":
+                         createAIChat("I'm sorry, I don't have access to run this command on myself. Run the command <emphasis>`--run-latest`</emphasis> instead");
+                         createAIChat("Though note that this command might slow your device");
+                         input.value = "--run-latest";
                          break;
                     default:
                          const randomSorry = genereteRando(sorry.length);

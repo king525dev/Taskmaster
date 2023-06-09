@@ -120,6 +120,8 @@ Taskmaster is a user-friendly project management software that offers a to-do li
 
 ## Documentation
 
+Our documentation contains a more in depth guide into Taskmaster and how it works. It is advised you read it if you want to use the application optimally. If you encounter any errors with the application or the documentation, feel free to make an issue.
+
 [[ --> Documentation <-- ]](extras/Documentation.md)
 
 
@@ -143,3 +145,5 @@ Taskmaster is a user-friendly project management software that offers a to-do li
  - [W3schools](https://www.w3schools.com/)
  - [Whitesands School](http://www.whitesands.org.ng/)
  - [README.so](https://readme.so/)
+
+<!-- ORE.A. ORIGINAL -->

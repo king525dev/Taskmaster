@@ -1121,5 +1121,20 @@
                "training",
                "mode"
           ]
+     },
+     {
+          "index": 36,
+          "response_type": "command",
+          "user_input": [
+               "activate",
+               "turn",
+               "on",
+               "latest",
+               "version",
+               "of",
+               "taskmaster", "run", "load", "the", "newest", "type", "update", "application", "app", "this", "reload" 
+          ],
+          "bot_response": ["/>can't-run-latest</"],
+          "required_words": ["version", "taskmaster"]
      }
 ]
