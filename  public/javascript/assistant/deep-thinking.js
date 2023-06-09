@@ -24,7 +24,6 @@ async function fetchResponses() {
 async function getResponse(input) {
      const responseData = await fetchResponses();
      const splitMsg = input.toLowerCase().split(/\s+|[,;?!.\-]\s*/);
-     console.log(splitMsg);
      const scoreList = [];
      function genereteRando(max) { return Math.floor(Math.random() * max) }
 
@@ -71,8 +70,6 @@ async function getResponse(input) {
           //Add Score to List
           scoreList.push(responseScore);
      });
-
-     console.log(scoreList);
 
      const bestResponse = scoreList.reduce((a, b) => Math.max(a, b), -Infinity);
      const responseIndex = scoreList.indexOf(bestResponse);

@@ -16,15 +16,15 @@ let dynamicMessage;
 async function loadKnowledgeBase() {
      if (localStorage.getItem("myAiData")) {
           const dynamicResponses = localStorage.getItem("myAiData");
-          const data = JSON.parse(dynamicResponses);
-          dynamicBase = data.questions;
+          const data = await JSON.parse(dynamicResponses);
+          dynamicBase = await data;
      } else {
           try {
                const response = await fetch(dynamicBaseFile);
                const data = await response.json();
-               dynamicBase = data.questions;
+               dynamicBase = await data.questions;
                const jsonString = JSON.stringify(data);
-               localStorage.setItem("myAiData", jsonString)
+               localStorage.setItem("myAiData", jsonString);
           } catch (error) {
                console.log("Error loading Dynamic base: " + error);
           }
@@ -33,18 +33,26 @@ async function loadKnowledgeBase() {
 
 // Find the closest matching question
 function findBestMatch(userQuestion) {
-     const matches = dynamicBase.filter(question =>
-          question.question.toLowerCase().includes(userQuestion.toLowerCase())
-     );
-     return matches.length > 0 ? matches[0].question : null;
+     if (dynamicBase){
+          const matches = dynamicBase.filter(question =>
+               question.question.toLowerCase().includes(userQuestion.toLowerCase())
+          );
+          return matches.length > 0 ? matches[0].question : null;
+     }else{
+          return false;
+     }
 }
 
 //Get answer for corresponding question
 function getAnswerForQuestion(question) {
-     const match = dynamicBase.find(
-          q => q.question.toLowerCase() === question.toLowerCase()
-     );
-     return match ? match.answer : null;
+     if(dynamicBase){
+          const match = dynamicBase.find(
+               q => q.question.toLowerCase() === question.toLowerCase()
+          );
+          return match ? match.answer : null;
+     }else{
+          return false;
+     }
 }
 
 //Search and return the response that matches the query
@@ -69,25 +77,37 @@ function teachDynamicBase(msg) {
           "Just got smarter 🤓"
      ]
 
-     if (dynamicRemember) {
-          const newAnswer = msg;
-          dynamicBase.push({ question: dynamicMessage, answer: newAnswer });
-          const newDynamicBase = JSON.stringify(dynamicBase)
-          localStorage.setItem("myAiData", newDynamicBase);
-          dynamicRemember = false;
-          dynamicMessage = "";
-          return learntThanks[genereteRando(learntThanks.length)];
-     } else {
-          const bestMatch = findBestMatch(msg);
-          if (bestMatch) {
-               const answer = getAnswerForQuestion(bestMatch);
-               dynamicRemember = true;
-               return answer;
-          } else {
-               dynamicMessage = msg;
-               dynamicRemember = true;
-               return "/>not-included-in-db</";
+     const unwanted = ["say ", "reply ", "return "];
+
+     unwanted.forEach((phrase) => {
+          if (msg.includes(phrase)) {
+               msg = msg.replace(phrase, "");
           }
+     });
+
+     if(dynamicBase){
+          if (dynamicRemember) {
+               const newAnswer = msg;
+               dynamicBase.push({ question: dynamicMessage, answer: newAnswer });
+               const newDynamicBase = JSON.stringify(dynamicBase)
+               localStorage.setItem("myAiData", newDynamicBase);
+               dynamicRemember = false;
+               dynamicMessage = "";
+               return learntThanks[genereteRando(learntThanks.length)];
+          } else {
+               const bestMatch = findBestMatch(msg);
+               if (bestMatch) {
+                    const answer = getAnswerForQuestion(bestMatch);
+                    dynamicRemember = true;
+                    return answer;
+               } else {
+                    dynamicMessage = msg;
+                    dynamicRemember = true;
+                    return "/>not-included-in-db</";
+               }
+          }
+     } else {
+          return "/>not-included-in-db</";
      }
 }
 

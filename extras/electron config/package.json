@@ -1,7 +1,7 @@
 {
   "name": "taskmaster",
   "productName": "Taskmaster",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "A project management software to plan everything from life's big projects to the simple things.",
   "main": "src/index.js",
   "scripts": {
@@ -59,12 +59,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/king525dev/Task-Master"
+    "url": "https://github.com/king525dev/Taskmaster"
   },
-  "homepage": "https://github.com/king525dev/Task-Master",
+  "homepage": "https://github.com/king525dev/Taskmaster",
   "license": "SEE LICENSE IN license.txt",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "create-electron-app": "^6.1.1",
+    "electron-squirrel-startup": "^1.0.0",
+    "update-electron-app": "^2.0.1"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.1.1",

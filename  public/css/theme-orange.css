@@ -485,7 +485,7 @@ div.chat-box {
 
 .typing-area input {
      background-color: transparent;
-     border: solid 1px var(--colourmn2);
+     border: solid 1px var(--colour1);
      color: var(--colourmn2);
 }
 
