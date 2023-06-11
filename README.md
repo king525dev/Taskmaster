@@ -31,6 +31,7 @@ Taskmaster is a user-friendly project management software that offers a to-do li
 - Download the `Applications.zip` file from [releases](https://github.com/king525dev/Taskmaster/releases) on the [github repository](https://github.com/king525dev/Task-Master/).
 - Extract the `Applications` from the .zip file
 - Double tap the `Taskmaster`, `Taskmaster-initial` or `Taskmaster-lnk` application to run. (`Taskmaster` is preffered over `Taskmaster-initial` and `Taskmaster-lnk`)
+Note: `Taskmaster` is the original application, `Taskmaster-initial` is the debug application (run incase of errors) while `Taskmaster-lnk` is simply an executable link to the website (this is for weaker devices that can't run the main application).
 
 #### Quick Installation
 - This installation is for users who simply want to quickly download the application regardless of the settings.
