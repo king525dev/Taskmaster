@@ -37,7 +37,7 @@
     "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {
-    "electron-builder": "^23.6.0",
+    "electron-builder": "^24.4.0",
     "@electron-forge/cli": "^6.0.4",
     "@electron-forge/maker-deb": "^6.0.4",
     "@electron-forge/maker-rpm": "^6.0.4",
